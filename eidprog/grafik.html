@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Erstellung von Grafiken &mdash; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2015',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index.html" />
+    <link rel="prev" title="Objektorientiertes Programmieren" href="objektorientiert.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Einführung in das Programmieren</span></a></h1>
+        <h2 class="heading"><span>Erstellung von Grafiken</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="objektorientiert.html">Objektorientiertes Programmieren</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Inhalt</a>
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="erstellung-von-grafiken">
+<span id="grafik"></span><h1>Erstellung von Grafiken<a class="headerlink" href="#erstellung-von-grafiken" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Häufig ist es notwendig, die numerischen Ergebnisse eines Programms in
+grafischer Weise darzustellen. Hierzu gibt es verschiedene Möglichkeiten.  Man
+kann beispielsweise die Ergebnisse zunächst in einer Datei abspeichern und dann
+mit Hilfe eines speziellen Programms eine grafische Aufbereitung vornehmen. In
+diesem zweiten Schritt kann man eigene, in Python oder einer anderen Sprache
+geschriebene Programme einsetzen oder aber auf existierende Programme
+zurückgreifen. Es gibt eine Vielzahl solcher Programme, aus denen man je nach
+den jeweiligen Anforderungen ein geeignetes auswählen kann. Ein häufig
+verwendetes Programm zur Darstellung numerischer Daten ist zum Beispiel
+<strong>gnuplot</strong> <a class="footnote-reference" href="#gnuplot" id="id1">[1]</a>.</p>
+<p>Möchte man die Erzeugung der Grafik mit einem eigenen Python-Programm
+bewerkstelligen, so greift man sinnvollerweise auf vorhandene Programmbibliotheken
+wie <strong>matplotlib</strong> <a class="footnote-reference" href="#id7" id="id2">[2]</a> oder <strong>PyX</strong> <a class="footnote-reference" href="#id8" id="id3">[3]</a> zurück. Da in einem solchen Fall sowohl
+die Daten als auch die Grafik in einem Python-Programm erzeugt werden, hat
+man die Möglichkeit, beide Schritte in dem gleichen Programm auszuführen.
+Lassen sich die Daten jedoch nur mit großem numerischem Aufwand erhalten,
+so sollte man daran denken, die Daten abzuspeichern, selbst wenn man die
+Grafik anschließend direkt erzeugt. Nichts ist ärgerlicher, als viel Rechenzeit
+in den Sand gesetzt zu haben, weil der Grafikteil einen Programmierfehler enthielt
+und so die errechneten Daten letztlich verloren gingen. Gegebenenfalls kann man den
+Grafikteil des Programms mit schnell erzeugbaren Daten testen.</p>
+<p>Im Folgenden werden wir eine Einführung in die Benutzung von <code class="docutils literal"><span class="pre">matplotlib</span></code> und
+<code class="docutils literal"><span class="pre">PyX</span></code> geben, die allerdings beide wesentlich mächtiger sind als es in diesem
+Rahmen gezeigt werden kann. Die Beschreibung kann also nur einen allerersten Eindruck
+geben. Für einen guten Überblick über die Möglichkeiten dieser
+Grafikmodule empfiehlt sich ein Blick auf die Beispielseiten
+<a class="reference external" href="http://matplotlib.org/gallery.html">http://matplotlib.org/gallery.html</a> und die Unterseiten von
+<a class="reference external" href="http://pyx.sourceforge.net/examples/index.html">http://pyx.sourceforge.net/examples/index.html</a> und <a class="reference external" href="http://sourceforge.net/p/pyx/gallery/index">http://sourceforge.net/p/pyx/gallery/index</a>.</p>
+<div class="section" id="matplotlib">
+<h2>matplotlib<a class="headerlink" href="#matplotlib" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Nachdem SciPy/NumPy keine grafischen Fähigkeiten besitzt, wird in diesem Umfeld
+zur Erzeugung von Grafiken häufig <code class="docutils literal"><span class="pre">matplotlib</span></code> empfohlen, das unter anderem
+auf den Array-Datentyp von NumPy zurückgreift.  <code class="docutils literal"><span class="pre">matplotlib</span></code> kann auf zwei
+verschiedene Arten verwendet werden. Zum einen kann man mit Hilfe des
+Python-Interpreters durch direkte Eingabe von Kommandos schnell Grafiken
+erzeugen.  Zum anderen kann man Grafiken aber auch mit einem vollständigen
+Python-Programm erstellen.  Letzteres ist vor allem dann sinnvoll, wenn man
+Eigenschaften der Grafik im Detail festlegen will. Wir beginnen zunächst mit der
+ersten Variante und betrachten ein Beispiel, in dem zwei Besselfunktionen unter
+Verwendung von SciPy dargestellt werden.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">j0</span><span class="p">,</span> <span class="n">j1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y1</span> <span class="o">=</span> <span class="n">j0</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y2</span> <span class="o">=</span> <span class="n">j1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+<span class="go">[&lt;matplotlib.lines.Line2D object at 0xa273f0c&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="go">[&lt;matplotlib.lines.Line2D object at 0xa2732cc&gt;]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+<p>In Zeile 1 wird zunächst das NumPy-Paket geladen, um in Zeile 4 ein Array mit
+<code class="docutils literal"><span class="pre">x</span></code>-Werten erzeugen zu können. Anschließend wird in Zeile 2 die
+Plot-Funktionalität von <code class="docutils literal"><span class="pre">matplotlib</span></code>, soweit sie im Folgenden benötigt wird,
+geladen <a class="footnote-reference" href="#pylab" id="id4">[4]</a>. Auch hier wird, wie schon bei NumPy, eine übliche Abkürzung
+eingeführt, um Tipparbeit zu sparen.  Schließlich werden in der Zeile 3 zwei
+Besselfunktionen aus SciPy importiert, die im Weiteren dargestellt werden
+sollen. In Zeile 4 wird nun, wie schon angedeutet, ein Array mit den
+<code class="docutils literal"><span class="pre">x</span></code>-Werten erzeugt, für die in den folgenden beiden Zeilen Arrays mit den
+Besselfunktionen <span class="math">\(J_0(x)\)</span> und <span class="math">\(J_1(x)\)</span> berechnet werden. In den
+Zeilen 7-10 werden dann die beiden Funktionsgraphen erzeugt. Wie die Zeilen 8
+und 10 andeuten, handelt es sich dabei um <code class="docutils literal"><span class="pre">matplotlib.lines.Line2D</span></code>-Objekte.
+Abschließend erfolgt die Darstellung des Graphen in Zeile 11. Die Ausgabe
+erfolgt auf den Bildschirm, wo die Grafik in einem Fenster, wie in der
+folgenden Abbildung gezeigt, dargestellt wird.</p>
+<a class="reference internal image-reference" href="_images/matplotlib1.png"><img alt="_images/matplotlib1.png" class="align-center" src="_images/matplotlib1.png" style="width: 9cm;" /></a>
+<p>Die Knöpfe am linken unteren Rand des Fensters kann man benutzen, um zum
+Beispiel in die Grafik hineinzuzoomen wie es die folgende Abbildung zeigt oder
+den dargestellten Ausschnitt zu verschieben.</p>
+<a class="reference internal image-reference" href="_images/matplotlib2.png"><img alt="_images/matplotlib2.png" class="align-center" src="_images/matplotlib2.png" style="width: 9cm;" /></a>
+<p>Mit dem Haussymbol kommt man immer wieder zu der ursprünglichen Darstellung zurück.</p>
+<p>Alternativ zu dieser interaktiven Arbeitsweise kann man Grafiken auch mit Hilfe
+eines normalen Python-Programms erzeugen. Als Beispiel wollen wir ein Programm
+betrachten, das eine Zufallsbewegung berechnet und darstellt.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">rand</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
+
+<span class="n">npts</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npts</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npts</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">richtung</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">rand</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">richtung</span><span class="p">))</span>
+    <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">richtung</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">&quot;randomwalk.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>In den ersten vier Zeilen werden zunächst wieder wie gewohnt Module importiert,
+wobei in Zeile 2 eine Funktion zur Erzeugung von Zufallszahlen aus NumPy
+importiert wird. Die Zufallsbewegung wird nun in einer diskreten Weise durch
+<code class="docutils literal"><span class="pre">npts</span></code> Punkte spezifiziert, wobei jeweils ein Schritt der Länge <code class="docutils literal"><span class="pre">r</span></code> in eine
+Zufallsrichtung, die durch ein Element des Arrays <code class="docutils literal"><span class="pre">richtung</span></code> festgelegt ist,
+ausgeführt wird. Diese Schritte werden in den Zeilen 12 und 13 kumulativ
+aufsummiert, um die Trajektorien zu erzeugen. Durch die Zeilen 9 und 10 und die
+verschobene Indizierung in den Zeilen 12 und 13 wird dafür gesorgt, dass alle
+Trajektorien im Ursprung starten. Die durch die Werte in <code class="docutils literal"><span class="pre">x</span></code> und <code class="docutils literal"><span class="pre">y</span></code>
+definierte Trajektorie wird in Zeile 14 geplottet.  Insgesamt wird dieser
+Vorgang mit Hilfe der <code class="docutils literal"><span class="pre">for</span></code>-Schleife dreimal durchgeführt. Abschließend wird
+noch eine Achsenbeschriftung hinzugefügt und schließlich die Abbildung in einer
+PDF-Datei abgespeichert, die im Folgenden dargestellt ist.</p>
+<a class="reference internal image-reference" href="_images/randomwalk.png"><img alt="_images/randomwalk.png" class="align-center" src="_images/randomwalk.png" style="width: 10cm;" /></a>
+<p>Hier stellt man fest, dass <code class="docutils literal"><span class="pre">matplotlib</span></code> automatisch die Farbe der Linien wechselt.
+Alternativ hätte man die Farben auch explizit spezifizieren können.</p>
+</div>
+<div class="section" id="pyx">
+<h2>PyX<a class="headerlink" href="#pyx" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Eine mögliche Alternative zu <code class="docutils literal"><span class="pre">matplotlib</span></code> stellt <code class="docutils literal"><span class="pre">PyX</span></code> dar, das
+von André Wobst und Jörg Lehmann, in der Anfangsphase der Programmentwicklung
+als Doktoranden am Lehrstuhl für Theoretische Physik I der Universität Augsburg
+tätig, programmiert wurde und noch weiterentwickelt wird. Etwas später kam noch
+Michael Schindler hinzu. Die drei Buchstaben in <code class="docutils literal"><span class="pre">PyX</span></code> stehen für
+»Postscript«, »Python« und »(La)TeX« <a class="footnote-reference" href="#latex" id="id5">[5]</a>.  Postscript wurde als
+Ausgabeformat inzwischen noch durch PDF erweitert.  <code class="docutils literal"><span class="pre">PyX</span></code> ist in Python
+geschrieben und wird zur Erzeugung von Grafiken in Python-Programme importiert.
+Zudem lassen sich bei Bedarf in Python eigene Erweiterungen programmieren.
+(La)TeX schließlich wird für eine qualitativ hochwertige Textausgabe benutzt,
+wobei <code class="docutils literal"><span class="pre">matplotlib</span></code> ähnliche Möglichkeiten bietet. Seit Version 0.13 läuft
+<code class="docutils literal"><span class="pre">PyX</span></code> ausschließlich unter Python 3.</p>
+<p>Mit <code class="docutils literal"><span class="pre">PyX</span></code> lassen sich nicht nur Graphen erstellen, sondern auch
+Schemazeichnungen erzeugen. So wurden die meisten Abbildungen in diesem
+Manuskript mit <code class="docutils literal"><span class="pre">PyX</span></code> erstellt.</p>
+<p>Sehen wir uns zunächst an, wie aus einem in einer Datei vorliegenden Datensatz
+eine graphische Darstellung erzeugt werden kann. Liegt eine Datei
+<code class="docutils literal"><span class="pre">foo_pyx.dat</span></code> mit folgendem Inhalt</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">1</span>   <span class="mi">0</span>
+<span class="mi">2</span>   <span class="mi">1</span>
+<span class="mi">3</span>   <span class="mi">4</span>
+<span class="mi">4</span>   <span class="mf">2.5</span>
+<span class="mi">5</span>   <span class="mi">6</span>
+</pre></div>
+</div>
+<p>vor, so erzeugt das Programm</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">graphxy</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s">&quot;foo_pyx.dat&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">g</span><span class="o">.</span><span class="n">writePDFfile</span><span class="p">(</span><span class="s">&quot;foo_pyx&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>eine PDF-Datei mit Namen <code class="docutils literal"><span class="pre">foo_pyx.pdf</span></code>, die folgendermaßen aussieht.</p>
+<a class="reference internal image-reference" href="_images/pyx1.png"><img alt="_images/pyx1.png" class="align-center" src="_images/pyx1.png" style="width: 8cm;" /></a>
+<p>In Zeile 1 wird zunächst <code class="docutils literal"><span class="pre">PyX</span></code> importiert. Anschließend wird in Zeile 3 ein
+zweidimensionaler Graph der Breite <code class="docutils literal"><span class="pre">8</span></code> erzeugt. Wird die Höhe des Graphen
+nicht spezifiziert, so ist das Seitenverhältnis durch den goldenen Schnitt
+gegeben. In Zeile 4 werden die Daten aus der angegebenen Datei eingelesen und
+in den gerade initialisierten Graphen gezeichnet. Dabei geben die Werte der
+benannten Argumente <code class="docutils literal"><span class="pre">x</span></code> und <code class="docutils literal"><span class="pre">y</span></code> die Spalten an, aus denen die jeweiligen
+Daten zu entnehmen sind. Schließlich wird mit der <code class="docutils literal"><span class="pre">writePDFfile</span></code>-Methode
+die PDF-Datei erzeugt.</p>
+<p>Um einen gewissen Einblick in die Möglichkeiten von PyX zu gewinnen, wollen
+wir diese Graphik nun modifizieren. Dabei erzeugt der Code</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">unit</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xscale</span><span class="o">=</span><span class="mf">1.3</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">graphxy</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                  <span class="n">x</span><span class="o">=</span><span class="n">graph</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;$x$&quot;</span><span class="p">),</span>
+                  <span class="n">y</span><span class="o">=</span><span class="n">graph</span><span class="o">.</span><span class="n">axis</span><span class="o">.</span><span class="n">linear</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;$y$&quot;</span><span class="p">)</span>
+                 <span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s">&quot;foo_pyx.dat&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+       <span class="p">[</span><span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">line</span><span class="p">([</span><span class="n">style</span><span class="o">.</span><span class="n">linestyle</span><span class="o">.</span><span class="n">dashed</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]),</span>
+        <span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">symbol</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">circle</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+                           <span class="n">symbolattrs</span><span class="o">=</span><span class="p">[</span><span class="n">deco</span><span class="o">.</span><span class="n">filled</span><span class="p">([</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">]),</span>
+                                        <span class="n">deco</span><span class="o">.</span><span class="n">stroked</span><span class="p">([</span><span class="n">color</span><span class="o">.</span><span class="n">grey</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)])])])</span>
+<span class="n">g</span><span class="o">.</span><span class="n">writePDFfile</span><span class="p">(</span><span class="s">&quot;foo_pyx&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>die folgende Grafik</p>
+<a class="reference internal image-reference" href="_images/pyx2.png"><img alt="_images/pyx2.png" class="align-center" src="_images/pyx2.png" style="width: 8cm;" /></a>
+<p>Hier haben wir die folgenden Veränderungen vorgenommen. In Zeile 3 wurden alle
+Beschriftungen um einen Faktor 1,3 vergrößert. <code class="docutils literal"><span class="pre">PyX</span></code> erlaubt es, verschiedene
+Längen, zum Beispiel Textgrößen und Liniendicken unabhängig voneinander global
+zu verändern. <code class="docutils literal"><span class="pre">xscale</span></code> ist dabei für die Textgröße zuständig. In den Zeilen
+6 und 7 wurden die beiden Achsen mit Beschriftungen versehen, wobei die Dollarzeichen
+durch <code class="docutils literal"><span class="pre">TeX</span></code> bedingt sind und ein Umschalten in den Mathematikmodus bewirken.
+Außerdem werden hier lineare Achsen verwendet. Mit <code class="docutils literal"><span class="pre">graph.axis.logarithmic</span></code> könnte
+man auch logarithmische Achsen verlangen. Zudem wäre es möglich, eigene Achsentypen
+zu programmieren.</p>
+<p>In den Zeilen 9-12 wird die Darstellung der Daten festgelegt. In diesem Fall
+haben wir angegeben, dass wir die Datenpunkte sowohl durch Symbole darstellen als auch
+mit Linien verbinden wollen. Letzteres geschieht mit <code class="docutils literal"><span class="pre">graph.style.line</span></code>, das
+als Argument eine Liste von Linieneigenschaften erwartet. Hier haben wir einen
+gestrichelten Linienstil und die Farbe blau im RGB-Format <a class="footnote-reference" href="#rgb" id="id6">[6]</a> verlangt. Für
+die Symbole haben wir mit <code class="docutils literal"><span class="pre">graph.style.symbol.circle</span></code> Kreise ausgewählt,
+deren Größe durch den Wert des Arguments <code class="docutils literal"><span class="pre">size</span></code> bestimmt ist. Zudem kann eine
+Liste von Attributen übergeben werden.  Wir verlangen beispielsweise, dass
+die Kreise rot gefüllt sind, wobei hier zur Abwechslung der Farbenname verwendet
+wurde. Außerdem wird die Kontur des Kreises in grau ausgeführt, da
+<code class="docutils literal"><span class="pre">color.grey</span></code> mit einem Argument zwischen Null und Eins auf einen Grauwert
+zwischen schwarz und weiß abgebildet wird. Man sieht in diesem
+Programmbeispiel, dass man sich einiges an Tipparbeit durch geeignete
+<code class="docutils literal"><span class="pre">import</span></code>-Anweisungen zu Beginn des Programms sparen könnte.</p>
+<p>Wir beenden dieses Kapitel mit einem Beispiel von der <a class="reference external" href="http://pyx.sf.net">PyX-Webseite</a>, das die Mächtigkeit des Programmpakets bei
+Schemazeichnungen demonstriert.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pyx</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">curve</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">),</span> <span class="p">(</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">)</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span>
+
+<span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+<span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">p1</span><span class="o">.</span><span class="n">at</span><span class="p">(</span><span class="n">a2</span><span class="p">)</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">canvas</span><span class="o">.</span><span class="n">canvas</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">])</span>
+<span class="n">c</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">blue</span><span class="p">])</span>
+<span class="n">c</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">red</span><span class="p">])</span>
+<span class="n">c</span><span class="o">.</span><span class="n">stroke</span><span class="p">(</span><span class="n">p2</span><span class="p">,</span> <span class="p">[</span><span class="n">color</span><span class="o">.</span><span class="n">rgb</span><span class="o">.</span><span class="n">green</span><span class="p">])</span>
+<span class="n">c</span><span class="o">.</span><span class="n">writePDFfile</span><span class="p">(</span><span class="s">&quot;intersect&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Das Ergebnis sieht folgendermaßen aus:</p>
+<a class="reference internal image-reference" href="_images/pyx3.png"><img alt="_images/pyx3.png" class="align-center" src="_images/pyx3.png" style="width: 6cm;" /></a>
+<p>In den Zeilen 3 und 4 werden zunächst zwei Pfade definiert, und zwar eine
+Bézier-Kurve <code class="docutils literal"><span class="pre">p1</span></code> und ein Kreis <code class="docutils literal"><span class="pre">p2</span></code>.  In Zeile 6 werden die beiden
+Pfade miteinander geschnitten. Das Ergebnis sind zwei Tupel, die die
+Lage der beiden Schnittpunkte entlang der beiden Kurven angeben. Die
+zugehörigen Koordinaten werden in den Zeilen 8 und 9 mit Hilfe der ersten
+Kurve bestimmt. In Zeile 11 beginnt das Zeichnen mit der Einrichtung eines
+»canvas«, also einer Leinwand, auf der gemalt werden kann. Dann werden
+in den Zeilen 12 und 13 an den zuvor berechneten Schnittpunkten zwei blau
+gefüllte Kreise mit Radius <code class="docutils literal"><span class="pre">0.1</span></code> positioniert. Schließlich werden die
+beiden Pfade in rot bzw. grün gezeichnet und das Ergebnis mit Hilfe der
+<code class="docutils literal"><span class="pre">writePDFfile</span></code>-Methode des Canvas ausgegeben.</p>
+<p>Abschließend muss noch einmal betont werden, dass sowohl die Beschreibung von
+<code class="docutils literal"><span class="pre">matplotlib</span></code> als auch die Beschreibung von <code class="docutils literal"><span class="pre">PyX</span></code> nur jeweils einen winzigen
+Ausschnitt aus den Möglichkeiten der beiden Programmpakete darstellen konnten.
+Einen guten Überblick bieten die oben bereits erwähnten Beispielseiten.</p>
+<table class="docutils footnote" frame="void" id="gnuplot" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Für weitere Informationen siehe die <a class="reference external" href="http://www.gnuplot.info/">Gnuplot-Webseite</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Die Programmbibliothek zum Herunterladen und weitere Informationen findet
+man auf der <a class="reference external" href="http://matplotlib.sourceforge.net/">matplotlib-Webseite</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Die Programmbibliothek zum Herunterladen und weitere Informationen findet man auf
+der <a class="reference external" href="http://pyx.sourceforge.net/">PyX-Webseite</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="pylab" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Das Laden der Module in den ersten beiden Zeilen wird überflüssig, wenn
+man die erweiterte Python-Shell <code class="docutils literal"><span class="pre">ipython</span></code> mit der Option <code class="docutils literal"><span class="pre">-pylab</span></code> verwendet.
+Dann führt jede <code class="docutils literal"><span class="pre">plot</span></code>-Anweisung zu einer Aktualisierung der in einem externen
+Fenster angezeigten Grafik.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="latex" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Daher benötigt PyX auch ein installiertes TeX-System. Da es sich dabei um ein
+sehr mächtiges Textsatzsystem handelt, das im wissenschaftlichen Umfeld stark genutzt
+wird, lohnt sich eine Installation auch unabhängig von PyX. Für weitere Informationen siehe
+zum Beispiel <a class="reference external" href="http://www.tug.org/texlive/">http://www.tug.org/texlive/</a> oder auch <a class="reference external" href="http://www.dante.de/tex/tl-install-windows.html">http://www.dante.de/tex/tl-install-windows.html</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="rgb" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>RGB steht für »red«, »green« und »blue«, wobei hier die Stärke jeder Komponente
+durch eine Zahl zwischen Null und Eins angegeben wird.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="objektorientiert.html">Objektorientiertes Programmieren</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Inhalt</a>
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 erstellt.
+    </div>
+  </body>
+</html>
