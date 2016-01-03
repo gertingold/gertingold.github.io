@@ -205,7 +205,7 @@ eine Schleife begonnen wurde. Dies wird durch Änderung der Eingabeaufforderung 
 auf eine Eingabe und drückt direkt die Eingabetaste.</p>
 <p>Bei der Eingabe können verschiedene Dinge schieflaufen. Betrachten wir zwei Beispiele.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
 <span class="go">      File &quot;&lt;stdin&gt;&quot;, line 1</span>
 <span class="go">        for n in range(5)</span>
 <span class="go">                        ^</span>
@@ -215,7 +215,7 @@ auf eine Eingabe und drückt direkt die Eingabetaste.</p>
 <p>Der <code class="docutils literal"><span class="pre">SyntaxError</span></code> weist darauf hin, dass die Eingabe nicht die Form hat, die der
 Python-Interpreter erwartet. In diesem Fall fehlt der Doppelpunkt am Ende der Zeile
 – ein beliebter Fehler. Kein Problem, man nimmt einfach einen zweiten Anlauf.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
 <span class="gp">... </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <span class="go">      File &quot;&lt;stdin&gt;&quot;, line 2</span>
 <span class="go">        print(&quot;Schleifendurchgang&quot;, n)</span>
