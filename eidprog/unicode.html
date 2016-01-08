@@ -24,17 +24,20 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index.html" /> 
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index.html" />
+    <link rel="prev" title="64-Bit-Gleitkommazahlen nach IEEE-Standard 754" href="floats.html" /> 
   </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Unicode</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav">
       
         <p>
+        «&#160;&#160;<a href="floats.html">64-Bit-Gleitkommazahlen nach IEEE-Standard 754</a>
+        &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
         </p>
 
@@ -43,7 +46,7 @@
         
         
   <div class="section" id="unicode">
-<span id="appendixunicode"></span><h1>Unicode<a class="headerlink" href="#unicode" title="Link zu dieser Überschrift">¶</a></h1>
+<span id="appendixunicode"></span><h1>Unicode<a class="headerlink" href="#unicode" title="Permalink zu dieser Überschrift">¶</a></h1>
 <p>Auch Schriftzeichen müssen im Computer binär kodiert werden. <a class="footnote-reference" href="#haralambous" id="id1">[1]</a>
 Bereits 1967 wurde der <em>American Standard Code for Information Interchange</em>
 (ASCII) als Standard veröffentlicht, wobei aber auch andere Kodierungen
@@ -73,37 +76,37 @@ den heute noch wichtigen Steuerzeichen zählen:</p>
 <tr class="row-even"><td>08</td>
 <td>BS</td>
 <td>backspace</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-H</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\b</span></code></td>
+<td><tt class="kbd docutils literal"><span class="pre">STRG-H</span></tt></td>
+<td><tt class="kbd docutils literal"><span class="pre">\b</span></tt></td>
 </tr>
 <tr class="row-odd"><td>09</td>
 <td>HT</td>
 <td>horizontal tabulation</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-I</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\t</span></code></td>
+<td><tt class="kbd docutils literal"><span class="pre">STRG-I</span></tt></td>
+<td><tt class="kbd docutils literal"><span class="pre">\t</span></tt></td>
 </tr>
 <tr class="row-even"><td>0A</td>
 <td>LF</td>
 <td>line feed (neue Zeile)</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-J</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\n</span></code></td>
+<td><tt class="kbd docutils literal"><span class="pre">STRG-J</span></tt></td>
+<td><tt class="kbd docutils literal"><span class="pre">\n</span></tt></td>
 </tr>
 <tr class="row-odd"><td>0C</td>
 <td>FF</td>
 <td>form feed (neue Seite)</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-L</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\f</span></code></td>
+<td><tt class="kbd docutils literal"><span class="pre">STRG-L</span></tt></td>
+<td><tt class="kbd docutils literal"><span class="pre">\f</span></tt></td>
 </tr>
 <tr class="row-even"><td>0D</td>
 <td>CR</td>
 <td>carriage return (Wagenrücklauf)</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-M</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\r</span></code></td>
+<td><tt class="kbd docutils literal"><span class="pre">STRG-M</span></tt></td>
+<td><tt class="kbd docutils literal"><span class="pre">\r</span></tt></td>
 </tr>
 <tr class="row-odd"><td>1B</td>
 <td>ESC</td>
 <td>escape</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-[</span></code></td>
+<td><tt class="kbd docutils literal"><span class="pre">STRG-[</span></tt></td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -118,35 +121,35 @@ der in der zweiten der folgenden Codetabellen dargestellt ist und auch als
 »Latin-1« bekannt ist.  Auch hier sind wieder eine Reihe von Steuerzeichen
 vertreten, unter anderem ein <cite>nonbreakable space</cite> (NBSP) und ein <cite>soft hyphen</cite>
 (SHY). Der zu den Zeichen gehörige Code ergibt sich aus den letzten beiden
-Stellen des Unicode Codepoints, der an dem vorangestellten <code class="docutils literal"><span class="pre">U+</span></code> erkenntlich
-ist.  Beispielsweise wird das »ä« durch <code class="docutils literal"><span class="pre">0xEA</span></code> kodiert. Da das Eurozeichen
+Stellen des Unicode Codepoints, der an dem vorangestellten <tt class="docutils literal"><span class="pre">U+</span></tt> erkenntlich
+ist.  Beispielsweise wird das »ä« durch <tt class="docutils literal"><span class="pre">0xEA</span></tt> kodiert. Da das Eurozeichen
 in ISO-8859-1 nicht enthalten ist, ist auch die Norm ISO-8859-15 von Bedeutung,
 die sich an 8 Stellen von ISO-8859-1 unterscheidet.</p>
 <p>In neuerer Zeit hat der Unicode-Standard <a class="footnote-reference" href="#id4" id="id2">[2]</a> enorm an Bedeutung
 gewonnen, da er das Ziel hat, alle weltweit gebräuchlichen Zeichen zu kodieren.
 Die aktuelle Version 6.2 <a class="footnote-reference" href="#unicode620" id="id3">[3]</a> umfasst 110117 Zeichen und bietet noch
 genügend Platz für Erweiterungen. Jedes Zeichen ist einem so genannten
-Codepoint zugeordnet, der Werte zwischen <code class="docutils literal"><span class="pre">0x00</span></code> und  <code class="docutils literal"><span class="pre">0x10FFFF</span></code> annehmen
+Codepoint zugeordnet, der Werte zwischen <tt class="docutils literal"><span class="pre">0x00</span></tt> und  <tt class="docutils literal"><span class="pre">0x10FFFF</span></tt> annehmen
 kann. Da damit jedes Zeichen statt üblicherweise einem Byte nun drei Byte
 benötigen würde, werden die Unicode-Zeichen geschickt kodiert. Für westliche
 Sprachen ist die Kodierung UTF-8 besonders geeignet, da die ASCII-Zeichen im
-Bereich <code class="docutils literal"><span class="pre">0x00</span></code> bis <code class="docutils literal"><span class="pre">0x7F</span></code> ihre Bedeutung beibehalten. Wir beschränken uns
+Bereich <tt class="docutils literal"><span class="pre">0x00</span></tt> bis <tt class="docutils literal"><span class="pre">0x7F</span></tt> ihre Bedeutung beibehalten. Wir beschränken uns
 daher im Folgenden auf die Erklärung dieser Kodierung.</p>
 <p>Die UTF-8-Kodierung ist in den folgenden Codetabellen unter dem entsprechenden
 Unicode Codepoint angegeben. Dabei kommen in diesen Beispielen 1-, 2- und
 3-Byte-Werte vor. Im Allgemeinen können sogar 4 Bytes auftreten.</p>
-<p>Im Bereich <code class="docutils literal"><span class="pre">0x00</span></code> bis <code class="docutils literal"><span class="pre">0x7f</span></code> wird das letzte Byte des Codepoints
+<p>Im Bereich <tt class="docutils literal"><span class="pre">0x00</span></tt> bis <tt class="docutils literal"><span class="pre">0x7f</span></tt> wird das letzte Byte des Codepoints
 verwendet und auf diese Weise Übereinstimmung mit ASCII erreicht. Somit lassen
 sich in einer westlichen Sprache verfasste Texte weitestgehend unabhängig von
 der tatsächlichen Kodierung lesen. Außerdem wird die Mehrzahl der vorkommenden
 Zeichen platzsparend kodiert.</p>
-<p>Ist das führende Bit eine <code class="docutils literal"><span class="pre">1</span></code>, so handelt es sich um einen Mehrbytecode.
-Im Bereich <code class="docutils literal"><span class="pre">0x0080</span></code> bis <code class="docutils literal"><span class="pre">0x07FF</span></code> werden zwei Bytes zur Kodierung verwendet.
+<p>Ist das führende Bit eine <tt class="docutils literal"><span class="pre">1</span></tt>, so handelt es sich um einen Mehrbytecode.
+Im Bereich <tt class="docutils literal"><span class="pre">0x0080</span></tt> bis <tt class="docutils literal"><span class="pre">0x07FF</span></tt> werden zwei Bytes zur Kodierung verwendet.
 Die elf relevanten Bytes werden dabei wie in folgendem Beispiel gezeigt auf die
 zwei Bytes verteilt:</p>
-<a class="reference internal image-reference" href="_images/utf8_2.pdf"><img alt="_images/utf8_2.pdf" class="align-center" src="_images/utf8_2.pdf" style="height: 2.5cm;" /></a>
-<p>Dabei wird der Codepoint <code class="docutils literal"><span class="pre">0xE9</span></code> des Zeichens »é« auf den UTF-8-Code
-<code class="docutils literal"><span class="pre">0xC3A9</span></code> abgebildet.</p>
+<a class="reference internal image-reference" href="_images/utf8_2.png"><img alt="_images/utf8_2.png" class="align-center" src="_images/utf8_2.png" style="height: 2.5cm;" /></a>
+<p>Dabei wird der Codepoint <tt class="docutils literal"><span class="pre">0xE9</span></tt> des Zeichens »é« auf den UTF-8-Code
+<tt class="docutils literal"><span class="pre">0xC3A9</span></tt> abgebildet.</p>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 0.4cm;" /></a> Was würde ein Programm, das von einer Latin-1-Kodierung ausgeht,
 in diesem Fall anzeigen?</p>
 <p>Beispiele von 2-Byte-Codes sind in der zweiten und dritten der im Folgenden
@@ -156,14 +159,14 @@ koptische Zeichen im Unicode-Standard.</p>
 <p>Die in der vierten Codetabelle gezeigten mathematischen Symbole erfordern
 einen 3-Byte-Code, der sich wie im folgenden Beispiel für das Zeichen
 »∞« gezeigt aus dem Unicode Codepoint ergibt:</p>
-<a class="reference internal image-reference" href="_images/utf8_3.pdf"><img alt="_images/utf8_3.pdf" class="align-center" src="_images/utf8_3.pdf" style="height: 2.5cm;" /></a>
+<a class="reference internal image-reference" href="_images/utf8_3.png"><img alt="_images/utf8_3.png" class="align-center" src="_images/utf8_3.png" style="height: 2.5cm;" /></a>
 <p>Aus 4 Bytes bestehende Codes ergeben sich durch entsprechende Verallgemeinerung
-für Codepoints zwischen <code class="docutils literal"><span class="pre">0x010000</span></code> und <code class="docutils literal"><span class="pre">0x10FFFF</span></code>, wobei der UTF-8-Code dann
-mit <code class="docutils literal"><span class="pre">0xF</span></code> beginnt.</p>
-<a class="reference internal image-reference" href="_images/u0000.pdf"><img alt="_images/u0000.pdf" class="align-center" src="_images/u0000.pdf" style="width: 14.5cm;" /></a>
-<a class="reference internal image-reference" href="_images/u0080.pdf"><img alt="_images/u0080.pdf" class="align-center" src="_images/u0080.pdf" style="width: 14.5cm;" /></a>
-<a class="reference internal image-reference" href="_images/u0380.pdf"><img alt="_images/u0380.pdf" class="align-center" src="_images/u0380.pdf" style="width: 14.5cm;" /></a>
-<a class="reference internal image-reference" href="_images/u2200.pdf"><img alt="_images/u2200.pdf" class="align-center" src="_images/u2200.pdf" style="width: 14.5cm;" /></a>
+für Codepoints zwischen <tt class="docutils literal"><span class="pre">0x010000</span></tt> und <tt class="docutils literal"><span class="pre">0x10FFFF</span></tt>, wobei der UTF-8-Code dann
+mit <tt class="docutils literal"><span class="pre">0xF</span></tt> beginnt.</p>
+<a class="reference internal image-reference" href="_images/u0000.png"><img alt="_images/u0000.png" class="align-center" src="_images/u0000.png" style="width: 14.5cm;" /></a>
+<a class="reference internal image-reference" href="_images/u0080.png"><img alt="_images/u0080.png" class="align-center" src="_images/u0080.png" style="width: 14.5cm;" /></a>
+<a class="reference internal image-reference" href="_images/u0380.png"><img alt="_images/u0380.png" class="align-center" src="_images/u0380.png" style="width: 14.5cm;" /></a>
+<a class="reference internal image-reference" href="_images/u2200.png"><img alt="_images/u2200.png" class="align-center" src="_images/u2200.png" style="width: 14.5cm;" /></a>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="haralambous" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -188,17 +191,19 @@ gibt Y. Haralambous, <em>Fonts &amp; Encodings</em> (O&#8217;Reilly, 2007).</td>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav">
       
         <p>
+        «&#160;&#160;<a href="floats.html">64-Bit-Gleitkommazahlen nach IEEE-Standard 754</a>
+        &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
         </p>
 
       </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
     </div>
   </body>
 </html>
