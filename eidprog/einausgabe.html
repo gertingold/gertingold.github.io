@@ -106,7 +106,7 @@ Zeile 4 des Programmcodes erst mit Hilfe der <tt class="xref py py-func docutils
 Integer umgewandelt werden.</p>
 <p>Will man für ein Programm eine flexible oder umfangreiche Übergabe von Optionen
 auf der Kommandozeile vorsehen, so lohnt sich ein Blick auf das
-<tt class="docutils literal"><span class="pre">argparse</span></tt>-Modul <a class="footnote-reference" href="#argparse" id="id2">[3]</a>. Dieses stellt einige nützliche
+<tt class="docutils literal"><span class="pre">argparse</span></tt>-Modul <a class="footnote-reference" href="#argparse" id="id2">[2]</a>. Dieses stellt einige nützliche
 Funktionalitäten zur Verfügung, unter anderem auch die automatisierte
 Erstellung einer Hilfeausgabe.</p>
 <p>Eingaben können auch während des Programmablaufs erfolgen. Dies geschieht mit
@@ -222,7 +222,7 @@ die gesamte Datei in einen String eingelesen:</p>
 <span class="go">&#39;Einführung in das\nProgrammieren für\nPhysiker und\nMaterialwissenschaftler\n&#39;</span>
 </pre></div>
 </div>
-<p>Die in dem String auftretenden <tt class="docutils literal"><span class="pre">\n</span></tt> geben Zeilenumbrüche an <a class="footnote-reference" href="#unicode" id="id3">[4]</a>. Die
+<p>Die in dem String auftretenden <tt class="docutils literal"><span class="pre">\n</span></tt> geben Zeilenumbrüche an <a class="footnote-reference" href="#unicode" id="id3">[3]</a>. Die
 Datei besteht also aus vier Zeilen. Versucht man auf die gleiche Weise, die
 Datei <tt class="docutils literal"><span class="pre">foo_latin1.dat</span></tt> einzulesen, erhält man einen <tt class="docutils literal"><span class="pre">UnicodeDecodeError</span></tt>
 weil die den Umlauten entsprechenden Bytes in dieser Datei nicht im Rahmen der
@@ -386,7 +386,7 @@ einem teilweisen oder vollständigen Verlust der geschriebenen Daten.</p>
 <p>Bevor wir uns mit dem Schreiben von Dateien beschäftigen, müssen wir uns
 zunächst noch ansehen, wie man Zahlen aus einer Datei liest, eine bei
 numerischen Arbeiten sehr häufige Situation. Als Eingabedatei sei eine Datei
-namens <tt class="docutils literal"><span class="pre">spam.dat</span></tt> <a class="footnote-reference" href="#spam" id="id4">[5]</a> mit dem Inhalt</p>
+namens <tt class="docutils literal"><span class="pre">spam.dat</span></tt> <a class="footnote-reference" href="#spam" id="id4">[4]</a> mit dem Inhalt</p>
 <div class="highlight-python"><div class="highlight"><pre> <span class="mf">1.37</span>  <span class="mf">2.59</span>
 <span class="mf">10.3</span>  <span class="o">-</span><span class="mf">1.3</span>
  <span class="mf">5.8</span>   <span class="mf">2.0</span>
@@ -504,13 +504,13 @@ Benutzer wohl die Möglichkeit geben, das Programm an dieser Stelle geordnet zu
 beenden oder einen alternativen Dateinamen anzugeben.</p>
 <p>Abschließend sei noch erwähnt, dass Python für bestimmte Dateiformate spezielle
 Module zum Lesen und Schreiben zur Verfügung stellt. Hierzu gehört zum Beispiel
-das <tt class="docutils literal"><span class="pre">csv</span></tt>-Modul, das den Zugriff auf Dateien im <tt class="docutils literal"><span class="pre">csv</span></tt>-Format <a class="footnote-reference" href="#csv" id="id5">[6]</a>
+das <tt class="docutils literal"><span class="pre">csv</span></tt>-Modul, das den Zugriff auf Dateien im <tt class="docutils literal"><span class="pre">csv</span></tt>-Format <a class="footnote-reference" href="#csv" id="id5">[5]</a>
 erlaubt. Dieses Format wird häufig von Tabellenkalkulationsprogrammen wie zum
 Beispiel <tt class="docutils literal"><span class="pre">Microsoft</span> <span class="pre">Excel</span></tt> oder <tt class="docutils literal"><span class="pre">Calc</span></tt> aus <tt class="docutils literal"><span class="pre">OpenOffice</span></tt> bzw.
 <tt class="docutils literal"><span class="pre">LibreOffice</span></tt> benutzt. Hat man solche Programme bei der Erfassung der Daten
-verwendet, so ist es sinnvoll, sich das <tt class="docutils literal"><span class="pre">csv</span></tt>-Modul <a class="footnote-reference" href="#csvdoc" id="id6">[7]</a> anzusehen.</p>
+verwendet, so ist es sinnvoll, sich das <tt class="docutils literal"><span class="pre">csv</span></tt>-Modul <a class="footnote-reference" href="#csvdoc" id="id6">[6]</a> anzusehen.</p>
 <p>Bei einer aufwendigen Übergabe von Parametern an ein Programm kann auch das
-<tt class="docutils literal"><span class="pre">ConfigParser</span></tt>-Modul <a class="footnote-reference" href="#cpdoc" id="id7">[8]</a> von Interesse sein, das mit Dateien im
+<tt class="docutils literal"><span class="pre">ConfigParser</span></tt>-Modul <a class="footnote-reference" href="#cpdoc" id="id7">[7]</a> von Interesse sein, das mit Dateien im
 <tt class="docutils literal"><span class="pre">INI</span></tt>-Format umgehen kann. Dabei werden Parameter in Name-Wert-Paaren
 beschrieben, wobei eine Unterteilung in Abschnitte möglich ist.</p>
 <p class="rubric">Footnotes</p>
@@ -520,16 +520,10 @@ beschrieben, wobei eine Unterteilung in Abschnitte möglich ist.</p>
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Zum Ursprung dieses Namens siehe <a class="reference external" href="http://www.ietf.org/rfc/rfc3092.txt">RFC 3092</a>.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="optparse" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[2]</td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/optparse.html">optparse – Parser for command line options</a> in der Python-Dokumentation beschrieben.</td></tr>
-</tbody>
-</table>
 <table class="docutils footnote" frame="void" id="argparse" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/argparse.html">argparse – Parser for command-line options,
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/argparse.html">argparse – Parser for command-line options,
 arguments and sub-commands</a> in der
 Python-Dokumentation beschrieben.</td></tr>
 </tbody>
@@ -537,21 +531,21 @@ Python-Dokumentation beschrieben.</td></tr>
 <table class="docutils footnote" frame="void" id="unicode" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[4]</a></td><td>Hierzu und zu den folgenden Überlegungen zur Zeichenkodierung sei auf den
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Hierzu und zu den folgenden Überlegungen zur Zeichenkodierung sei auf den
 Anhang <a class="reference internal" href="unicode.html#appendixunicode"><em>Unicode</em></a> hingewiesen.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="spam" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[5]</a></td><td>Die Verwendung von <tt class="docutils literal"><span class="pre">spam</span></tt> in Python-Beispielen als Name ohne spezifische Bedeutung ist
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Die Verwendung von <tt class="docutils literal"><span class="pre">spam</span></tt> in Python-Beispielen als Name ohne spezifische Bedeutung ist
 ein Verweis auf einen Sketch der Komikergruppe Monty Python (siehe <a class="reference external" href="http://de.wikipedia.org/wiki/Spam-Sketch">Wikipedia: Spam-Sketch</a>).</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="csv" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[6]</a></td><td><tt class="docutils literal"><span class="pre">csv</span></tt> steht für <em>comma separated values</em>, wobei allerdings kein verbindlicher Standard
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><tt class="docutils literal"><span class="pre">csv</span></tt> steht für <em>comma separated values</em>, wobei allerdings kein verbindlicher Standard
 existiert. Beispielsweise können Felder genauso gut durch Kommas wie durch Strichpunkte getrennt
 sein.</td></tr>
 </tbody>
@@ -559,13 +553,13 @@ sein.</td></tr>
 <table class="docutils footnote" frame="void" id="csvdoc" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[7]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/csv.html">csv — CSV File Reading and Writing</a> in der Python-Dokumentation beschrieben.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/csv.html">csv — CSV File Reading and Writing</a> in der Python-Dokumentation beschrieben.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="cpdoc" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[8]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/configparser.html">ConfigParser — Configuration file parser</a> in der Python-Dokumentation beschrieben.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/configparser.html">ConfigParser — Configuration file parser</a> in der Python-Dokumentation beschrieben.</td></tr>
 </tbody>
 </table>
 </div>
