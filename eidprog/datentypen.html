@@ -469,10 +469,19 @@ nur ein kleiner Ausschnitt gezeigt:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
 
-<span class="go">Help on built-in module math:</span>
+<span class="go">Help on module math:</span>
 
 <span class="go">NAME</span>
 <span class="go">    math</span>
+
+<span class="go">MODULE REFERENCE</span>
+<span class="go">    http://docs.python.org/3.5/library/math</span>
+
+<span class="go">    The following documentation is automatically generated from the Python</span>
+<span class="go">    source files.  It may be incomplete, incorrect or include features that</span>
+<span class="go">    are considered implementation detail and may vary between Python</span>
+<span class="go">    implementations.  When in doubt, consult the module reference at the</span>
+<span class="go">    location listed above.</span>
 
 <span class="go">DESCRIPTION</span>
 <span class="go">    This module is always available.  It provides access to the</span>
@@ -487,7 +496,7 @@ nur ein kleiner Ausschnitt gezeigt:</p>
 <span class="go">    acosh(...)</span>
 <span class="go">        acosh(x)</span>
 
-<span class="go">        Return the hyperbolic arc cosine (measured in radians) of x.</span>
+<span class="go">        Return the inverse hyperbolic cosine of x.</span>
 </pre></div>
 </div>
 <p>Häufig ist es zu umständlich, den Modulnamen beim Funktionsaufruf immer
@@ -543,6 +552,12 @@ des Programms fehlerhaft sein kann.</p>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">fsum(z)</span></tt></td>
 <td>Summe über <tt class="docutils literal"><span class="pre">z</span></tt>, <tt class="docutils literal"><span class="pre">z</span></tt> ist iterierbarer Datentyp</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">gcd(a,</span> <span class="pre">b)</span></tt></td>
+<td>größter gemeinsamer Teiler der ganzen Zahlen <tt class="docutils literal"><span class="pre">a</span></tt> und <tt class="docutils literal"><span class="pre">b</span></tt> (ab Python 3.5)</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">isclose(a,</span> <span class="pre">b)</span></tt></td>
+<td>überprüft ob <tt class="docutils literal"><span class="pre">a</span></tt> und <tt class="docutils literal"><span class="pre">b</span></tt> nahezu gleich sind (ab Python 3.5) <a class="footnote-reference" href="#isclosedoc" id="id9">[9]</a></td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">isfinite(x)</span></tt></td>
 <td>überprüft ob <tt class="docutils literal"><span class="pre">x</span></tt> weder unendlich noch <tt class="docutils literal"><span class="pre">nan</span></tt> (not a number) ist (ab Python 3.2)</td>
@@ -635,16 +650,16 @@ des Programms fehlerhaft sein kann.</p>
 <td>Tangens Hyperbolicus</td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">erf(x)</span></tt></td>
-<td>Fehlerfunktion <a class="footnote-reference" href="#fehlerfunktion" id="id9">[9]</a></td>
+<td>Fehlerfunktion <a class="footnote-reference" href="#fehlerfunktion" id="id10">[10]</a></td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">erfc(x)</span></tt></td>
-<td>Komplement der Fehlerfunktion <a class="footnote-reference" href="#fehlerfunktion" id="id10">[9]</a></td>
+<td>Komplement der Fehlerfunktion <a class="footnote-reference" href="#fehlerfunktion" id="id11">[10]</a></td>
 </tr>
 <tr class="row-even"><td><tt class="docutils literal"><span class="pre">gamma(x)</span></tt></td>
-<td>Gammafunktion <a class="footnote-reference" href="#gammafunktion" id="id11">[10]</a></td>
+<td>Gammafunktion <a class="footnote-reference" href="#gammafunktion" id="id12">[11]</a></td>
 </tr>
 <tr class="row-odd"><td><tt class="docutils literal"><span class="pre">lgamma(x)</span></tt></td>
-<td>natürlicher Logarithmus des Betrags der Gammafunktion <a class="footnote-reference" href="#gammafunktion" id="id12">[10]</a></td>
+<td>natürlicher Logarithmus des Betrags der Gammafunktion <a class="footnote-reference" href="#gammafunktion" id="id13">[11]</a></td>
 </tr>
 </tbody>
 </table>
@@ -666,6 +681,8 @@ anderen Namen vergeben:</p>
 <span class="go">2.718281828459045</span>
 </pre></div>
 </div>
+<p>Ab Python 3 sind schließlich noch <tt class="docutils literal"><span class="pre">math.inf</span></tt> für positiv Unendlich und
+<tt class="docutils literal"><span class="pre">math.nan</span></tt> für »not a number« definiert.</p>
 </div>
 <div class="section" id="komplexe-zahlen">
 <h2>Komplexe Zahlen<a class="headerlink" href="#komplexe-zahlen" title="Permalink zu dieser Überschrift">¶</a></h2>
@@ -808,7 +825,7 @@ die Großbuchstaben an Höcker eines Kamels erinnern. Details zu den in Python
 empfohlenen Konventionen für Bezeichner finden Sie im Python Enhancement Proposal <span class="target" id="index-0"></span><a class="pep reference external" href="http://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a>
 mit dem Titel »Style Guide for Python Code« im Abschnitt <em>Naming Conventions</em>.</p>
 <p>Die folgenden Schlüsselwörter sind in Python als Sprachelemente reserviert und dürfen
-nicht für Bezeichner verwendet werden <a class="footnote-reference" href="#keywords" id="id13">[11]</a>:</p>
+nicht für Bezeichner verwendet werden <a class="footnote-reference" href="#keywords" id="id14">[12]</a>:</p>
 <div class="highlight-python"><div class="highlight"><pre>False     assert      del        for       in        or        while
 None      break       elif       from      is        pass      with
 True      class       else       global    lambda    raise     yield
@@ -1206,7 +1223,7 @@ erreicht man durch Angabe des Buchstabens <tt class="docutils literal"><span cla
 </pre></div>
 </div>
 <p>Hier wird durch den Wechsel der Darstellung insbesondere sichergestellt, dass
-immer die gleiche Anzahl von signifikanten Stellen ausgegeben wird. <a class="footnote-reference" href="#gformat" id="id14">[12]</a></p>
+immer die gleiche Anzahl von signifikanten Stellen ausgegeben wird. <a class="footnote-reference" href="#gformat" id="id15">[13]</a></p>
 <p>Betrachten wir nun noch die Formatierung von Integers.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{0}|{0:5}|{0:05}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
@@ -1216,7 +1233,7 @@ immer die gleiche Anzahl von signifikanten Stellen ausgegeben wird. <a class="fo
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Warum kann man die <tt class="docutils literal"><span class="pre">0</span></tt> zur Kennzeichnung der einzusetzenden Variable
 nicht weglassen?</p>
 <p>Integers in Dezimaldarstellung benötigen keinen Buchstaben zur
-Formatspezifikation. <a class="footnote-reference" href="#dezimal" id="id15">[13]</a>  Man kann hier aber ähnlich wie bei den Gleitkommazahlen
+Formatspezifikation. <a class="footnote-reference" href="#dezimal" id="id16">[14]</a>  Man kann hier aber ähnlich wie bei den Gleitkommazahlen
 die Feldbreite festlegen.  Gibt man vor der Feldbreite eine Null an, so wird
 das Feld vor der auszugebenden Zahl mit Nullen aufgefüllt. Dies kann zum
 Beispiel bei der Ausgabe in anderen Zahlensystemen interessant sein. Python
@@ -1304,10 +1321,18 @@ das eine Rechnung mit einer vorgebbaren, im Prinzip beliebig hohen Genauigkeit e
 <a class="reference internal" href="floats.html#appendixfloats"><em>64-Bit-Gleitkommazahlen nach IEEE-Standard 754</em></a> zu finden.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="isclosedoc" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[9]</a></td><td>Standardmäßig wird ein relativer Fehler von <span class="math">\(10^{-9}\)</span> zugelassen. Die
+<a class="reference external" href="https://docs.python.org/3/library/math.html#math.isclose">Dokumentation von isclose</a>
+beschreibt, wie man den relativen und absoluten Fehler selbst setzen kann.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="fehlerfunktion" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[9]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id10">2</a>)</em> Die Fehlerfunktion ist das normierte Integral über die Gaußfunktion
+<tr><td class="label">[10]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> Die Fehlerfunktion ist das normierte Integral über die Gaußfunktion
 von Null bis zu dem durch das Argument gegebenen Wert. Das Komplement der Fehlerfunktion
 ist die Differenz zwischen 1 und dem Wert der Fehlerfunktion.</td></tr>
 </tbody>
@@ -1315,21 +1340,21 @@ ist die Differenz zwischen 1 und dem Wert der Fehlerfunktion.</td></tr>
 <table class="docutils footnote" frame="void" id="gammafunktion" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[10]</td><td><em>(<a class="fn-backref" href="#id11">1</a>, <a class="fn-backref" href="#id12">2</a>)</em> Für positive ganze Zahlen entspricht die Gammafunktion der Fakultät des
+<tr><td class="label">[11]</td><td><em>(<a class="fn-backref" href="#id12">1</a>, <a class="fn-backref" href="#id13">2</a>)</em> Für positive ganze Zahlen entspricht die Gammafunktion der Fakultät des
 um Eins verminderten Arguments.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="keywords" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id13">[11]</a></td><td>Bei Bedarf kann die Liste der Schlüsselwörter mit Hilfe des <tt class="docutils literal"><span class="pre">keyword</span></tt>-Moduls
+<tr><td class="label"><a class="fn-backref" href="#id14">[12]</a></td><td>Bei Bedarf kann die Liste der Schlüsselwörter mit Hilfe des <tt class="docutils literal"><span class="pre">keyword</span></tt>-Moduls
 und Verwendung der Anweisung <tt class="docutils literal"><span class="pre">keyword.kwlist</span></tt> erhalten werden.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="gformat" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id14">[12]</a></td><td>Die genaue Regel für die Umstellung der Darstellungsart kann man in der
+<tr><td class="label"><a class="fn-backref" href="#id15">[13]</a></td><td>Die genaue Regel für die Umstellung der Darstellungsart kann man in der
 Dokumentation der Python-Standardbibliothek unter <a class="reference external" href="http://docs.python.org/3/library/string.html#formatspec">6.1.3.1. Format Specification Mini-Language</a>
 nachlesen.</td></tr>
 </tbody>
@@ -1337,7 +1362,7 @@ nachlesen.</td></tr>
 <table class="docutils footnote" frame="void" id="dezimal" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[13]</a></td><td>Wenn man unbedingt möchte, kann man <tt class="docutils literal"><span class="pre">d</span></tt> für Dezimaldarstellung angeben.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id16">[14]</a></td><td>Wenn man unbedingt möchte, kann man <tt class="docutils literal"><span class="pre">d</span></tt> für Dezimaldarstellung angeben.</td></tr>
 </tbody>
 </table>
 </div>
