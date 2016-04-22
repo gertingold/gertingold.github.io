@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2015',
+        VERSION:     '2016alpha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,17 +24,17 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" />
     <link rel="next" title="Objektorientiertes Programmieren" href="objektorientiert.html" />
     <link rel="prev" title="Ein- und Ausgabe" href="einausgabe.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Numerische Programmbibliotheken am Beispiel von NumPy/SciPy</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         «&#160;&#160;<a href="einausgabe.html">Ein- und Ausgabe</a>
@@ -49,11 +49,11 @@
         
         
   <div class="section" id="numerische-programmbibliotheken-am-beispiel-von-numpy-scipy">
-<span id="scipy"></span><h1>Numerische Programmbibliotheken am Beispiel von NumPy/SciPy<a class="headerlink" href="#numerische-programmbibliotheken-am-beispiel-von-numpy-scipy" title="Permalink zu dieser Überschrift">¶</a></h1>
+<span id="scipy"></span><h1>Numerische Programmbibliotheken am Beispiel von NumPy/SciPy<a class="headerlink" href="#numerische-programmbibliotheken-am-beispiel-von-numpy-scipy" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Bei der numerischen Lösung von Problemen aus der Physik oder den
 Materialwissenschaften benötigt man häufig Funktionalität, die von Python und
 der zugehörigen Standardbibliothek nicht unmittelbar zur Verfügung gestellt
-wird. Man denke an spezielle Funktionen, die nicht im <tt class="docutils literal"><span class="pre">math</span></tt>-Modul enthalten
+wird. Man denke an spezielle Funktionen, die nicht im <code class="docutils literal"><span class="pre">math</span></code>-Modul enthalten
 sind, beispielsweise Besselfunktionen, an die numerische Auswertung von
 Integralen oder die Lösung von Differentialgleichungen. Auch die Verwendung von
 Matrizen ist nicht unmittelbar möglich. Zwar erlauben es Listen, matrizenartige
@@ -65,11 +65,11 @@ ist sicherlich bequemer. Zudem handelt es sich häufig um effiziente und
 sorgfältige Implementierungen. In diesem Kapitel wollen wir uns beispielhaft
 das Numerikmodul NumPy/SciPy ansehen.</p>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Nachdem NumPy/SciPy nicht Bestandteil von Pythons Standardbibliothek ist, steht
 es standardmäßig noch nicht zur Verfügung. Ob es installiert ist, lässt sich
-leicht mit Hilfe eines <tt class="docutils literal"><span class="pre">import</span></tt>-Versuchs feststellen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+leicht mit Hilfe eines <code class="docutils literal"><span class="pre">import</span></code>-Versuchs feststellen:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">numpy</span><span class="o">.</span><span class="n">__version__</span>
 <span class="go">&#39;1.10.4&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy</span>
@@ -80,12 +80,12 @@ leicht mit Hilfe eines <tt class="docutils literal"><span class="pre">import</sp
 <p>Haben Sie beispielsweise die Anaconda-Distribution installiert, so
 sollte das Importieren problemlos funktionieren, auch wenn vielleicht eine
 andere Versionsnummer angezeigt wird <a class="footnote-reference" href="#version" id="id1">[1]</a>. Sind die Bibliotheken nicht vorhanden,
-so würde eine <tt class="docutils literal"><span class="pre">ImportError</span></tt>-Ausnahme geworfen. Dann müssen NumPy und
+so würde eine <code class="docutils literal"><span class="pre">ImportError</span></code>-Ausnahme geworfen. Dann müssen NumPy und
 SciPy installiert werden. Informationen hierzu finden Sie für
 verschiedene Betriebssysteme unter <a class="reference external" href="http://www.scipy.org/install.html">www.scipy.org/install.html</a>.</p>
 </div>
 <div class="section" id="arrays-und-anwendungen">
-<span id="numpy"></span><h2>Arrays und Anwendungen<a class="headerlink" href="#arrays-und-anwendungen" title="Permalink zu dieser Überschrift">¶</a></h2>
+<span id="numpy"></span><h2>Arrays und Anwendungen<a class="headerlink" href="#arrays-und-anwendungen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Im Folgenden soll anhand von wenigen Beispielen ein kurzer Einblick in die
 Möglichkeiten gegeben werden, die NumPy bietet. Das Programm</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -97,20 +97,20 @@ Möglichkeiten gegeben werden, die NumPy bietet. Das Programm</p>
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="n">matrixA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.7</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]])</span>
 <span class="n">matrixB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1</span><span class="p">]])</span>
-<span class="k">print</span><span class="p">(</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">matrixB</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">matrixB</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">anweisung</span> <span class="o">=</span> <span class="s">&quot;{:g}*{:g}+{:g}*{:g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrixA</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">matrixB</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="k">print</span><span class="p">(</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">matrixB</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrixA</span><span class="p">,</span> <span class="n">matrixB</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">anweisung</span> <span class="o">=</span> <span class="s2">&quot;{:g}*{:g}+{:g}*{:g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrixA</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">matrixB</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
                                          <span class="n">matrixA</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">matrixB</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;{} = {:g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">anweisung</span><span class="p">,</span> <span class="nb">eval</span><span class="p">(</span><span class="n">anweisung</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} = {:g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">anweisung</span><span class="p">,</span> <span class="nb">eval</span><span class="p">(</span><span class="n">anweisung</span><span class="p">)))</span>
 </pre></div>
 </td></tr></table></div>
 <p>erzeugt die Ausgabe</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[[</span> <span class="mf">1.3</span>  <span class="mf">2.5</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[[</span> <span class="mf">1.3</span>  <span class="mf">2.5</span><span class="p">]</span>
  <span class="p">[</span><span class="o">-</span><span class="mf">1.7</span>  <span class="mf">3.9</span><span class="p">]]</span>
 
 <span class="p">[[</span> <span class="mf">2.1</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">]</span>
@@ -123,30 +123,30 @@ Möglichkeiten gegeben werden, die NumPy bietet. Das Programm</p>
 </pre></div>
 </div>
 <p>In der ersten Zeile des Programmcodes wird das NumPy-Modul geladen, wobei die
-Verwendung des kurzen Bezeichners <tt class="docutils literal"><span class="pre">np</span></tt> eine häufig verwendete Konvention ist,
+Verwendung des kurzen Bezeichners <code class="docutils literal"><span class="pre">np</span></code> eine häufig verwendete Konvention ist,
 um im Programmtext auf die Herkunft der verwendeten Methoden hinzuweisen. In
 den Zeilen 3 und 4 ist eine Möglichkeit gezeigt, Matrizen mit Hilfe von NumPy
 aus einer Liste zu erzeugen. In Zeile 9 wird das Produkt der beiden Matrizen
 berechnet und ausgegeben. Die in den Zeilen 11 und 12 erzeugte Ausgabe weist
 die Korrektheit anhand des obersten Diagonalelements des Produkts durch
-Multiplikation der entsprechenden Zeile von <tt class="docutils literal"><span class="pre">matrixA</span></tt> und Spalte von
-<tt class="docutils literal"><span class="pre">matrixB</span></tt> nach. Zugleich erkennt man aus Zeile 11, dass die Nummerierung der
-Matrixelemente, wie die von Python-Listen, mit <tt class="docutils literal"><span class="pre">0</span></tt> beginnt. Im Gegensatz zu
+Multiplikation der entsprechenden Zeile von <code class="docutils literal"><span class="pre">matrixA</span></code> und Spalte von
+<code class="docutils literal"><span class="pre">matrixB</span></code> nach. Zugleich erkennt man aus Zeile 11, dass die Nummerierung der
+Matrixelemente, wie die von Python-Listen, mit <code class="docutils literal"><span class="pre">0</span></code> beginnt. Im Gegensatz zu
 Listen werden die Matrixelemente jedoch durch Kommas getrennt in einem einzigen
 eckigen Klammerpaar angegeben. Daraus wird deutlich, dass im Gegensatz zu der
 hierarchischen Konstruktion der Listen von Listen hier die verschiedenen
 Dimensionen eines Arrays gleichberechtigt sind.</p>
-<p>Multipliziert man zwei Arrays mit Hilfe des Multiplikationsoperators <tt class="docutils literal"><span class="pre">*</span></tt>, so
+<p>Multipliziert man zwei Arrays mit Hilfe des Multiplikationsoperators <code class="docutils literal"><span class="pre">*</span></code>, so
 wird keine Matrixmultiplikation durchgeführt. Vielmehr werden die Elemente an
 den jeweils gleichen Positionen der beiden Matrizen miteinander multipliziert.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">matrixA</span><span class="o">*</span><span class="n">matrixB</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matrixA</span><span class="o">*</span><span class="n">matrixB</span>
 <span class="go">array([[  2.73 -11.25],</span>
 <span class="go">       [ -1.53  -8.19]])</span>
 </pre></div>
 </div>
 <p>Das folgende Beispiel zeigt die Berechnung von Skalarprodukt, dyadischem
 Produkt sowie Kreuzprodukt für zwei Vektoren.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="n">vecA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="n">vecB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -158,7 +158,7 @@ Produkt sowie Kreuzprodukt für zwei Vektoren.</p>
 </pre></div>
 </div>
 <p>Als Ausgabe findet man erwartungsgemäß</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="o">-</span><span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="o">-</span><span class="mi">2</span>
 
 <span class="p">[[</span> <span class="mi">10</span>   <span class="mi">8</span>   <span class="mi">0</span><span class="p">]</span>
  <span class="p">[</span><span class="o">-</span><span class="mi">15</span> <span class="o">-</span><span class="mi">12</span>   <span class="mi">0</span><span class="p">]</span>
@@ -180,10 +180,7 @@ Produkt sowie Kreuzprodukt für zwei Vektoren.</p>
 10
 11
 12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
@@ -196,21 +193,18 @@ Produkt sowie Kreuzprodukt für zwei Vektoren.</p>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">TypeError</span>: <span class="n">only length-1 arrays can be converted to Python scalars</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">TypeError</span>: <span class="n">only length-1 arrays can be converted to Python scalars</span>
 </pre></div>
 </td></tr></table></div>
 <p>Eine praktische Methode, um ein Array mit äquidistanten Werten zwischen zwei
-Grenzen zu erzeugen, ist die <tt class="xref py py-func docutils literal"><span class="pre">linspace()</span></tt>-Funktion, die in Zeile 3 zur
+Grenzen zu erzeugen, ist die <code class="xref py py-func docutils literal"><span class="pre">linspace()</span></code>-Funktion, die in Zeile 3 zur
 Erzeugung der Argumente benutzt wird. Der Aufruf der Exponentialfunktion aus
 NumPy gibt in den Zeilen 6-9 ein ganzes Array der entsprechenden Ergebnisse
 zurück. Zeilen 10-13 zeigen, dass dies mit der Exponentialfunktion aus dem
-<tt class="docutils literal"><span class="pre">math</span></tt>-Modul nicht möglich wäre.  Bei umfangreichen Arrays spart die
+<code class="docutils literal"><span class="pre">math</span></code>-Modul nicht möglich wäre.  Bei umfangreichen Arrays spart die
 Verwendung der NumPy-Funktion Rechenzeit gegenüber einer Schleife, die die
 Funktion nacheinander auf jedes Element einzeln anwendet. Als Faustregel gilt
 bei der Verwendung von NumPy, dass im Hinblick auf die Effizienz eines Programms
-<tt class="docutils literal"><span class="pre">for</span></tt>-Schleifen nach Möglichkeit durch geeignete <tt class="docutils literal"><span class="pre">array</span></tt>-Operationen
+<code class="docutils literal"><span class="pre">for</span></code>-Schleifen nach Möglichkeit durch geeignete <code class="docutils literal"><span class="pre">array</span></code>-Operationen
 ersetzt werden sollten.</p>
 <p>Zum Abschluss kehren wir noch einmal zu den Matrizen zurück und sehen uns
 einige Funktionen aus dem Bereich der Linearen Algebra an.</p>
@@ -233,7 +227,7 @@ einige Funktionen aus dem Bereich der Linearen Algebra an.</p>
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">LA</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -261,18 +255,18 @@ Linearen Algebra von NumPy enthalten sind. Nachdem in Zeile 3 eine Matrix
 definiert wurde, wird in Zeile 4 die zugehörige Determinante bestimmt. In Zeile
 6 wird die inverse Matrix berechnet und die Korrektheit des Ergebnisses durch
 Multiplikation mit der ursprünglichen Matrix nachgewiesen. In Zeile 9 werden
-die Eigenwerte und Eigenvektoren der Matrix <tt class="docutils literal"><span class="pre">a</span></tt> berechnet. Um auf das Tupel
+die Eigenwerte und Eigenvektoren der Matrix <code class="docutils literal"><span class="pre">a</span></code> berechnet. Um auf das Tupel
 nicht über die entsprechenden Indizes zugreifen zu müssen, kann man das
 Ergebnis wie in Zeile 12 gezeigt gleich in die Eigenwerte und die Eigenvektoren
 aufteilen. In den Zeilen 13-17 wird schließlich nachgewiesen, dass die
 Eigenwerte und Eigenvektoren korrekt sind. Dabei wird verwendet, dass die
 Spalten der Eigenvektormatrix den Eigenvektoren entsprechen. Der erste
-Eigenvektor wird mit <tt class="docutils literal"><span class="pre">eigenvektor[:,</span> <span class="pre">0]</span></tt> angegeben. Wie bei Listen bedeutet
-der einzelne Doppelpunkt, dass der erste Index von seinem Minimalwert <tt class="docutils literal"><span class="pre">0</span></tt> bis
-zu seinem Maximalwert, hier <tt class="docutils literal"><span class="pre">1</span></tt>, läuft.</p>
+Eigenvektor wird mit <code class="docutils literal"><span class="pre">eigenvektor[:,</span> <span class="pre">0]</span></code> angegeben. Wie bei Listen bedeutet
+der einzelne Doppelpunkt, dass der erste Index von seinem Minimalwert <code class="docutils literal"><span class="pre">0</span></code> bis
+zu seinem Maximalwert, hier <code class="docutils literal"><span class="pre">1</span></code>, läuft.</p>
 </div>
 <div class="section" id="numerische-integration">
-<h2>Numerische Integration<a class="headerlink" href="#numerische-integration" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Numerische Integration<a class="headerlink" href="#numerische-integration" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Als Anwendung von SciPy betrachten wir die numerische Auswertung des Integrals</p>
 <div class="math">
 \[J_0(1) = \frac{1}{\pi}\int_0^\pi\cos(\cos(x))\mathrm{d}x.\]</div>
@@ -284,7 +278,7 @@ lassen können. Das folgende Programm führt die notwendigen Berechnungen durch:
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span><span class="p">,</span> <span class="n">special</span>
 
 <span class="n">resultat</span><span class="p">,</span> <span class="n">fehler</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">cos</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pi</span><span class="p">)</span>
@@ -293,27 +287,27 @@ lassen können. Das folgende Programm führt die notwendigen Berechnungen durch:
 </pre></div>
 </td></tr></table></div>
 <p>Die zugehörige Ausgabe lautet</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mf">0.7651976865579664</span> <span class="mf">7.610964456309953e-11</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mf">0.7651976865579664</span> <span class="mf">7.610964456309953e-11</span>
 <span class="mf">0.765197686558</span>
 </pre></div>
 </div>
 <p>In den ersten beiden Programmzeilen werden zunächst die benötigten Unterpakete
-von SciPy, <tt class="xref py py-mod docutils literal"><span class="pre">integrate</span></tt> für die Integration und <tt class="xref py py-mod docutils literal"><span class="pre">special</span></tt> für
+von SciPy, <code class="xref py py-mod docutils literal"><span class="pre">integrate</span></code> für die Integration und <code class="xref py py-mod docutils literal"><span class="pre">special</span></code> für
 spezielle Funktionen, sowie der Kosinus und die Kreiszahl aus dem
-<tt class="xref py py-mod docutils literal"><span class="pre">math</span></tt>-Modul importiert. In Zeile 4 wird zur Integration die Funktion
-<tt class="xref py py-func docutils literal"><span class="pre">quad()</span></tt> (von »Quadratur« oder Englisch »quadrature«) aus dem
-<tt class="xref py py-mod docutils literal"><span class="pre">integrate</span></tt>-Modul verwendet. <tt class="xref py py-func docutils literal"><span class="pre">quad()</span></tt> verlangt zwingend eine Funktion,
+<code class="xref py py-mod docutils literal"><span class="pre">math</span></code>-Modul importiert. In Zeile 4 wird zur Integration die Funktion
+<code class="xref py py-func docutils literal"><span class="pre">quad()</span></code> (von »Quadratur« oder Englisch »quadrature«) aus dem
+<code class="xref py py-mod docutils literal"><span class="pre">integrate</span></code>-Modul verwendet. <code class="xref py py-func docutils literal"><span class="pre">quad()</span></code> verlangt zwingend eine Funktion,
 die den Integranden beschreibt und hier als Lambdafunktion angegeben ist, sowie
 die Integrationsgrenzen. Ausgegeben werden das Resultat der numerischen
 Integration und eine Abschätzung des absoluten Fehlers. Zur Beurteilung der
-Qualität des Resultats verwenden wir in Zeile 6 die Besselfunktion <tt class="xref py py-func docutils literal"><span class="pre">j0()</span></tt>
-aus dem <tt class="xref py py-mod docutils literal"><span class="pre">special</span></tt>-Modul von SciPy.  Der Vergleich des Ergebnisses der
+Qualität des Resultats verwenden wir in Zeile 6 die Besselfunktion <code class="xref py py-func docutils literal"><span class="pre">j0()</span></code>
+aus dem <code class="xref py py-mod docutils literal"><span class="pre">special</span></code>-Modul von SciPy.  Der Vergleich des Ergebnisses der
 numerischen Integration mit <span class="math">\(J_0(1)\)</span>, für das SciPy einen ebenfalls im
 Prinzip mit Fehlern behafteten numerischen Wert bestimmt, ergibt perfekte
 Übereinstimmung.</p>
-<p>Wenn man die Konstante <tt class="docutils literal"><span class="pre">inf</span></tt> aus NumPy importiert, kann man auch
+<p>Wenn man die Konstante <code class="docutils literal"><span class="pre">inf</span></code> aus NumPy importiert, kann man auch
 uneigentliche Integrale berechnen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="n">resultat</span><span class="p">,</span> <span class="n">fehler</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
@@ -321,7 +315,7 @@ uneigentliche Integrale berechnen:</p>
 </pre></div>
 </div>
 <p>Der erste Wert der Ausgabe</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="mf">1.0</span> <span class="mf">5.155583905474508e-10</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mf">1.0</span> <span class="mf">5.155583905474508e-10</span>
 </pre></div>
 </div>
 <p>zeigt, dass der Wert des Integrals</p>
@@ -333,7 +327,7 @@ das Integrationsproblem auch zunächst geeignet formuliert werden, zum Beispiel 
 oder wenn der Integrand schnell oszilliert.</p>
 </div>
 <div class="section" id="integration-gewohnlicher-differentialgleichungen">
-<span id="ode"></span><h2>Integration gewöhnlicher Differentialgleichungen<a class="headerlink" href="#integration-gewohnlicher-differentialgleichungen" title="Permalink zu dieser Überschrift">¶</a></h2>
+<span id="ode"></span><h2>Integration gewöhnlicher Differentialgleichungen<a class="headerlink" href="#integration-gewohnlicher-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Häufig steht man in der Physik und den Materialwissenschaften vor der Aufgabe,
 Differentialgleichungen zu lösen.  Wir beschränken uns hier auf gewöhnliche
 Differentialgleichungen, die als Anfangswertproblem gelöst werden sollen. Wir
@@ -343,14 +337,14 @@ beginnen mit einer Differentialgleichung erster Ordnung</p>
 <p>die sich durch Trennung der Variablen lösen lässt. Will man nicht selbst ein
 Lösungsverfahren, zum Beispiel das Euler- oder Runge-Kutta-Verfahren
 implementieren, so kann man wiederum auf das SciPy-Paket zurückgreifen. Dort
-wird unter anderem die Funktion <tt class="docutils literal"><span class="pre">odeint</span></tt> zur Verfügung gestellt, die wir im
+wird unter anderem die Funktion <code class="docutils literal"><span class="pre">odeint</span></code> zur Verfügung gestellt, die wir im
 Folgenden benutzen wollen. Der Name der Funktion enthält das englische
 »ordinary differential equation« in abgekürzter Form.</p>
 <p>Da der Funktionsaufruf in einem solchen Fall durchaus komplexer sein kann, muss
 man sich zunächst über die von der Funktion erwarteten Argumente informieren.
-In Python kann man das leicht mit der <tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt>-Funktion tun, aber auch im
+In Python kann man das leicht mit der <code class="xref py py-func docutils literal"><span class="pre">help()</span></code>-Funktion tun, aber auch im
 Internet unter <a class="reference external" href="http://docs.scipy.org/doc/">http://docs.scipy.org/doc/</a> finden sich Dokumentationen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">)</span>
 
 <span class="go">Help on function odeint in module scipy.integrate.odepack:</span>
@@ -389,11 +383,11 @@ Internet unter <a class="reference external" href="http://docs.scipy.org/doc/">h
 <span class="go">[…]</span>
 </pre></div>
 </div>
-<p>Wir haben an den mit <tt class="docutils literal"><span class="pre">[…]</span></tt> markierten Stellen einigen Text ausgelassen. Bereits der
+<p>Wir haben an den mit <code class="docutils literal"><span class="pre">[…]</span></code> markierten Stellen einigen Text ausgelassen. Bereits der
 gleich zu Beginn angegebene Funktionsaufruf zeigt, dass eine Vielzahl an Parametern übergeben
 werden können. Die meisten sind jedoch mit Defaultwerten belegt, so dass wir nicht gezwungen
 sind, sie zu spezifizieren. Sollte es jedoch zum Beispiel nötig sein, den relativen oder absoluten
-Fehler besser zu kontrollieren, so kann man dies tun. Beim Aufruf der Funktion <tt class="xref py py-func docutils literal"><span class="pre">odeint()</span></tt>
+Fehler besser zu kontrollieren, so kann man dies tun. Beim Aufruf der Funktion <code class="xref py py-func docutils literal"><span class="pre">odeint()</span></code>
 müssen wir aber auf jeden Fall eine aufrufbare Funktion übergeben, die es erlaubt, die Ableitung
 zu berechnen. Diese Funktion muss zumindest zwei Argumente besitzen, nämlich die aktuellen Werte
 der abhängigen und der unabhängigen Variablen. Ferner benötigen wir einen Anfangswert und
@@ -410,28 +404,28 @@ Lösung für die oben genannte Differentialgleichung.</p>
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
 
 <span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">)</span>
 <span class="n">ergebnis</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">odeint</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">pts</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)):</span>
     <span class="n">exakt</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">pts</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{:3.0f}  {:10.8f}  {:11.5g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:3.0f}  {:10.8f}  {:11.5g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                       <span class="n">pts</span><span class="p">[</span><span class="n">n</span><span class="p">],</span>
                       <span class="n">ergebnis</span><span class="p">[</span><span class="n">n</span><span class="p">],</span>
                       <span class="p">(</span><span class="n">ergebnis</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">exakt</span><span class="p">)</span><span class="o">/</span><span class="n">exakt</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>In Zeile 1 importieren wir zunächst das <tt class="xref py py-mod docutils literal"><span class="pre">numpy</span></tt>-Modul, das wir benötigen,
+<p>In Zeile 1 importieren wir zunächst das <code class="xref py py-mod docutils literal"><span class="pre">numpy</span></code>-Modul, das wir benötigen,
 um in Zeile 4 ein Array mit äquidistanten Zeitpunkten zu erzeugen. Außerdem
-wird in Zeile 2 das <tt class="xref py py-mod docutils literal"><span class="pre">integrate</span></tt>-Unterpaket aus SciPy importiert, aus dem
-wir die Funktion <tt class="xref py py-func docutils literal"><span class="pre">odeint()</span></tt> zum Lösen der Differentialgleichung verwenden
+wird in Zeile 2 das <code class="xref py py-mod docutils literal"><span class="pre">integrate</span></code>-Unterpaket aus SciPy importiert, aus dem
+wir die Funktion <code class="xref py py-func docutils literal"><span class="pre">odeint()</span></code> zum Lösen der Differentialgleichung verwenden
 wollen.  Dies geschieht in Zeile 5. Dabei haben wir die Ableitung der
 Einfachheit halber als Lambda-Funktion in den Aufruf geschrieben.  Der
-Anfangswert ist im zweiten Argument gleich <tt class="docutils literal"><span class="pre">1</span></tt> gesetzt und das dritte
+Anfangswert ist im zweiten Argument gleich <code class="docutils literal"><span class="pre">1</span></code> gesetzt und das dritte
 Argument enthält das NumPy-Array mit den Punkten, für die die Lösung bestimmt
-werden soll. <tt class="xref py py-func docutils literal"><span class="pre">odeint()</span></tt> gibt ein zweidimensionales Array zurück, das bei
+werden soll. <code class="xref py py-func docutils literal"><span class="pre">odeint()</span></code> gibt ein zweidimensionales Array zurück, das bei
 Differentialgleichungssystemen in jeder Spalte den Zeitverlauf für eine
 Komponente enthält. Da wir in unserem Beispiel nur eine einzige
 Differentialgleichung erster Ordnung vorliegen haben, wählen wir explizit die
@@ -439,7 +433,7 @@ Spalte 0 aus. Ab Zeile 6 wird das exakte Ergebnis an den vorgegebenen Punkten
 ausgewertet und die Lösung samt den Werten der unabhängigen Variablen und des
 relativen Fehlers ausgegeben. Führt man das Programm aus, so erhält man etwa
 die folgende Ausgabe</p>
-<div class="highlight-python"><div class="highlight"><pre>  0  1.00000000            0
+<div class="highlight-python"><div class="highlight"><pre><span></span>  0  1.00000000            0
   1  0.50000000   1.1693e-09
   2  0.33333332  -5.1641e-08
   3  0.24999998   -8.066e-08
@@ -457,9 +451,9 @@ die folgende Ausgabe</p>
 diesen Zeilen, dass das erhaltene Ergebnis nicht exakt ist und der relative Fehler mit zunehmendem
 Abstand vom Startwert zunimmt. Dennoch ist der relative Fehler gut kontrolliert, so dass hier
 eine brauchbare Lösung erzeugt wurde.</p>
-<p>Wenn wir uns die Dokumentation der <tt class="xref py py-func docutils literal"><span class="pre">odeint()</span></tt>-Funktion noch einmal ansehen, stellen wir
+<p>Wenn wir uns die Dokumentation der <code class="xref py py-func docutils literal"><span class="pre">odeint()</span></code>-Funktion noch einmal ansehen, stellen wir
 fest, dass die Funktion zunächst für Differentialgleichungen erster Ordnung gedacht ist.
-Allerdings kann es sich bei der Variablen <tt class="docutils literal"><span class="pre">y</span></tt> um einen Vektor handeln. Dies gibt uns die
+Allerdings kann es sich bei der Variablen <code class="docutils literal"><span class="pre">y</span></code> um einen Vektor handeln. Dies gibt uns die
 Möglichkeit, auch Differentialgleichungen höherer Ordnung numerisch zu behandeln. Wir müssen
 sie nur in ein System von Differentialgleichungen erster Ordnung umformulieren. Betrachten wir
 als Beispiel die Differentialgleichung eines gedämpften harmonischen Oszillators</p>
@@ -492,7 +486,7 @@ numerisch lösen wollen.</p>
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">sqrt</span>
 
@@ -510,7 +504,7 @@ numerisch lösen wollen.</p>
 
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pts</span><span class="p">)):</span>
     <span class="n">exakt</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">pts</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="o">*</span><span class="n">pts</span><span class="p">[</span><span class="n">n</span><span class="p">])</span><span class="o">/</span><span class="n">omega</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{:4.1f}  {:8.5f}  {:11.5g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:4.1f}  {:8.5f}  {:11.5g}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="n">pts</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">ort</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">ort</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="n">exakt</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
@@ -518,9 +512,9 @@ numerisch lösen wollen.</p>
 neuen Aspekte beschränken. In den Zeilen 5-7 wurde diesmal eine Funktion
 definiert, die einen Vektor mit den benötigten ersten Ableitungen zurückgibt.
 Die in Zeile 10 definierten Anfangsbedingungen müssen jetzt ebenfalls aus einem
-Vektor bestehen. Außerdem enthält die Funktion <tt class="xref py py-func docutils literal"><span class="pre">ableitung()</span></tt> ein
-zusätzliches Argument, nämlich <tt class="docutils literal"><span class="pre">gamma</span></tt>, das übergeben werden muss. Dazu sieht
-<tt class="xref py py-func docutils literal"><span class="pre">odeint()</span></tt> ein viertes Argument vor, das ein Tupel sein muss und dessen
+Vektor bestehen. Außerdem enthält die Funktion <code class="xref py py-func docutils literal"><span class="pre">ableitung()</span></code> ein
+zusätzliches Argument, nämlich <code class="docutils literal"><span class="pre">gamma</span></code>, das übergeben werden muss. Dazu sieht
+<code class="xref py py-func docutils literal"><span class="pre">odeint()</span></code> ein viertes Argument vor, das ein Tupel sein muss und dessen
 Elemente dem dritten und eventuell weiteren Argumenten der Ableitungsfunktion
 zugeordnet werden.  Es ist zu beachten, dass ein einzelner eingeklammerter
 Variablenname nur dann als Tupel interpretiert wird, wenn dieser von einem
@@ -531,16 +525,16 @@ der absolute Fehler ausgegeben?</p>
 als Funktion der Zeit ausgibt, könnte man genauso seine Geschwindigkeit
 ausgeben. Nachdem wir zwei Differentialgleichungen erster Ordnung gelöst haben,
 ist die Geschwindigkeit bei der von uns gewählten Reihenfolge als zweite Spalte
-<tt class="docutils literal"><span class="pre">ergebnis[:,</span> <span class="pre">1]</span></tt> in der Ergebnismatrix zugänglich.</p>
+<code class="docutils literal"><span class="pre">ergebnis[:,</span> <span class="pre">1]</span></code> in der Ergebnismatrix zugänglich.</p>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Wie ändert sich die Trajektorie, wenn in der Bewegungsgleichung
 <span class="math">\(\dot x\)</span> durch <span class="math">\(\dot x^2\)</span> ersetzt wird, so dass die Bewegungsgleichung
-nichtlinear wird? Mit den in Kapitel <a class="reference internal" href="grafik.html#grafik"><em>Erstellung von Grafiken</em></a> dargestellten Techniken können
+nichtlinear wird? Mit den in Kapitel <a class="reference internal" href="grafik.html#grafik"><span>Erstellung von Grafiken</span></a> dargestellten Techniken können
 Sie die berechneten Trajektorien leicht vergleichen.</p>
 <p class="rubric">Footnotes</p>
 <table class="docutils footnote" frame="void" id="version" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Man beachte, dass vor und nach <tt class="docutils literal"><span class="pre">version</span></tt> jeweils <em>zwei</em> Unterstriche einzugeben sind.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Man beachte, dass vor und nach <code class="docutils literal"><span class="pre">version</span></code> jeweils <em>zwei</em> Unterstriche einzugeben sind.</td></tr>
 </tbody>
 </table>
 </div>
@@ -548,7 +542,7 @@ Sie die berechneten Trajektorien leicht vergleichen.</p>
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         «&#160;&#160;<a href="einausgabe.html">Ein- und Ausgabe</a>
@@ -560,9 +554,9 @@ Sie die berechneten Trajektorien leicht vergleichen.</p>
 
       </div>
 
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 erstellt.
     </div>
   </body>
 </html>
