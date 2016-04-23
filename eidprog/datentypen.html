@@ -434,8 +434,8 @@ numerischer Probleme besteht.  Dort werden mathematische Funktionen als
 Bestandteile der Sprache direkt zur Verfügung gestellt.</p>
 <p>Zum Vergleich mit Python betrachten wir den folgenden Code, der die Verwendung
 einer mathematischen Funktion in der Programmiersprache C illustriert:</p>
-<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="cp">#include &lt;math.h&gt;</span>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
   <span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
@@ -713,7 +713,7 @@ beachten, dass die folgenden beiden Wege nicht zum Ziel führen:</p>
 </pre></div>
 </div>
 <p>In diesem Fall geht Python davon aus, dass es sich bei <code class="docutils literal"><span class="pre">yj</span></code> bzw. <code class="docutils literal"><span class="pre">j</span></code>
-um eine Variable handelt, die jedoch bis jetzt noch nicht defniert wurde.
+um eine Variable handelt, die jedoch bis jetzt noch nicht definiert wurde.
 Vielmehr muss die imaginäre Einheit explizit als <code class="docutils literal"><span class="pre">1j</span></code> geschrieben
 werden:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="mi">1j</span>
@@ -1074,7 +1074,7 @@ Ausgabe auf dem Bildschirm mit Hilfe der <code class="docutils literal"><span cl
 <span class="go">1.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">1.5 3.14159</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Dies ist eine Näherung für die Kreiszahl:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Dies ist eine Näherung für die Kreiszahl:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">Dies ist eine Näherung für die Kreiszahl: 3.14159</span>
 </pre></div>
 </div>
@@ -1086,7 +1086,7 @@ Kapitel <a class="reference internal" href="sequenzen.html#strings"><span>Zeiche
 dass beim Ausdruck mehrerer Variablen automatisch ein Leerzeichen eingefügt
 wird. Wenn man zwischen Zeichenketten das Komma weglässt, kann man dieses
 Leerzeichen unterdrücken:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Dies ist eine Näher&quot;</span> <span class="s">&quot;ung für die Kreiszahl:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Dies ist eine Näher&quot;</span> <span class="s2">&quot;ung für die Kreiszahl:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">Dies ist eine Näherung für die Kreiszahl: 3.14159</span>
 </pre></div>
 </div>
@@ -1111,22 +1111,22 @@ möchte und die im Formatierungsausdruck durch in geschweifte Klammern eingeschl
 Nummern angegeben werden.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">power</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{0}**{1} = {2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{0}**{1} = {2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
 <span class="go">2**3 = 8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{0}**{1} = {2}. Ja, das Ergebnis ist {2}!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{0}**{1} = {2}. Ja, das Ergebnis ist {2}!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
 <span class="go">2**3 = 8. Ja, das Ergebnis ist 8!</span>
 </pre></div>
 </div>
 <p>Wie die letzte Eingabe zeigt, können Platzhalter auch wiederholt werden. Ist eine
 Wiederholung nicht gewünscht und gibt man die Variablen in der richtigen Reihenfolge
 an, so kann auf die Nummerierung verzichtet werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{}**{} = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}**{} = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
 <span class="go">2**3 = 8</span>
 </pre></div>
 </div>
 <p>In unübersichtlichen Situationen oder wenn man die Reihenfolge später noch auf
 einfache Weise ändern möchte kann man auch Namen vergeben.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{basis}**{exponent} = {ergebnis}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basis</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{basis}**{exponent} = {ergebnis}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basis</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
 <span class="go">                                                    exponent=power,</span>
 <span class="go">                                                    ergebnis=x**power))</span>
 <span class="go">2**3 = 8</span>
@@ -1137,7 +1137,7 @@ geeignet umzubrechen. Wir erinnern uns daran, dass nach einer geöffneten Klamme
 also der Klammer vor <code class="docutils literal"><span class="pre">basis</span></code>, bis zur schließenden Klammer weitergelesen wird.</p>
 <p>Will man eine geschweifte Klammer im Ausgabetext unterbringen, so muss man diese
 wie im folgenden Beispiel gezeigt verdoppeln.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{}**{} = {}. Und das ist eine geschweifte Klammer: {{&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}**{} = {}. Und das ist eine geschweifte Klammer: {{&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
 <span class="go">                                                         x, power, x**power))</span>
 <span class="go">2**3 = 8. Und das ist eine geschweifte Klammer: {</span>
 </pre></div>
@@ -1152,7 +1152,7 @@ beispielsweise bei Gleitkommazahlen wichtig.</p>
 </div>
 <p>Vielleicht wollen wir jedoch gar nicht so viele Nachkommastellen ausgeben. Dies können
 wir mit Hilfe einer Formatspezifikation festlegen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{0:5.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:5.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">| 1.41|</span>
 </pre></div>
 </div>
@@ -1163,7 +1163,7 @@ Nachkommastellen angibt. Das abschließende <code class="docutils literal"><span
 einem Format mit fester Kommastelle. Die beiden senkrechten Striche sollen
 nur dazu dienen, den Leerplatz vor der Zahl sichtbar zu machen, der dadurch
 entsteht, dass die gesamte Feldbreite gleich <code class="docutils literal"><span class="pre">5</span></code> sein soll.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{0:.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.41|</span>
 </pre></div>
 </div>
@@ -1174,17 +1174,17 @@ Vorzeichen relevant. Hierbei kann man angeben, wie bei einer positiven Zahl
 verfahren wird. Durch Eingabe eines Pluszeichens, eines Leerzeichens oder
 eines Minuszeichens in der Formatierungsangabe wird ein Plus, ein Leerzeichen
 bzw. gar nichts ausgegeben wie die folgenden Beispiele zeigen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|+1.41|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|-1.41|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{: 4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{: 4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">| 1.41|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{: 4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{: 4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|-1.41|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:-4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:-4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.41|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:-4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:-4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|-1.41|</span>
 </pre></div>
 </div>
@@ -1193,9 +1193,9 @@ zwischen der dritten und fünften Eingabe zu verdeutlichen.</p>
 <p>Bei der Ausgabe von Gleitkommazahlen gibt es nun aber das Problem, dass bei sehr
 kleinen oder sehr großen Zahlen eine feste Anzahl von Nachkommastellen nicht
 unbedingt geeignet ist.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">1.41421356</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000000</span><span class="p">))</span>
 <span class="go">0.00000014</span>
 </pre></div>
 </div>
@@ -1203,13 +1203,13 @@ unbedingt geeignet ist.</p>
 Stellen dramatisch reduziert ist. In solchen Fällen bietet es sich an, eine
 Ausgabe in Exponentialdarstellung zu verlangen, die man mit Hilfe des Buchstabens
 <code class="docutils literal"><span class="pre">e</span></code> statt <code class="docutils literal"><span class="pre">f</span></code> erhält.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:10.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:10.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.41421356e+00|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:10.4e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:10.4e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.4142e+00|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:14.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:14.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000000</span><span class="p">))</span>
 <span class="go">|1.41421356e-07|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:20.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:20.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|      1.41421356e+00|</span>
 </pre></div>
 </div>
@@ -1227,13 +1227,13 @@ ausprobieren: <code class="docutils literal"><span class="pre">{:&lt;20.8e}</spa
 <p>Häufig möchte man die Exponentialschreibweise nur verwenden, wenn die
 auszugebende Zahl hinreichend groß oder klein ist. Ein solches Verhalten
 erreicht man durch Angabe des Buchstabens <code class="docutils literal"><span class="pre">g</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">))</span>
 <span class="go">|  1.4142136e-05|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000</span><span class="p">))</span>
 <span class="go">|  0.00014142136|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">10000000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">10000000</span><span class="p">))</span>
 <span class="go">|       14142136|</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">100000000</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">100000000</span><span class="p">))</span>
 <span class="go">|  1.4142136e+08|</span>
 </pre></div>
 </div>
@@ -1241,7 +1241,7 @@ erreicht man durch Angabe des Buchstabens <code class="docutils literal"><span c
 immer die gleiche Anzahl von signifikanten Stellen ausgegeben wird. <a class="footnote-reference" href="#gformat" id="id15">[13]</a></p>
 <p>Betrachten wir nun noch die Formatierung von Integers.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{0}|{0:5}|{0:05}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0}|{0:5}|{0:05}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="go">|42|   42|00042|</span>
 </pre></div>
 </div>
@@ -1254,7 +1254,7 @@ das Feld vor der auszugebenden Zahl mit Nullen aufgefüllt. Dies kann zum
 Beispiel bei der Ausgabe in anderen Zahlensystemen interessant sein. Python
 unterstützt insbesondere die Ausgabe im Binärformat (<code class="docutils literal"><span class="pre">b</span></code>), Oktalformat
 (<code class="docutils literal"><span class="pre">o</span></code>) und im Hexadezimalformat (<code class="docutils literal"><span class="pre">x</span></code>).</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;|{0:}|{0:8b}|{0:8o}|{0:8x}|{0:08b}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:}|{0:8b}|{0:8o}|{0:8x}|{0:08b}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="go">|42|  101010|      52|      2a|00101010|</span>
 </pre></div>
 </div>
@@ -1271,9 +1271,9 @@ Dokumentation der Python-Standardbibliothek.</p>
 einen Zeilenumbruch an das Ende des auszugebenden Textes anhängt. Dies ist
 jedoch nicht immer gewünscht und lässt sich mit Hilfe der Option <code class="docutils literal"><span class="pre">end</span></code>
 beeinflussen. Folgendes Beispiel zeigt die Funktionsweise. Die Befehle</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&quot;..&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>erzeugen die Ausgabe <code class="docutils literal"><span class="pre">x..xx</span></code> sowie einen anschließenden Zeilenumbruch.</p>
@@ -1399,7 +1399,7 @@ nachlesen.</td></tr>
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6 erstellt.
     </div>
   </body>
 </html>
