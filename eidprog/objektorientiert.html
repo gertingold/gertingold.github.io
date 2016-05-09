@@ -77,7 +77,7 @@ oder sie in verschiedenen Weisen ausgeben.</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
@@ -87,7 +87,7 @@ oder sie in verschiedenen Weisen ausgeben.</p>
 <p>und wenden diese Klassendefinition sofort an</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 <span class="go">2 5</span>
 </pre></div>
@@ -134,7 +134,7 @@ dem folgenden Code erledigt</p>
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
@@ -152,13 +152,13 @@ dem folgenden Code erledigt</p>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>wie hier zu sehen ist</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">7/5</span>
 </pre></div>
@@ -221,7 +221,7 @@ Klassendefinition in folgender Weise:</p>
 35
 36
 37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
@@ -239,7 +239,7 @@ Klassendefinition in folgender Weise:</p>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
 
@@ -263,7 +263,7 @@ Klassendefinition in folgender Weise:</p>
 </td></tr></table></div>
 <p>Jetzt sind wir in der Lage, echte Brüche zu addieren und zu multiplizieren, sie
 in Gleitkommazahlen umzuwandeln und zu vergleichen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 <span class="go">29/35</span>
@@ -294,7 +294,7 @@ definieren, die mit ihrem Namen von außerhalb der Klasse aufgerufen werden. Als
 Beispiel definieren wir eine <code class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></code>-Methode, die den Bruch in
 mehreren Zeilen mit einem horizontalen Bruchstrich ausgeben soll. Unsere
 Klassendefinition nimmt dann die folgende Form an:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
@@ -312,7 +312,7 @@ Klassendefinition nimmt dann die folgende Form an:</p>
 
     <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
 
@@ -337,14 +337,14 @@ Klassendefinition nimmt dann die folgende Form an:</p>
         <span class="n">zaehler_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
         <span class="n">nenner_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="n">feldbreite</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zaehler_str</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nenner_str</span><span class="p">))</span>
-        <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
-        <span class="k">print</span> <span class="s">&quot;{}</span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
+        <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
+        <span class="k">print</span> <span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">{}</span><span class="se">\n</span><span class="s2">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
                                   <span class="n">bruchstrich</span><span class="p">,</span>
                                   <span class="n">nenner_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Nun können wir die <code class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></code>-Methode anwenden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">213</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">213</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3091</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">prettyprint</span><span class="p">()</span>
@@ -375,7 +375,7 @@ Objekten arbeiten kann. Wie schon im Kapitel <a class="reference internal" href=
 besprochen, kann auch bei Methoden in einer Klassendefinition ein Dokumentationstext
 direkt nach der mit <code class="docutils literal"><span class="pre">def</span></code> beginnenden Zeile eingebaut werden. Die Methode <code class="docutils literal"><span class="pre">prettyprint</span></code>
 könnte dann folgendermaßen aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gibt den Bruch dreizeilig aus, wobei Zähler und Nenner</span>
 <span class="sd">    zentriert gesetzt sind.</span>
 
@@ -383,14 +383,14 @@ könnte dann folgendermaßen aussehen:</p>
     <span class="n">zaehler_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
     <span class="n">nenner_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
     <span class="n">feldbreite</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zaehler_str</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nenner_str</span><span class="p">))</span>
-    <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
-    <span class="k">print</span> <span class="s">&quot;{}</span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
+    <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
+    <span class="k">print</span> <span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">{}</span><span class="se">\n</span><span class="s2">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
                               <span class="n">bruchstrich</span><span class="p">,</span>
                               <span class="n">nenner_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>In der Python-Shell kann man Information über alle Methoden in folgender Weise bekommen:</p>
-<div class="highlight-python"><div class="highlight"><pre> &gt;&gt;&gt; help(Bruch)
+<div class="highlight-python"><div class="highlight"><pre><span></span> &gt;&gt;&gt; help(Bruch)
 
  Help on class Bruch in module __main__:
 
@@ -442,12 +442,12 @@ könnte zum Beispiel wie folgt erweitert werden:</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">zaehler</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nenner</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__reduce</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
@@ -472,14 +472,14 @@ Fehler adäquat zu behandeln.</p>
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s">&quot;33&quot;</span><span class="p">,</span> <span class="s">&quot;47&quot;</span><span class="p">)</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s2">&quot;33&quot;</span><span class="p">,</span> <span class="s2">&quot;47&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">33/47</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;bruch.py&quot;</span>, line <span class="m">10</span>, in <span class="n">__init__</span>
-    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="s">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="s2">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span>
 <span class="gr">ValueError</span>: <span class="n">Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span> <span class="mi">44</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -511,7 +511,7 @@ zeigt. Neben der Methode, die die Richtung der Achse ausgibt, wollen wir eine Me
 implementieren, die die Achse des Körpers dreht, wobei Drehwinkel und Drehachse
 als Argumente übergeben werden.</p>
 <p>Wir definieren zunächst eine Klasse für den Massepunkt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="k">class</span> <span class="nc">Massepunkt</span><span class="p">:</span>
 
@@ -522,7 +522,7 @@ als Argumente übergeben werden.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="o">+</span><span class="n">shift</span>
 
     <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Die Konstruktormethode legt den Massepunkt in den Ursprung. Da wir für die Drehung
@@ -531,7 +531,7 @@ um Vektoren zu definieren. Die <code class="xref py py-func docutils literal"><s
 Vektor <code class="docutils literal"><span class="pre">shift</span></code>. Mit der <code class="xref py py-func docutils literal"><span class="pre">position()</span></code>-Methode lässt sich die aktuelle Position des
 Massepunkts ausgeben, auf die sich auch mit Hilfe des Attributs <code class="docutils literal"><span class="pre">pos</span></code> zugreifen lässt.
 Testen wir zunächst die Funktionalität dieser Klasse:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Massepunkt</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Massepunkt</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">pos</span>
 <span class="go">array([0, 0, 0])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
@@ -576,7 +576,7 @@ so insgesamt den folgenden Code:</p>
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
 
 <span class="k">class</span> <span class="nc">Massepunkt</span><span class="p">:</span>
@@ -588,7 +588,7 @@ so insgesamt den folgenden Code:</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="o">+</span><span class="n">shift</span>
 
     <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
 
 
 <span class="k">class</span> <span class="nc">Rotationskoerper</span><span class="p">(</span><span class="n">Massepunkt</span><span class="p">):</span>
@@ -605,8 +605,8 @@ so insgesamt den folgenden Code:</p>
                      <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">drehachse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">winkel</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">orientierung</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Die Achse des starren Körpers liegt in Richtung &quot;</span>
-              <span class="s">&quot;des Vektors ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Achse des starren Körpers liegt in Richtung &quot;</span>
+              <span class="s2">&quot;des Vektors ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
 <p>In Zeile 16 wird die Basisklasse <code class="docutils literal"><span class="pre">Massepunkt</span></code> als Argument der Klasse <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>
@@ -622,7 +622,7 @@ durchaus auch möglich, Methoden der <code class="docutils literal"><span class=
 wollen dies hier jedoch nicht tun, da wir die Methoden dieser Klasse
 unverändert verwenden wollen. Sehen wir uns nun an, ob die
 <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse wie gewünscht funktioniert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span> <span class="o">=</span> <span class="n">Rotationskoerper</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span> <span class="o">=</span> <span class="n">Rotationskoerper</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
 <span class="go">Die Masse befindet sich am Ort (0, 0, 0).</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span><span class="o">.</span><span class="n">orientierung</span><span class="p">()</span>
@@ -671,7 +671,7 @@ verfügbar.</td></tr>
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 erstellt.
     </div>
   </body>
 </html>

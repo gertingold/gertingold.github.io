@@ -69,8 +69,8 @@ Schreiben des Programms feststeht und nicht erst beim Ausführen des Programms
 berechnet wird. Im Kapitel <a class="reference internal" href="vorschau.html#vorschau"><span>Eine Vorschau</span></a> hatten wir bereits die wesentliche
 Struktur einer <code class="docutils literal"><span class="pre">for</span></code>-Schleife kennengelernt, die wir hier nochmals an einem
 einfachen Beispiel illustrieren wollen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{:4} {:4}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:4} {:4}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="mi">0</span>    <span class="mi">0</span>
 <span class="mi">1</span>    <span class="mi">1</span>
@@ -87,7 +87,7 @@ können hier auch mehrere Variablennamen vorkommen, wie wir später im Kapitel
 unserem Beispiel annehmen kann, werden durch die <code class="docutils literal"><span class="pre">range</span></code>-Anweisung bestimmt.
 Zwar werden die Werte erst bei Bedarf generiert, aber wir können sie uns wie
 folgt ansehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="go">[0, 1, 2, 3, 4]</span>
 </pre></div>
 </div>
@@ -103,26 +103,26 @@ annimmt.</p>
 wird und im obigen Beispiel nur aus einer Zeile besteht, ist daran zu erkennen,
 dass er eingerückt ist. Vergleichen wir zur Verdeutlichung die beiden
 Codestücke</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Schleifendurchlauf {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchlauf {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>und</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Schleifendurchlauf {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchlauf {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>so erhalten wir im ersten Fall die Ausgabe</p>
-<div class="highlight-python"><div class="highlight"><pre>Schleifendurchlauf 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>Schleifendurchlauf 1
 Das war&#39;s.
 Schleifendurchlauf 2
 Das war&#39;s.
 </pre></div>
 </div>
 <p>während die Ausgabe im zweiten Fall</p>
-<div class="highlight-python"><div class="highlight"><pre>Schleifendurchlauf 1
+<div class="highlight-python"><div class="highlight"><pre><span></span>Schleifendurchlauf 1
 Schleifendurchlauf 2
 Das war&#39;s.
 </pre></div>
@@ -141,7 +141,7 @@ Verwendung von Tabulatorzeichen.</p>
 <p>Da die Verwendung der Einrückung als syntaktisches Merkmal ungewöhnlich ist,
 wollen wir kurz zwei Beispiele aus anderen Programmiersprachen besprechen. In
 FORTRAN 90 könnte eine Schleife folgendermaßen aussehen:</p>
-<div class="highlight-fortran"><div class="highlight"><pre><span class="k">PROGRAM </span><span class="n">Quadrat</span>
+<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="k">PROGRAM </span><span class="n">Quadrat</span>
 <span class="k">DO </span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span>
    <span class="k">PRINT</span> <span class="s1">&#39;(2I4)&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">END DO</span>
@@ -167,7 +167,7 @@ geschweifte Klammer in Zeile 6 und die schließende geschweifte Klammer in Zeile
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="n">main</span><span class="p">(){</span>
    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
@@ -183,12 +183,12 @@ geschweifte Klammer in Zeile 6 und die schließende geschweifte Klammer in Zeile
 gerade Zahlen interessieren und für das kleine Einmaleins nicht den Computer
 bemühen müssen. Dann können wir der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion auch einen Startwert
 und eine Schrittweite vorgeben:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Die zugehörige Ausgabe lautet:</p>
-<div class="highlight-python"><div class="highlight"><pre>20 400
+<div class="highlight-python"><div class="highlight"><pre><span></span>20 400
 22 484
 24 576
 </pre></div>
@@ -198,13 +198,13 @@ als das zweite Argument ist. Bereits in dem eingangs betrachteten Beispiel war d
 Argument der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion nicht in der Liste enthalten.</p>
 <p>Statt mit der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion eine Zahlenfolge zu erzeugen, können wir eine
 Liste mit den gewünschten Objekten vorgeben, wie dieses Beispiel</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">zahlen</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>mit der Ausgabe</p>
-<div class="highlight-python"><div class="highlight"><pre>12 144
+<div class="highlight-python"><div class="highlight"><pre><span></span>12 144
 17 289
 23 529
 </pre></div>
@@ -219,8 +219,8 @@ speziellen Fall, in dem die Schleifenvariable bei der Abarbeitung der Schleife
 nicht verwendet wird, kann zur Verdeutlichung dieses Umstands der Unterstrich
 <code class="docutils literal"><span class="pre">_</span></code> als Variablenname verwendet werden. Hierbei handelt es sich, wie wir aus
 dem Kapitel <a class="reference internal" href="datentypen.html#variablen"><span>Variablen und Zuweisungen</span></a> wissen, um einen erlaubten Bezeichner.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Python ist toll!&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Python ist toll!&quot;</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">Python ist toll!</span>
 <span class="go">Python ist toll!</span>
@@ -234,7 +234,7 @@ Schleife vorbereitet, den Schleifeninhalt noch nicht geschrieben hat, aber
 dennoch ein syntaktisch korrektes Programm haben möchte.  Da der
 Schleifeninhalt nicht leer sein darf, verwendet man in einem solchen Fall die
 Anweisung <code class="docutils literal"><span class="pre">pass</span></code>, die sonst keine weiteren Auswirkungen hat. In dem Beispiel</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
@@ -250,7 +250,7 @@ gezeigt.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
@@ -273,16 +273,16 @@ verwendet werden.</p>
 <p><code class="docutils literal"><span class="pre">for</span></code>-Schleifen können auch ineinander geschachtelt werden, wie folgendes
 Beispiel zeigt, das die Wahrheitswerttabelle der logischen UND-Verknüpfung
 mit Hilfe des <code class="docutils literal"><span class="pre">&amp;</span></code>-Operators erzeugt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot; arg1 arg2    arg1 &amp; arg2 &quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;--------------------------&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot; arg1 arg2    arg1 &amp; arg2 &quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;--------------------------&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">arg1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">arg2</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;   {}    {}          {}&quot;</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;   {}    {}          {}&quot;</span>
               <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg1</span> <span class="o">&amp;</span> <span class="n">arg2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Die zugehörige Ausgabe lautet:</p>
-<div class="highlight-python"><div class="highlight"><pre>arg1 arg2    arg1 &amp; arg2
+<div class="highlight-python"><div class="highlight"><pre><span></span>arg1 arg2    arg1 &amp; arg2
 --------------------------
   0    0          0
   0    1          0
@@ -334,20 +334,20 @@ kennen wir die Lösung analytisch und können sie im Programm verwenden.</p>
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c"># Startzeit</span>
-<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c"># Zeitschritt</span>
-<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>   <span class="c"># Erdbeschleunigung in m/s²</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c"># horizontale Ausgangsposition in m</span>
-<span class="n">y0</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c"># Anfangshöhe in m</span>
-<span class="n">vx0</span> <span class="o">=</span> <span class="mi">2</span>    <span class="c"># Anfangsgeschwindigkeit in x-Richtung in m/s</span>
-<span class="n">vy0</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c"># Anfangsgeschwindigkeit in y-Richtung in m/s</span>
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>      <span class="c1"># Startzeit</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># Zeitschritt</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span>   <span class="c1"># Erdbeschleunigung in m/s²</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># horizontale Ausgangsposition in m</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mi">0</span>     <span class="c1"># Anfangshöhe in m</span>
+<span class="n">vx0</span> <span class="o">=</span> <span class="mi">2</span>    <span class="c1"># Anfangsgeschwindigkeit in x-Richtung in m/s</span>
+<span class="n">vy0</span> <span class="o">=</span> <span class="mi">1</span>    <span class="c1"># Anfangsgeschwindigkeit in y-Richtung in m/s</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot; t      x      y&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">&quot;----------------------&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot; t      x      y&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;----------------------&quot;</span><span class="p">)</span>
 <span class="k">while</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;{:4.2f}   {:4.2f}   {:8.6f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:4.2f}   {:4.2f}   {:8.6f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
     <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">vx0</span><span class="o">*</span><span class="n">t</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">vy0</span><span class="o">*</span><span class="n">t</span> <span class="o">-</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">g</span><span class="o">*</span><span class="n">t</span><span class="o">**</span><span class="mi">2</span>
@@ -407,7 +407,7 @@ Beginn, sondern am Ende. Daher wird der Code auf jeden Fall einmal durchlaufen.<
 5
 6
 7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 
 <span class="n">main</span><span class="p">(){</span>
    <span class="kt">int</span> <span class="n">i</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
@@ -421,7 +421,7 @@ Beginn, sondern am Ende. Daher wird der Code auf jeden Fall einmal durchlaufen.<
 von <code class="docutils literal"><span class="pre">i</span></code> erst am Ende der Schleife erfolgt, wird die Schleife einmal durchlaufen und
 somit eine Zeile mit dem Inhalt <code class="docutils literal"><span class="pre">-1</span>&nbsp; <span class="pre">1</span></code> ausgegeben. In Pascal würde man das Gleiche
 mit diesem Code erhalten:</p>
-<div class="highlight-pascal"><div class="highlight"><pre><span class="k">program</span> <span class="n">Quadrat</span><span class="o">;</span>
+<div class="highlight-pascal"><div class="highlight"><pre><span></span><span class="k">program</span> <span class="n">Quadrat</span><span class="o">;</span>
 <span class="k">var</span>
   <span class="n">i</span><span class="o">:</span> <span class="kt">integer</span><span class="o">;</span>
 <span class="k">begin</span>
@@ -454,14 +454,14 @@ Schleife fortzusetzen.</p>
 Ausführung von Code geht, sind Verzweigungen. Dabei wird ein Code nur dann
 ausgeführt, wenn eine vorgegebene Bedingung erfüllt ist. Im einfachsten Fall
 geschieht dies mit der <code class="docutils literal"><span class="pre">if</span></code>-Anweisung wie folgendes Beispiel zeigt:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Der Kehrwert von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Der Kehrwert von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">...</span>
 <span class="go">Der Kehrwert von 5 ist 0.2.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Der Kehrwert von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Der Kehrwert von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">...</span>
 </pre></div>
 </div>
@@ -470,10 +470,10 @@ dagegen nicht. Wie schon bei den <code class="docutils literal"><span class="pre
 Umfang des Codeblocks, der nur bedingt ausgeführt wird, durch die Einrückung
 bestimmt, kann also auch mehr als eine Zeile umfassen. Ist der Code nur eine
 Zeile lang, darf er auch direkt hinter der <code class="docutils literal"><span class="pre">if</span></code>-Anweisung stehen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
 <span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s">&quot;Diese Zahl ist bestimmt nicht negativ:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Diese Zahl ist bestimmt nicht negativ:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="go">Diese Zahl ist bestimmt nicht negativ: 5</span>
 </pre></div>
 </div>
@@ -486,7 +486,7 @@ folgendem Muster einzuführen:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="n">zahl_ist_negativ</span> <span class="o">=</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span>
 <span class="k">if</span> <span class="n">zahl_ist_negativ</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
@@ -496,11 +496,11 @@ folgendem Muster einzuführen:</p>
 des logischen Ausdrucks auf der rechten Seite.</p>
 <p>Häufig möchte man abhängig von einer Bedingung eine von zwei Alternativen
 ausführen lassen. Hierfür verwendet man das <code class="docutils literal"><span class="pre">if</span></code> … <code class="docutils literal"><span class="pre">else</span></code> …-Konstrukt:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Der Kehrwert von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Der Kehrwert von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">... </span><span class="k">else</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Ich weiß nicht wie man durch Null dividiert.&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ich weiß nicht wie man durch Null dividiert.&quot;</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">Ich weiß nicht wie man durch Null dividiert.</span>
 </pre></div>
@@ -512,13 +512,13 @@ ausführen lassen. Hierfür verwendet man das <code class="docutils literal"><sp
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist negativ.&quot;</span><span class="p">)</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist negativ.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist gleich Null.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist gleich Null.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist positiv.&quot;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist positiv.&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>Wie die Einrückung zeigt, stellen die Zeilen 4-7 den Codeblock der ersten
@@ -530,12 +530,12 @@ folgendermaßen schreiben lässt:</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist negativ.&quot;</span><span class="p">)</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist negativ.&quot;</span><span class="p">)</span>
  <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist gleich Null.&quot;</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist gleich Null.&quot;</span><span class="p">)</span>
  <span class="k">else</span><span class="p">:</span>
-     <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist positiv.&quot;</span><span class="p">)</span>
+     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist positiv.&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>Um die Programmlaufzeit zu optimieren, sollten die Abfragen so formuliert
@@ -554,13 +554,13 @@ lange Hierarchie von Abfragen vermeidet.</p>
 eines Blockes an das Ende der gesamten <code class="docutils literal"><span class="pre">if</span></code>-Konstruktion gesprungen wird.
 Dies gilt auch dann, wenn eine später folgende Bedingung erfüllt ist, wie das
 folgende Beispiel illustriert.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist negativ.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist negativ.&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist gleich 2.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist gleich 2.&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s">&quot;x ist größer als Null.&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist größer als Null.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Hier ist die zweite Bedingung erfüllt, so dass der Text »<code class="docutils literal"><span class="pre">x</span> <span class="pre">ist</span> <span class="pre">gleich</span> <span class="pre">2.</span></code>«
@@ -582,7 +582,7 @@ Ausnahme kann folgendermaßen abgefangen werden:</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
@@ -658,7 +658,7 @@ permission”.</td></tr>
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 erstellt.
     </div>
   </body>
 </html>
