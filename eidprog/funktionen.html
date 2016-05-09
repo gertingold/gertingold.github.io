@@ -182,6 +182,19 @@ Funktionalität gleich zu implementieren. Um dennoch schon zu diesem Zeitpunkt e
 korrektes Programm zu haben, kann man den Befehl <code class="docutils literal"><span class="pre">pass</span></code> verwenden, der lediglich dazu
 dient, den benötigten Codeblock bereitzustellen. <code class="docutils literal"><span class="pre">pass</span></code> hat ansonsten keinerlei Auswirkungen
 auf den Programmablauf.</p>
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Auch wenn eine Funktion keine <code class="docutils literal"><span class="pre">return</span></code>-Anweisung
+enthält, wird ein Wert zurückgegeben, nämlich <code class="docutils literal"><span class="pre">None</span></code> wie folgendes
+einfache Beispiel zeigt.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
+<span class="go">None</span>
+</pre></div>
+</div>
+<p>Gelegentlich kann es vorkommen, dass man sich über diese unerwartete
+Rückgabe wundert. Grund hierfür ist dann häufig eine vergessene
+<code class="docutils literal"><span class="pre">return</span></code>-Anweisung.</p>
 </div>
 <div class="section" id="dokumentation-von-funktionen">
 <span id="funcdoc"></span><h2>Dokumentation von Funktionen<a class="headerlink" href="#dokumentation-von-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
