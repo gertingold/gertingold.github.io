@@ -64,7 +64,7 @@ Liste.  Wir haben sie bereits im Abschnitt <a class="reference internal" href="k
 hatten wir mit Hilfe von <code class="xref py py-func docutils literal"><span class="pre">range()</span></code> und <code class="xref py py-func docutils literal"><span class="pre">list()</span></code> Listen erzeugt,
 auch wenn wir uns dessen dort nicht wirklich bewusst waren. Dementsprechend
 lässt sich eine, zugegebenermaßen sehr spezielle Liste folgendermaßen erzeugen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
 <span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
@@ -78,7 +78,7 @@ Aufeinanderfolgende Listenelemente unterscheiden sich in diesem Fall jeweils um
 Eins.</p>
 <p>Häufig ist es notwendig, die Anzahl der Elemente einer Liste zu kennen. Diese Information
 erhält man mit Hilfe der Funktion <code class="xref py py-func docutils literal"><span class="pre">len()</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
 <span class="go">[1, 4, 7, 10, 13, 16]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
@@ -86,7 +86,7 @@ erhält man mit Hilfe der Funktion <code class="xref py py-func docutils literal
 </pre></div>
 </div>
 <p>Es ist möglich, auf einzelne Elemente der Liste zuzugreifen und diese auch zu verändern:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="go">17</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
@@ -98,7 +98,7 @@ erhält man mit Hilfe der Funktion <code class="xref py py-func docutils literal
 Null beginnt. Das zweite Element ist also in diesem Fall <code class="docutils literal"><span class="pre">liste[1]</span></code>. Diese Zählweise wird
 auch in einigen anderen Programmiersprachen verwendet, nicht aber zum Beispiel in FORTRAN.</p>
 <p>Neben einzelnen Elementen kann man auch Unterlisten, so genannte »slices«, erzeugen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
 <span class="go">[3, 5, 7, 11]</span>
 </pre></div>
@@ -108,7 +108,7 @@ hier also <code class="docutils literal"><span class="pre">a[1]</span></code>. D
 verminderte Zahl nach dem Doppelpunkt gegeben. Dieses Verhalten entspricht genau dem, was
 wir von der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion her kennen. Eine Unterliste von <code class="docutils literal"><span class="pre">a</span></code>, die direkt an
 <code class="docutils literal"><span class="pre">a[1:5]</span></code> anschließt, hat als ersten Index die <code class="docutils literal"><span class="pre">5</span></code>, also</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
 <span class="go">[13, 17, 19]</span>
 </pre></div>
 </div>
@@ -119,7 +119,7 @@ wie es die folgende Abbildung zeigt:</p>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Was ergibt <code class="docutils literal"><span class="pre">a[2:2]</span></code>?</p>
 <p>Wird einer der beiden Indizes nicht angegeben, so wird er durch den Index ersetzt, der auf
 den Beginn bzw. das Ende der Liste zeigt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 <span class="go">[2, 3, 5, 7, 11]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
 <span class="go">[13, 17, 19, 23]</span>
@@ -129,7 +129,7 @@ den Beginn bzw. das Ende der Liste zeigt.</p>
 </div>
 <p>In der letzten Anweisung wurden beide Indizes weggelassen, so dass man die
 gesamte Liste erhält, was zum Beispiel auch folgendermaßen möglich wäre:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">[2, 3, 5, 7, 11, 13, 17, 19, 23]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)]</span>
 <span class="go">[2, 3, 5, 7, 11, 13, 17, 19, 23]</span>
@@ -141,7 +141,7 @@ wählt, wobei <code class="docutils literal"><span class="pre">N</span></code> d
 passieren, dass man auf ein zufällig im Speicher benachbart liegendes Objekt
 zugreift.  In den meisten Fällen wird dies zu einem unerwünschten Ergebnis
 führen. Python dagegen weist auf den illegalen Zugriff hin:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">IndexError</span>: <span class="n">list index out of range</span>
@@ -153,14 +153,14 @@ mit dem Index <code class="docutils literal"><span class="pre">-N</span></code> 
 der Indizes dar.</p>
 <a class="reference internal image-reference" href="_images/listnumbering2.png"><img alt="_images/listnumbering2.png" class="align-center" src="_images/listnumbering2.png" style="width: 20em;" /></a>
 <p>Die letzten beiden Elemente einer Liste erhält man demnach mit Hilfe von</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
 <span class="go">[19, 23]</span>
 </pre></div>
 </div>
 <p>Schließlich gibt es auch noch die Möglichkeit, die Schrittweite bei der Erzeugung
 der Unterliste festzulegen, wie die folgenden Beispiele zeigen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="go">[2, 5, 11]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span>
 <span class="go">[2, 7, 17]</span>
@@ -188,7 +188,7 @@ man es vielleicht erwarten würde.</p>
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">3070057740</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
@@ -218,7 +218,7 @@ Liste erhält man unter anderem auf folgende Weise:</p>
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="go">3070057740</span>
@@ -247,7 +247,7 @@ Code im Prinzip möglich:</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">aufgabe</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">aufgabe</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">aufgabe</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="go">181.27224187515122</span>
@@ -265,7 +265,7 @@ es auch möglich, Listen als Listenelemente zu verwenden.</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">[1, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -298,7 +298,7 @@ anschließend Elemente anhängen:</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -310,7 +310,7 @@ anschließend Elemente anhängen:</p>
 Die Funktionalität des angegebenen Codes lässt sich wesentlich effizienter als
 so genannte »list comprehension« realisieren <a class="footnote-reference" href="#list-comprehension" id="id2">[1]</a>, die für unser
 Beispiel die folgende Form hat:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">[0, 1, 4, 9, 16]</span>
 </pre></div>
@@ -318,7 +318,7 @@ Beispiel die folgende Form hat:</p>
 <p>Mit Hilfe der <code class="xref py py-func docutils literal"><span class="pre">append()</span></code>-Methode lassen sich also Elemente zu einer Liste
 hinzufügen. Sollen zunächst alle Listenelemente gleich sein, so kann man auch
 eine Multiplikation verwenden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]</span>
 </pre></div>
@@ -329,7 +329,7 @@ man eine Liste an eine andere Liste anhängen kann.</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
@@ -348,7 +348,7 @@ wie folgendes Beispiel zeigt.</p>
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="n">a</span>
 <span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 1, 2, 3]</span>
@@ -367,7 +367,7 @@ arbeiten <a class="footnote-reference" href="#doc-datastructures" id="id3">[2]</
 ansprechen. Gelegentlich möchte man in einer Liste nach Elementen suchen. Die
 <code class="xref py py-func docutils literal"><span class="pre">index()</span></code>-Methode gibt den Index des ersten Auftretens des gesuchten Objekts
 an.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">1</span>
 </pre></div>
@@ -375,13 +375,13 @@ an.</p>
 <p>Will man nach einem weiteren Auftreten des Objekts suchen, so betrachtet man die
 auf das erste Auftreten folgende Unterliste. Das Ergebnis bezeichnet dann jedoch
 den betreffenden Index in der Unterliste, nicht in der ursprünglichen Liste.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
 </div>
 <p>Ist das gesuchte Objekt nicht in der Liste vorhanden, so wird ein <code class="docutils literal"><span class="pre">ValueError</span></code>
 geworfen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">ValueError</span>: <span class="n">list.index(x): x not in list</span>
@@ -389,7 +389,7 @@ geworfen.</p>
 </div>
 <p>Dieser Fall sollte mit einer <code class="docutils literal"><span class="pre">try</span></code> … <code class="docutils literal"><span class="pre">except</span></code>-Konstruktion abgefangen
 werden. Der entsprechende Code könnte folgendermaßen aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Objekt nicht gefunden&quot;</span><span class="p">)</span>
@@ -398,7 +398,7 @@ werden. Der entsprechende Code könnte folgendermaßen aussehen:</p>
 <p>Manchmal genügt es auch, danach zu fragen, ob das Objekt in der Liste vorhanden
 ist. Hier bekommt man als Antwort entweder <code class="docutils literal"><span class="pre">True</span></code> oder <code class="docutils literal"><span class="pre">False</span></code>. Den Index
 des gesuchten Listenelements erfährt man auf diese Weise allerdings nicht.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">in</span> <span class="n">a</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">3</span> <span class="ow">in</span> <span class="n">a</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span> <span class="ow">in</span> <span class="n">a</span>
 <span class="go">False</span>
@@ -406,14 +406,14 @@ des gesuchten Listenelements erfährt man auf diese Weise allerdings nicht.</p>
 </div>
 <p>Zwei Methoden geben keine neue Liste zurück, sondern verändern die aktuelle Liste. So kann
 man die Reihenfolge einer Liste umkehren</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">[3, 2, 1]</span>
 </pre></div>
 </div>
 <p>oder die Elemente einer Liste sortieren</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">a</span>
 <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
@@ -429,7 +429,7 @@ Listenelement eine zwei Zahlen umfassende Liste ist.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} - {} = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">))</span>
 <span class="gp">...</span>
@@ -450,7 +450,7 @@ Zuweisung zu verändern.</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="go">19</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
@@ -464,7 +464,7 @@ auf Untersequenzen sind problemlos möglich. Enthält die Sequenz wie in Zeile 5
 nur ein Element, so ist ein Komma vor der schließenden Klammer notwendig.
 <code class="docutils literal"><span class="pre">(1)</span></code> würde nicht als Tupel, sondern als geklammerte Eins interpretiert
 werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">&lt;class &#39;int&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
@@ -475,7 +475,7 @@ werden.</p>
 <p>Die folgenden Zeilen zeigen schließlich, dass der Versuch, ein Element des
 Tupels zu verändern, mit einem <code class="docutils literal"><span class="pre">TypeError</span></code> beendet wird. Tupel sind also,
 wie oben behauptet, tatsächlich unveränderlich.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">23</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">TypeError</span>: <span class="n">&#39;tuple&#39; object does not support item assignment</span>
@@ -488,7 +488,7 @@ wie oben behauptet, tatsächlich unveränderlich.</p>
 oder »Strings«. Ihnen sind wir in verschiedenen Codebeispielen schon
 gelegentlich begegnet. Solange die Zeichenkette in eine Zeile passt, wird sie
 durch Hochkommas (<code class="docutils literal"><span class="pre">'</span></code>) oder Anführungszeichen (<code class="docutils literal"><span class="pre">&quot;</span></code>) begrenzt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hallo&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hallo&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="s1">&#39;Hallo&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">==</span><span class="n">t</span>
 <span class="go">True</span>
@@ -499,7 +499,7 @@ zu begrenzen, erleichtert es, Hochkommas oder Anführungszeichen in einem String
 unterzubringen. Wenn der Begrenzer jedoch auch innerhalb des Strings auftreten
 soll, muss diesem mit einem vorgestellten Backslash (<code class="docutils literal"><span class="pre">\</span></code>) seine Sonderbedeutung
 genommen werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&quot;God said, </span><span class="se">\&#39;</span><span class="s1">Let Newton be!</span><span class="se">\&#39;</span><span class="s1"> and all was light&quot; (Alexander Pope)&#39;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&quot;God said, </span><span class="se">\&#39;</span><span class="s1">Let Newton be!</span><span class="se">\&#39;</span><span class="s1"> and all was light&quot; (Alexander Pope)&#39;</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="s2">&quot;God said, &#39;Let Newton be!&#39; and all was light&quot;</span> <span class="p">(</span><span class="n">Alexander</span> <span class="n">Pope</span><span class="p">)</span>
 </pre></div>
@@ -507,7 +507,7 @@ genommen werden.</p>
 <p>Der Backslash kann auch dazu benutzt werden, dem nachfolgenden Zeichen eine besondere
 Bedeutung als Steuerzeichen zu geben. Besonders wichtig ist <code class="docutils literal"><span class="pre">\n</span></code>, das einen
 Zeilenumbruch zur Folge hat.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Eine Zeile</span><span class="se">\n</span><span class="s2">und noch eine Zeile&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Eine Zeile</span><span class="se">\n</span><span class="s2">und noch eine Zeile&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="go">Eine Zeile</span>
 <span class="go">und noch eine Zeile</span>
@@ -521,7 +521,7 @@ für einen Seitenvorschub. Wenn man einen Backslash als normales Zeichen in
 einem String benötigt, so kann er entweder mit einem zusätzlichen Backslash
 versehen werden (<code class="docutils literal"><span class="pre">\\</span></code>) oder der ganze String durch Voranstellen eines <code class="docutils literal"><span class="pre">r</span></code>
 oder eines <code class="docutils literal"><span class="pre">R</span></code> als »raw string« gekennzeichnet werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">r&quot;Eine Zeile\nund noch eine Zeile&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">r&quot;Eine Zeile\nund noch eine Zeile&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
 <span class="go">&#39;Eine Zeile\\nund noch eine Zeile&#39;</span>
 </pre></div>
@@ -554,7 +554,7 @@ besprochenen <code class="docutils literal"><span class="pre">list</span></code>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Prüfung&quot;</span>
+14</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Prüfung&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="go">7</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
@@ -588,7 +588,7 @@ Byte entsprechenden Integer. Dies ist in den Zeilen 11-14 zu sehen.</p>
 <p>Die folgenden Beispiele zeigen, dass man mit Hilfe des Backslash Unicode-Strings auch
 über ihren Codepoint (<code class="docutils literal"><span class="pre">\u</span></code>) oder mit dem Unicodenamen des Zeichens (<code class="docutils literal"><span class="pre">\N</span></code>) definieren
 kann.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u03a8</span><span class="s2">&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u03a8</span><span class="s2">&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
 <span class="go">&#39;Ψ&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\N{GREEK SMALL LETTER PI}</span><span class="s2">&quot;</span>
@@ -598,7 +598,7 @@ kann.</p>
 </div>
 <p>Wie wir im vorigen Abschnitt gesehen haben, sind Tupel unveränderlich. Das gilt auch
 für Strings:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="go">3085106464L</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">+</span><span class="s2">&quot;def&quot;</span>
@@ -609,7 +609,7 @@ für Strings:</p>
 <p>Die Identität <code class="docutils literal"><span class="pre">id(s)</span></code> der hier definierten Strings <code class="docutils literal"><span class="pre">s</span></code> ist tatsächlich verschieden. Dieses
 Codebeispiel zeigt auch die Anwendung des Additionsoperators. Zudem ist ein Multiplikationsoperator
 wie folgt definiert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">*</span><span class="mi">5</span>
 <span class="go">&#39;abcabcabcabcabc&#39;</span>
 </pre></div>
@@ -625,7 +625,7 @@ das Beispiel stattdessen <code class="docutils literal"><span class="pre">&quot;
 <p>Bei Strings lassen sich wie in Abschnitt <a class="reference internal" href="#listen"><span>Listen</span></a> beschrieben Teilstrings generieren,
 und es lässt sich über die darin enthaltenen Zeichen iterieren wie im Folgenden kurz
 demonstriert wird:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hallo&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hallo&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="go">&#39;ollaH&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
@@ -658,7 +658,7 @@ von denen hier einige beispielhaft erwähnt werden sollen. <a class="footnote-re
 12
 13
 14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;   Hallo   &quot;</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;   Hallo   &quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
 <span class="go">&#39;Hallo   &#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;---Hallo-----&quot;</span>
@@ -696,7 +696,7 @@ wir ein Beispiel.</p>
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Galilei&quot;</span><span class="p">:</span> <span class="mi">1564</span><span class="p">,</span> <span class="s2">&quot;Maxwell&quot;</span><span class="p">:</span> <span class="mi">1831</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">:</span> <span class="mi">1879</span><span class="p">}</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Galilei&quot;</span><span class="p">:</span> <span class="mi">1564</span><span class="p">,</span> <span class="s2">&quot;Maxwell&quot;</span><span class="p">:</span> <span class="mi">1831</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">:</span> <span class="mi">1879</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Einstein&quot;</span><span class="p">]</span>
 <span class="go">1879</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Heisenberg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1901</span>
@@ -734,14 +734,14 @@ Worin bestehen die Vorteile gegenüber einer Liste, die ja auch mit Integern
 adressiert wird? Stellen wir uns vor, dass wir eine Liste mit den Quadraten der
 ersten fünf Primzahlen erstellen wollen. Eine mögliche Lösung wäre die folgende
 Liste.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prim2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">121</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prim2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">121</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Ist der Index eine Primzahl, so ist die entsprechende Quadratzahl eingetragen.
 Alle anderen Zahlen werden gemäß der Aufgabenstellung nicht benötigt. Es ist
 jedoch klar, dass mit diesem Zugang unter Umständen sehr viel Speicherplatz
 verschwendet wird. Eine alternative Lösung wäre die Liste:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">prim2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">121</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">prim2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">121</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Allerdings hat man jetzt keine einfache Zuordnung zwischen Primzahl und Listenindex.
@@ -750,14 +750,14 @@ Listeneintrag ein Tupel aus der Primzahl und ihrem Quadrat vorsehen, was aber
 die Suche aufwendiger macht. Alternativ könnte man eine zweite Liste anlegen, die
 zwischen Primzahl und Listenindex vermittelt. Am effizientesten ist aber ein
 Dictionary.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prim2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="mi">121</span><span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">prim2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">7</span><span class="p">:</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">11</span><span class="p">:</span> <span class="mi">121</span><span class="p">}</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prim2</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
 <span class="go">49</span>
 </pre></div>
 </div>
 <p>Über die Einträge eines Dictionaries kann iteriert werden. Zur Illustration
 verwenden wir wieder unser Geburtsjahr-Dictionary</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">geburtsjahre</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">geburtsjahre</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} wurde im Jahr {} geboren.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">geburtsjahre</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
 <span class="gp">...</span>
 <span class="go">Einstein wurde im Jahr 1879 geboren.</span>
@@ -769,7 +769,7 @@ verwenden wir wieder unser Geburtsjahr-Dictionary</p>
 <p>Diese Funktionalität könnte man natürlich auch mit Hilfe einer Liste erhalten.
 Allerdings wäre es viel aufwendiger, gezielt auf bestimmte Einträge zuzugreifen.</p>
 <p>Es kann auch auf die Existenz eines Schlüssels abgefragt werden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Einstein&quot;</span> <span class="ow">in</span> <span class="n">geburtsjahre</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Einstein&quot;</span> <span class="ow">in</span> <span class="n">geburtsjahre</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Newton&quot;</span> <span class="ow">in</span> <span class="n">geburtsjahre</span>
 <span class="go">False</span>
@@ -778,7 +778,7 @@ Allerdings wäre es viel aufwendiger, gezielt auf bestimmte Einträge zuzugreife
 <p>Anstatt zunächst die Existenz eines Schlüssel zu überprüfen, würde man in Python
 allerdings die Behandlung einer eventuell geworfenen <code class="docutils literal"><span class="pre">KeyError</span></code>-Ausnahme
 vorziehen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">physiker</span> <span class="o">=</span> <span class="s2">&quot;Newton&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">physiker</span> <span class="o">=</span> <span class="s2">&quot;Newton&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} wurde im Jahr {} geboren.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">physiker</span><span class="p">,</span> <span class="n">geburtsjahre</span><span class="p">[</span><span class="n">physiker</span><span class="p">]))</span>
 <span class="gp">... </span><span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -803,7 +803,7 @@ im folgenden Beispiel sieht.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">zahlworte</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;un&quot;</span><span class="p">},</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">zahlworte</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;un&quot;</span><span class="p">},</span>
              <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;deux&quot;</span><span class="p">},</span>
              <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;drei&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;trois&quot;</span><span class="p">}]</span>
 
@@ -812,7 +812,7 @@ im folgenden Beispiel sieht.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Damit ergibt sich die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">eins</span>    <span class="o">|</span> <span class="n">one</span>     <span class="o">|</span> <span class="n">un</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">eins</span>    <span class="o">|</span> <span class="n">one</span>     <span class="o">|</span> <span class="n">un</span>
 <span class="n">zwei</span>    <span class="o">|</span> <span class="n">two</span>     <span class="o">|</span> <span class="n">deux</span>
 <span class="n">drei</span>    <span class="o">|</span> <span class="n">three</span>   <span class="o">|</span> <span class="n">trois</span>
 </pre></div>
@@ -829,7 +829,7 @@ werden, als Dictionary in der Funktion verfügbar macht.</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
@@ -844,7 +844,7 @@ dieses Dictionary hier <code class="docutils literal"><span class="pre">kwargs</
 Rahmen der Vorgaben für Variablennamen erlaubter Name wäre jedoch genauso
 möglich. Entsprechend dieser Erläuterungen sieht die Ausgabe der Funktion
 folgendermaßen aus:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="mi">0</span>
 <span class="n">foo</span> <span class="mi">1</span>
 <span class="n">spam</span> <span class="mi">2</span>
 </pre></div>
@@ -853,7 +853,7 @@ folgendermaßen aus:</p>
 zusätzliche Argumente ohne Schlüsselwort übergeben. Diese werden in einem Tupel
 gesammelt und stehen somit für die weitere Verarbeitung zur Verfügung. Dies wird
 im folgenden Beispiel an einer Funktion zur Berechnung eines Mittelwerts illustriert.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mittelwert1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">mittelwert1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">+</span><span class="n">x</span>
@@ -874,7 +874,7 @@ Im Argument einer Funktionsdefinition könnte also <code class="docutils literal
 Beispiel ein einziges Tupelargument vorsehen. Dies impliziert im Aufruf
 zusätzliche Klammern.  Außerdem sollte in diesem Beispiel überprüft werden, ob
 das Tupel mindestens ein Element enthält.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mittelwert2</span><span class="p">(</span><span class="n">argumente</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">mittelwert2</span><span class="p">(</span><span class="n">argumente</span><span class="p">):</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">argumente</span><span class="p">:</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">+</span><span class="n">x</span>
@@ -890,7 +890,7 @@ ausführen. Programmiersprachen stellen hierfür häufig eine so genannte
 <code class="docutils literal"><span class="pre">case</span></code>- oder <code class="docutils literal"><span class="pre">switch</span></code>-Anweisung zur Verfügung. In folgendem Pascal-Beispiel
 wird abhängig vom Wert der Variable <code class="docutils literal"><span class="pre">i</span></code> eine bestimmte mathematische Funktion
 auf die Variable <code class="docutils literal"><span class="pre">x</span></code> angewandt:<a class="footnote-reference" href="#jensen-wirth" id="id7">[5]</a></p>
-<div class="highlight-pascal"><div class="highlight"><pre><span></span><span class="k">case</span> <span class="n">i</span> <span class="k">of</span>
+<div class="highlight-pascal"><div class="highlight"><pre><span class="k">case</span> <span class="n">i</span> <span class="k">of</span>
   <span class="mi">0</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">;</span>
   <span class="mi">1</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
   <span class="mi">2</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
@@ -921,7 +921,7 @@ in solchen Fällen häufig ein Dictionary einsetzen.</p>
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
+21</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 1 aus&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
@@ -951,9 +951,9 @@ eine Funktion zurückgibt, die dann in Zeile 16 aufgerufen wird. Außerdem ist
 in den Zeilen 17 und 18 die Möglichkeit vorgesehen, bei einer anderen als den
 im Dictionary vorgesehenen Eingaben eine Defaultfunktion auszuführen. Iteriert
 man über die Liste in Zeile 20, so erhält man die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">führe</span> <span class="n">Funktion</span> <span class="mi">1</span> <span class="n">aus</span>
-<span class="n">führe</span> <span class="n">Defaultfunktion</span> <span class="n">aus</span>
-<span class="n">führe</span> <span class="n">Defaultfunktion</span> <span class="n">aus</span>
+<div class="highlight-python"><div class="highlight"><pre>führe Funktion 1 aus
+führe Defaultfunktion aus
+führe Defaultfunktion aus
 </pre></div>
 </div>
 <p class="rubric">Footnotes</p>
@@ -1016,7 +1016,7 @@ Python-Dokumentation.</td></tr>
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6 erstellt.
     </div>
   </body>
 </html>

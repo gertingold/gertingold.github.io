@@ -56,13 +56,13 @@
 Zahlen umgehen kann und man mit diesen auch Rechenoperationen ausführen kann.
 Doch wie groß dürfen die ganzen Zahlen werden? Probieren wir es einfach aus,
 indem wir die 200-ste Potenz von 2 nehmen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**</span><span class="mi">200</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**</span><span class="mi">200</span>
 <span class="go">1606938044258990275541962092341162602522202993782792835301376</span>
 </pre></div>
 </div>
 <p>Im Prinzip kann Python mit beliebig großen Zahlen umgehen. Außerdem können diese
 natürlich auch ein Vorzeichen besitzen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">-</span><span class="mi">7</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">-</span><span class="mi">7</span>
 <span class="go">-2</span>
 </pre></div>
 </div>
@@ -74,7 +74,7 @@ und dem Datentyp »Integer«. Dieser Unterschied kommt in Python bei der
 Addressierung von Listen und Zeichenketten zum Tragen, wo der Index begrenzt
 ist. Den zulässigen Maximalwert kann man folgendermaßen herausfinden
 <a class="footnote-reference" href="#import" id="id1">[1]</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span>
 <span class="go">9223372036854775807</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**</span><span class="mi">63</span><span class="o">-</span><span class="mi">1</span>
@@ -199,7 +199,7 @@ asymmetrischer Wertebereich für Integers?</p>
 <p>In Python kann man auch mit Binär-, Oktal- und Hexadezimalzahlen arbeiten, die durch
 die Präfixe <code class="docutils literal"><span class="pre">0b</span></code> oder <code class="docutils literal"><span class="pre">0B</span></code>, <code class="docutils literal"><span class="pre">0o</span></code> oder <code class="docutils literal"><span class="pre">0O</span></code> bzw. <code class="docutils literal"><span class="pre">0x</span></code> oder <code class="docutils literal"><span class="pre">0X</span></code>
 gekennzeichnet werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mh">0x6cd8932f</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mh">0x6cd8932f</span>
 <span class="go">1826132783</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mb">0b11001</span>
 <span class="go">25</span>
@@ -209,7 +209,7 @@ gekennzeichnet werden.</p>
 </div>
 <p>Die Umwandlung in das Binär-, Oktal- oder Hexadezimalformat erfolgt mit Hilfe der
 Funktionen <code class="docutils literal"><span class="pre">bin</span></code>, <code class="docutils literal"><span class="pre">oct</span></code> bzw. <code class="docutils literal"><span class="pre">hex</span></code>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">bin</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 <span class="go">&#39;0b11001&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">oct</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
 <span class="go">&#39;0o31&#39;</span>
@@ -223,7 +223,7 @@ könnte daher entweder eine Gleitkommazahl sein oder aber ein Integer, wobei der
 entstandene Rest ignoriert wird.</p>
 <p>In Python 3 ergibt die Division mit einem einfachen Schrägstrich immer eine
 Gleitkommazahl, selbst wenn bei der Division kein Rest entsteht <a class="footnote-reference" href="#py2div" id="id2">[2]</a>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span>
 <span class="go">0.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">15</span><span class="o">/</span><span class="mi">3</span>
 <span class="go">5.0</span>
@@ -232,7 +232,7 @@ Gleitkommazahl, selbst wenn bei der Division kein Rest entsteht <a class="footno
 <p>Dies dürfte in den meisten Fällen das erwünschte Verhalten sein. Es kann aber
 durchaus sein, dass man tatsächlich eine Integerdivision benötigt. Diese lässt
 sich mit einem doppelten Schrägstrich erhalten.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">//</span><span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">//</span><span class="mi">2</span>
 <span class="go">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">15</span><span class="o">//</span><span class="mi">7</span>
 <span class="go">2</span>
@@ -249,7 +249,7 @@ Gleitkommazahl ist. Wie dies geht, wird im Kapitel <a class="reference internal"
 <p>Ein wichtiger Punkt, der nicht nur für Integers von Bedeutung ist, ist die
 Reihenfolge, in der Operationen ausgeführt werden. Dies sei an einem Beispiel
 illustriert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="mi">4</span>
 <span class="go">14</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span>
 <span class="go">20</span>
@@ -284,7 +284,7 @@ den tiefer stehenden <a class="footnote-reference" href="#precedence" id="id4">[
 </tbody>
 </table>
 <p>Wird <code class="docutils literal"><span class="pre">**</span></code> direkt von einem Plus oder Minus gefolgt, bindet letzteres stärker:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**-</span><span class="mf">0.5</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**-</span><span class="mf">0.5</span>
 <span class="go">0.7071067811865476</span>
 </pre></div>
 </div>
@@ -300,7 +300,7 @@ nicht zur korrekten Abarbeitung des Ausdrucks erforderlich sind.</p>
 <p>Wichtiger als Integers sind in der numerischen Physik die Floats, also
 Gleitkommazahlen. Man kann sie unter anderem durch Umwandlung mit Hilfe
 der Funktion <code class="xref py py-func docutils literal"><span class="pre">float()</span></code> erhalten. <a class="footnote-reference" href="#pprint" id="id5">[5]</a></p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">&lt;class &#39;int&#39;&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">2.0</span>
@@ -310,13 +310,13 @@ der Funktion <code class="xref py py-func docutils literal"><span class="pre">fl
 </div>
 <p>Eine Umwandlung von Floats in Integers ist mit der Funktion <code class="xref py py-func docutils literal"><span class="pre">int()</span></code>
 möglich, wobei der Nachkommaanteil abgeschnitten wird:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
 <span class="go">2</span>
 </pre></div>
 </div>
 <p>Bereits das Anhängen eines Punktes genügt, damit Python die Zahl als Float
 interpretiert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span>
 <span class="go">&lt;class &#39;float&#39;&gt;</span>
 </pre></div>
 </div>
@@ -328,7 +328,7 @@ typing</em>: »If it looks like a duck and quacks like a duck, it must be a duck
 Dezimalbruchschreibweise unter Verwendung eines Dezimalpunkts. Stehen vor oder
 nach dem Dezimalpunkt keine Ziffern, so wird der entsprechende Anteil gleich
 Null gesetzt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">5.</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">5.</span>
 <span class="go">5.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mf">0.25</span>
 <span class="go">0.25</span>
@@ -348,7 +348,7 @@ die Exponentialschreibweise besser geeignet. Die Zahl wird dabei mit Hilfe
 einer Mantisse, die nicht zwingend einen Dezimalpunkt enthalten muss, und einem
 ganzzahligen Exponenten, der ein Vorzeichen enthalten darf, dargestellt.
 Zwischen Mantisse und Exponenten muss dabei ein <code class="docutils literal"><span class="pre">e</span></code> oder ein <code class="docutils literal"><span class="pre">E</span></code> stehen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">1e-2</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1e-2</span>
 <span class="go">0.01</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mf">1.53e2</span>
 <span class="go">153.0</span>
@@ -361,7 +361,7 @@ es bei der Umwandlung in die Binärdarstellung zu Rundungsfehlern, die
 gegebenenfalls bei der Beurteilung der Genauigkeit einer Rechnung zu beachten
 sind. <a class="footnote-reference" href="#decimal" id="id7">[7]</a> Das Auftreten von Rundungsfehlern wird an folgendem Beispiel
 deutlich.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">-</span><span class="mf">0.3</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">-</span><span class="mf">0.3</span>
 <span class="go">5.551115123125783e-17</span>
 </pre></div>
 </div>
@@ -369,7 +369,7 @@ deutlich.</p>
 <span class="math">\(0.0\overline{0011}\)</span> besitzt.</p>
 <p>Informationen über die Eigenschaften von Floats auf dem verwendeten System kann
 man folgendermaßen erhalten:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span> 
 <span class="go">sys.float_info(max=1.7976931348623157e+308, max_exp=1024, max_10_exp=308,</span>
 <span class="go">min=2.2250738585072014e-308, min_exp=-1021, min_10_exp=-307, dig=15,</span>
@@ -391,7 +391,7 @@ können?</p>
 werden, sondern sind auf einen allerdings recht großzügig bemessenen Bereich
 bis etwas über <span class="math">\(10^{308}\)</span> beschränkt. Werden Gleitkommazahlen zu groß, so
 erhält man ein vorzeichenbehaftetes Unendlich:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">1e400</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1e400</span>
 <span class="go">inf</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="o">-</span><span class="mf">1e400</span>
 <span class="go">-inf</span>
@@ -402,7 +402,7 @@ erhält man ein vorzeichenbehaftetes Unendlich:</p>
 <p>Lässt sich mit unendlichen Größen nicht sinnvoll rechnen, wird <code class="docutils literal"><span class="pre">nan</span></code> ausgegeben, das
 für »not a number« steht. Eine Division durch Null führt nicht etwa zu <code class="docutils literal"><span class="pre">inf</span></code>, sondern
 zu einem Fehler:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.5</span><span class="o">/</span><span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mf">1.5</span><span class="o">/</span><span class="mi">0</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">ZeroDivisionError</span>: <span class="n">float division</span>
@@ -415,14 +415,14 @@ wir im Abschnitt <a class="reference internal" href="kontrollstrukturen.html#try
 <span id="mathfunc"></span><h2>Funktionen für reelle Zahlen<a class="headerlink" href="#funktionen-fur-reelle-zahlen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>In physikalischen Anwendungen wird man häufig mathematische Funktionen auswerten wollen.
 Der Versuch, z.B. eine Exponentialfunktion auszuwerten, führt zunächst nicht zum Erfolg:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">NameError</span>: <span class="n">name &#39;exp&#39; is not defined</span>
 </pre></div>
 </div>
 <p>Es muss vielmehr zunächst das Modul <code class="xref py py-mod docutils literal"><span class="pre">math</span></code> geladen werden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">7.38905609893065</span>
 </pre></div>
@@ -434,7 +434,7 @@ numerischer Probleme besteht.  Dort werden mathematische Funktionen als
 Bestandteile der Sprache direkt zur Verfügung gestellt.</p>
 <p>Zum Vergleich mit Python betrachten wir den folgenden Code, der die Verwendung
 einer mathematischen Funktion in der Programmiersprache C illustriert:</p>
-<div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
@@ -460,7 +460,7 @@ deutlich schneller ausgeführt werden kann.</p>
 man Informationen über die zur Verfügung stehenden Funktionen durch Eingabe von
 <code class="docutils literal"><span class="pre">help(math)</span></code> im Python-Interpreter erhalten. Von der Ausgabe ist im Folgenden
 nur ein kleiner Ausschnitt gezeigt:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
 
 <span class="go">Help on module math:</span>
@@ -496,13 +496,13 @@ nur ein kleiner Ausschnitt gezeigt:</p>
 <p>Häufig ist es zu umständlich, den Modulnamen beim Funktionsaufruf immer
 explizit anzugeben. Stattdessen kann man einzelne Funktionen des Moduls
 einbinden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">cos</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 <span class="go">1.0</span>
 </pre></div>
 </div>
 <p>Alternativ kann man sämtliche Objekte eines Moduls auf einmal einbinden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">2.302585092994046</span>
 </pre></div>
@@ -658,7 +658,7 @@ des Programms fehlerhaft sein kann.</p>
 </tbody>
 </table>
 <p>Außerdem werden die Kreiszahl π=3.14159… und die eulersche Zahl e=2.71828… definiert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">degrees</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">pi</span><span class="p">,</span> <span class="n">degrees</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sin</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
 <span class="go">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">degrees</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
@@ -670,7 +670,7 @@ des Programms fehlerhaft sein kann.</p>
 </div>
 <p>Falls <code class="docutils literal"><span class="pre">e</span></code> bereits als Bezeichner für andere Zwecke benötigt wird, können Sie auch einen
 anderen Namen vergeben:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">euler_zahl</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">e</span> <span class="k">as</span> <span class="n">euler_zahl</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">euler_zahl</span>
 <span class="go">2.718281828459045</span>
 </pre></div>
@@ -684,7 +684,7 @@ anderen Namen vergeben:</p>
 erzeugt man einen Imaginärteil durch Anhängen des Zeichens <code class="docutils literal"><span class="pre">j</span></code> oder <code class="docutils literal"><span class="pre">J</span></code>, das
 Ingenieure häufig statt des in der Physik üblichen <code class="docutils literal"><span class="pre">i</span></code> verwenden.
 Alternativ kann man die Funktion <code class="xref py py-func docutils literal"><span class="pre">complex()</span></code> verwenden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.5j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.5j</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.5j</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.5j</span><span class="p">)</span>
 <span class="go">(0.6+0.8j)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="go">(1+0.5j)</span>
@@ -693,7 +693,7 @@ Alternativ kann man die Funktion <code class="xref py py-func docutils literal">
 <p>Möchte man aus den Werten zweier Variablen eine komplexe Zahl
 konstruieren, geht dies mit der zweiten der gerade genannten Methoden
 sehr einfach</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
@@ -701,18 +701,22 @@ sehr einfach</p>
 </pre></div>
 </div>
 <p>Falls man die Funktion <code class="docutils literal"><span class="pre">complex()</span></code> nicht verwenden möchte, muss man
-beachten, dass folgender Weg nicht zum Ziel führt:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">yj</span>
+beachten, dass die folgenden beiden Wege nicht zum Ziel führen:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">yj</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
 <span class="gr">NameError</span>: <span class="n">name &#39;yj&#39; is not defined</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="n">j</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">NameError</span>: <span class="n">name &#39;j&#39; is not defined</span>
 </pre></div>
 </div>
-<p>In diesem Fall geht Python davon aus, dass es sich bei <code class="docutils literal"><span class="pre">yj</span></code> um eine
-Variable handelt, die jedoch bis jetzt noch nicht defniert wurde. In
-diesem Fall muss die imaginäre Einheit explizit als <code class="docutils literal"><span class="pre">1j</span></code> geschrieben
+<p>In diesem Fall geht Python davon aus, dass es sich bei <code class="docutils literal"><span class="pre">yj</span></code> bzw. <code class="docutils literal"><span class="pre">j</span></code>
+um eine Variable handelt, die jedoch bis jetzt noch nicht definiert wurde.
+Vielmehr muss die imaginäre Einheit explizit als <code class="docutils literal"><span class="pre">1j</span></code> geschrieben
 werden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="mi">1j</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="mi">1j</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
 <span class="go">(1+2j)</span>
 </pre></div>
@@ -722,7 +726,7 @@ enthält, selbst dann als komplexe Zahl dargestellt wird, wenn das Ergebnis
 reell ist.</p>
 <p>Hat man eine komplexe Zahl einer Variablen zugewiesen (dies wird im Kapitel <a class="reference internal" href="#variablen"><span>Variablen und Zuweisungen</span></a>
 genauer diskutiert), so lassen sich Real- und Imaginärteil wie folgt bestimmen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.5j</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="mf">0.5j</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">real</span>
 <span class="go">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">imag</span>
@@ -737,7 +741,7 @@ Fall eine Methode aufgerufen wird. Diese Zusammenhänge werden im Kapitel
 <a class="reference internal" href="objektorientiert.html#oop"><span>Objektorientiertes Programmieren</span></a> klarer werden.</p>
 <p>Natürlich wollen wir auch für komplexe Zahlen mathematische Funktionen
 auswerten. Das Modul <code class="xref py py-mod docutils literal"><span class="pre">math</span></code> hilft hier aber nicht weiter:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">pi</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">pi</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mf">0.25j</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
@@ -746,7 +750,7 @@ auswerten. Das Modul <code class="xref py py-mod docutils literal"><span class="
 </div>
 <p>Als Argument wird hier nur eine reelle Zahl akzeptiert. Stattdessen muss man
 das Modul <code class="xref py py-mod docutils literal"><span class="pre">cmath</span></code> laden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cmath</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">pi</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cmath</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">pi</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mf">0.25j</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span>
 <span class="go">(0.7071067811865476+0.7071067811865475j)</span>
 </pre></div>
@@ -754,7 +758,7 @@ das Modul <code class="xref py py-mod docutils literal"><span class="pre">cmath<
 <p>Dabei ist das Ergebnis immer eine komplexe Zahl. Daher kann es wünschenswert
 sein, sowohl das Modul <code class="xref py py-mod docutils literal"><span class="pre">math</span></code> als auch das Modul <code class="xref py py-mod docutils literal"><span class="pre">cmath</span></code> zu
 importieren:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">cmath</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span><span class="o">,</span> <span class="nn">cmath</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">7.38905609893065</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cmath</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">0.25j</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
@@ -762,7 +766,7 @@ importieren:</p>
 </pre></div>
 </div>
 <p>Eine andere Möglichkeit wäre</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">pi</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">pi</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">cmath</span> <span class="kn">import</span> <span class="n">exp</span> <span class="k">as</span> <span class="n">cexp</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="go">7.38905609893065</span>
@@ -813,7 +817,7 @@ sich nur vor Augen halten, was es für Folgen hätte, wenn man ein Programm
 analysieren müsste, das unter Verwendung von chinesischen Schriftzeichen
 geschrieben wurde. Dennoch ist zum Beispiel der folgende Code für Python 3 kein
 Problem:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">π</span>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span> <span class="k">as</span> <span class="n">π</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Radius</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Fläche</span> <span class="o">=</span> <span class="n">π</span><span class="o">*</span><span class="n">Radius</span><span class="o">**</span><span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">Fläche</span><span class="p">)</span>
@@ -844,7 +848,7 @@ empfohlenen Konventionen für Bezeichner finden Sie im Python Enhancement Propos
 mit dem Titel »Style Guide for Python Code« im Abschnitt <em>Naming Conventions</em>.</p>
 <p>Die folgenden Schlüsselwörter sind in Python als Sprachelemente reserviert und dürfen
 nicht für Bezeichner verwendet werden <a class="footnote-reference" href="#keywords" id="id14">[12]</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span>False     assert      del        for       in        or        while
+<div class="highlight-python"><div class="highlight"><pre>False     assert      del        for       in        or        while
 None      break       elif       from      is        pass      with
 True      class       else       global    lambda    raise     yield
 and       continue    except     if        nonlocal  return
@@ -855,7 +859,7 @@ as        def         finally    import    not       try
 insbesondere darauf zu achten, dass <code class="docutils literal"><span class="pre">lambda</span></code> reserviert ist. Den Grund hierfür
 werden wir im Kapitel <a class="reference internal" href="funktionen.html#lambdafunktionen"><span>Lambda-Funktionen</span></a> diskutieren.</p>
 <p>Variablen kann nun ein Wert zugeordnet werden, wie folgende Beispiele zeigen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">2</span>
@@ -873,7 +877,7 @@ Die zweite Zeile müsste also eigentlich als <code class="docutils literal"><spa
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
 <span class="go">(1, 1)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
@@ -903,7 +907,7 @@ Werte zu verlieren:</p>
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span>
@@ -934,7 +938,7 @@ eine Klammerung verwendet werden, selbst wenn diese ausschließlich zur implizit
 Markierung von Fortsetzungszeilen dient. Im folgenden Beispiel wird deutlich,
 wie man die Klammerung einsetzen kann, auch wenn man die Addition kaum über zwei
 Zeilen verteilen wird:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span><span class="o">+</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">4</span><span class="o">+</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>
     <span class="mi">4</span><span class="o">+</span>
      <span class="o">^</span>
@@ -961,7 +965,7 @@ ist. Für die bis jetzt behandelten Datentypen (Integer, Float, Complex) gilt,
 dass eine Null dem Wert <code class="docutils literal"><span class="pre">False</span></code> entspricht, während alle anderen Zahlenwerte
 einem <code class="docutils literal"><span class="pre">True</span></code> entsprechen. Dies lässt sich durch eine explizite Umwandlung mit
 Hilfe der Funktion <code class="xref py py-func docutils literal"><span class="pre">bool()</span></code> überprüfen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">bool</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="go">True</span>
@@ -969,7 +973,7 @@ Hilfe der Funktion <code class="xref py py-func docutils literal"><span class="p
 </div>
 <p>Wichtige logische Operatoren sind <code class="docutils literal"><span class="pre">not</span></code> (Negation), <code class="docutils literal"><span class="pre">and</span></code> (logisches Und)
 und <code class="docutils literal"><span class="pre">or</span></code> (logisches Oder):</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="bp">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="n">x</span>
 <span class="go">False</span>
@@ -982,7 +986,7 @@ und <code class="docutils literal"><span class="pre">or</span></code> (logisches
 <p>Logische Ausdrücke werden in Python von links nach rechts ausgewertet und zwar
 nur so weit, wie es für die Entscheidung über den Wahrheitswert erforderlich ist.
 Dies wird in dem folgenden Beispiel illustriert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="bp">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="ow">or</span> <span class="mi">1</span><span class="o">/</span><span class="n">y</span>
 <span class="go">True</span>
@@ -1030,7 +1034,7 @@ folgenden Tabelle zusammengestellt sind.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">!=</span> <span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">!=</span> <span class="mi">2</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">2</span>
 <span class="go">True</span>
@@ -1043,7 +1047,7 @@ statt zwei Gleichheitszeichen zu verwenden.</p>
 <p>Bei Gleitkommazahlen ist es normalerweise nicht sinnvoll, auf Gleichheit zu
 prüfen, da Rundungsfehler leicht dazu führen können, dass das Ergebnis nicht
 wie erwartet ausfällt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mf">0.1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="mf">0.1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mf">0.3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span>
 <span class="go">False</span>
@@ -1051,7 +1055,7 @@ wie erwartet ausfällt.</p>
 </div>
 <p>In solchen Fällen ist es besser zu überprüfen, ob die Differenz von zwei
 Gleitkommazahlen eine vertretbare Schwelle unterschreitet.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-12</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">eps</span>
 <span class="go">True</span>
 </pre></div>
@@ -1064,7 +1068,7 @@ die im einfachsten Fall auf dem Bildschirm erfolgen kann. Im Folgenden soll auf 
 Formatierung, insbesondere von Zahlen, eingegangen werden. In Python 3 erfolgt die
 Ausgabe auf dem Bildschirm mit Hilfe der <code class="docutils literal"><span class="pre">print</span></code>-Funktion, die wir schon im Kapitel
 <a class="reference internal" href="vorschau.html#vorschau"><span>Eine Vorschau</span></a> erwähnt hatten.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.5</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mf">3.14159</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">1.5</span>
@@ -1082,7 +1086,7 @@ Kapitel <a class="reference internal" href="sequenzen.html#strings"><span>Zeiche
 dass beim Ausdruck mehrerer Variablen automatisch ein Leerzeichen eingefügt
 wird. Wenn man zwischen Zeichenketten das Komma weglässt, kann man dieses
 Leerzeichen unterdrücken:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Dies ist eine Näher&quot;</span> <span class="s2">&quot;ung für die Kreiszahl:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Dies ist eine Näher&quot;</span> <span class="s2">&quot;ung für die Kreiszahl:&quot;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">Dies ist eine Näherung für die Kreiszahl: 3.14159</span>
 </pre></div>
 </div>
@@ -1105,7 +1109,7 @@ beschäftigen, müssen wir uns zunächst die grundsätzliche Funktionsweise der
 <p>Im einfachsten Fall hat man eine gewisse Anzahl von Variablen, die man ausgeben
 möchte und die im Formatierungsausdruck durch in geschweifte Klammern eingeschlossene
 Nummern angegeben werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">power</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{0}**{1} = {2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
 <span class="go">2**3 = 8</span>
@@ -1116,13 +1120,13 @@ Nummern angegeben werden.</p>
 <p>Wie die letzte Eingabe zeigt, können Platzhalter auch wiederholt werden. Ist eine
 Wiederholung nicht gewünscht und gibt man die Variablen in der richtigen Reihenfolge
 an, so kann auf die Nummerierung verzichtet werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}**{} = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}**{} = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">power</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="n">power</span><span class="p">))</span>
 <span class="go">2**3 = 8</span>
 </pre></div>
 </div>
 <p>In unübersichtlichen Situationen oder wenn man die Reihenfolge später noch auf
 einfache Weise ändern möchte kann man auch Namen vergeben.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{basis}**{exponent} = {ergebnis}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basis</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{basis}**{exponent} = {ergebnis}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">basis</span><span class="o">=</span><span class="n">x</span><span class="p">,</span>
 <span class="go">                                                    exponent=power,</span>
 <span class="go">                                                    ergebnis=x**power))</span>
 <span class="go">2**3 = 8</span>
@@ -1133,7 +1137,7 @@ geeignet umzubrechen. Wir erinnern uns daran, dass nach einer geöffneten Klamme
 also der Klammer vor <code class="docutils literal"><span class="pre">basis</span></code>, bis zur schließenden Klammer weitergelesen wird.</p>
 <p>Will man eine geschweifte Klammer im Ausgabetext unterbringen, so muss man diese
 wie im folgenden Beispiel gezeigt verdoppeln.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}**{} = {}. Und das ist eine geschweifte Klammer: {{&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}**{} = {}. Und das ist eine geschweifte Klammer: {{&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
 <span class="go">                                                         x, power, x**power))</span>
 <span class="go">2**3 = 8. Und das ist eine geschweifte Klammer: {</span>
 </pre></div>
@@ -1141,14 +1145,14 @@ wie im folgenden Beispiel gezeigt verdoppeln.</p>
 <p>Bis jetzt haben wir nur die Ausgabe von Variablen in einen Text eingebettet,
 ohne die Ausgabe jeder Variable selbst beeinflussen zu können. Dies ist aber
 beispielsweise bei Gleitkommazahlen wichtig.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="go">1.41421356237</span>
 </pre></div>
 </div>
 <p>Vielleicht wollen wir jedoch gar nicht so viele Nachkommastellen ausgeben. Dies können
 wir mit Hilfe einer Formatspezifikation festlegen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:5.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:5.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">| 1.41|</span>
 </pre></div>
 </div>
@@ -1159,7 +1163,7 @@ Nachkommastellen angibt. Das abschließende <code class="docutils literal"><span
 einem Format mit fester Kommastelle. Die beiden senkrechten Striche sollen
 nur dazu dienen, den Leerplatz vor der Zahl sichtbar zu machen, der dadurch
 entsteht, dass die gesamte Feldbreite gleich <code class="docutils literal"><span class="pre">5</span></code> sein soll.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.41|</span>
 </pre></div>
 </div>
@@ -1170,7 +1174,7 @@ Vorzeichen relevant. Hierbei kann man angeben, wie bei einer positiven Zahl
 verfahren wird. Durch Eingabe eines Pluszeichens, eines Leerzeichens oder
 eines Minuszeichens in der Formatierungsangabe wird ein Plus, ein Leerzeichen
 bzw. gar nichts ausgegeben wie die folgenden Beispiele zeigen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|+1.41|</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:+4.2f}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|-1.41|</span>
@@ -1189,7 +1193,7 @@ zwischen der dritten und fünften Eingabe zu verdeutlichen.</p>
 <p>Bei der Ausgabe von Gleitkommazahlen gibt es nun aber das Problem, dass bei sehr
 kleinen oder sehr großen Zahlen eine feste Anzahl von Nachkommastellen nicht
 unbedingt geeignet ist.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">1.41421356</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:10.8f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000000</span><span class="p">))</span>
 <span class="go">0.00000014</span>
@@ -1199,7 +1203,7 @@ unbedingt geeignet ist.</p>
 Stellen dramatisch reduziert ist. In solchen Fällen bietet es sich an, eine
 Ausgabe in Exponentialdarstellung zu verlangen, die man mit Hilfe des Buchstabens
 <code class="docutils literal"><span class="pre">e</span></code> statt <code class="docutils literal"><span class="pre">f</span></code> erhält.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:10.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:10.8e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.41421356e+00|</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:10.4e}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="go">|1.4142e+00|</span>
@@ -1223,7 +1227,7 @@ ausprobieren: <code class="docutils literal"><span class="pre">{:&lt;20.8e}</spa
 <p>Häufig möchte man die Exponentialschreibweise nur verwenden, wenn die
 auszugebende Zahl hinreichend groß oder klein ist. Ein solches Verhalten
 erreicht man durch Angabe des Buchstabens <code class="docutils literal"><span class="pre">g</span></code>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100000</span><span class="p">))</span>
 <span class="go">|  1.4142136e-05|</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{:15.8g}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">10000</span><span class="p">))</span>
 <span class="go">|  0.00014142136|</span>
@@ -1236,7 +1240,7 @@ erreicht man durch Angabe des Buchstabens <code class="docutils literal"><span c
 <p>Hier wird durch den Wechsel der Darstellung insbesondere sichergestellt, dass
 immer die gleiche Anzahl von signifikanten Stellen ausgegeben wird. <a class="footnote-reference" href="#gformat" id="id15">[13]</a></p>
 <p>Betrachten wir nun noch die Formatierung von Integers.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0}|{0:5}|{0:05}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="go">|42|   42|00042|</span>
 </pre></div>
@@ -1250,7 +1254,7 @@ das Feld vor der auszugebenden Zahl mit Nullen aufgefüllt. Dies kann zum
 Beispiel bei der Ausgabe in anderen Zahlensystemen interessant sein. Python
 unterstützt insbesondere die Ausgabe im Binärformat (<code class="docutils literal"><span class="pre">b</span></code>), Oktalformat
 (<code class="docutils literal"><span class="pre">o</span></code>) und im Hexadezimalformat (<code class="docutils literal"><span class="pre">x</span></code>).</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:}|{0:8b}|{0:8o}|{0:8x}|{0:08b}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;|{0:}|{0:8b}|{0:8o}|{0:8x}|{0:08b}|&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="go">|42|  101010|      52|      2a|00101010|</span>
 </pre></div>
 </div>
@@ -1267,7 +1271,7 @@ Dokumentation der Python-Standardbibliothek.</p>
 einen Zeilenumbruch an das Ende des auszugebenden Textes anhängt. Dies ist
 jedoch nicht immer gewünscht und lässt sich mit Hilfe der Option <code class="docutils literal"><span class="pre">end</span></code>
 beeinflussen. Folgendes Beispiel zeigt die Funktionsweise. Die Befehle</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;..&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1395,7 +1399,7 @@ nachlesen.</td></tr>
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6 erstellt.
     </div>
   </body>
 </html>
