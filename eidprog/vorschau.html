@@ -63,7 +63,7 @@ ansprechen:</p>
 <p>Da wir nur kurze Codesegmente ausprobieren werden, benutzen wir die Python-
 oder IPython-Shell und versuchen zunächst einmal, eine ganz einfache Rechnung
 auszuführen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
 <span class="go">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">*</span><span class="mi">7</span>
 <span class="go">35</span>
@@ -71,7 +71,7 @@ auszuführen.</p>
 </div>
 <p>Es wird uns auf Dauer jedoch nicht genügen, Rechnungen mit fest vorgegebenen
 Zahlen auszuführen, sondern wir werden auch Variablen benötigen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
@@ -89,7 +89,7 @@ Sinne einer Zuweisung, bei der die rechte Seite ausgewertet und der linken
 Seite zugewiesen wird.</p>
 <p>Führen wir eine Division aus, so zeigt sich, dass Python nicht nur ganze Zahlen
 beherrscht, sondern auch Gleitkommazahlen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">/</span><span class="mi">2</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">/</span><span class="mi">2</span>
 <span class="go">2.5</span>
 </pre></div>
 </div>
@@ -99,40 +99,40 @@ gesehen, dass der Inhalt einer Variable ausgegeben werden kann, indem man den
 Namen der Variable in der Shell eingibt. Speichert man ein Skript in einer Datei
 ab und führt diese aus, so erhält man auf diese Weise jedoch keine Ausgabe. Wir
 speichern die folgenden Anweisungen in einer Datei namens <code class="docutils literal"><span class="pre">foo.py</span></code> ab <a class="footnote-reference" href="#foo" id="id1">[1]</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
 <span class="n">x</span>
 </pre></div>
 </div>
 <p>Führen wir diese Datei im Python-Interpreter aus, so erhalten wir keine Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python foo.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python foo.py
 $
 </pre></div>
 </div>
 <p>In den meisten Fällen möchte man jedoch das Ergebnis eines Programms wissen. Dazu
 verwendet man die <code class="docutils literal"><span class="pre">print</span></code>-Anweisung. Im einfachsten Fall kann dies folgendermaßen
 aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
 <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Speichern wir diese Anweisungen wiederum in der Datei <code class="docutils literal"><span class="pre">foo.py</span></code> ab und führen sie
 im Python-Interpreter aus, so erhalten wir eine Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python foo.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python foo.py
 42
 $
 </pre></div>
 </div>
 <p>Eine etwas informativere Ausgabe kann man folgendermaßen erhalten. Das Programm
 <code class="docutils literal"><span class="pre">foo.py</span></code></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das Ergebnis lautet:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>führt zu folgender Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python foo.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python foo.py
 Das Ergebnis lautet: 42
 $
 </pre></div>
@@ -149,7 +149,7 @@ Schleifen verwenden. Betrachten wir ein einfaches Beispiel, das wir in einer Dat
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
@@ -158,7 +158,7 @@ Schleifen verwenden. Betrachten wir ein einfaches Beispiel, das wir in einer Dat
 </td></tr></table></div>
 <p>Bevor wir dieses Skript genauer ansehen, wollen wir uns davon überzeugen, dass es
 vernünftig funktioniert:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python summe.py
+<div class="highlight-python"><div class="highlight"><pre><span></span>$ python summe.py
 Schleifendurchgang 0
 Schleifendurchgang 1
 Schleifendurchgang 2
@@ -185,7 +185,7 @@ sich zunächst, welche Ausgabe Sie erwarten, und überprüfen Sie Ihre Überlegu
 indem Sie das Skript anschließend ausführen.</p>
 <p>Sehen wir uns noch an, wie die Eingabe der Schleife in der Python-Shell ablaufen
 würde:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
@@ -204,7 +204,7 @@ eine Schleife begonnen wurde. Dies wird durch Änderung der Eingabeaufforderung 
 <code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> nach <code class="docutils literal"><span class="pre">...</span></code> angedeutet. Will man die Schleife beenden, so verzichtet man
 auf eine Eingabe und drückt direkt die Eingabetaste.</p>
 <p>Bei der Eingabe können verschiedene Dinge schieflaufen. Betrachten wir zwei Beispiele.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
 <span class="go">      File &quot;&lt;stdin&gt;&quot;, line 1</span>
 <span class="go">        for n in range(5)</span>
@@ -215,7 +215,7 @@ auf eine Eingabe und drückt direkt die Eingabetaste.</p>
 <p>Der <code class="docutils literal"><span class="pre">SyntaxError</span></code> weist darauf hin, dass die Eingabe nicht die Form hat, die der
 Python-Interpreter erwartet. In diesem Fall fehlt der Doppelpunkt am Ende der Zeile
 – ein beliebter Fehler. Kein Problem, man nimmt einfach einen zweiten Anlauf.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> 
 <span class="gp">... </span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <span class="go">      File &quot;&lt;stdin&gt;&quot;, line 2</span>
 <span class="go">        print(&quot;Schleifendurchgang&quot;, n)</span>
@@ -234,7 +234,7 @@ auszuführen. Betrachten wir wieder ein Beispiel:</p>
 3
 4
 5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">25</span>
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="k">if</span> <span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">28</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ich rechne meine Übungsaufgaben.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -249,13 +249,13 @@ oder genauer: Das Programm gibt aus, dass ich meine Übungsaufgaben rechnen werd
 Andernfalls (»else«) ist es zu warm, und ich gehe lieber in&#8217;s Freibad.</p>
 <p>Um zu testen, ob wir den Code richtig interpretiert haben, führen wir das
 Programm aus und erhalten die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>Ich rechne meine Übungsaufgaben.
+<div class="highlight-python"><div class="highlight"><pre><span></span>Ich rechne meine Übungsaufgaben.
 Das war&#39;s.
 </pre></div>
 </div>
 <p>Setzt man dagegen die Variable <code class="docutils literal"><span class="pre">temperatur</span></code> auf einen Wert von 28 oder größer,
 so lautet die Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>Ich gehe lieber in&#39;s Freibad.
+<div class="highlight-python"><div class="highlight"><pre><span></span>Ich gehe lieber in&#39;s Freibad.
 Das war&#39;s.
 </pre></div>
 </div>
@@ -293,7 +293,7 @@ gewählt werden.</td></tr>
 
     <div class="footer" role="contentinfo">
         &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.5 erstellt.
     </div>
   </body>
 </html>
