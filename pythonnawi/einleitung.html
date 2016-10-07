@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Einführung &mdash; Python für Naturwissenschaftler</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2016alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
+    <link rel="next" title="Fortgeschrittene Aspekte von Python" href="advancedpython.html" />
+    <link rel="prev" title="Vorlesungsmanuskript »Python für Naturwissenschaftler«" href="index.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Python für Naturwissenschaftler</span></a></h1>
+        <h2 class="heading"><span>Einführung</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Vorlesungsmanuskript »Python für Naturwissenschaftler«</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Inhalt</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="advancedpython.html">Fortgeschrittene Aspekte von Python</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="einfuhrung">
+<h1>Einführung<a class="headerlink" href="#einfuhrung" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Die Vorlesung »Python für Naturwissenschaftler« baut auf der Vorlesung
+»Einführung in das Programmieren für Physiker und Naturwissenschaftler«, im
+Folgenden kurz Einführungsvorlesung genannt, auf. Sie setzt daher Kenntnisse
+der Programmiersprache Python, wie Sie in der Einführungsvorlesung vermittelt
+werden, voraus. Gegebenenfalls wird empfohlen, sich Grundkenntnisse von Python
+mit Hilfe des Manuskripts zur Einführungsvorlesung anzueignen oder das
+Manuskript zu verwenden, um Kenntnisse aufzufrischen.</p>
+<p>Die Einführungsvorlesung beschränkt sich bewusst weitestgehend auf
+Sprachelemente von Python, die in ähnlicher Form auch in anderen, für den
+Naturwissenschaftler wichtigen Programmiersprachen, wie C oder Fortran,
+verfügbar sind. Diese Beschränkung wird in der Vorlesung »Python für
+Naturwissenschaftler« fallengelassen, so dass einige weitere wichtige
+Sprachelemente besprochen werden können. Dabei wird jedoch keine
+Vollständigkeit angestrebt. Vielmehr soll auch Raum bleiben, um erstens eine
+etwas detailliertere Einführung in die zentrale numerische Bibliothek in
+Python, nämlich NumPy, zu geben und zweitens einige für die Codeentwicklung
+relevante Werkzeuge zu besprechen.</p>
+<p>Aus Zeitgründen werden wir uns bei Letzteren auf Versionskontrollsysteme,
+auf Verfahren zum systematischen und nachvollziehbaren Testen von Programmen und auf
+Verfahren zur Bestimmung der Laufzeiten verschiedener Programmteile beschränken.
+Einige dieser Techniken werden wir zwar konkret im Zusammenspiel mit Python
+kennenlernen, sie sind aber auch auf andere Programmiersprachen übertragbar.
+Auch wenn solche Techniken häufig als unnötiger Aufwand empfunden
+werden, können sie wesentlich zur Qualität wissenschaftlichen Rechnens beitragen.
+<a class="footnote-reference" href="#arxiv1210-0530" id="id1">[1]</a></p>
+<p>Die im Manuskript gezeigten Code-Beispiele sind für die Verwendung mit einer
+aktuellen Version von Python 3 vorgesehen. Ein Großteil der Beispiele ist
+aber auch unter Python 2.7 lauffähig oder lässt sich durch kleinere Anpassungen
+lauffähig machen.</p>
+<div class="section" id="verwendete-symbole">
+<h2>Verwendete Symbole<a class="headerlink" href="#verwendete-symbole" title="Link zu dieser Überschrift">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></code> stellt den Prompt des IPython-Interpreters dar, wobei statt der <code class="docutils literal"><span class="pre">1</span></code>
+auch eine andere Eingabenummer stehen kann.</p>
+<p><code class="docutils literal"><span class="pre">Out[1]:</span></code> weist auf die Ausgabe des IPython-Interpreters zur Eingabe <code class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></code> hin.</p>
+<p><code class="docutils literal"><span class="pre">...:</span></code> wird im IPython-Interpreter als Prompt verwendet, wenn die Eingabe fortzusetzen
+ist, zum Beispiel im Rahmen einer Schleife. Diese Art der Eingabe kann sich über
+mehrere Zeilen hinziehen. Zum Beenden wird die <code class="kbd docutils literal"><span class="pre">EINGABE</span></code>-Taste ohne zuvorige
+Eingabe von Text verwendet.</p>
+<p><code class="docutils literal"><span class="pre">$</span></code> steht für den Prompt, also die Eingabeaufforderung, der Shell beim
+kommandozeilenbasierten Arbeiten in einem Terminalfenster.</p>
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Dieses Symbol kennzeichnet weiterführende Anmerkungen, die sich unter
+anderem auf speziellere Aspekte der Programmiersprache Python beziehen.</p>
+</div>
+<div class="section" id="danke-an">
+<h2>Danke an …<a class="headerlink" href="#danke-an" title="Link zu dieser Überschrift">¶</a></h2>
+<ul class="simple">
+<li>… die Hörerinnen und Hörer der Vorlesung „Python für Naturwissenschaftler“, deren
+Fragen und Anregungen in diesem Manuskript ihren Niederschlag fanden;</li>
+<li>Benjamin Spreng für eine Reihe von Kommentaren zu diesem Manuskript.</li>
+</ul>
+<table class="docutils footnote" frame="void" id="arxiv1210-0530" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="http://de.arxiv.org/abs/1210.0530/">arXiv:1210.0530</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="index.html">Vorlesungsmanuskript »Python für Naturwissenschaftler«</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Inhalt</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="advancedpython.html">Fortgeschrittene Aspekte von Python</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 erstellt.
+    </div>
+  </body>
+</html>

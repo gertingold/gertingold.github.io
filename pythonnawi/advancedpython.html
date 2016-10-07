@@ -1,0 +1,1418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Fortgeschrittene Aspekte von Python &mdash; Python für Naturwissenschaftler</title>
+    
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2016alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
+    <link rel="next" title="NumPy" href="numpy.html" />
+    <link rel="prev" title="Einführung" href="einleitung.html" /> 
+  </head>
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Python für Naturwissenschaftler</span></a></h1>
+        <h2 class="heading"><span>Fortgeschrittene Aspekte von Python</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="einleitung.html">Einführung</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Inhalt</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="numpy.html">NumPy</a>&#160;&#160;»
+        </p>
+
+      </div>
+      <div class="content">
+        
+        
+  <div class="section" id="fortgeschrittene-aspekte-von-python">
+<span id="advanced"></span><h1>Fortgeschrittene Aspekte von Python<a class="headerlink" href="#fortgeschrittene-aspekte-von-python" title="Link zu dieser Überschrift">¶</a></h1>
+<p>In diesem Kapitel sollen einige Sprachelemente von Python besprochen
+werden, auf die in der Vorlesung »Einführung in das Programmieren für Physiker
+und Materialwissenschaftler« nicht oder nur nur sehr kurz eingegangen
+wurde. Aus Platz- und Zeitgründen muss allerdings auch hier eine Auswahl
+getroffen werden.</p>
+<div class="section" id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In der Vorlesung »Einführung in das Programmieren für Physiker und
+Materialwissenschaftler« hatten wir uns im Kapitel über zusammengesetzte
+Datentypen vor allem mit Listen, Tupeln, Zeichenketten und Dictionaries
+beschäftigt. Sets wurden dagegen nur kurz erwähnt und sollen hier etwas
+ausführlicher besprochen werden.</p>
+<p>Ein Set ist eine Menge von Python-Objekten, denen ein Hashwert zugeordnet
+werden kann. Insofern ist es mit einem Dictionary vergleichbar, das nur
+Schlüssel, aber nicht die zugehörigen Werte enthält. Die Einträge eines
+Sets können nicht mehrfach auftreten, so dass die Bildung eines Sets
+geeignet ist, um aus einer Liste Duplikate zu entfernen. Dies wird im
+Folgenden demonstriert.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">list_pts</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)]</span>
+
+<span class="gp">In [2]: </span><span class="n">set_pts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">list_pts</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="n">set_pts</span>
+<span class="gr">Out[3]: </span><span class="p">{(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)}</span>
+
+<span class="gp">In [4]: </span><span class="n">uniq_list_pts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">set_pts</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">uniq_list_pts</span>
+<span class="gr">Out[5]: </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Zunächst wird eine Liste erstellt, die hier Tupel enthält, um beispielsweise
+Punkte in der Ebene zu beschreiben. In der Eingabe 2 wird ein Set erstellt,
+in dem, wie man in der Ausgabe 3 sieht, tatsächlich keine Duplikate mehr
+vorkommen. Dabei liegen die Elemente im Set nicht in einer bestimmten Ordnung vor,
+ganz so wie wir es von Dictionaries kennen. Bei Bedarf kann man das Set auch
+wieder in eine Liste umwandeln, wie die Eingabe 4 und die Ausgabe 5 zeigen.</p>
+<p>Statt wie im vorigen Beispiel ein Set durch Umwandlung aus einer Liste zu
+erzeugen, kann man die Elemente des Sets auch direkt in einer Notation mit
+geschweiften Klammern, die an die Verwandtschaft mit Dictionaries erinnert,
+eingeben.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">set_of_ints</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="gp">In [2]: </span><span class="n">set_of_ints</span>
+<span class="gr">Out[2]: </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Auch hier werden natürlich eventuelle Dubletten entfernt.</p>
+<p>Ähnlich wie Listen oder Dictionaries sind Sets auch veränderbar (<em>mutable</em>) und
+damit selbst nicht als Elemente von Sets oder als Schlüssel von Dictionaries
+verwendbar. Dafür kann man Elemente hinzufügen oder entfernen, wobei der
+Versuch, ein nicht vorhandenes Element zu entfernen, eine <code class="docutils literal"><span class="pre">KeyError</span></code>-Ausnahme
+auslöst.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="gp">In [2]: </span><span class="n">data</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="n">data</span>
+<span class="gr">Out[3]: </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="gp">In [4]: </span><span class="n">data</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">data</span>
+<span class="gr">Out[5]: </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="gp">In [6]: </span><span class="n">data</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">KeyError                                  Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-13-6610e4562113&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 data.remove(10)</span>
+
+<span class="go">KeyError: 10</span>
+</pre></div>
+</div>
+<p>Will man ein Set als Schlüssel verwenden und ist man dafür bereit, auf die gerade
+beschriebenen Möglichkeiten, ein Set zu verändern, zu verzichten, so greift man
+auf das <code class="docutils literal"><span class="pre">frozenset</span></code> zurück, das wie der Name schon andeutet unveränderlich
+(<em>immutable</em>) ist.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">evens</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+
+<span class="gp">In [2]: </span><span class="n">evens</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">AttributeError                            Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-15-2c352b4e8a10&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 evens.add(10)</span>
+
+<span class="go">AttributeError: &#39;frozenset&#39; object has no attribute &#39;add&#39;</span>
+
+<span class="gp">In [3]: </span><span class="n">odds</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+
+<span class="gp">In [4]: </span><span class="n">numbers</span> <span class="o">=</span> <span class="p">{</span><span class="n">evens</span><span class="p">:</span> <span class="s">&quot;some even numbers&quot;</span><span class="p">,</span> <span class="n">odds</span><span class="p">:</span> <span class="s">&quot;some odd numbers&quot;</span><span class="p">}</span>
+
+<span class="gp">In [5]: </span><span class="n">numbers</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="gr">Out[5]: </span><span class="n">dict_keys</span><span class="p">([</span><span class="nb">frozenset</span><span class="p">({</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">}),</span> <span class="nb">frozenset</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">})])</span>
+</pre></div>
+</div>
+<p>Um zu überprüfen, ob ein Objekt Element einer Menge ist, ist es günstig,
+statt einer Liste ein Set zu verwenden, wie die folgenden Tests zeigen.
+<a class="footnote-reference" href="#ipython" id="id1">[1]</a></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">1000000</span>
+
+<span class="gp">In [2]: </span><span class="n">xlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">))</span>
+
+<span class="gp">In [3]: </span><span class="n">xset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">xlist</span><span class="p">)</span>
+
+<span class="gp">In [4]: </span><span class="o">%</span><span class="n">timeit</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">xlist</span>
+<span class="go">10000000 loops, best of 3: 37 ns per loop</span>
+
+<span class="gp">In [5]: </span><span class="o">%</span><span class="n">timeit</span> <span class="mi">1</span> <span class="ow">in</span> <span class="n">xset</span>
+<span class="go">10000000 loops, best of 3: 32.1 ns per loop</span>
+
+<span class="gp">In [6]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">nmax</span><span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">xlist</span>
+<span class="go">100 loops, best of 3: 10.6 ms per loop</span>
+
+<span class="gp">In [7]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">nmax</span><span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">xset</span>
+<span class="go">10000000 loops, best of 3: 85.4 ns per loop</span>
+</pre></div>
+</div>
+<p>Hier liegen eine Liste und ein Set mit einer Million Elementen vor. Prüft man
+auf Mitgliedschaft eines der ersten Listenelemente ab, so gibt es keinen
+wesentlichen Unterschied zwischen Liste und Set. Ganz anders sieht es aus,
+wenn man ein Element vom Ende der Liste auswählt. In diesem Fall muss die
+ganze Liste durchsucht werden und die Ausführungszeit ist in unserem Beispiel
+mehr als hunderttausendmal langsamer als für das Set. Dieser Unterschied ist
+vor allem auch dann relevant, wenn das gewählte Element nicht vorhanden ist,
+so dass auf jeden Fall die gesamte Liste durchsucht werden muss. Natürlich
+ist die Erzeugung eines Sets mit einigem Zeitaufwand verbunden. Muss man aber
+häufig auf Mitgliedschaft in einer bestimmten Liste testen, so kann die Umwandlung
+in ein Set die Ausführung entscheidend beschleunigen.</p>
+<p>Neben dem Test auf Mitgliedschaft lässt ein Set auch noch eine Reihe von
+Operationen auf Mengen zu, wie zum Beispiel das Vereinigen zweier Mengen (<code class="docutils literal"><span class="pre">union</span></code>
+oder <code class="docutils literal"><span class="pre">|</span></code>), das Bilden der Schnittmenge (<code class="docutils literal"><span class="pre">intersection</span></code> oder <code class="docutils literal"><span class="pre">&amp;</span></code>) und deren
+Komplement (<code class="docutils literal"><span class="pre">symmetric_difference</span></code> oder <code class="docutils literal"><span class="pre">^</span></code>) sowie das Bilden der Differenzmenge
+(<code class="docutils literal"><span class="pre">difference</span></code> oder <code class="docutils literal"><span class="pre">-</span></code>). Zudem lässt sich auf Unter- und Obermenge (<code class="docutils literal"><span class="pre">issubset</span></code>
+bzw. <code class="docutils literal"><span class="pre">issuperset</span></code>) sowie Schnittmengenfreiheit (<code class="docutils literal"><span class="pre">isdisjoint</span></code>) testen. Diese
+Möglichkeiten sind im Folgenden illustriert.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="gp">In [3]: </span><span class="n">a</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gr">Out[3]: </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+
+<span class="gp">In [4]: </span><span class="n">c</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="gp">In [5]: </span><span class="n">a</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gr">Out[5]: </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+
+<span class="gp">In [6]: </span><span class="n">a</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gr">Out[6]: </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span>
+
+<span class="gp">In [7]: </span><span class="n">a</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="gr">Out[7]: </span><span class="p">{</span><span class="mi">2</span><span class="p">}</span>
+
+<span class="gp">In [8]: </span><span class="n">d</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [9]: </span><span class="n">a</span><span class="o">.</span><span class="n">issuperset</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gr">Out[9]: </span><span class="bp">True</span>
+
+<span class="gp">In [10]: </span><span class="n">a</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gr">Out[10]: </span><span class="bp">False</span>
+
+<span class="gp">In [11]: </span><span class="n">a</span><span class="o">.</span><span class="n">isdisjoint</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="gr">Out[11]: </span><span class="bp">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-comprehensions">
+<span id="listcomprehensions"></span><h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Um eine Liste aufzubauen, kann man sich zum Beispiel der folgenden Konstruktion
+bedienen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="gp">In [2]: </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [3]: </span><span class="n">squares</span>
+<span class="gr">Out[3]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Hierbei wird zunächst eine leere Liste angelegt, an die anschließend in einer
+Schleife die Quadratzahlen angefügt werden. Etwas kompakter und damit auch
+übersichtlicher kann man diese Funktionalität mit Hilfe einer so genannten
+<em>list comprehension</em> <a class="footnote-reference" href="#listcomprehension" id="id2">[2]</a> erreichen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="gp">In [2]: </span><span class="n">squares</span>
+<span class="gr">Out[2]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Liest man den Text in den eckigen Klammern in Eingabe 1, so bekommt man eine
+sehr klare Vorstellung davon, was dieser Code bewirken soll. Vor der
+<code class="docutils literal"><span class="pre">for</span></code>-Anweisung kann auch eine andere Anweisung stehen, die die Listenelemente
+erzeugt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
+
+<span class="gp">In [2]: </span><span class="p">[(</span><span class="mf">0.1</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="mf">0.1</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="gr">Out[2]: </span><span class="p">[(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span class="go"> (0.3141592653589793, 0.3090169943749474),</span>
+<span class="go"> (0.6283185307179586, 0.5877852522924731),</span>
+<span class="go"> (0.9424777960769379, 0.8090169943749475),</span>
+<span class="go"> (1.2566370614359172, 0.9510565162951535),</span>
+<span class="go"> (1.5707963267948966, 1.0)]</span>
+</pre></div>
+</div>
+<p>List comprehensions sind nicht nur häufig übersichtlicher, sondern in der
+Ausführung auch etwas schneller. <a class="footnote-reference" href="#timeit" id="id3">[3]</a></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="o">%%</span><span class="n">timeit</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">10000 loops, best of 3: 91.8 µs per loop</span>
+
+<span class="gp">In [2]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)]</span>
+<span class="go">10000 loops, best of 3: 54.4 µs per loop</span>
+</pre></div>
+</div>
+<p>In unserem Fall ist die list comprehension also um fast einen Faktor 1,7 schneller.</p>
+<p>Die Syntax von list comprehensions ist nicht auf die bisher beschriebenen
+einfachen Fälle beschränkt. Sie lässt zum Beispiel auch das Schachteln von
+Schleifen zu.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+<span class="gr">Out[1]: </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
+
+<span class="gp">In [2]: </span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="gp">In [3]: </span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [4]: </span><span class="n">result</span>
+<span class="gr">Out[4]: </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Wie man sieht, sind die <code class="docutils literal"><span class="pre">for</span></code>-Schleifen in der list comprehension von der
+äußersten zur innersten Schleife anzugeben, wobei man auch mehr als zwei Schleifen
+schachteln kann.</p>
+<p>Man kann das Hinzufügen zur Liste zusätzlich noch von Bedingungen abhängig machen.
+Im folgenden Beispiel wird das Tupel nur in die Liste aufgenommen, wenn die erste
+Zahl ohne Rest durch die zweite Zahl teilbar ist.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+<span class="gr">Out[1]: </span><span class="p">[(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Als kleines Anwendungsbeispiel betrachten wir den Quicksort-Algorithmus zur
+Sortierung von Listen. Die Idee hierbei besteht darin, ein Listenelement zu
+nehmen und die kleineren Elemente in einer rekursiv sortierten Liste diesem
+Element voranzustellen und die anderen Elemente sortiert anzuhängen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span>
+<span class="gp">   ...:</span>     <span class="k">return</span> <span class="p">(</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">   ...:</span>             <span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">   ...:</span>             <span class="o">+</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">]))</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="gp">In [3]: </span><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="gp">In [4]: </span><span class="n">liste</span>
+<span class="gr">Out[4]: </span><span class="p">[</span><span class="mi">51</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+
+<span class="gp">In [5]: </span><span class="n">quicksort</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="gr">Out[5]: </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">93</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Das Konzept der list comprehension lässt sich auch auf Sets und Dictionaries
+übertragen. Letzteres ist im folgenden Beispiel gezeigt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [25]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&#39;Augsburg&#39;</span>
+
+<span class="gp">In [26]: </span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">}</span>
+<span class="gr">Out[26]: </span><span class="p">{</span><span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;s&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#39;u&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Wie wir gesehen haben, kann eine list comprehension zum einen aus einer Liste
+durch Anwendung einer Funktion eine andere Liste machen und zum anderen
+Listenelemente zur Aufnahme in die neue Liste mit Hilfe einer Bedingung
+auswählen. Diese beiden Komponenten können gemeinsam oder auch einzeln
+vorkommen.  In letzterem Fall kann man alternativ die <code class="docutils literal"><span class="pre">map</span></code>-Funktion bzw. die
+<code class="docutils literal"><span class="pre">filter</span></code>-Funktion verwenden. Beide sind zentrale Elemente des so genannten
+funktionalen Programmierens.</p>
+<p><code class="docutils literal"><span class="pre">map</span></code> wendet die im ersten Argument angegebene Funktion auf die im zweiten
+Argument angegebene Liste an. Um eine Liste von Quadratzahlen zu erzeugen,
+kann man statt einer expliziten <code class="docutils literal"><span class="pre">for</span></code>-Schleife auch eine der beiden
+folgenden Möglichkeiten verwenden:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<span class="gr">Out[1]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+
+<span class="gp">In [2]: </span><span class="n">quadrate</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+
+<span class="gp">In [3]: </span><span class="nb">list</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="gr">Out[3]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Eine nützliche Anwendung der <code class="docutils literal"><span class="pre">map</span></code>-Funktion besteht darin, die nach dem
+Einlesen numerischer Daten zunächst vorhandenen Strings in Floats umzuwandeln:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;0.1 0.2 0.4 -0.5&quot;</span>
+
+<span class="gp">In [2]: </span><span class="n">zeilenelemente</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+
+<span class="gp">In [3]: </span><span class="nb">list</span><span class="p">(</span><span class="n">zeilenelemente</span><span class="p">)</span>
+<span class="gr">Out[3]: </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Bei der <code class="docutils literal"><span class="pre">filter</span></code>-Funktion muss die als erstes Argument angegebene Funktion
+einen Wahrheitswert zurückgeben, der darüber entscheidet, ob ein Element
+der Sequenz im zweiten Argument übernommen wird oder nicht.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">initialen</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">isupper</span><span class="p">(),</span> <span class="s">&#39;Albert Einstein&#39;</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">initialen</span><span class="p">)</span>
+<span class="gr">Out[2]: </span><span class="s">&#39;AE&#39;</span>
+</pre></div>
+</div>
+<p>Zur Abwechslung haben wir hier statt einer Liste eine Zeichenkette verwendet,
+die Zeichen für Zeichen abgearbeitet wird. Das Ergebnis enthält die Großbuchstaben
+der Zeichenkette.</p>
+<p>Zu den wesentlichen Elementen des funktionalen Programmierens gehört auch die
+<code class="docutils literal"><span class="pre">reduce</span></code>-Funktion. Während sie in Python 2 noch zum normalen Sprachumfang
+gehörte, muss sie in Python 3 aus dem <code class="docutils literal"><span class="pre">functools</span></code>-Modul importiert werden
+<a class="footnote-reference" href="#gvrblog" id="id4">[4]</a>. Tatsächlich gibt es für viele Anwendungsfälle angepasste
+Funktionen als Ersatz, wie wir gleich noch sehen werden.</p>
+<p>Als erstes Argument muss <code class="docutils literal"><span class="pre">reduce</span></code> eine Funktion bekommen, die
+zwei Argumente verarbeitet. <code class="docutils literal"><span class="pre">reduce</span></code> wendet dann die Funktion auf die ersten
+beiden Elemente der als zweites Argument angegebenen Liste an, verarbeitet dann
+entsprechend das Ergebnis und das dritte Element der Liste und fährt so fort
+bis das Ende der Liste erreicht ist. Die folgende Implementation der Fakultät
+illustriert dies.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="gp">In [2]: </span><span class="n">factorial</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">functools</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="gp">In [3]: </span><span class="n">factorial</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gr">Out[3]: </span><span class="mi">720</span>
+</pre></div>
+</div>
+<p>Entsprechend lässt sich auch die Summe der Elemente einer Liste bestimmen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+<span class="gr">Out[1]: </span><span class="mf">1.1</span>
+
+<span class="gp">In [2]: </span><span class="nb">sum</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+<span class="gr">Out[2]: </span><span class="mf">1.1</span>
+</pre></div>
+</div>
+<p>Wie die zweite Eingabe zeigt, stellt Python zu diesem Zweck auch direkt die
+<code class="docutils literal"><span class="pre">sum</span></code>-Funktion zur Verfügung. Ähnliches gilt für die Verwendung der Oder- und
+der Und-Verknüpfung in der <code class="docutils literal"><span class="pre">reduce</span></code>-Funktion, die direkt durch die <code class="docutils literal"><span class="pre">any</span></code>-
+bzw. <code class="docutils literal"><span class="pre">all</span></code>-Funktion abgedeckt werden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="nb">any</span><span class="p">([</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="gr">Out[1]: </span><span class="bp">True</span>
+
+<span class="gp">In [2]: </span><span class="nb">all</span><span class="p">([</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="gr">Out[2]: </span><span class="bp">False</span>
+</pre></div>
+</div>
+<p>In der ersten Eingabe wird überprüft, ob mindestens ein Element der Liste
+ungerade ist, während die zweite Eingabe überprüft, ob alle Elemente ungerade
+sind.</p>
+<p>Zum Abschluss dieses Kapitels wollen wir noch zwei äußerst praktische
+eingebaute Funktionen erwähnen, die, falls sie nicht existieren würden, mit
+list comprehensions realisiert werden könnten. Häufig benötigt man bei der
+Iteration über eine Liste in einer <code class="docutils literal"><span class="pre">for</span></code>-Schleife noch den Index des
+betreffenden Eintrags. Dies lässt sich mit Hilfe der <code class="docutils literal"><span class="pre">enumerate</span></code>-Funktion
+sehr einfach realisieren.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s">&#39;eins&#39;</span><span class="p">,</span> <span class="s">&#39;zwei&#39;</span><span class="p">,</span> <span class="s">&#39;drei&#39;</span><span class="p">]):</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="n">nr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">1 eins</span>
+<span class="go">2 zwei</span>
+<span class="go">3 drei</span>
+</pre></div>
+</div>
+<p>Die <code class="docutils literal"><span class="pre">enumerate</span></code>-Funktion gibt also für jedes Element der Liste ein Tupel
+zurück, das aus dem Index und dem entsprechenden Element besteht. Dabei beginnt
+die Zählung wie immer in Python bei Null.</p>
+<p>Es kommt auch immer wieder vor, dass man zwei oder mehr Listen parallel in einer
+<code class="docutils literal"><span class="pre">for</span></code>-Schleife abarbeiten möchte. Dann ist die <code class="docutils literal"><span class="pre">zip</span></code>-Funktion von Nutzen,
+die aus den Einträgen mit gleichem Index nach dem Reißverschlussprinzip Tupel
+zusammenbaut.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="gp">In [2]: </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="gp">In [3]: </span><span class="n">ab</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="gp">In [4]: </span><span class="nb">list</span><span class="p">(</span><span class="n">ab</span><span class="p">)</span>
+<span class="gr">Out[4]: </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Sollten die beteiligten Listen verschieden lang sein, so ist die Länge der
+neuen Liste durch die kürzeste der eingegebenen Listen bestimmt.</p>
+<p>Man kann die <code class="docutils literal"><span class="pre">zip</span></code>-Funktion zum Beispiel dazu verwenden, um elegant
+Mittelwerte aus aufeinanderfolgenden Listenelementen zu berechnen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="gp">In [2]: </span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">((</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">2.5</span>
+<span class="go">4.5</span>
+<span class="go">4.0</span>
+<span class="go">1.0</span>
+<span class="go">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="generatoren-und-iteratoren">
+<span id="generatoren"></span><h2>Generatoren und Iteratoren<a class="headerlink" href="#generatoren-und-iteratoren" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Es kommt häufig vor, dass man Listen mit einer list comprehension erzeugt, nur
+um anschließend über diese Liste zu iterieren. Dabei reicht es völlig aus, wenn
+die jeweiligen Elemente erst bei Bedarf erzeugt werden. Somit ist es nicht mehr
+erforderlich, die ganze Liste im Speicher bereitzuhalten, was bei großen Listen
+durchaus zum Problem werden könnte.</p>
+<p>Will man die Listenerzeugung vermeiden, so kann man statt einer
+list comprehension einen Generatorausdruck verwenden. Die beiden unterscheiden
+sich syntaktisch dadurch, dass die umschließenden eckigen Klammern der
+list comprehension durch runde Klammern ersetzt werden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">quadrate</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="gp">In [2]: </span><span class="n">quadrate</span>
+<span class="gr">Out[2]: </span><span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">genexpr</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x39e4a00</span><span class="o">&gt;</span>
+
+<span class="gp">In [3]: </span><span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">quadrate</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="k">print</span> <span class="n">q</span>
+<span class="gp">   ...:</span>
+<span class="go">0</span>
+<span class="go">1</span>
+<span class="go">4</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>Man kann die Werte des Generatorausdruck auch explizit durch Verwendung der
+zugehörigen <code class="docutils literal"><span class="pre">__next__</span></code>-Methode abrufen. Allerdings sind die Werte nach dem obigen
+Beispiel bereits abgearbeitet, so dass die <code class="docutils literal"><span class="pre">__next__</span></code>-Methode in einer
+<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme resultiert. Damit wird angezeigt, dass bereits alle
+Wert ausgegeben wurden. Die <code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme war auch in der
+<code class="docutils literal"><span class="pre">for</span></code>-Schleife verantwortlich dafür, dass diese beendet wurde.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">StopIteration                             Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-4-ec579e92187a&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 quadrate.next()</span>
+
+<span class="go">StopIteration:</span>
+
+<span class="gp">In [5]: </span><span class="n">quadrate</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="gp">In [6]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="gr">Out[6]: </span><span class="mi">0</span>
+
+<span class="gp">In [7]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="gr">Out[7]: </span><span class="mi">1</span>
+
+<span class="gp">In [8]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="gr">Out[8]: </span><span class="mi">4</span>
+
+<span class="gp">In [9]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="gr">Out[9]: </span><span class="mi">9</span>
+
+
+<span class="gp">In [10]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">StopIteration                             Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-10-ec579e92187a&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 quadrate.next()</span>
+
+<span class="go">StopIteration:</span>
+</pre></div>
+</div>
+<p>In Eingabe 5 wurde der Generatorausdruck neu initialisiert, so dass er wieder
+vier Werte liefern konnte. Am Ende wird dann wiederum die
+<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme ausgelöst. Natürlich kann man diese Ausnahme auch
+abfangen, wie in folgendem Beispiel gezeigt wird.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">q</span><span class="p">():</span>
+<span class="gp">   ...:</span>     <span class="k">try</span><span class="p">:</span>
+<span class="gp">   ...:</span>         <span class="k">return</span> <span class="n">quadrate</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>
+<span class="gp">   ...:</span>     <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="gp">   ...:</span>         <span class="k">return</span> <span class="s">&quot;Das war&#39;s mit den Quadratzahlen.&quot;</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [2]: </span><span class="n">quadrate</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="gp">In [3]: </span><span class="p">[</span><span class="n">q</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="gr">Out[3]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s">&quot;Das war&#39;s mit den Quadratzahlen.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Aus Sequenzen kann man mit Hilfe der eingebauten <code class="docutils literal"><span class="pre">iter</span></code>-Funktion Iteratoren
+konstruieren.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [2]: </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gr">Out[2]: </span><span class="mi">1</span>
+
+<span class="gp">In [3]: </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gr">Out[3]: </span><span class="mi">2</span>
+
+<span class="gp">In [4]: </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gr">Out[4]: </span><span class="mi">3</span>
+
+<span class="gp">In [5]: </span><span class="nb">next</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">StopIteration                             Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-5-e590fe0d22f8&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 next(i)</span>
+
+<span class="go">StopIteration:</span>
+</pre></div>
+</div>
+<p>In der Eingabe 1 wird ein Iterator erzeugt, der über eine <code class="docutils literal"><span class="pre">__next__</span></code>-Methode
+verfügt und nach dem Abarbeiten der Liste eine <code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme
+auslöst. Iteratoren kann man auch über eine Klassendefinition erhalten, wie im
+folgenden Beispiel für die Fibonacci-Zahlen gezeigt ist.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">class</span> <span class="nc">Fibonacci</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nmax</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="bp">self</span><span class="o">.</span><span class="n">nmax</span> <span class="o">=</span> <span class="n">nmax</span>
+<span class="gp">   ...:</span>         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">   ...:</span>         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">   ...:</span>     <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="k">return</span> <span class="bp">self</span>
+<span class="gp">   ...:</span>     <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nmax</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">   ...:</span>             <span class="k">raise</span> <span class="ne">StopIteration</span>
+<span class="gp">   ...:</span>         <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+<span class="gp">   ...:</span>         <span class="bp">self</span><span class="o">.</span><span class="n">nmax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nmax</span><span class="o">-</span><span class="mi">1</span>
+<span class="gp">   ...:</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [2]: </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">1 1 2 3 5 8 13 21 34 55</span>
+</pre></div>
+</div>
+<p>Die <code class="docutils literal"><span class="pre">__iter__</span></code>-Methode dieser Klasse gibt sich selbst zurück, während die
+<code class="docutils literal"><span class="pre">__next__</span></code>-Methode das jeweils nächste Element zurückgibt. Nachdem die
+ersten <code class="docutils literal"><span class="pre">nmax</span></code> Elemente der Fibonacci-Reihe erzeugt wurden, wird eine
+<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme ausgelöst, die zur Beendung der <code class="docutils literal"><span class="pre">for</span></code>-Schleife in
+Eingabe 2 führt.</p>
+<p>Normalerweise wird es einfacher sein, statt einer solchen Klassendefinition
+einen Generator zu schreiben. Dieser sieht auf den ersten Blick wie eine
+Funktionsdefinition aus. Allerdings ist die <code class="docutils literal"><span class="pre">return</span></code>-Anweisung durch eine
+<code class="docutils literal"><span class="pre">yield</span></code>-Anweisung ersetzt, die dafür verantwortlich ist, den jeweils nächsten
+Wert zurückzugeben. Bemerkenswert ist im Vergleich zu Funktionen außerdem, dass
+die Werte der Funktionsvariablen nicht verlorengehen. Das folgende Beispiel
+erzeugt die ersten Zeilen eines pascalschen Dreiecks.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">pascaltriangle</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="n">coeff</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">   ...:</span>     <span class="k">yield</span> <span class="n">coeff</span>
+<span class="gp">   ...:</span>     <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="n">coeff</span> <span class="o">=</span> <span class="n">coeff</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">m</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">   ...:</span>         <span class="k">yield</span> <span class="n">coeff</span>
+<span class="gp">   ...:</span>     <span class="k">raise</span> <span class="ne">StopIteration</span>
+
+<span class="gp">In [2]: </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">print</span> <span class="s">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pascaltriangle</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">                        1</span>
+<span class="go">                      1   1</span>
+<span class="go">                    1   2   1</span>
+<span class="go">                  1   3   3   1</span>
+<span class="go">                1   4   6   4   1</span>
+<span class="go">              1   5   10  10  5   1</span>
+<span class="go">            1   6   15  20  15  6   1</span>
+<span class="go">          1   7   21  35  35  21  7   1</span>
+<span class="go">        1   8   28  56  70  56  28  8   1</span>
+<span class="go">      1   9   36  84 126 126  84  36  9   1</span>
+<span class="go">    1   10  45 120 210 252 210 120  45  10  1</span>
+</pre></div>
+</div>
+<p>In der letzten Zeile fungieren die Klammern der <code class="docutils literal"><span class="pre">join</span></code>-Methode gleichzeitig als Klammern
+für den Generatorausdruck.</p>
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Man kann <code class="docutils literal"><span class="pre">yield</span></code> auch benutzen, um Werte in die Funktion
+einzuspeisen.  Auf diese Weise erhält man eine Koroutine. Dieses Konzept soll
+hier jedoch nicht weiter diskutiert werden.</p>
+<p>Abschließend sei noch erwähnt, dass das <code class="docutils literal"><span class="pre">itertools</span></code>-Modul eine ganze Reihe von
+nützlichen Iteratoren zur Verfügung stellt. Als Beispiel mögen Permutationen dienen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="gp">In [2]: </span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="s">&quot;ABC&quot;</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">print</span> <span class="n">s</span>
+<span class="gp">   ...:</span>
+<span class="go">(&#39;A&#39;, &#39;B&#39;, &#39;C&#39;)</span>
+<span class="go">(&#39;A&#39;, &#39;C&#39;, &#39;B&#39;)</span>
+<span class="go">(&#39;B&#39;, &#39;A&#39;, &#39;C&#39;)</span>
+<span class="go">(&#39;B&#39;, &#39;C&#39;, &#39;A&#39;)</span>
+<span class="go">(&#39;C&#39;, &#39;A&#39;, &#39;B&#39;)</span>
+<span class="go">(&#39;C&#39;, &#39;B&#39;, &#39;A&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dekoratoren">
+<h2>Dekoratoren<a class="headerlink" href="#dekoratoren" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Dekoratoren sind ein Programmierkonstrukt, das man gelegentlich gewinnbringend
+einsetzen kann, wie wir im Folgenden sehen werden. Aber selbst wenn man keine
+eigenen Dekoratoren programmieren möchte, sollte man zumindest das Konzept
+kennen. Es kommt immer wieder vor, dass bei der Verwendung von fremden
+Python-Paketen Dekoratoren zum Einsatz kommen. Dies kann dann zum Beispiel
+folgendermaßen aussehen:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;this function should only be executable by users properly logged in&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Der Operator <code class="docutils literal"><span class="pre">&#64;</span></code> weist hier auf die Verwendung eines Dekorators hin.</p>
+<p>Bevor wir uns aber mit Dekoratoren beschäftigen, ist es nützlich, so genannte
+Closures <a class="footnote-reference" href="#closure" id="id5">[5]</a> zu diskutieren. Das Konzept soll an einem einfachen Beispiel
+erläutert werden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">add_tax</span><span class="p">(</span><span class="n">taxrate</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">def</span> <span class="nf">_add_tax</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="k">return</span> <span class="n">value</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mf">0.01</span><span class="o">*</span><span class="n">taxrate</span><span class="p">)</span>
+<span class="gp">   ...:</span>     <span class="k">return</span> <span class="n">_add_tax</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [2]: </span><span class="n">add_mwst</span> <span class="o">=</span> <span class="n">add_tax</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="n">add_reduzierte_mwst</span> <span class="o">=</span> <span class="n">add_tax</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="gp">In [4]: </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="n">add_mwst</span><span class="p">,</span> <span class="n">add_reduzierte_mwst</span><span class="p">]:</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;{:.2f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="gp">   ...:</span>
+<span class="go">11.90</span>
+<span class="go">10.70</span>
+</pre></div>
+</div>
+<p>Mit <code class="docutils literal"><span class="pre">add_tax</span></code> haben wir hier eine Funktion definiert, die wiederum eine
+Funktion zurückgibt. Das Interessante an dieser Konstruktion ist, dass die
+zurückgegebene Funktion sich den Kontext merkt, in dem sie erzeugt wurde. In
+unserem Beispiel bedeutet das, dass die Funktion <code class="docutils literal"><span class="pre">_add_tax</span></code> auf den Wert der
+Variable <code class="docutils literal"><span class="pre">taxrate</span></code>, also den Steuersatz, auch später noch zugreifen kann.
+Dies wird deutlich, wenn wir zur Addition des vollen Mehrwertsteuersatzes die
+Funktion <code class="docutils literal"><span class="pre">add_mwst</span></code> definieren.  Hierbei wird der Variable <code class="docutils literal"><span class="pre">taxrate</span></code> der
+Wert 19 mitgegeben, der später beim Aufruf von <code class="docutils literal"><span class="pre">add_mwst</span></code> noch zur Verfügung
+steht. Entsprechend definieren wir eine Funktion zur Addition des reduzierten
+Mehrwertsteuersatzes. Am Beispiel der abschließenden Schleife wird deutlich,
+dass die Funktionen wie gewünscht funktionieren.</p>
+<p>Kommen wir nun zurück zu den Dekoratoren. Diese erlauben es, Funktionen oder
+Klassen mit Zusatzfunktionalität zu versehen oder diese zu modifizieren. Wir
+wollen uns hier auf Funktionen beschränken. Betrachten wir als ein erstes
+Beispiel den folgenden Code:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;{} registered&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">))</span>
+<span class="gp">   ...:</span>     <span class="k">return</span> <span class="n">func</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [2]: </span><span class="nd">@register</span>
+<span class="gp">   ...:</span> <span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;executing myfunc&#39;</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">myfunc registered</span>
+
+<span class="gp">In [3]: </span><span class="n">myfunc</span><span class="p">()</span>
+<span class="go">executing myfunc</span>
+
+<span class="gp">In [4]: </span><span class="nd">@register</span>
+<span class="gp">   ...:</span> <span class="k">def</span> <span class="nf">myotherfunc</span><span class="p">():</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;executing myotherfunc&#39;</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+<span class="go">myotherfunc registered</span>
+
+<span class="gp">In [5]: </span><span class="n">myotherfunc</span><span class="p">()</span>
+<span class="go">executing myotherfunc</span>
+</pre></div>
+</div>
+<p>Hier haben wir zunächst einen Dekorator <code class="docutils literal"><span class="pre">register</span></code> definiert, der als
+Argument eine Funktion erhält. Bevor er sie unverändert zurückgibt, registriert
+er die Funktion, was hier durch eine einfache Ausgabe nur angedeutet wird. Der
+Dekorator kann nun verwendet werden, indem vor der gewünschten Funktion die
+Zeile <code class="docutils literal"><span class="pre">&#64;register</span></code> eingefügt wird. Wie schon erwähnt, gibt der Operator <code class="docutils literal"><span class="pre">&#64;</span></code>
+an, dass hier ein Dekorator verwendet wird, die folgende Funktion also
+dekoriert wird. In der Eingabe 2 wird <code class="docutils literal"><span class="pre">myfunc</span></code> als Argument an <code class="docutils literal"><span class="pre">register</span></code>
+übergeben. Bei der Auswertung der Funktionsdefinition wird nun der
+Ausgabebefehl ausgeführt. Später erfolgt dies nicht mehr, da der Dekorator
+<code class="docutils literal"><span class="pre">register</span></code> die Funktion ja unverändert zurückgegeben hat. Die Eingabe 4
+zeigt, dass der Dekorator mit einer beliebigen Funktion verwendet werden kann.</p>
+<p>Wenden wir uns nun einem etwas komplexeren Beispiel zu.
+Wir haben in dem untenstehenden Code-Beispiel in den Zeilen 17-21 die
+Minimalvariante einer rekursiven Funktion für die Berechnung der Fakultät
+programmiert. Diese Funktion soll nun so modifiziert werden, dass
+Logging-Information ausgegeben wird. Zu Beginn der Funktion soll ausgegeben
+werden, mit welchem Argument die Funktion aufgerufen wurde und am Ende sollen
+zusätzlich das Ergebnis und die seit dem Aufruf verstrichene Zeit ausgegeben
+werden.</p>
+<p>Natürlich könnte die entsprechende Funktionalität direkt in die Funktion
+programmiert werden, aber es spricht einiges dagegen, so vorzugehen.  Die
+Fähigkeit, Logging-Information auszugeben, hat nichts mit der Berechnung der
+Fakultät zu tun, und daher ist es besser, die beiden Funktionalitäten sauber zu
+trennen. Dies wird deutlich, wenn man bedenkt, dass die Ausgabe von
+Logging-Information vor allem in der Entwicklungsphase erforderlich ist und
+später wahrscheinlich entfernt werden soll. Dann müsste man wieder in das
+Innere der Funktion eingreifen und die richtigen Zeilen identifizieren, die
+entfernt werden müssen. Außerdem ist die Ausgabe von Logging-Information etwas,
+was nicht nur für unsere spezielle Funktion nützlich ist, sondern auch in
+anderen Fällen verwendet werden kann. Dies spricht wiederum dafür, diese
+Funktionalität aus der eigentlichen Funktion fernzuhalten.</p>
+<p>Genau dieses Ziel ist in dem folgenden Code realisiert, in dem die Funktion
+<code class="docutils literal"><span class="pre">factorial</span></code> mit einem Dekorator versehen ist.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="k">def</span> <span class="nf">logging</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">func_with_log</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">argumente</span> <span class="o">=</span> <span class="s">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">repr</span><span class="p">,</span> <span class="n">chain</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;calling {}({})&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">argumente</span><span class="p">))</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;got {}({}) = {} in {:5.3f} ms&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">func</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">argumente</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">elapsed</span><span class="o">*</span><span class="mi">1000</span>
+                                                    <span class="p">))</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">func_with_log</span>
+
+<span class="nd">@logging</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Sehen wir uns nun also den Dekorator <code class="docutils literal"><span class="pre">logging</span></code> in den Zeilen 4-14 an. Wie
+schon angedeutet, wird die Funktion <code class="docutils literal"><span class="pre">factorial</span></code> als Argument <code class="docutils literal"><span class="pre">func</span></code> an die
+Funktion <code class="docutils literal"><span class="pre">logging</span></code> übergeben. Der wesentliche Teil von <code class="docutils literal"><span class="pre">logging</span></code> besteht
+darin, eine neue Funktion, die hier den Namen <code class="docutils literal"><span class="pre">func_with_log</span></code> trägt, zu
+definieren, die die Funktion <code class="docutils literal"><span class="pre">func</span></code> ersetzen wird. Die Definition in den Zeilen
+5-13 ist absichtlich allgemeiner gehalten als es für uns Beispiel notwendig
+wäre. So lässt sich der Dekorator auch in anderen Fällen direkt einsetzen.
+Daher lassen wir in Zeile 5 eine allgemeine Übergabe von Variablen in einem
+Tupel <code class="docutils literal"><span class="pre">args</span></code> und einem Dictionary <code class="docutils literal"><span class="pre">kwargs</span></code> zu.</p>
+<p>Die zugehörigen Werte werden in der Zeile 6 durch Kommas separiert zu einem
+String zusammengebaut. Dabei übernimmt die aus dem <code class="docutils literal"><span class="pre">itertools</span></code>-Modul
+importierte Funktion <code class="docutils literal"><span class="pre">chain</span></code> die Aufgabe, die Elemente des Tupels <code class="docutils literal"><span class="pre">args</span></code> und der
+Schlüssel-Wert-Tupel des Dictionaries <code class="docutils literal"><span class="pre">kwargs</span></code> zu einer einzigen Sequenz
+zusammenzufassen. Mit Hilfe der <code class="docutils literal"><span class="pre">map</span></code>-Funktion wird zu jedem Element mit
+Hilfe der <code class="docutils literal"><span class="pre">repr</span></code>-Funktion die zugehörige Darstellung erzeugt. Die
+<code class="docutils literal"><span class="pre">join</span></code>-Funktion baut diese Darstellung schließlich zu einem String zusammen.
+Nachdem dieses Verfahren etwas komplexer ist, sei angemerkt, dass dieses
+Vorgehen nichts mit dem Dekorator an sich zu tun hat. Vielmehr ist es durch
+unsere Anforderung bedingt, Logging-Information einschließlich der
+Aufrufparameter ausgeben zu können, und dies nicht nur für die
+<code class="docutils literal"><span class="pre">factorial</span></code>-Funktion, sondern in einem möglichst allgemeinen Fall. Die
+Ausgabe der Logging-Information erfolgt in Zeile 7. Zeile 8 bestimmt den
+Startzeitpunkt. In diesem Zusammenhang wurde in Zeile 1 das <code class="docutils literal"><span class="pre">time</span></code>-Modul
+importiert.</p>
+<p>Nach diesen Vorarbeiten wird in Zeile 9 die eigentliche Funktion, die die
+Fakultät berechnen soll, aufgerufen. Typischerweise wird die ursprüngliche
+Funktion tatsächlich aufgerufen. Allerdings ist dies nicht unbedingt notwendig.
+Man könnte stattdessen hier einfach einen Hinweis ausgeben, dass nun die Fakultät
+zu berechnen wäre. Auf diese Weise würde man jedoch kein Ergebnis für die
+Fakultät erhalten.</p>
+<p>Nachdem die <code class="docutils literal"><span class="pre">factorial</span></code>-Funktion ihr Ergebnis zurückgegeben hat, wird in
+Zeile 10 die verstrichene Zeit bestimmt und in Zeile 11 in Millisekunden
+gemeinsam mit dem Ergebnis ausgegeben. Abschließend soll die dekorierte
+Funktion das berechnete Resultat zurückgeben. Damit ist die Definition der
+dekorierten Funktion beendet und der Dekorator gibt diese Funktion in Zeile 14
+zurück.</p>
+<p>Ruft man Zeile 23 nun die Funktion <code class="docutils literal"><span class="pre">factorial</span></code> auf, so wird wegen des
+<code class="docutils literal"><span class="pre">logging</span></code>-Dekorators in Wirklichkeit die gerade besprochene, dekorierte
+Funktion ausgeführt. Man erhält somit die folgende Ausgabe:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">got</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">in</span> <span class="mf">0.004</span> <span class="n">ms</span>
+<span class="n">got</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span> <span class="ow">in</span> <span class="mf">0.085</span> <span class="n">ms</span>
+<span class="n">got</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">6</span> <span class="ow">in</span> <span class="mf">0.163</span> <span class="n">ms</span>
+<span class="n">got</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">=</span> <span class="mi">24</span> <span class="ow">in</span> <span class="mf">0.281</span> <span class="n">ms</span>
+<span class="n">got</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">120</span> <span class="ow">in</span> <span class="mf">0.524</span> <span class="n">ms</span>
+</pre></div>
+</div>
+<p>In dieser Ausgabe ist gut zu sehen, wie durch die rekursive Abarbeitung
+nacheinander die Fakultät von 5, von 4, von 3, von 2 und von 1 berechnet
+wird. Die Ausführungen sind geschachtelt, denn die Berechnung der Fakultät
+von 2 kann erst beendet werden, wenn die Fakultät von 1 bestimmt wurde.
+Entsprechend benötigt die Berechnung der Fakultät von 5 auch mehr Zeit
+als die Berechnung der Fakultät von 4 usw. Der <code class="docutils literal"><span class="pre">logging</span></code>-Dekorator erlaubt
+somit Einblicke in die Abarbeitung der rekursiven Funktion ohne dass
+wir in diese Funktion direkt eingreifen mussten.</p>
+<p>Abschließend betrachten wir noch ein weiteres Anwendungsbeispiel, das besonders
+dann von Interesse ist, wenn die Ausführung einer Funktion relativ aufwändig
+ist. Dann kann es sinnvoll sein, Ergebnisse aufzubewahren und auf diese bei
+einem erneuten Aufruf mit den gleichen Argumenten wieder zuzugreifen. Dies
+setzt natürlich eine deterministische Funktion voraus, also eine Funktion,
+deren Ergebnis nur von den übergebenen Argumenten abhängt. Außerdem wird der
+Gewinn an Rechenzeit mit Speicherplatz bezahlt.  Dies ist jedoch normalerweise
+unproblematisch, so lange sich die Zahl verschiedener Argumentwerte in Grenzen
+hält.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_memoize</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">args</span> <span class="ow">in</span> <span class="n">cache</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">cache</span><span class="p">[</span><span class="n">args</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">_memoize</span>
+
+<span class="nd">@logging</span>
+<span class="nd">@memoize</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Im <code class="docutils literal"><span class="pre">memoize</span></code>-Dekorator ist hier eine Closure realisiert, die es der Funktion
+<code class="docutils literal"><span class="pre">_memoize</span></code> erlaubt, auch später auf das Dictionary <code class="docutils literal"><span class="pre">cache</span></code> zuzugreifen, in
+dem die Ergebnisse gespeichert werden. Hierzu eignet sich ein Dictionary, weil
+man die Argumente in Form des Tupels <code class="docutils literal"><span class="pre">args</span></code> als Schlüssel hinterlegen kann.
+Allerdings ist es nicht möglich, auch ein eventuelles Dictionary <code class="docutils literal"><span class="pre">kwargs</span></code>
+im Schlüssel unterzubringen. Argumente, die mit Schlüsselworten übergeben
+werden, sind hier somit nicht erlaubt.</p>
+<p>Aus den Zeilen 14 und 15 ersieht man, dass Dekoratoren auch geschachtelt werden
+können. Die Funktion <code class="docutils literal"><span class="pre">factorial</span></code> wird zunächst mit dem <code class="docutils literal"><span class="pre">memoize</span></code>-Dekorator
+versehen. Die so dekorierte Funktion wird dann mit dem <code class="docutils literal"><span class="pre">logging</span></code>-Dekorator
+versehen. Eine Schwierigkeit besteht hier allerdings darin, dass der
+<code class="docutils literal"><span class="pre">logging</span></code>-Dekorator für ein korrektes Funktionieren den Namen der ursprünglichen
+Funktion, also <code class="docutils literal"><span class="pre">factorial</span></code> benötigt. Aus diesem Grunde verwendet man in Zeile 5
+den <code class="docutils literal"><span class="pre">wraps</span></code>-Dekorator aus dem <code class="docutils literal"><span class="pre">functools</span></code>-Modul, der dafür sorgt, dass Name
+und Dokumentationsstring diejenigen der Funktion <code class="docutils literal"><span class="pre">func</span></code> und nicht der Funktion
+<code class="docutils literal"><span class="pre">_memoize</span></code> sind.</p>
+<p>Im Folgenden ist die Funktionsweise des <code class="docutils literal"><span class="pre">memoize</span></code>-Dekorators gezeigt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">calling factorial(4)</span>
+<span class="go">calling factorial(3)</span>
+<span class="go">calling factorial(2)</span>
+<span class="go">calling factorial(1)</span>
+<span class="go">got factorial(1) = 1 in 0.005 ms</span>
+<span class="go">got factorial(2) = 2 in 0.063 ms</span>
+<span class="go">got factorial(3) = 6 in 0.252 ms</span>
+<span class="go">got factorial(4) = 24 in 0.369 ms</span>
+<span class="gr">Out[2]: </span><span class="mi">24</span>
+
+<span class="gp">In [2]: </span><span class="n">factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">calling factorial(3)</span>
+<span class="go">got factorial(3) = 6 in 0.007 ms</span>
+<span class="gr">Out[3]: </span><span class="mi">6</span>
+</pre></div>
+</div>
+<p>Beim ersten Aufruf der Funktion <code class="docutils literal"><span class="pre">factorial</span></code> wird die Fakultät rekursiv
+ausgewertet wie wir das schon weiter oben gesehen haben. Dabei werden aber die
+berechneten Werte im Dictionary <code class="docutils literal"><span class="pre">cache</span></code> gespeichert. Ruft man nun die
+Funktion mit einem Argument auf, dessen Fakultät bereits berechnet wurde,
+kann direkt auf das Ergebnis im Cache zugegriffen werden. Dies zeigt sich
+daran, dass keine rekursive Berechnung mehr durchgeführt wird und die
+benötigte Zeit bis zur Rückgabe des Ergebnisses sehr kurz ist.</p>
+<p>Abschließend sei noch kurz erwähnt, dass Dekoratoren auch ein Argument haben
+können, das wie üblich in Klammern angegeben wird. Dabei ist zu beachten, dass
+dem Dekorator dann nicht mehr wie in den hier diskutierten Beispielen die zu
+dekorierende Funktion übergeben wird, sondern das angegebene Argument. Die zu
+dekorierende Funktion wird dafür dann an die im Dekorator definierte Funktion
+übergeben.</p>
+</div>
+<div class="section" id="ausnahmen">
+<h2>Ausnahmen<a class="headerlink" href="#ausnahmen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Bereits in der »Einführung in das Programmieren« hatten wir Ausnahmen (<em>exceptions</em>)
+kennengelernt und gesehen, wie man mit einem <code class="docutils literal"><span class="pre">except</span></code>-Block auf eine Ausnahme
+reagieren kann. Zudem haben wir im Abschnitt <a class="reference internal" href="#generatoren"><span>Generatoren und Iteratoren</span></a> eine Anwendung
+gesehen, in der wir selbst eine Ausnahme ausgelöst haben, nämlich eine
+<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme. Im Folgenden sollen noch einige Aspekte von Ausnahmen
+diskutiert werden, die bis jetzt zu kurz kamen.</p>
+<p>Grundsätzlich ist es sinnvoll, möglichst spezifisch auf Ausnahmen zu reagieren.
+Daher sollte zum einen der <code class="docutils literal"><span class="pre">try</span></code>-Block kurz gehalten werden, um einen
+möglichst direkten Zusammenhang zwischen Ausnahme und auslösendem Code zu
+garantieren. Zum anderen sollten nicht unnötig viele Ausnahmen gleichzeitig in
+einem <code class="docutils literal"><span class="pre">except</span></code>-Block abgefangen werden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.dat&#39;</span><span class="p">)</span>
+<span class="gp">   ...:</span> <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;abgefangener Fehler:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="gp">   ...:</span> <span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="n">content</span> <span class="o">=</span> <span class="n">datei</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="gp">   ...:</span>     <span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [2]: </span><span class="n">content</span>
+<span class="gr">Out[2]: </span><span class="p">[</span><span class="s">&#39;Das ist der Inhalt der Test-Datei.</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">]</span>
+
+<span class="gp">In [3]: </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.dat&#39;</span><span class="p">)</span>
+<span class="gp">   ...:</span> <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="s">&#39;abgefangener Fehler:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="gp">   ...:</span> <span class="k">else</span><span class="p">:</span>
+<span class="gp">   ...:</span>     <span class="n">content</span> <span class="o">=</span> <span class="n">datei</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="gp">   ...:</span>     <span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">   ...:</span>
+<span class="go">abgefangener Fehler: [Errno 2] No such file or directory: &#39;test.dat&#39;</span>
+</pre></div>
+</div>
+<p>Bei der ersten Eingabe ist die Datei <code class="docutils literal"><span class="pre">test.dat</span></code> vorhanden und kann geöffnet
+werden.  Der <code class="docutils literal"><span class="pre">except</span></code>-Block wird daher übersprungen und der <code class="docutils literal"><span class="pre">else</span></code>-Block
+ausgeführt. Im Prinzip hätte man den Inhalt des <code class="docutils literal"><span class="pre">else</span></code>-Blocks auch im
+<code class="docutils literal"><span class="pre">try</span></code>-Block unterbringen können. Die hier gezeigte Variante hat jedoch den
+Vorteil, dass der Zusammenhang zwischen dem Versuch, eine Datei zu öffnen, und
+der eventuellen <code class="docutils literal"><span class="pre">IOError</span></code>-Ausnahme eindeutig ist. In der Eingabe 3 ist die
+Datei <code class="docutils literal"><span class="pre">test.dat</span></code> nicht vorhanden, und es wird der <code class="docutils literal"><span class="pre">except</span></code>-Block
+ausgeführt. Die Variable <code class="docutils literal"><span class="pre">e</span></code> nach dem Schlüsselwort <code class="docutils literal"><span class="pre">as</span></code> enthält dabei
+Informationen, die beim Auslösen der Ausnahme übergeben wurden und hier im
+<code class="docutils literal"><span class="pre">except</span></code>-Block zur Information des Benutzers ausgegeben werden. Der
+<code class="docutils literal"><span class="pre">else</span></code>-Block wird hier im Gegensatz zum ersten Fall nicht ausgeführt.</p>
+<p>Wenn die Ausführung des Codes im <code class="docutils literal"><span class="pre">try</span></code>-Block potentiell zu verschiedenen Ausnahmen
+führen kann, ist es sinnvoll, mehrere <code class="docutils literal"><span class="pre">except</span></code>-Blöcke vorzusehen, wie das folgende
+Beispiel zeigt.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">&#39;eins&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&#39;zwei&#39;</span><span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;KeyError:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;TypeError:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="n">myfunc</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">myfunc</span><span class="p">(</span><span class="mf">5.5</span><span class="p">)</span>
+<span class="n">myfunc</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">3j</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Während der Funktionsaufruf in Zeile 10 keine Ausnahme auslöst, führen die
+Aufrufe in den Zeilen 11 und 12 zu einem <code class="docutils literal"><span class="pre">KeyError</span></code>, da es den Schlüssel <code class="docutils literal"><span class="pre">5</span></code>
+in <code class="docutils literal"><span class="pre">mydict</span></code> nicht gibt, bzw. zu einem <code class="docutils literal"><span class="pre">TypeError</span></code> weil sich die komplexe
+Zahl <code class="docutils literal"><span class="pre">1+3j</span></code> nicht in einen Integer umwandeln lässt. Die Ausgabe sieht
+dementsprechend folgendermaßen aus:</p>
+<div class="highlight-python"><div class="highlight"><pre>eins
+KeyError: 5
+TypeError: can&#39;t convert complex to int
+</pre></div>
+</div>
+<p>In diesem Beispiel wird Code wiederholt. Dies lässt sich verhindern, wenn
+man die Funktion wie folgt definiert.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s">&#39;eins&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s">&#39;zwei&#39;</span><span class="p">}</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">mydict</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)])</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;: &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)]))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Möchte man alle Ausnahmen abfangen, so kann man das Tupel in Zeile 5 zum
+Beispiel durch <code class="docutils literal"><span class="pre">Exception</span></code> oder gar <code class="docutils literal"><span class="pre">BaseException</span></code> ersetzen. Auf den
+Hintergrund hierfür kommen wir etwas später noch zurück.</p>
+<p>Einer Folge von <code class="docutils literal"><span class="pre">except</span></code>-Blöcken könnte sich natürlich auch wieder ein
+<code class="docutils literal"><span class="pre">else</span></code>-Block anschließen, wie wir dies weiter oben gesehen hatten.
+Allerdings gibt es nicht nur Situationen, wo abhängig vom Auftreten einer
+Ausnahme der eine oder andere Block abgearbeitet wird, sondern es kann
+auch vorkommen, dass am Ende auf jeden Fall ein gewisser Codeblock ausgeführt
+werden soll. Ein typischer Fall ist das Schreiben in eine Datei. Dabei muss am
+Ende sichergestellt werden, dass die Datei geschlossen wird. Hierzu dient
+der <code class="docutils literal"><span class="pre">finally</span></code>-Block. Betrachten wir ein Beispiel.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test_</span><span class="si">%i</span><span class="s">.dat&#39;</span> <span class="o">%</span> <span class="n">nr</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;ANFANG</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%g</span><span class="se">\n</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;ZeroDivisionError:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;ENDE</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;Test&#39;</span><span class="p">]):</span>
+    <span class="n">myfunc</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In der Funktion <code class="docutils literal"><span class="pre">myfunc</span></code> soll der Kehrwert des Arguments in die Datei
+<code class="docutils literal"><span class="pre">test.dat</span></code> geschrieben werden. Es ergibt sich die folgende Ausgabe:</p>
+<div class="highlight-python"><div class="highlight"><pre>--- test_0.dat ---
+ANFANG
+0.666667
+ENDE
+
+--- test_1.dat ---
+ANFANG
+ENDE
+
+--- test_2.dat ---
+ANFANG
+ENDE
+</pre></div>
+</div>
+<p>Dabei wird im zweiten Fall wegen der Division durch Null kein Kehrwert ausgeben,
+während im dritten Fall ein <code class="docutils literal"><span class="pre">TypeError</span></code> auftritt, weil versucht wird, durch
+einen String zu dividieren. Diese Ausnahme wird zwar nicht abgefangen, aber
+es ist immerhin garantiert, dass die Ausgabedatei ordnungsgemäß geschlossen wird.</p>
+<p>Was würde passieren, wenn man das Schließen der Datei nicht in einem <code class="docutils literal"><span class="pre">finally</span></code>-Block
+unterbringt, sondern einfach am Ende der Funktion ausführen lässt? Wir modifizieren
+unseren Code entsprechend:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test_</span><span class="si">%i</span><span class="s">.dat&#39;</span> <span class="o">%</span> <span class="n">nr</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;ANFANG</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%g</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;ZeroDivisionError:&#39;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;ENDE</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&#39;Test&#39;</span><span class="p">]):</span>
+    <span class="n">myfunc</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Nun erhält man die folgenden Dateiinhalte:</p>
+<div class="highlight-python"><div class="highlight"><pre>--- test_0.dat ---
+ANFANG
+0.666667
+ENDE
+
+--- test_1.dat ---
+ANFANG
+ENDE
+
+--- test_2.dat ---
+ANFANG
+</pre></div>
+</div>
+<p>Wie man sieht, ist die letzte Datei unvollständig. Die nicht abgefangene
+<code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme führt zu einem Programmabbruch, der sowohl die
+Ausführung des <code class="docutils literal"><span class="pre">write</span></code>-Befehls in Zeile 10 als auch das Schließen der Datei
+verhindert. In der ersten Variante des Programms dagegen gehört der
+<code class="docutils literal"><span class="pre">finally</span></code>-Block zum <code class="docutils literal"><span class="pre">try...except</span></code>-Block und wird somit auf jeden Fall
+ausgeführt. Erst danach führt der <code class="docutils literal"><span class="pre">TypeError</span></code> in diesem Fall zum
+Programmabbruch.</p>
+<p>Selbst in obigem Beispiel ohne <code class="docutils literal"><span class="pre">finally</span></code>-Block wurde die Datei geschlossen,
+da dies spätestens durch das Betriebssystem beim Programmende veranlasst wird.
+Es ist aber dennoch kein guter Stil, sich hierauf zu verlassen. Eine Datei
+nicht zu schließen, kann in Python Schwierigkeiten bereiten, wenn man die Datei
+anschließend wieder zum Lesen öffnen will. Auch wenn man auf eine große Zahl
+von Dateien schreiben möchte, kann es zu Problemen kommen, wenn man Dateien
+nicht schließt, da die Zahl der offenen Dateien beschränkt ist. In diesem
+Zusammenhang gibt es Unterschiede zwischen verschiedenen Implementationen von
+Python. In CPython, also der standardmäßig verwendeten, in der
+Programmiersprache C implementierten Version von Python, sorgt ein als »garbage
+collection« bezeichneter Prozess, also das Einsammeln von (Daten-)Müll, dafür,
+dass überflüssige Objekte entfernt werden. Hierbei werden auch Dateien
+geschlossen, auf die nicht mehr zugegriffen wird. Allerdings wird dies nicht
+durch die Sprachdefinition garantiert. In Jython, einer Python-Implementation
+für die Java Virtual Machine, ist dies tatsächlich nicht der Fall.</p>
+<p>Python stellt standardmäßig bereits eine große Zahl von Ausnahmen zur Verfügung,
+die alle als Unterklassen von einer Basisklasse, der <code class="docutils literal"><span class="pre">BaseException</span></code> abgeleitet
+sind. Die folgende Klassenhierarchie der Ausnahmen ist der Python-Dokumentation
+entnommen, wo die einzelnen Ausnahmen auch genauer beschrieben sind. <a class="footnote-reference" href="#exceptiondoc" id="id6">[6]</a></p>
+<div class="highlight-python"><div class="highlight"><pre>BaseException
+ +-- SystemExit
+ +-- KeyboardInterrupt
+ +-- GeneratorExit
+ +-- Exception
+      +-- StopIteration
+      +-- StandardError
+      |    +-- BufferError
+      |    +-- ArithmeticError
+      |    |    +-- FloatingPointError
+      |    |    +-- OverflowError
+      |    |    +-- ZeroDivisionError
+      |    +-- AssertionError
+      |    +-- AttributeError
+      |    +-- EnvironmentError
+      |    |    +-- IOError
+      |    |    +-- OSError
+      |    |         +-- WindowsError (Windows)
+      |    |         +-- VMSError (VMS)
+      |    +-- EOFError
+      |    +-- ImportError
+      |    +-- LookupError
+      |    |    +-- IndexError
+      |    |    +-- KeyError
+      |    +-- MemoryError
+      |    +-- NameError
+      |    |    +-- UnboundLocalError
+      |    +-- ReferenceError
+      |    +-- RuntimeError
+      |    |    +-- NotImplementedError
+      |    +-- SyntaxError
+      |    |    +-- IndentationError
+      |    |         +-- TabError
+      |    +-- SystemError
+      |    +-- TypeError
+      |    +-- ValueError
+      |         +-- UnicodeError
+      |              +-- UnicodeDecodeError
+      |              +-- UnicodeEncodeError
+      |              +-- UnicodeTranslateError
+      +-- Warning
+           +-- DeprecationWarning
+           +-- PendingDeprecationWarning
+           +-- RuntimeWarning
+           +-- SyntaxWarning
+           +-- UserWarning
+           +-- FutureWarning
+       +-- ImportWarning
+       +-- UnicodeWarning
+       +-- BytesWarning
+</pre></div>
+</div>
+<p>Will man gleichzeitig Ausnahmen abfangen, die Unterklassen einer gemeinsamen
+Klasse sind, so kann man stattdessen auch direkt die entsprechende Ausnahmeklasse
+abfangen. Somit sind beispielsweise</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>und</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">except</span> <span class="ne">LookupError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>äquivalent. Man kann die vorhandenen Ausnahmeklassen, sofern sie von der
+Fehlerart her passend sind, auch direkt für eigene Zwecke verwenden oder
+Unterklassen programmieren. Beim Auslösen einer Ausnahme kann dabei auch
+eine entsprechende Fehlermeldung mitgegeben werden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;42 ist keine erlaubte Eingabe!&#39;</span><span class="p">)</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">ValueError                                Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-1-c6e93f8997ca&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 raise ValueError(&quot;42 ist keine erlaubte Eingabe!&quot;)</span>
+
+<span class="go">ValueError: 42 ist keine erlaubte Eingabe!</span>
+</pre></div>
+</div>
+<p>Hat man eine Ausnahme abgefangen, so hat man die Möglichkeit, nach einer
+adäquaten Reaktion die Ausnahme erneut auszulösen. Geschieht dies in einer
+Funktion, so hat das aufrufende Programm wiederum die Möglichkeit, entsprechend
+zu reagieren. Dies ist im folgenden Beispiel illustriert.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">reciprocal</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;May be the main program knows what to do...&#39;</span>
+        <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">reciprocal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Let&#39;s just continue!&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&quot;That&#39;s the end of the program.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dieses Programm erzeugt die folgende Ausgabe:</p>
+<div class="highlight-python"><div class="highlight"><pre>May be the main program knows what to do...
+Let&#39;s just continue!
+That&#39;s the end of the program.
+</pre></div>
+</div>
+<p>Die Funktion <code class="docutils literal"><span class="pre">reciprocal</span></code> fängt die Division durch Null ab. Sie verhindert
+damit den vorzeitigen Programmabbruch und gibt dem Hauptprogramm die Chance,
+in geeigneter Weise zu reagieren. Dies geschieht hier, indem wiederum der
+<code class="docutils literal"><span class="pre">ZeroDivisionError</span></code> abgefangen wird.</p>
+</div>
+<div class="section" id="kontext-mit-with-anweisung">
+<h2>Kontext mit <code class="docutils literal"><span class="pre">with</span></code>-Anweisung<a class="headerlink" href="#kontext-mit-with-anweisung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Im vorigen Abschnitt hatten wir im Zusammenhang mit dem Zugriff auf eine Datei
+ein typisches Szenario kennengelernt, bei dem die eigentliche Funktionalität
+zwischen zwei Schritte eingebettet ist, in denen zunächst Vorbereitungen getroffen
+werden und am Ende notwendige Aufräumarbeiten durchgeführt werden. In unserem
+Beispiel wäre dies das Öffnen der Datei zu Beginn und das Schließen der Datei am
+Ende. Eine solche Situation kann in Python mit Hilfe eines Kontextmanagers
+elegant bewältigt werden. Dies ist im folgenden Beispiel gezeigt.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.dat&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;{:g}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Dies entspricht einem <code class="docutils literal"><span class="pre">try...finally</span></code>-Konstrukt, bei dem im <code class="docutils literal"><span class="pre">finally</span></code>-Block
+unabhängig vom Auftreten einer Ausnahme die Datei wieder geschlossen wird.
+Die Ausgabedatei hat dann den folgenden Inhalt:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="mf">0.25</span>
+<span class="mf">0.333333</span>
+<span class="mf">0.5</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>Sie wurde explizit beim Verlassen des <code class="docutils literal"><span class="pre">with</span></code>-Blocks geschlossen, nachdem zuvor
+die Variable <code class="docutils literal"><span class="pre">n</span></code> den Wert Null erreicht hat und die Division eine
+<code class="docutils literal"><span class="pre">ZeroDivisionError</span></code>-Ausnahme ausgelöst hat. Um dies zu überprüfen, muss man die
+Ausnahme abfangen.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.dat&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;{:g}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;division by zero&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;file is closed: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">file</span><span class="o">.</span><span class="n">closed</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Die zugehörige Ausgabe lautet dann wie erwartet:</p>
+<div class="highlight-python"><div class="highlight"><pre>division by zero
+file is closed: True
+</pre></div>
+</div>
+<p>Kontextmanager können unter anderem beim Arbeiten mit Cython <a class="footnote-reference" href="#cython" id="id7">[7]</a>
+nützlich sein.  Cython ermöglicht die Optimierung von Python-Skripten, indem es
+C-Erweiterungen anbietet. Dazu gehört unter anderem die Möglichkeit, den
+Datentyp von Variablen festzulegen.  In Python werden Listenindizes
+normalerweise darauf überprüft, ob sie innerhalb des zulässigen Bereichs liegen,
+und es werden negative Indizes entsprechend behandelt. Dies kostet natürlich
+Zeit. Ist man sich sicher, dass man weder negative Indizes benutzt noch die
+Listengrenzen überschreitet, so kann man bei der Benutzung von Cython auf die
+genannte Funktionalität verzichten. Will man dies in einem begrenzten
+Code-Block tun, so bietet sich die Verwendung von <code class="docutils literal"><span class="pre">with</span>
+<span class="pre">cython.boundscheck(False)</span></code> an.  Eine andere Anwendung besteht im Ausschalten
+des <em>Global Interpreter Locks</em> <a class="footnote-reference" href="#gil" id="id8">[8]</a> von Python mit Hilfe des
+<code class="docutils literal"><span class="pre">nogil</span></code>-Kontextmanagers.</p>
+<table class="docutils footnote" frame="void" id="ipython" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Hier verwenden wir <code class="docutils literal"><span class="pre">%timeit</span></code>, eine der so genannten magischen
+Funktionen der verbesserten Python-Shell <code class="docutils literal"><span class="pre">IPython</span></code>, die es erlaubt,
+Ausführungszeiten einzelner Befehle oder (ab Version 0.13) von
+Befehlsblöcken zu bestimmen. Wie werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><span>Das Modul timeit</span></a>
+zurückkommen.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="listcomprehension" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Wir belassen es hier bei dem üblicherweise verwendeten
+englischen Begriff. Gelegentlich findet man den Begriff
+»Listenabstraktion« als deutsche Übersetzung.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="timeit" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Will man die Ausführungszeit eines ganzen Befehlsblocks bestimmen,
+so muss die magische <code class="docutils literal"><span class="pre">%%timeit</span></code>-Funktion mit zwei Prozentzeichen
+verwendet werden. Bei Einzeilern genügt <code class="docutils literal"><span class="pre">%timeit</span></code> mit einem
+Prozentzeichen. <code class="docutils literal"><span class="pre">%%timeit</span></code> wurde der <code class="docutils literal"><span class="pre">IPython</span></code>-Version 0.13
+eingeführt. Wir werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><span>Das Modul timeit</span></a> zurückkommen.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="gvrblog" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Guido von Rossum begründet das in einem <a class="reference external" href="http://www.artima.com/weblogs/viewpost.jsp?thread=98196">Blog</a>
+mit dem Titel <em>The fate of reduce() in Python 3000</em> aus dem Jahr 2005.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="closure" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Wir belassen es auch hier wieder bei dem häufig verwendeten
+englischen Begriff, der als »Funktionsabschluss« zu übersetzen wäre.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="exceptiondoc" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Siehe
+<a class="reference external" href="http://docs.python.org/library/exceptions.html#exceptions.BaseException/">6. Built-in Exceptions</a>
+in der Dokumentation der Standardbibliothek von Python.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="cython" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Weitere Informationen zu Cython findet man unter <a class="reference external" href="http://www.cython.org/">www.cython.org</a>.
+Cython sollte nicht mit CPython verwechselt werden, der C-Implementation von Python, die
+man standardmäßig beim <code class="docutils literal"><span class="pre">python</span></code>-Aufruf verwendet.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="gil" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[8]</a></td><td>Siehe das <a class="reference external" href="http://docs.python.org/2/glossary.html#term-global-interpreter-lock">Glossar der Python-Dokumentation</a>
+für eine kurze Erläuterung des GIL.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+      </div>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="einleitung.html">Einführung</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Inhalt</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="numpy.html">NumPy</a>&#160;&#160;»
+        </p>
+
+      </div>
+
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 erstellt.
+    </div>
+  </body>
+</html>
