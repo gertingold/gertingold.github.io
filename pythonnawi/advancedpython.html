@@ -24,17 +24,17 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
     <link rel="next" title="NumPy" href="numpy.html" />
     <link rel="prev" title="Einführung" href="einleitung.html" /> 
   </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Fortgeschrittene Aspekte von Python</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav">
       
         <p>
         «&#160;&#160;<a href="einleitung.html">Einführung</a>
@@ -49,14 +49,14 @@
         
         
   <div class="section" id="fortgeschrittene-aspekte-von-python">
-<span id="advanced"></span><h1>Fortgeschrittene Aspekte von Python<a class="headerlink" href="#fortgeschrittene-aspekte-von-python" title="Link zu dieser Überschrift">¶</a></h1>
+<span id="advanced"></span><h1>Fortgeschrittene Aspekte von Python<a class="headerlink" href="#fortgeschrittene-aspekte-von-python" title="Permalink zu dieser Überschrift">¶</a></h1>
 <p>In diesem Kapitel sollen einige Sprachelemente von Python besprochen
 werden, auf die in der Vorlesung »Einführung in das Programmieren für Physiker
 und Materialwissenschaftler« nicht oder nur nur sehr kurz eingegangen
 wurde. Aus Platz- und Zeitgründen muss allerdings auch hier eine Auswahl
 getroffen werden.</p>
 <div class="section" id="sets">
-<h2>Sets<a class="headerlink" href="#sets" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>In der Vorlesung »Einführung in das Programmieren für Physiker und
 Materialwissenschaftler« hatten wir uns im Kapitel über zusammengesetzte
 Datentypen vor allem mit Listen, Tupeln, Zeichenketten und Dictionaries
@@ -101,7 +101,7 @@ eingeben.</p>
 <p>Ähnlich wie Listen oder Dictionaries sind Sets auch veränderbar (<em>mutable</em>) und
 damit selbst nicht als Elemente von Sets oder als Schlüssel von Dictionaries
 verwendbar. Dafür kann man Elemente hinzufügen oder entfernen, wobei der
-Versuch, ein nicht vorhandenes Element zu entfernen, eine <code class="docutils literal"><span class="pre">KeyError</span></code>-Ausnahme
+Versuch, ein nicht vorhandenes Element zu entfernen, eine <tt class="docutils literal"><span class="pre">KeyError</span></tt>-Ausnahme
 auslöst.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
 
@@ -126,7 +126,7 @@ auslöst.</p>
 </div>
 <p>Will man ein Set als Schlüssel verwenden und ist man dafür bereit, auf die gerade
 beschriebenen Möglichkeiten, ein Set zu verändern, zu verzichten, so greift man
-auf das <code class="docutils literal"><span class="pre">frozenset</span></code> zurück, das wie der Name schon andeutet unveränderlich
+auf das <tt class="docutils literal"><span class="pre">frozenset</span></tt> zurück, das wie der Name schon andeutet unveränderlich
 (<em>immutable</em>) ist.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">evens</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 
@@ -180,11 +180,11 @@ ist die Erzeugung eines Sets mit einigem Zeitaufwand verbunden. Muss man aber
 häufig auf Mitgliedschaft in einer bestimmten Liste testen, so kann die Umwandlung
 in ein Set die Ausführung entscheidend beschleunigen.</p>
 <p>Neben dem Test auf Mitgliedschaft lässt ein Set auch noch eine Reihe von
-Operationen auf Mengen zu, wie zum Beispiel das Vereinigen zweier Mengen (<code class="docutils literal"><span class="pre">union</span></code>
-oder <code class="docutils literal"><span class="pre">|</span></code>), das Bilden der Schnittmenge (<code class="docutils literal"><span class="pre">intersection</span></code> oder <code class="docutils literal"><span class="pre">&amp;</span></code>) und deren
-Komplement (<code class="docutils literal"><span class="pre">symmetric_difference</span></code> oder <code class="docutils literal"><span class="pre">^</span></code>) sowie das Bilden der Differenzmenge
-(<code class="docutils literal"><span class="pre">difference</span></code> oder <code class="docutils literal"><span class="pre">-</span></code>). Zudem lässt sich auf Unter- und Obermenge (<code class="docutils literal"><span class="pre">issubset</span></code>
-bzw. <code class="docutils literal"><span class="pre">issuperset</span></code>) sowie Schnittmengenfreiheit (<code class="docutils literal"><span class="pre">isdisjoint</span></code>) testen. Diese
+Operationen auf Mengen zu, wie zum Beispiel das Vereinigen zweier Mengen (<tt class="docutils literal"><span class="pre">union</span></tt>
+oder <tt class="docutils literal"><span class="pre">|</span></tt>), das Bilden der Schnittmenge (<tt class="docutils literal"><span class="pre">intersection</span></tt> oder <tt class="docutils literal"><span class="pre">&amp;</span></tt>) und deren
+Komplement (<tt class="docutils literal"><span class="pre">symmetric_difference</span></tt> oder <tt class="docutils literal"><span class="pre">^</span></tt>) sowie das Bilden der Differenzmenge
+(<tt class="docutils literal"><span class="pre">difference</span></tt> oder <tt class="docutils literal"><span class="pre">-</span></tt>). Zudem lässt sich auf Unter- und Obermenge (<tt class="docutils literal"><span class="pre">issubset</span></tt>
+bzw. <tt class="docutils literal"><span class="pre">issuperset</span></tt>) sowie Schnittmengenfreiheit (<tt class="docutils literal"><span class="pre">isdisjoint</span></tt>) testen. Diese
 Möglichkeiten sind im Folgenden illustriert.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
@@ -218,7 +218,7 @@ Möglichkeiten sind im Folgenden illustriert.</p>
 </div>
 </div>
 <div class="section" id="list-comprehensions">
-<span id="listcomprehensions"></span><h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Link zu dieser Überschrift">¶</a></h2>
+<span id="listcomprehensions"></span><h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Um eine Liste aufzubauen, kann man sich zum Beispiel der folgenden Konstruktion
 bedienen.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
@@ -243,7 +243,7 @@ Schleife die Quadratzahlen angefügt werden. Etwas kompakter und damit auch
 </div>
 <p>Liest man den Text in den eckigen Klammern in Eingabe 1, so bekommt man eine
 sehr klare Vorstellung davon, was dieser Code bewirken soll. Vor der
-<code class="docutils literal"><span class="pre">for</span></code>-Anweisung kann auch eine andere Anweisung stehen, die die Listenelemente
+<tt class="docutils literal"><span class="pre">for</span></tt>-Anweisung kann auch eine andere Anweisung stehen, die die Listenelemente
 erzeugt.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span><span class="p">,</span> <span class="n">sin</span>
 
@@ -286,7 +286,7 @@ Schleifen zu.</p>
 <span class="gr">Out[4]: </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Wie man sieht, sind die <code class="docutils literal"><span class="pre">for</span></code>-Schleifen in der list comprehension von der
+<p>Wie man sieht, sind die <tt class="docutils literal"><span class="pre">for</span></tt>-Schleifen in der list comprehension von der
 äußersten zur innersten Schleife anzugeben, wobei man auch mehr als zwei Schleifen
 schachteln kann.</p>
 <p>Man kann das Hinzufügen zur Liste zusätzlich noch von Bedingungen abhängig machen.
@@ -329,12 +329,12 @@ Element voranzustellen und die anderen Elemente sortiert anzuhängen.</p>
 durch Anwendung einer Funktion eine andere Liste machen und zum anderen
 Listenelemente zur Aufnahme in die neue Liste mit Hilfe einer Bedingung
 auswählen. Diese beiden Komponenten können gemeinsam oder auch einzeln
-vorkommen.  In letzterem Fall kann man alternativ die <code class="docutils literal"><span class="pre">map</span></code>-Funktion bzw. die
-<code class="docutils literal"><span class="pre">filter</span></code>-Funktion verwenden. Beide sind zentrale Elemente des so genannten
+vorkommen.  In letzterem Fall kann man alternativ die <tt class="docutils literal"><span class="pre">map</span></tt>-Funktion bzw. die
+<tt class="docutils literal"><span class="pre">filter</span></tt>-Funktion verwenden. Beide sind zentrale Elemente des so genannten
 funktionalen Programmierens.</p>
-<p><code class="docutils literal"><span class="pre">map</span></code> wendet die im ersten Argument angegebene Funktion auf die im zweiten
+<p><tt class="docutils literal"><span class="pre">map</span></tt> wendet die im ersten Argument angegebene Funktion auf die im zweiten
 Argument angegebene Liste an. Um eine Liste von Quadratzahlen zu erzeugen,
-kann man statt einer expliziten <code class="docutils literal"><span class="pre">for</span></code>-Schleife auch eine der beiden
+kann man statt einer expliziten <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife auch eine der beiden
 folgenden Möglichkeiten verwenden:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
 <span class="gr">Out[1]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
@@ -345,7 +345,7 @@ folgenden Möglichkeiten verwenden:</p>
 <span class="gr">Out[3]: </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Eine nützliche Anwendung der <code class="docutils literal"><span class="pre">map</span></code>-Funktion besteht darin, die nach dem
+<p>Eine nützliche Anwendung der <tt class="docutils literal"><span class="pre">map</span></tt>-Funktion besteht darin, die nach dem
 Einlesen numerischer Daten zunächst vorhandenen Strings in Floats umzuwandeln:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">s</span> <span class="o">=</span> <span class="s">&quot;0.1 0.2 0.4 -0.5&quot;</span>
 
@@ -355,7 +355,7 @@ Einlesen numerischer Daten zunächst vorhandenen Strings in Floats umzuwandeln:<
 <span class="gr">Out[3]: </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Bei der <code class="docutils literal"><span class="pre">filter</span></code>-Funktion muss die als erstes Argument angegebene Funktion
+<p>Bei der <tt class="docutils literal"><span class="pre">filter</span></tt>-Funktion muss die als erstes Argument angegebene Funktion
 einen Wahrheitswert zurückgeben, der darüber entscheidet, ob ein Element
 der Sequenz im zweiten Argument übernommen wird oder nicht.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">initialen</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">isupper</span><span class="p">(),</span> <span class="s">&#39;Albert Einstein&#39;</span><span class="p">)</span>
@@ -368,12 +368,12 @@ der Sequenz im zweiten Argument übernommen wird oder nicht.</p>
 die Zeichen für Zeichen abgearbeitet wird. Das Ergebnis enthält die Großbuchstaben
 der Zeichenkette.</p>
 <p>Zu den wesentlichen Elementen des funktionalen Programmierens gehört auch die
-<code class="docutils literal"><span class="pre">reduce</span></code>-Funktion. Während sie in Python 2 noch zum normalen Sprachumfang
-gehörte, muss sie in Python 3 aus dem <code class="docutils literal"><span class="pre">functools</span></code>-Modul importiert werden
+<tt class="docutils literal"><span class="pre">reduce</span></tt>-Funktion. Während sie in Python 2 noch zum normalen Sprachumfang
+gehörte, muss sie in Python 3 aus dem <tt class="docutils literal"><span class="pre">functools</span></tt>-Modul importiert werden
 <a class="footnote-reference" href="#gvrblog" id="id4">[4]</a>. Tatsächlich gibt es für viele Anwendungsfälle angepasste
 Funktionen als Ersatz, wie wir gleich noch sehen werden.</p>
-<p>Als erstes Argument muss <code class="docutils literal"><span class="pre">reduce</span></code> eine Funktion bekommen, die
-zwei Argumente verarbeitet. <code class="docutils literal"><span class="pre">reduce</span></code> wendet dann die Funktion auf die ersten
+<p>Als erstes Argument muss <tt class="docutils literal"><span class="pre">reduce</span></tt> eine Funktion bekommen, die
+zwei Argumente verarbeitet. <tt class="docutils literal"><span class="pre">reduce</span></tt> wendet dann die Funktion auf die ersten
 beiden Elemente der als zweites Argument angegebenen Liste an, verarbeitet dann
 entsprechend das Ergebnis und das dritte Element der Liste und fährt so fort
 bis das Ende der Liste erreicht ist. Die folgende Implementation der Fakultät
@@ -395,9 +395,9 @@ illustriert dies.</p>
 </pre></div>
 </div>
 <p>Wie die zweite Eingabe zeigt, stellt Python zu diesem Zweck auch direkt die
-<code class="docutils literal"><span class="pre">sum</span></code>-Funktion zur Verfügung. Ähnliches gilt für die Verwendung der Oder- und
-der Und-Verknüpfung in der <code class="docutils literal"><span class="pre">reduce</span></code>-Funktion, die direkt durch die <code class="docutils literal"><span class="pre">any</span></code>-
-bzw. <code class="docutils literal"><span class="pre">all</span></code>-Funktion abgedeckt werden.</p>
+<tt class="docutils literal"><span class="pre">sum</span></tt>-Funktion zur Verfügung. Ähnliches gilt für die Verwendung der Oder- und
+der Und-Verknüpfung in der <tt class="docutils literal"><span class="pre">reduce</span></tt>-Funktion, die direkt durch die <tt class="docutils literal"><span class="pre">any</span></tt>-
+bzw. <tt class="docutils literal"><span class="pre">all</span></tt>-Funktion abgedeckt werden.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="nb">any</span><span class="p">([</span><span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="gr">Out[1]: </span><span class="bp">True</span>
 
@@ -411,8 +411,8 @@ sind.</p>
 <p>Zum Abschluss dieses Kapitels wollen wir noch zwei äußerst praktische
 eingebaute Funktionen erwähnen, die, falls sie nicht existieren würden, mit
 list comprehensions realisiert werden könnten. Häufig benötigt man bei der
-Iteration über eine Liste in einer <code class="docutils literal"><span class="pre">for</span></code>-Schleife noch den Index des
-betreffenden Eintrags. Dies lässt sich mit Hilfe der <code class="docutils literal"><span class="pre">enumerate</span></code>-Funktion
+Iteration über eine Liste in einer <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife noch den Index des
+betreffenden Eintrags. Dies lässt sich mit Hilfe der <tt class="docutils literal"><span class="pre">enumerate</span></tt>-Funktion
 sehr einfach realisieren.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s">&#39;eins&#39;</span><span class="p">,</span> <span class="s">&#39;zwei&#39;</span><span class="p">,</span> <span class="s">&#39;drei&#39;</span><span class="p">]):</span>
 <span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="n">nr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
@@ -422,11 +422,11 @@ sehr einfach realisieren.</p>
 <span class="go">3 drei</span>
 </pre></div>
 </div>
-<p>Die <code class="docutils literal"><span class="pre">enumerate</span></code>-Funktion gibt also für jedes Element der Liste ein Tupel
+<p>Die <tt class="docutils literal"><span class="pre">enumerate</span></tt>-Funktion gibt also für jedes Element der Liste ein Tupel
 zurück, das aus dem Index und dem entsprechenden Element besteht. Dabei beginnt
 die Zählung wie immer in Python bei Null.</p>
 <p>Es kommt auch immer wieder vor, dass man zwei oder mehr Listen parallel in einer
-<code class="docutils literal"><span class="pre">for</span></code>-Schleife abarbeiten möchte. Dann ist die <code class="docutils literal"><span class="pre">zip</span></code>-Funktion von Nutzen,
+<tt class="docutils literal"><span class="pre">for</span></tt>-Schleife abarbeiten möchte. Dann ist die <tt class="docutils literal"><span class="pre">zip</span></tt>-Funktion von Nutzen,
 die aus den Einträgen mit gleichem Index nach dem Reißverschlussprinzip Tupel
 zusammenbaut.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -441,7 +441,7 @@ zusammenbaut.</p>
 </div>
 <p>Sollten die beteiligten Listen verschieden lang sein, so ist die Länge der
 neuen Liste durch die kürzeste der eingegebenen Listen bestimmt.</p>
-<p>Man kann die <code class="docutils literal"><span class="pre">zip</span></code>-Funktion zum Beispiel dazu verwenden, um elegant
+<p>Man kann die <tt class="docutils literal"><span class="pre">zip</span></tt>-Funktion zum Beispiel dazu verwenden, um elegant
 Mittelwerte aus aufeinanderfolgenden Listenelementen zu berechnen.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
@@ -457,7 +457,7 @@ Mittelwerte aus aufeinanderfolgenden Listenelementen zu berechnen.</p>
 </div>
 </div>
 <div class="section" id="generatoren-und-iteratoren">
-<span id="generatoren"></span><h2>Generatoren und Iteratoren<a class="headerlink" href="#generatoren-und-iteratoren" title="Link zu dieser Überschrift">¶</a></h2>
+<span id="generatoren"></span><h2>Generatoren und Iteratoren<a class="headerlink" href="#generatoren-und-iteratoren" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Es kommt häufig vor, dass man Listen mit einer list comprehension erzeugt, nur
 um anschließend über diese Liste zu iterieren. Dabei reicht es völlig aus, wenn
 die jeweiligen Elemente erst bei Bedarf erzeugt werden. Somit ist es nicht mehr
@@ -482,11 +482,11 @@ list comprehension durch runde Klammern ersetzt werden.</p>
 </pre></div>
 </div>
 <p>Man kann die Werte des Generatorausdruck auch explizit durch Verwendung der
-zugehörigen <code class="docutils literal"><span class="pre">__next__</span></code>-Methode abrufen. Allerdings sind die Werte nach dem obigen
-Beispiel bereits abgearbeitet, so dass die <code class="docutils literal"><span class="pre">__next__</span></code>-Methode in einer
-<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme resultiert. Damit wird angezeigt, dass bereits alle
-Wert ausgegeben wurden. Die <code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme war auch in der
-<code class="docutils literal"><span class="pre">for</span></code>-Schleife verantwortlich dafür, dass diese beendet wurde.</p>
+zugehörigen <tt class="docutils literal"><span class="pre">__next__</span></tt>-Methode abrufen. Allerdings sind die Werte nach dem obigen
+Beispiel bereits abgearbeitet, so dass die <tt class="docutils literal"><span class="pre">__next__</span></tt>-Methode in einer
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt>-Ausnahme resultiert. Damit wird angezeigt, dass bereits alle
+Wert ausgegeben wurden. Die <tt class="docutils literal"><span class="pre">StopIteration</span></tt>-Ausnahme war auch in der
+<tt class="docutils literal"><span class="pre">for</span></tt>-Schleife verantwortlich dafür, dass diese beendet wurde.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="nb">next</span><span class="p">(</span><span class="n">quadrate</span><span class="p">)</span>
 <span class="go">---------------------------------------------------------------------------</span>
 <span class="go">StopIteration                             Traceback (most recent call last)</span>
@@ -521,7 +521,7 @@ Wert ausgegeben wurden. Die <code class="docutils literal"><span class="pre">Sto
 </div>
 <p>In Eingabe 5 wurde der Generatorausdruck neu initialisiert, so dass er wieder
 vier Werte liefern konnte. Am Ende wird dann wiederum die
-<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme ausgelöst. Natürlich kann man diese Ausnahme auch
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt>-Ausnahme ausgelöst. Natürlich kann man diese Ausnahme auch
 abfangen, wie in folgendem Beispiel gezeigt wird.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">def</span> <span class="nf">q</span><span class="p">():</span>
 <span class="gp">   ...:</span>     <span class="k">try</span><span class="p">:</span>
@@ -536,7 +536,7 @@ abfangen, wie in folgendem Beispiel gezeigt wird.</p>
 <span class="gr">Out[3]: </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s">&quot;Das war&#39;s mit den Quadratzahlen.&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Aus Sequenzen kann man mit Hilfe der eingebauten <code class="docutils literal"><span class="pre">iter</span></code>-Funktion Iteratoren
+<p>Aus Sequenzen kann man mit Hilfe der eingebauten <tt class="docutils literal"><span class="pre">iter</span></tt>-Funktion Iteratoren
 konstruieren.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">i</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
@@ -558,8 +558,8 @@ konstruieren.</p>
 <span class="go">StopIteration:</span>
 </pre></div>
 </div>
-<p>In der Eingabe 1 wird ein Iterator erzeugt, der über eine <code class="docutils literal"><span class="pre">__next__</span></code>-Methode
-verfügt und nach dem Abarbeiten der Liste eine <code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme
+<p>In der Eingabe 1 wird ein Iterator erzeugt, der über eine <tt class="docutils literal"><span class="pre">__next__</span></tt>-Methode
+verfügt und nach dem Abarbeiten der Liste eine <tt class="docutils literal"><span class="pre">StopIteration</span></tt>-Ausnahme
 auslöst. Iteratoren kann man auch über eine Klassendefinition erhalten, wie im
 folgenden Beispiel für die Fibonacci-Zahlen gezeigt ist.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">class</span> <span class="nc">Fibonacci</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -583,15 +583,15 @@ folgenden Beispiel für die Fibonacci-Zahlen gezeigt ist.</p>
 <span class="go">1 1 2 3 5 8 13 21 34 55</span>
 </pre></div>
 </div>
-<p>Die <code class="docutils literal"><span class="pre">__iter__</span></code>-Methode dieser Klasse gibt sich selbst zurück, während die
-<code class="docutils literal"><span class="pre">__next__</span></code>-Methode das jeweils nächste Element zurückgibt. Nachdem die
-ersten <code class="docutils literal"><span class="pre">nmax</span></code> Elemente der Fibonacci-Reihe erzeugt wurden, wird eine
-<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme ausgelöst, die zur Beendung der <code class="docutils literal"><span class="pre">for</span></code>-Schleife in
+<p>Die <tt class="docutils literal"><span class="pre">__iter__</span></tt>-Methode dieser Klasse gibt sich selbst zurück, während die
+<tt class="docutils literal"><span class="pre">__next__</span></tt>-Methode das jeweils nächste Element zurückgibt. Nachdem die
+ersten <tt class="docutils literal"><span class="pre">nmax</span></tt> Elemente der Fibonacci-Reihe erzeugt wurden, wird eine
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt>-Ausnahme ausgelöst, die zur Beendung der <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife in
 Eingabe 2 führt.</p>
 <p>Normalerweise wird es einfacher sein, statt einer solchen Klassendefinition
 einen Generator zu schreiben. Dieser sieht auf den ersten Blick wie eine
-Funktionsdefinition aus. Allerdings ist die <code class="docutils literal"><span class="pre">return</span></code>-Anweisung durch eine
-<code class="docutils literal"><span class="pre">yield</span></code>-Anweisung ersetzt, die dafür verantwortlich ist, den jeweils nächsten
+Funktionsdefinition aus. Allerdings ist die <tt class="docutils literal"><span class="pre">return</span></tt>-Anweisung durch eine
+<tt class="docutils literal"><span class="pre">yield</span></tt>-Anweisung ersetzt, die dafür verantwortlich ist, den jeweils nächsten
 Wert zurückzugeben. Bemerkenswert ist im Vergleich zu Funktionen außerdem, dass
 die Werte der Funktionsvariablen nicht verlorengehen. Das folgende Beispiel
 erzeugt die ersten Zeilen eines pascalschen Dreiecks.</p>
@@ -619,12 +619,12 @@ erzeugt die ersten Zeilen eines pascalschen Dreiecks.</p>
 <span class="go">    1   10  45 120 210 252 210 120  45  10  1</span>
 </pre></div>
 </div>
-<p>In der letzten Zeile fungieren die Klammern der <code class="docutils literal"><span class="pre">join</span></code>-Methode gleichzeitig als Klammern
+<p>In der letzten Zeile fungieren die Klammern der <tt class="docutils literal"><span class="pre">join</span></tt>-Methode gleichzeitig als Klammern
 für den Generatorausdruck.</p>
-<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Man kann <code class="docutils literal"><span class="pre">yield</span></code> auch benutzen, um Werte in die Funktion
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Man kann <tt class="docutils literal"><span class="pre">yield</span></tt> auch benutzen, um Werte in die Funktion
 einzuspeisen.  Auf diese Weise erhält man eine Koroutine. Dieses Konzept soll
 hier jedoch nicht weiter diskutiert werden.</p>
-<p>Abschließend sei noch erwähnt, dass das <code class="docutils literal"><span class="pre">itertools</span></code>-Modul eine ganze Reihe von
+<p>Abschließend sei noch erwähnt, dass das <tt class="docutils literal"><span class="pre">itertools</span></tt>-Modul eine ganze Reihe von
 nützlichen Iteratoren zur Verfügung stellt. Als Beispiel mögen Permutationen dienen.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">itertools</span>
 
@@ -641,7 +641,7 @@ nützlichen Iteratoren zur Verfügung stellt. Als Beispiel mögen Permutationen 
 </div>
 </div>
 <div class="section" id="dekoratoren">
-<h2>Dekoratoren<a class="headerlink" href="#dekoratoren" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Dekoratoren<a class="headerlink" href="#dekoratoren" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Dekoratoren sind ein Programmierkonstrukt, das man gelegentlich gewinnbringend
 einsetzen kann, wie wir im Folgenden sehen werden. Aber selbst wenn man keine
 eigenen Dekoratoren programmieren möchte, sollte man zumindest das Konzept
@@ -654,7 +654,7 @@ folgendermaßen aussehen:</p>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<p>Der Operator <code class="docutils literal"><span class="pre">&#64;</span></code> weist hier auf die Verwendung eines Dekorators hin.</p>
+<p>Der Operator <tt class="docutils literal"><span class="pre">&#64;</span></tt> weist hier auf die Verwendung eines Dekorators hin.</p>
 <p>Bevor wir uns aber mit Dekoratoren beschäftigen, ist es nützlich, so genannte
 Closures <a class="footnote-reference" href="#closure" id="id5">[5]</a> zu diskutieren. Das Konzept soll an einem einfachen Beispiel
 erläutert werden.</p>
@@ -675,14 +675,14 @@ erläutert werden.</p>
 <span class="go">10.70</span>
 </pre></div>
 </div>
-<p>Mit <code class="docutils literal"><span class="pre">add_tax</span></code> haben wir hier eine Funktion definiert, die wiederum eine
+<p>Mit <tt class="docutils literal"><span class="pre">add_tax</span></tt> haben wir hier eine Funktion definiert, die wiederum eine
 Funktion zurückgibt. Das Interessante an dieser Konstruktion ist, dass die
 zurückgegebene Funktion sich den Kontext merkt, in dem sie erzeugt wurde. In
-unserem Beispiel bedeutet das, dass die Funktion <code class="docutils literal"><span class="pre">_add_tax</span></code> auf den Wert der
-Variable <code class="docutils literal"><span class="pre">taxrate</span></code>, also den Steuersatz, auch später noch zugreifen kann.
+unserem Beispiel bedeutet das, dass die Funktion <tt class="docutils literal"><span class="pre">_add_tax</span></tt> auf den Wert der
+Variable <tt class="docutils literal"><span class="pre">taxrate</span></tt>, also den Steuersatz, auch später noch zugreifen kann.
 Dies wird deutlich, wenn wir zur Addition des vollen Mehrwertsteuersatzes die
-Funktion <code class="docutils literal"><span class="pre">add_mwst</span></code> definieren.  Hierbei wird der Variable <code class="docutils literal"><span class="pre">taxrate</span></code> der
-Wert 19 mitgegeben, der später beim Aufruf von <code class="docutils literal"><span class="pre">add_mwst</span></code> noch zur Verfügung
+Funktion <tt class="docutils literal"><span class="pre">add_mwst</span></tt> definieren.  Hierbei wird der Variable <tt class="docutils literal"><span class="pre">taxrate</span></tt> der
+Wert 19 mitgegeben, der später beim Aufruf von <tt class="docutils literal"><span class="pre">add_mwst</span></tt> noch zur Verfügung
 steht. Entsprechend definieren wir eine Funktion zur Addition des reduzierten
 Mehrwertsteuersatzes. Am Beispiel der abschließenden Schleife wird deutlich,
 dass die Funktionen wie gewünscht funktionieren.</p>
@@ -714,16 +714,16 @@ Beispiel den folgenden Code:</p>
 <span class="go">executing myotherfunc</span>
 </pre></div>
 </div>
-<p>Hier haben wir zunächst einen Dekorator <code class="docutils literal"><span class="pre">register</span></code> definiert, der als
+<p>Hier haben wir zunächst einen Dekorator <tt class="docutils literal"><span class="pre">register</span></tt> definiert, der als
 Argument eine Funktion erhält. Bevor er sie unverändert zurückgibt, registriert
 er die Funktion, was hier durch eine einfache Ausgabe nur angedeutet wird. Der
 Dekorator kann nun verwendet werden, indem vor der gewünschten Funktion die
-Zeile <code class="docutils literal"><span class="pre">&#64;register</span></code> eingefügt wird. Wie schon erwähnt, gibt der Operator <code class="docutils literal"><span class="pre">&#64;</span></code>
+Zeile <tt class="docutils literal"><span class="pre">&#64;register</span></tt> eingefügt wird. Wie schon erwähnt, gibt der Operator <tt class="docutils literal"><span class="pre">&#64;</span></tt>
 an, dass hier ein Dekorator verwendet wird, die folgende Funktion also
-dekoriert wird. In der Eingabe 2 wird <code class="docutils literal"><span class="pre">myfunc</span></code> als Argument an <code class="docutils literal"><span class="pre">register</span></code>
+dekoriert wird. In der Eingabe 2 wird <tt class="docutils literal"><span class="pre">myfunc</span></tt> als Argument an <tt class="docutils literal"><span class="pre">register</span></tt>
 übergeben. Bei der Auswertung der Funktionsdefinition wird nun der
 Ausgabebefehl ausgeführt. Später erfolgt dies nicht mehr, da der Dekorator
-<code class="docutils literal"><span class="pre">register</span></code> die Funktion ja unverändert zurückgegeben hat. Die Eingabe 4
+<tt class="docutils literal"><span class="pre">register</span></tt> die Funktion ja unverändert zurückgegeben hat. Die Eingabe 4
 zeigt, dass der Dekorator mit einer beliebigen Funktion verwendet werden kann.</p>
 <p>Wenden wir uns nun einem etwas komplexeren Beispiel zu.
 Wir haben in dem untenstehenden Code-Beispiel in den Zeilen 17-21 die
@@ -746,7 +746,7 @@ was nicht nur für unsere spezielle Funktion nützlich ist, sondern auch in
 anderen Fällen verwendet werden kann. Dies spricht wiederum dafür, diese
 Funktionalität aus der eigentlichen Funktion fernzuhalten.</p>
 <p>Genau dieses Ziel ist in dem folgenden Code realisiert, in dem die Funktion
-<code class="docutils literal"><span class="pre">factorial</span></code> mit einem Dekorator versehen ist.</p>
+<tt class="docutils literal"><span class="pre">factorial</span></tt> mit einem Dekorator versehen ist.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -796,29 +796,29 @@ Funktionalität aus der eigentlichen Funktion fernzuhalten.</p>
 <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Sehen wir uns nun also den Dekorator <code class="docutils literal"><span class="pre">logging</span></code> in den Zeilen 4-14 an. Wie
-schon angedeutet, wird die Funktion <code class="docutils literal"><span class="pre">factorial</span></code> als Argument <code class="docutils literal"><span class="pre">func</span></code> an die
-Funktion <code class="docutils literal"><span class="pre">logging</span></code> übergeben. Der wesentliche Teil von <code class="docutils literal"><span class="pre">logging</span></code> besteht
-darin, eine neue Funktion, die hier den Namen <code class="docutils literal"><span class="pre">func_with_log</span></code> trägt, zu
-definieren, die die Funktion <code class="docutils literal"><span class="pre">func</span></code> ersetzen wird. Die Definition in den Zeilen
+<p>Sehen wir uns nun also den Dekorator <tt class="docutils literal"><span class="pre">logging</span></tt> in den Zeilen 4-14 an. Wie
+schon angedeutet, wird die Funktion <tt class="docutils literal"><span class="pre">factorial</span></tt> als Argument <tt class="docutils literal"><span class="pre">func</span></tt> an die
+Funktion <tt class="docutils literal"><span class="pre">logging</span></tt> übergeben. Der wesentliche Teil von <tt class="docutils literal"><span class="pre">logging</span></tt> besteht
+darin, eine neue Funktion, die hier den Namen <tt class="docutils literal"><span class="pre">func_with_log</span></tt> trägt, zu
+definieren, die die Funktion <tt class="docutils literal"><span class="pre">func</span></tt> ersetzen wird. Die Definition in den Zeilen
 5-13 ist absichtlich allgemeiner gehalten als es für uns Beispiel notwendig
 wäre. So lässt sich der Dekorator auch in anderen Fällen direkt einsetzen.
 Daher lassen wir in Zeile 5 eine allgemeine Übergabe von Variablen in einem
-Tupel <code class="docutils literal"><span class="pre">args</span></code> und einem Dictionary <code class="docutils literal"><span class="pre">kwargs</span></code> zu.</p>
+Tupel <tt class="docutils literal"><span class="pre">args</span></tt> und einem Dictionary <tt class="docutils literal"><span class="pre">kwargs</span></tt> zu.</p>
 <p>Die zugehörigen Werte werden in der Zeile 6 durch Kommas separiert zu einem
-String zusammengebaut. Dabei übernimmt die aus dem <code class="docutils literal"><span class="pre">itertools</span></code>-Modul
-importierte Funktion <code class="docutils literal"><span class="pre">chain</span></code> die Aufgabe, die Elemente des Tupels <code class="docutils literal"><span class="pre">args</span></code> und der
-Schlüssel-Wert-Tupel des Dictionaries <code class="docutils literal"><span class="pre">kwargs</span></code> zu einer einzigen Sequenz
-zusammenzufassen. Mit Hilfe der <code class="docutils literal"><span class="pre">map</span></code>-Funktion wird zu jedem Element mit
-Hilfe der <code class="docutils literal"><span class="pre">repr</span></code>-Funktion die zugehörige Darstellung erzeugt. Die
-<code class="docutils literal"><span class="pre">join</span></code>-Funktion baut diese Darstellung schließlich zu einem String zusammen.
+String zusammengebaut. Dabei übernimmt die aus dem <tt class="docutils literal"><span class="pre">itertools</span></tt>-Modul
+importierte Funktion <tt class="docutils literal"><span class="pre">chain</span></tt> die Aufgabe, die Elemente des Tupels <tt class="docutils literal"><span class="pre">args</span></tt> und der
+Schlüssel-Wert-Tupel des Dictionaries <tt class="docutils literal"><span class="pre">kwargs</span></tt> zu einer einzigen Sequenz
+zusammenzufassen. Mit Hilfe der <tt class="docutils literal"><span class="pre">map</span></tt>-Funktion wird zu jedem Element mit
+Hilfe der <tt class="docutils literal"><span class="pre">repr</span></tt>-Funktion die zugehörige Darstellung erzeugt. Die
+<tt class="docutils literal"><span class="pre">join</span></tt>-Funktion baut diese Darstellung schließlich zu einem String zusammen.
 Nachdem dieses Verfahren etwas komplexer ist, sei angemerkt, dass dieses
 Vorgehen nichts mit dem Dekorator an sich zu tun hat. Vielmehr ist es durch
 unsere Anforderung bedingt, Logging-Information einschließlich der
 Aufrufparameter ausgeben zu können, und dies nicht nur für die
-<code class="docutils literal"><span class="pre">factorial</span></code>-Funktion, sondern in einem möglichst allgemeinen Fall. Die
+<tt class="docutils literal"><span class="pre">factorial</span></tt>-Funktion, sondern in einem möglichst allgemeinen Fall. Die
 Ausgabe der Logging-Information erfolgt in Zeile 7. Zeile 8 bestimmt den
-Startzeitpunkt. In diesem Zusammenhang wurde in Zeile 1 das <code class="docutils literal"><span class="pre">time</span></code>-Modul
+Startzeitpunkt. In diesem Zusammenhang wurde in Zeile 1 das <tt class="docutils literal"><span class="pre">time</span></tt>-Modul
 importiert.</p>
 <p>Nach diesen Vorarbeiten wird in Zeile 9 die eigentliche Funktion, die die
 Fakultät berechnen soll, aufgerufen. Typischerweise wird die ursprüngliche
@@ -826,14 +826,14 @@ Funktion tatsächlich aufgerufen. Allerdings ist dies nicht unbedingt notwendig.
 Man könnte stattdessen hier einfach einen Hinweis ausgeben, dass nun die Fakultät
 zu berechnen wäre. Auf diese Weise würde man jedoch kein Ergebnis für die
 Fakultät erhalten.</p>
-<p>Nachdem die <code class="docutils literal"><span class="pre">factorial</span></code>-Funktion ihr Ergebnis zurückgegeben hat, wird in
+<p>Nachdem die <tt class="docutils literal"><span class="pre">factorial</span></tt>-Funktion ihr Ergebnis zurückgegeben hat, wird in
 Zeile 10 die verstrichene Zeit bestimmt und in Zeile 11 in Millisekunden
 gemeinsam mit dem Ergebnis ausgegeben. Abschließend soll die dekorierte
 Funktion das berechnete Resultat zurückgeben. Damit ist die Definition der
 dekorierten Funktion beendet und der Dekorator gibt diese Funktion in Zeile 14
 zurück.</p>
-<p>Ruft man Zeile 23 nun die Funktion <code class="docutils literal"><span class="pre">factorial</span></code> auf, so wird wegen des
-<code class="docutils literal"><span class="pre">logging</span></code>-Dekorators in Wirklichkeit die gerade besprochene, dekorierte
+<p>Ruft man in Zeile 24 nun die Funktion <tt class="docutils literal"><span class="pre">factorial</span></tt> auf, so wird wegen des
+<tt class="docutils literal"><span class="pre">logging</span></tt>-Dekorators in Wirklichkeit die gerade besprochene, dekorierte
 Funktion ausgeführt. Man erhält somit die folgende Ausgabe:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">calling</span> <span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -852,7 +852,7 @@ nacheinander die Fakultät von 5, von 4, von 3, von 2 und von 1 berechnet
 wird. Die Ausführungen sind geschachtelt, denn die Berechnung der Fakultät
 von 2 kann erst beendet werden, wenn die Fakultät von 1 bestimmt wurde.
 Entsprechend benötigt die Berechnung der Fakultät von 5 auch mehr Zeit
-als die Berechnung der Fakultät von 4 usw. Der <code class="docutils literal"><span class="pre">logging</span></code>-Dekorator erlaubt
+als die Berechnung der Fakultät von 4 usw. Der <tt class="docutils literal"><span class="pre">logging</span></tt>-Dekorator erlaubt
 somit Einblicke in die Abarbeitung der rekursiven Funktion ohne dass
 wir in diese Funktion direkt eingreifen mussten.</p>
 <p>Abschließend betrachten wir noch ein weiteres Anwendungsbeispiel, das besonders
@@ -905,23 +905,23 @@ hält.</p>
         <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Im <code class="docutils literal"><span class="pre">memoize</span></code>-Dekorator ist hier eine Closure realisiert, die es der Funktion
-<code class="docutils literal"><span class="pre">_memoize</span></code> erlaubt, auch später auf das Dictionary <code class="docutils literal"><span class="pre">cache</span></code> zuzugreifen, in
+<p>Im <tt class="docutils literal"><span class="pre">memoize</span></tt>-Dekorator ist hier eine Closure realisiert, die es der Funktion
+<tt class="docutils literal"><span class="pre">_memoize</span></tt> erlaubt, auch später auf das Dictionary <tt class="docutils literal"><span class="pre">cache</span></tt> zuzugreifen, in
 dem die Ergebnisse gespeichert werden. Hierzu eignet sich ein Dictionary, weil
-man die Argumente in Form des Tupels <code class="docutils literal"><span class="pre">args</span></code> als Schlüssel hinterlegen kann.
-Allerdings ist es nicht möglich, auch ein eventuelles Dictionary <code class="docutils literal"><span class="pre">kwargs</span></code>
+man die Argumente in Form des Tupels <tt class="docutils literal"><span class="pre">args</span></tt> als Schlüssel hinterlegen kann.
+Allerdings ist es nicht möglich, auch ein eventuelles Dictionary <tt class="docutils literal"><span class="pre">kwargs</span></tt>
 im Schlüssel unterzubringen. Argumente, die mit Schlüsselworten übergeben
 werden, sind hier somit nicht erlaubt.</p>
 <p>Aus den Zeilen 14 und 15 ersieht man, dass Dekoratoren auch geschachtelt werden
-können. Die Funktion <code class="docutils literal"><span class="pre">factorial</span></code> wird zunächst mit dem <code class="docutils literal"><span class="pre">memoize</span></code>-Dekorator
-versehen. Die so dekorierte Funktion wird dann mit dem <code class="docutils literal"><span class="pre">logging</span></code>-Dekorator
+können. Die Funktion <tt class="docutils literal"><span class="pre">factorial</span></tt> wird zunächst mit dem <tt class="docutils literal"><span class="pre">memoize</span></tt>-Dekorator
+versehen. Die so dekorierte Funktion wird dann mit dem <tt class="docutils literal"><span class="pre">logging</span></tt>-Dekorator
 versehen. Eine Schwierigkeit besteht hier allerdings darin, dass der
-<code class="docutils literal"><span class="pre">logging</span></code>-Dekorator für ein korrektes Funktionieren den Namen der ursprünglichen
-Funktion, also <code class="docutils literal"><span class="pre">factorial</span></code> benötigt. Aus diesem Grunde verwendet man in Zeile 5
-den <code class="docutils literal"><span class="pre">wraps</span></code>-Dekorator aus dem <code class="docutils literal"><span class="pre">functools</span></code>-Modul, der dafür sorgt, dass Name
-und Dokumentationsstring diejenigen der Funktion <code class="docutils literal"><span class="pre">func</span></code> und nicht der Funktion
-<code class="docutils literal"><span class="pre">_memoize</span></code> sind.</p>
-<p>Im Folgenden ist die Funktionsweise des <code class="docutils literal"><span class="pre">memoize</span></code>-Dekorators gezeigt.</p>
+<tt class="docutils literal"><span class="pre">logging</span></tt>-Dekorator für ein korrektes Funktionieren den Namen der ursprünglichen
+Funktion, also <tt class="docutils literal"><span class="pre">factorial</span></tt> benötigt. Aus diesem Grunde verwendet man in Zeile 5
+den <tt class="docutils literal"><span class="pre">wraps</span></tt>-Dekorator aus dem <tt class="docutils literal"><span class="pre">functools</span></tt>-Modul, der dafür sorgt, dass Name
+und Dokumentationsstring diejenigen der Funktion <tt class="docutils literal"><span class="pre">func</span></tt> und nicht der Funktion
+<tt class="docutils literal"><span class="pre">_memoize</span></tt> sind.</p>
+<p>Im Folgenden ist die Funktionsweise des <tt class="docutils literal"><span class="pre">memoize</span></tt>-Dekorators gezeigt.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">calling factorial(4)</span>
 <span class="go">calling factorial(3)</span>
@@ -939,9 +939,9 @@ und Dokumentationsstring diejenigen der Funktion <code class="docutils literal">
 <span class="gr">Out[3]: </span><span class="mi">6</span>
 </pre></div>
 </div>
-<p>Beim ersten Aufruf der Funktion <code class="docutils literal"><span class="pre">factorial</span></code> wird die Fakultät rekursiv
+<p>Beim ersten Aufruf der Funktion <tt class="docutils literal"><span class="pre">factorial</span></tt> wird die Fakultät rekursiv
 ausgewertet wie wir das schon weiter oben gesehen haben. Dabei werden aber die
-berechneten Werte im Dictionary <code class="docutils literal"><span class="pre">cache</span></code> gespeichert. Ruft man nun die
+berechneten Werte im Dictionary <tt class="docutils literal"><span class="pre">cache</span></tt> gespeichert. Ruft man nun die
 Funktion mit einem Argument auf, dessen Fakultät bereits berechnet wurde,
 kann direkt auf das Ergebnis im Cache zugegriffen werden. Dies zeigt sich
 daran, dass keine rekursive Berechnung mehr durchgeführt wird und die
@@ -954,18 +954,18 @@ dekorierende Funktion wird dafür dann an die im Dekorator definierte Funktion
 übergeben.</p>
 </div>
 <div class="section" id="ausnahmen">
-<h2>Ausnahmen<a class="headerlink" href="#ausnahmen" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Ausnahmen<a class="headerlink" href="#ausnahmen" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Bereits in der »Einführung in das Programmieren« hatten wir Ausnahmen (<em>exceptions</em>)
-kennengelernt und gesehen, wie man mit einem <code class="docutils literal"><span class="pre">except</span></code>-Block auf eine Ausnahme
-reagieren kann. Zudem haben wir im Abschnitt <a class="reference internal" href="#generatoren"><span>Generatoren und Iteratoren</span></a> eine Anwendung
+kennengelernt und gesehen, wie man mit einem <tt class="docutils literal"><span class="pre">except</span></tt>-Block auf eine Ausnahme
+reagieren kann. Zudem haben wir im Abschnitt <a class="reference internal" href="#generatoren"><em>Generatoren und Iteratoren</em></a> eine Anwendung
 gesehen, in der wir selbst eine Ausnahme ausgelöst haben, nämlich eine
-<code class="docutils literal"><span class="pre">StopIteration</span></code>-Ausnahme. Im Folgenden sollen noch einige Aspekte von Ausnahmen
+<tt class="docutils literal"><span class="pre">StopIteration</span></tt>-Ausnahme. Im Folgenden sollen noch einige Aspekte von Ausnahmen
 diskutiert werden, die bis jetzt zu kurz kamen.</p>
 <p>Grundsätzlich ist es sinnvoll, möglichst spezifisch auf Ausnahmen zu reagieren.
-Daher sollte zum einen der <code class="docutils literal"><span class="pre">try</span></code>-Block kurz gehalten werden, um einen
+Daher sollte zum einen der <tt class="docutils literal"><span class="pre">try</span></tt>-Block kurz gehalten werden, um einen
 möglichst direkten Zusammenhang zwischen Ausnahme und auslösendem Code zu
 garantieren. Zum anderen sollten nicht unnötig viele Ausnahmen gleichzeitig in
-einem <code class="docutils literal"><span class="pre">except</span></code>-Block abgefangen werden.</p>
+einem <tt class="docutils literal"><span class="pre">except</span></tt>-Block abgefangen werden.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="k">try</span><span class="p">:</span>
 <span class="gp">   ...:</span>     <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.dat&#39;</span><span class="p">)</span>
 <span class="gp">   ...:</span> <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
@@ -989,19 +989,19 @@ einem <code class="docutils literal"><span class="pre">except</span></code>-Bloc
 <span class="go">abgefangener Fehler: [Errno 2] No such file or directory: &#39;test.dat&#39;</span>
 </pre></div>
 </div>
-<p>Bei der ersten Eingabe ist die Datei <code class="docutils literal"><span class="pre">test.dat</span></code> vorhanden und kann geöffnet
-werden.  Der <code class="docutils literal"><span class="pre">except</span></code>-Block wird daher übersprungen und der <code class="docutils literal"><span class="pre">else</span></code>-Block
-ausgeführt. Im Prinzip hätte man den Inhalt des <code class="docutils literal"><span class="pre">else</span></code>-Blocks auch im
-<code class="docutils literal"><span class="pre">try</span></code>-Block unterbringen können. Die hier gezeigte Variante hat jedoch den
+<p>Bei der ersten Eingabe ist die Datei <tt class="docutils literal"><span class="pre">test.dat</span></tt> vorhanden und kann geöffnet
+werden.  Der <tt class="docutils literal"><span class="pre">except</span></tt>-Block wird daher übersprungen und der <tt class="docutils literal"><span class="pre">else</span></tt>-Block
+ausgeführt. Im Prinzip hätte man den Inhalt des <tt class="docutils literal"><span class="pre">else</span></tt>-Blocks auch im
+<tt class="docutils literal"><span class="pre">try</span></tt>-Block unterbringen können. Die hier gezeigte Variante hat jedoch den
 Vorteil, dass der Zusammenhang zwischen dem Versuch, eine Datei zu öffnen, und
-der eventuellen <code class="docutils literal"><span class="pre">IOError</span></code>-Ausnahme eindeutig ist. In der Eingabe 3 ist die
-Datei <code class="docutils literal"><span class="pre">test.dat</span></code> nicht vorhanden, und es wird der <code class="docutils literal"><span class="pre">except</span></code>-Block
-ausgeführt. Die Variable <code class="docutils literal"><span class="pre">e</span></code> nach dem Schlüsselwort <code class="docutils literal"><span class="pre">as</span></code> enthält dabei
+der eventuellen <tt class="docutils literal"><span class="pre">IOError</span></tt>-Ausnahme eindeutig ist. In der Eingabe 3 ist die
+Datei <tt class="docutils literal"><span class="pre">test.dat</span></tt> nicht vorhanden, und es wird der <tt class="docutils literal"><span class="pre">except</span></tt>-Block
+ausgeführt. Die Variable <tt class="docutils literal"><span class="pre">e</span></tt> nach dem Schlüsselwort <tt class="docutils literal"><span class="pre">as</span></tt> enthält dabei
 Informationen, die beim Auslösen der Ausnahme übergeben wurden und hier im
-<code class="docutils literal"><span class="pre">except</span></code>-Block zur Information des Benutzers ausgegeben werden. Der
-<code class="docutils literal"><span class="pre">else</span></code>-Block wird hier im Gegensatz zum ersten Fall nicht ausgeführt.</p>
-<p>Wenn die Ausführung des Codes im <code class="docutils literal"><span class="pre">try</span></code>-Block potentiell zu verschiedenen Ausnahmen
-führen kann, ist es sinnvoll, mehrere <code class="docutils literal"><span class="pre">except</span></code>-Blöcke vorzusehen, wie das folgende
+<tt class="docutils literal"><span class="pre">except</span></tt>-Block zur Information des Benutzers ausgegeben werden. Der
+<tt class="docutils literal"><span class="pre">else</span></tt>-Block wird hier im Gegensatz zum ersten Fall nicht ausgeführt.</p>
+<p>Wenn die Ausführung des Codes im <tt class="docutils literal"><span class="pre">try</span></tt>-Block potentiell zu verschiedenen Ausnahmen
+führen kann, ist es sinnvoll, mehrere <tt class="docutils literal"><span class="pre">except</span></tt>-Blöcke vorzusehen, wie das folgende
 Beispiel zeigt.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1029,9 +1029,9 @@ Beispiel zeigt.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Während der Funktionsaufruf in Zeile 10 keine Ausnahme auslöst, führen die
-Aufrufe in den Zeilen 11 und 12 zu einem <code class="docutils literal"><span class="pre">KeyError</span></code>, da es den Schlüssel <code class="docutils literal"><span class="pre">5</span></code>
-in <code class="docutils literal"><span class="pre">mydict</span></code> nicht gibt, bzw. zu einem <code class="docutils literal"><span class="pre">TypeError</span></code> weil sich die komplexe
-Zahl <code class="docutils literal"><span class="pre">1+3j</span></code> nicht in einen Integer umwandeln lässt. Die Ausgabe sieht
+Aufrufe in den Zeilen 11 und 12 zu einem <tt class="docutils literal"><span class="pre">KeyError</span></tt>, da es den Schlüssel <tt class="docutils literal"><span class="pre">5</span></tt>
+in <tt class="docutils literal"><span class="pre">mydict</span></tt> nicht gibt, bzw. zu einem <tt class="docutils literal"><span class="pre">TypeError</span></tt> weil sich die komplexe
+Zahl <tt class="docutils literal"><span class="pre">1+3j</span></tt> nicht in einen Integer umwandeln lässt. Die Ausgabe sieht
 dementsprechend folgendermaßen aus:</p>
 <div class="highlight-python"><div class="highlight"><pre>eins
 KeyError: 5
@@ -1054,16 +1054,16 @@ man die Funktion wie folgt definiert.</p>
 </pre></div>
 </td></tr></table></div>
 <p>Möchte man alle Ausnahmen abfangen, so kann man das Tupel in Zeile 5 zum
-Beispiel durch <code class="docutils literal"><span class="pre">Exception</span></code> oder gar <code class="docutils literal"><span class="pre">BaseException</span></code> ersetzen. Auf den
+Beispiel durch <tt class="docutils literal"><span class="pre">Exception</span></tt> oder gar <tt class="docutils literal"><span class="pre">BaseException</span></tt> ersetzen. Auf den
 Hintergrund hierfür kommen wir etwas später noch zurück.</p>
-<p>Einer Folge von <code class="docutils literal"><span class="pre">except</span></code>-Blöcken könnte sich natürlich auch wieder ein
-<code class="docutils literal"><span class="pre">else</span></code>-Block anschließen, wie wir dies weiter oben gesehen hatten.
+<p>Einer Folge von <tt class="docutils literal"><span class="pre">except</span></tt>-Blöcken könnte sich natürlich auch wieder ein
+<tt class="docutils literal"><span class="pre">else</span></tt>-Block anschließen, wie wir dies weiter oben gesehen hatten.
 Allerdings gibt es nicht nur Situationen, wo abhängig vom Auftreten einer
 Ausnahme der eine oder andere Block abgearbeitet wird, sondern es kann
 auch vorkommen, dass am Ende auf jeden Fall ein gewisser Codeblock ausgeführt
 werden soll. Ein typischer Fall ist das Schreiben in eine Datei. Dabei muss am
 Ende sichergestellt werden, dass die Datei geschlossen wird. Hierzu dient
-der <code class="docutils literal"><span class="pre">finally</span></code>-Block. Betrachten wir ein Beispiel.</p>
+der <tt class="docutils literal"><span class="pre">finally</span></tt>-Block. Betrachten wir ein Beispiel.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test_</span><span class="si">%i</span><span class="s">.dat&#39;</span> <span class="o">%</span> <span class="n">nr</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
     <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;ANFANG</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
@@ -1079,8 +1079,8 @@ der <code class="docutils literal"><span class="pre">finally</span></code>-Block
     <span class="n">myfunc</span><span class="p">(</span><span class="n">nr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In der Funktion <code class="docutils literal"><span class="pre">myfunc</span></code> soll der Kehrwert des Arguments in die Datei
-<code class="docutils literal"><span class="pre">test.dat</span></code> geschrieben werden. Es ergibt sich die folgende Ausgabe:</p>
+<p>In der Funktion <tt class="docutils literal"><span class="pre">myfunc</span></tt> soll der Kehrwert des Arguments in die Datei
+<tt class="docutils literal"><span class="pre">test.dat</span></tt> geschrieben werden. Es ergibt sich die folgende Ausgabe:</p>
 <div class="highlight-python"><div class="highlight"><pre>--- test_0.dat ---
 ANFANG
 0.666667
@@ -1096,10 +1096,10 @@ ENDE
 </pre></div>
 </div>
 <p>Dabei wird im zweiten Fall wegen der Division durch Null kein Kehrwert ausgeben,
-während im dritten Fall ein <code class="docutils literal"><span class="pre">TypeError</span></code> auftritt, weil versucht wird, durch
+während im dritten Fall ein <tt class="docutils literal"><span class="pre">TypeError</span></tt> auftritt, weil versucht wird, durch
 einen String zu dividieren. Diese Ausnahme wird zwar nicht abgefangen, aber
 es ist immerhin garantiert, dass die Ausgabedatei ordnungsgemäß geschlossen wird.</p>
-<p>Was würde passieren, wenn man das Schließen der Datei nicht in einem <code class="docutils literal"><span class="pre">finally</span></code>-Block
+<p>Was würde passieren, wenn man das Schließen der Datei nicht in einem <tt class="docutils literal"><span class="pre">finally</span></tt>-Block
 unterbringt, sondern einfach am Ende der Funktion ausführen lässt? Wir modifizieren
 unseren Code entsprechend:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1142,13 +1142,13 @@ ANFANG
 </pre></div>
 </div>
 <p>Wie man sieht, ist die letzte Datei unvollständig. Die nicht abgefangene
-<code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme führt zu einem Programmabbruch, der sowohl die
-Ausführung des <code class="docutils literal"><span class="pre">write</span></code>-Befehls in Zeile 10 als auch das Schließen der Datei
+<tt class="docutils literal"><span class="pre">TypeError</span></tt>-Ausnahme führt zu einem Programmabbruch, der sowohl die
+Ausführung des <tt class="docutils literal"><span class="pre">write</span></tt>-Befehls in Zeile 10 als auch das Schließen der Datei
 verhindert. In der ersten Variante des Programms dagegen gehört der
-<code class="docutils literal"><span class="pre">finally</span></code>-Block zum <code class="docutils literal"><span class="pre">try...except</span></code>-Block und wird somit auf jeden Fall
-ausgeführt. Erst danach führt der <code class="docutils literal"><span class="pre">TypeError</span></code> in diesem Fall zum
+<tt class="docutils literal"><span class="pre">finally</span></tt>-Block zum <tt class="docutils literal"><span class="pre">try...except</span></tt>-Block und wird somit auf jeden Fall
+ausgeführt. Erst danach führt der <tt class="docutils literal"><span class="pre">TypeError</span></tt> in diesem Fall zum
 Programmabbruch.</p>
-<p>Selbst in obigem Beispiel ohne <code class="docutils literal"><span class="pre">finally</span></code>-Block wurde die Datei geschlossen,
+<p>Selbst in obigem Beispiel ohne <tt class="docutils literal"><span class="pre">finally</span></tt>-Block wurde die Datei geschlossen,
 da dies spätestens durch das Betriebssystem beim Programmende veranlasst wird.
 Es ist aber dennoch kein guter Stil, sich hierauf zu verlassen. Eine Datei
 nicht zu schließen, kann in Python Schwierigkeiten bereiten, wenn man die Datei
@@ -1164,7 +1164,7 @@ geschlossen, auf die nicht mehr zugegriffen wird. Allerdings wird dies nicht
 durch die Sprachdefinition garantiert. In Jython, einer Python-Implementation
 für die Java Virtual Machine, ist dies tatsächlich nicht der Fall.</p>
 <p>Python stellt standardmäßig bereits eine große Zahl von Ausnahmen zur Verfügung,
-die alle als Unterklassen von einer Basisklasse, der <code class="docutils literal"><span class="pre">BaseException</span></code> abgeleitet
+die alle als Unterklassen von einer Basisklasse, der <tt class="docutils literal"><span class="pre">BaseException</span></tt> abgeleitet
 sind. Die folgende Klassenhierarchie der Ausnahmen ist der Python-Dokumentation
 entnommen, wo die einzelnen Ausnahmen auch genauer beschrieben sind. <a class="footnote-reference" href="#exceptiondoc" id="id6">[6]</a></p>
 <div class="highlight-python"><div class="highlight"><pre>BaseException
@@ -1250,7 +1250,7 @@ zu reagieren. Dies ist im folgenden Beispiel illustriert.</p>
     <span class="k">try</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
     <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
-        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;May be the main program knows what to do...&#39;</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s">&#39;Maybe the main program knows what to do...&#39;</span>
         <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
@@ -1263,18 +1263,18 @@ zu reagieren. Dies ist im folgenden Beispiel illustriert.</p>
 </pre></div>
 </div>
 <p>Dieses Programm erzeugt die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>May be the main program knows what to do...
+<div class="highlight-python"><div class="highlight"><pre>Maybe the main program knows what to do...
 Let&#39;s just continue!
 That&#39;s the end of the program.
 </pre></div>
 </div>
-<p>Die Funktion <code class="docutils literal"><span class="pre">reciprocal</span></code> fängt die Division durch Null ab. Sie verhindert
+<p>Die Funktion <tt class="docutils literal"><span class="pre">reciprocal</span></tt> fängt die Division durch Null ab. Sie verhindert
 damit den vorzeitigen Programmabbruch und gibt dem Hauptprogramm die Chance,
 in geeigneter Weise zu reagieren. Dies geschieht hier, indem wiederum der
-<code class="docutils literal"><span class="pre">ZeroDivisionError</span></code> abgefangen wird.</p>
+<tt class="docutils literal"><span class="pre">ZeroDivisionError</span></tt> abgefangen wird.</p>
 </div>
 <div class="section" id="kontext-mit-with-anweisung">
-<h2>Kontext mit <code class="docutils literal"><span class="pre">with</span></code>-Anweisung<a class="headerlink" href="#kontext-mit-with-anweisung" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Kontext mit <tt class="docutils literal"><span class="pre">with</span></tt>-Anweisung<a class="headerlink" href="#kontext-mit-with-anweisung" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Im vorigen Abschnitt hatten wir im Zusammenhang mit dem Zugriff auf eine Datei
 ein typisches Szenario kennengelernt, bei dem die eigentliche Funktionalität
 zwischen zwei Schritte eingebettet ist, in denen zunächst Vorbereitungen getroffen
@@ -1287,7 +1287,7 @@ elegant bewältigt werden. Dies ist im folgenden Beispiel gezeigt.</p>
         <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;{:g}</span><span class="se">\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Dies entspricht einem <code class="docutils literal"><span class="pre">try...finally</span></code>-Konstrukt, bei dem im <code class="docutils literal"><span class="pre">finally</span></code>-Block
+<p>Dies entspricht einem <tt class="docutils literal"><span class="pre">try...finally</span></tt>-Konstrukt, bei dem im <tt class="docutils literal"><span class="pre">finally</span></tt>-Block
 unabhängig vom Auftreten einer Ausnahme die Datei wieder geschlossen wird.
 Die Ausgabedatei hat dann den folgenden Inhalt:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="mf">0.25</span>
@@ -1296,9 +1296,9 @@ Die Ausgabedatei hat dann den folgenden Inhalt:</p>
 <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Sie wurde explizit beim Verlassen des <code class="docutils literal"><span class="pre">with</span></code>-Blocks geschlossen, nachdem zuvor
-die Variable <code class="docutils literal"><span class="pre">n</span></code> den Wert Null erreicht hat und die Division eine
-<code class="docutils literal"><span class="pre">ZeroDivisionError</span></code>-Ausnahme ausgelöst hat. Um dies zu überprüfen, muss man die
+<p>Sie wurde explizit beim Verlassen des <tt class="docutils literal"><span class="pre">with</span></tt>-Blocks geschlossen, nachdem zuvor
+die Variable <tt class="docutils literal"><span class="pre">n</span></tt> den Wert Null erreicht hat und die Division eine
+<tt class="docutils literal"><span class="pre">ZeroDivisionError</span></tt>-Ausnahme ausgelöst hat. Um dies zu überprüfen, muss man die
 Ausnahme abfangen.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;test.dat&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
@@ -1324,17 +1324,17 @@ und es werden negative Indizes entsprechend behandelt. Dies kostet natürlich
 Zeit. Ist man sich sicher, dass man weder negative Indizes benutzt noch die
 Listengrenzen überschreitet, so kann man bei der Benutzung von Cython auf die
 genannte Funktionalität verzichten. Will man dies in einem begrenzten
-Code-Block tun, so bietet sich die Verwendung von <code class="docutils literal"><span class="pre">with</span>
-<span class="pre">cython.boundscheck(False)</span></code> an.  Eine andere Anwendung besteht im Ausschalten
+Code-Block tun, so bietet sich die Verwendung von <tt class="docutils literal"><span class="pre">with</span>
+<span class="pre">cython.boundscheck(False)</span></tt> an.  Eine andere Anwendung besteht im Ausschalten
 des <em>Global Interpreter Locks</em> <a class="footnote-reference" href="#gil" id="id8">[8]</a> von Python mit Hilfe des
-<code class="docutils literal"><span class="pre">nogil</span></code>-Kontextmanagers.</p>
+<tt class="docutils literal"><span class="pre">nogil</span></tt>-Kontextmanagers.</p>
 <table class="docutils footnote" frame="void" id="ipython" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Hier verwenden wir <code class="docutils literal"><span class="pre">%timeit</span></code>, eine der so genannten magischen
-Funktionen der verbesserten Python-Shell <code class="docutils literal"><span class="pre">IPython</span></code>, die es erlaubt,
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Hier verwenden wir <tt class="docutils literal"><span class="pre">%timeit</span></tt>, eine der so genannten magischen
+Funktionen der verbesserten Python-Shell <tt class="docutils literal"><span class="pre">IPython</span></tt>, die es erlaubt,
 Ausführungszeiten einzelner Befehle oder (ab Version 0.13) von
-Befehlsblöcken zu bestimmen. Wie werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><span>Das Modul timeit</span></a>
+Befehlsblöcken zu bestimmen. Wie werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><em>Das Modul timeit</em></a>
 zurückkommen.</td></tr>
 </tbody>
 </table>
@@ -1350,10 +1350,10 @@ englischen Begriff. Gelegentlich findet man den Begriff
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Will man die Ausführungszeit eines ganzen Befehlsblocks bestimmen,
-so muss die magische <code class="docutils literal"><span class="pre">%%timeit</span></code>-Funktion mit zwei Prozentzeichen
-verwendet werden. Bei Einzeilern genügt <code class="docutils literal"><span class="pre">%timeit</span></code> mit einem
-Prozentzeichen. <code class="docutils literal"><span class="pre">%%timeit</span></code> wurde der <code class="docutils literal"><span class="pre">IPython</span></code>-Version 0.13
-eingeführt. Wir werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><span>Das Modul timeit</span></a> zurückkommen.</td></tr>
+so muss die magische <tt class="docutils literal"><span class="pre">%%timeit</span></tt>-Funktion mit zwei Prozentzeichen
+verwendet werden. Bei Einzeilern genügt <tt class="docutils literal"><span class="pre">%timeit</span></tt> mit einem
+Prozentzeichen. <tt class="docutils literal"><span class="pre">%%timeit</span></tt> wurde der <tt class="docutils literal"><span class="pre">IPython</span></tt>-Version 0.13
+eingeführt. Wir werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><em>Das Modul timeit</em></a> zurückkommen.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="gvrblog" rules="none">
@@ -1383,7 +1383,7 @@ in der Dokumentation der Standardbibliothek von Python.</td></tr>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Weitere Informationen zu Cython findet man unter <a class="reference external" href="http://www.cython.org/">www.cython.org</a>.
 Cython sollte nicht mit CPython verwechselt werden, der C-Implementation von Python, die
-man standardmäßig beim <code class="docutils literal"><span class="pre">python</span></code>-Aufruf verwendet.</td></tr>
+man standardmäßig beim <tt class="docutils literal"><span class="pre">python</span></tt>-Aufruf verwendet.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="gil" rules="none">
@@ -1398,7 +1398,7 @@ für eine kurze Erläuterung des GIL.</td></tr>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav">
       
         <p>
         «&#160;&#160;<a href="einleitung.html">Einführung</a>
@@ -1410,9 +1410,9 @@ für eine kurze Erläuterung des GIL.</td></tr>
 
       </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
     </div>
   </body>
 </html>

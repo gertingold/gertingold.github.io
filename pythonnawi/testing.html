@@ -24,17 +24,17 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
     <link rel="next" title="Laufzeituntersuchungen" href="profiling.html" />
     <link rel="prev" title="Versionskontrolle mit Git" href="git.html" /> 
   </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Testen von Programmen</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav">
       
         <p>
         «&#160;&#160;<a href="git.html">Versionskontrolle mit Git</a>
@@ -49,9 +49,9 @@
         
         
   <div class="section" id="testen-von-programmen">
-<span id="testing"></span><h1>Testen von Programmen<a class="headerlink" href="#testen-von-programmen" title="Link zu dieser Überschrift">¶</a></h1>
+<span id="testing"></span><h1>Testen von Programmen<a class="headerlink" href="#testen-von-programmen" title="Permalink zu dieser Überschrift">¶</a></h1>
 <div class="section" id="wozu-braucht-man-tests">
-<h2>Wozu braucht man Tests?<a class="headerlink" href="#wozu-braucht-man-tests" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Wozu braucht man Tests?<a class="headerlink" href="#wozu-braucht-man-tests" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Ein offensichtliches Ziel beim Programmieren besteht darin, letztlich ein
 funktionierendes Programm zu haben. Funktionierend heißt hierbei, dass das
 Programm die gewünschte Funktionalität korrekt bereitstellt.  Im Bereich des
@@ -92,26 +92,26 @@ Hierfür ist es sinnvoll, den Code in überschaubare Funktionen mit einer klaren
 zu zerlegen, die jeweils für sich getestet werden können. Das Schreiben von Tests kann
 hier dazu beitragen, die logische Gliederung des Codes zu verbessern.</p>
 <p>Aus den verschiedenen Möglichkeiten, in Python einen Testrahmen aufzubauen, wollen wir
-zwei herausgreifen. Die erste basiert auf dem <code class="docutils literal"><span class="pre">doctest</span></code>-Modul, das es erlaubt, einfache
+zwei herausgreifen. Die erste basiert auf dem <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul, das es erlaubt, einfache
 Tests in den Dokumentationsstrings unterzubringen. Diese Tests erfüllen somit neben ihrer
 eigentlichen Aufgabe auch noch die Funktion, die Möglichkeiten der Verwendung beispielsweise
 einer Funktion oder einer Klasse zu dokumentieren. Die zweite Möglichkeit, die wir
-besprechen wollen, basiert auf dem <code class="docutils literal"><span class="pre">unittest</span></code>-Modul, das auch komplexere Testszenarien
+besprechen wollen, basiert auf dem <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul, das auch komplexere Testszenarien
 ermöglicht.</p>
 </div>
 <div class="section" id="das-doctest-modul">
-<h2>Das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul<a class="headerlink" href="#das-doctest-modul" title="Link zu dieser Überschrift">¶</a></h2>
-<p>In Python ist die Dokumentation von Code nicht nur mit Kommentaren, die mit <code class="docutils literal"><span class="pre">#</span></code> eingeleitet
+<h2>Das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul<a class="headerlink" href="#das-doctest-modul" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>In Python ist die Dokumentation von Code nicht nur mit Kommentaren, die mit <tt class="docutils literal"><span class="pre">#</span></tt> eingeleitet
 werden, möglich, sondern auch mit Hilfe von Dokumentationsstrings. So können zum Beispiel
 Funktionen dokumentiert werden, indem nach der Kopfzeile ein typischerweise mehrzeiliger
 Dokumentationstext eingefügt wird. Dieses Vorgehen wird in Python unter anderem dadurch
-belohnt, dass dieser Text mit Hilfe der eingebauten <code class="docutils literal"><span class="pre">help</span></code>-Methode verfügbar gemacht wird.
+belohnt, dass dieser Text mit Hilfe der eingebauten <tt class="docutils literal"><span class="pre">help</span></tt>-Methode verfügbar gemacht wird.
 Ein weiterer Bonus besteht darin, dass im Dokumentationsstring Tests untergebracht werden
 können, die zugleich die Verwendung des dokumentierten Objekts illustrieren.</p>
 <p>Während der Dokumentationsaspekt alleine durch die Anwesenheit des entsprechenden Textteils
-im Dokumentationsstring erfüllt wird, benötigen wir für den Test das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul.
+im Dokumentationsstring erfüllt wird, benötigen wir für den Test das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul.
 Die Vorgehensweise soll an dem folgenden Beispiel erläutert werden, das auf dem Quicksort-Code
-aus dem Abschnitt <a class="reference internal" href="advancedpython.html#listcomprehensions"><span>List comprehensions</span></a> basiert.</p>
+aus dem Abschnitt <a class="reference internal" href="advancedpython.html#listcomprehensions"><em>List comprehensions</em></a> basiert.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -167,9 +167,9 @@ Anwendungsbeispiele illustriert, die in der Python-Shell direkt nachvollzogen we
 Das dritte Beispiel dient dazu, auf einen nicht zulässigen Aufruf hinzuweisen und den zugehörigen
 Grund kurz zu erläutern.</p>
 <p>Die Verwendung des Formats der Python-Shell besitzt jedoch nicht nur einen besonderen
-Wiedererkennungswert für den Betrachter, sondern auch für das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul, das
+Wiedererkennungswert für den Betrachter, sondern auch für das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul, das
 genau hiernach in Dokumentationsstrings sucht. Unser Beispiel ist so aufgebaut, dass
-es bei einem direkten Aufruf das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul lädt und mit dem Aufruf der <code class="docutils literal"><span class="pre">testmod</span></code>-Methode
+es bei einem direkten Aufruf das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul lädt und mit dem Aufruf der <tt class="docutils literal"><span class="pre">testmod</span></tt>-Methode
 die Dokumentationsstrings von Funktionen und Klassen nach Testdefinitionen durchsucht und
 diese ausführt. Führt man das Skript aus, so erhält man das folgende Ergebnis:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ python doctest_example.py
@@ -180,7 +180,7 @@ $
 er bedeutet, dass es bei der Durchführung der Tests keine Fehler gab. Das
 Auftreten eines Fehlers hätte dagegen zu einer entsprechenden Ausgabe geführt.
 Vielleicht will man aber wissen, ob und, wenn ja, welche Tests durchgeführt wurden.
-Hierzu verwendet man die Kommandozeilenoption <code class="docutils literal"><span class="pre">-v</span></code> für <em>verbose</em>:</p>
+Hierzu verwendet man die Kommandozeilenoption <tt class="docutils literal"><span class="pre">-v</span></tt> für <em>verbose</em>:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ python doctest_example.py -v
 Trying:
     quicksort([2, 5, 3, 7, -1])
@@ -210,10 +210,10 @@ Test passed.
 </div>
 <p>Der Ausgabe entnimmt man, dass in der Tat die erwarteten drei Tests durchgeführt wurden und
 zu dem erwarteten Ergebnis geführt haben. Will man diese ausführliche Ausgabe
-unabhängig von einer Kommandozeilenoption erzwingen, kann man beim Aufruf von <code class="docutils literal"><span class="pre">testmod</span></code>
-die Variable <code class="docutils literal"><span class="pre">verbose</span></code> auf <code class="docutils literal"><span class="pre">True</span></code> setzen.</p>
+unabhängig von einer Kommandozeilenoption erzwingen, kann man beim Aufruf von <tt class="docutils literal"><span class="pre">testmod</span></tt>
+die Variable <tt class="docutils literal"><span class="pre">verbose</span></tt> auf <tt class="docutils literal"><span class="pre">True</span></tt> setzen.</p>
 <p>Alternativ zu der bisher beschriebenen Vorgehensweise könnte man die Zeilen 20-23 unseres
-Beispielcodes weglassen und das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul beim Aufruf des Skripts laden. Will man
+Beispielcodes weglassen und das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul beim Aufruf des Skripts laden. Will man
 eine ausführliche Ausgabe erhalten, so hätte der Aufruf die folgende Form:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ python -m doctest -v doctest_example.py
 </pre></div>
@@ -232,7 +232,7 @@ Gleitkommazahlen in unserem Beispiel so gewählt, dass die Binärdarstellung nur
 wenige Nachkommastellen besitzt, so dass Rundungsfehler ausgeschlossen werden
 können.</p>
 <p>Der dritte Test im obigen Beispiel bezieht sich auf eine Eingabe, die keine
-Sortierung zulässt und somit zu einer <code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme führt. Die
+Sortierung zulässt und somit zu einer <tt class="docutils literal"><span class="pre">TypeError</span></tt>-Ausnahme führt. Die
 tatsächliche Ausgabe ist in diesem Fall etwas ausführlicher, wobei die Details
 jedoch irrelevant sind. Daher sind in Zeile 13 im Dokumentationsstring drei
 Auslassungspunkte, auf Englisch <em>ellipsis</em> zu finden, die als Platzhalter für
@@ -247,31 +247,31 @@ explizit zulässt.</p>
 </pre></div>
 </div>
 <p>Für eine detailliertere Diskussion der verschiedenen Optionen und Direktiven im
-<code class="docutils literal"><span class="pre">doctest</span></code>-Modul verweisen wir auf die zugehörige
+<tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul verweisen wir auf die zugehörige
 <a class="reference external" href="http://docs.python.org/2/library/doctest.html">Dokumentation</a>.</p>
-<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul kann auch eingesetzt werden, um Python-Code
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul kann auch eingesetzt werden, um Python-Code
 zu testen, der in Textdokumente eingebettet ist, die unter Verwendung von
 <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> erstellt wurden.
 Letzeres ist unter anderem bei diesem Vorlesungsskript der Fall.</p>
 </div>
 <div class="section" id="das-unittest-modul">
-<span id="unittest"></span><h2>Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul<a class="headerlink" href="#das-unittest-modul" title="Link zu dieser Überschrift">¶</a></h2>
+<span id="unittest"></span><h2>Das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul<a class="headerlink" href="#das-unittest-modul" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Für umfangreichere Testszenarien sind die Möglichkeiten, die das
-<code class="docutils literal"><span class="pre">doctest</span></code>-Modul bietet, meistens nicht ausreichend. So hatten wir im vorigen
+<tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul bietet, meistens nicht ausreichend. So hatten wir im vorigen
 Abschnitt bereits gesehen, dass Tests mit Gleitkommazahlen Schwierigkeiten
 bereiten können. Auch ist es nicht unbedingt sinnvoll, einen
 Dokumentationsstring mit einer zu großen Zahl an Tests zu versehen. Ferner kann
 man sich Testszenarien vorstellen, die eine Vorbereitung und Abschlussarbeiten
 erfordern. In solchen Fällen bietet es sich an, die Möglichkeiten zu nutzen,
-die das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul bietet. Wie schon im vorigen Abschnitt werden wir
+die das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul bietet. Wie schon im vorigen Abschnitt werden wir
 uns auf die wesentlichen Aspekte konzentrieren und verweisen für Details auf
 die <a class="reference external" href="http://docs.python.org/2/library/unittest.html">Dokumentation</a> des
-<code class="docutils literal"><span class="pre">unittest</span></code>-Moduls.</p>
-<p>Wir beginnen mit einem Beispiel, das die <code class="docutils literal"><span class="pre">quicksort</span></code>-Funktion aus dem vorigen
-Abschnitt testet. Dazu nehmen wir an, dass die Funktion in einem Skript <code class="docutils literal"><span class="pre">myquicksort.py</span></code>
-definiert sei. Der folgende Code befinde sich in einem Skript <code class="docutils literal"><span class="pre">test_quicksort.py</span></code>.
+<tt class="docutils literal"><span class="pre">unittest</span></tt>-Moduls.</p>
+<p>Wir beginnen mit einem Beispiel, das die <tt class="docutils literal"><span class="pre">quicksort</span></tt>-Funktion aus dem vorigen
+Abschnitt testet. Dazu nehmen wir an, dass die Funktion in einem Skript <tt class="docutils literal"><span class="pre">myquicksort.py</span></tt>
+definiert sei. Der folgende Code befinde sich in einem Skript <tt class="docutils literal"><span class="pre">test_quicksort.py</span></tt>.
 Dieses Namenswahl ist sinnvoll, da Testskripten standardmäßig in Dateien gesucht
-werden, deren Namen mit <code class="docutils literal"><span class="pre">test</span></code> beginnt. Wir definieren die folgenden vier Tests:</p>
+werden, deren Namen mit <tt class="docutils literal"><span class="pre">test</span></tt> beginnt. Wir definieren die folgenden vier Tests:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">myquicksort</span> <span class="kn">import</span> <span class="n">quicksort</span>
 <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
 
@@ -310,12 +310,12 @@ werden, deren Namen mit <code class="docutils literal"><span class="pre">test</s
             <span class="n">quicksort</span><span class="p">([</span><span class="mf">3.5</span><span class="o">+</span><span class="mi">1j</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mf">3.5j</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Vier Tests sind hier als Methoden einer Unterklasse der Klasse <code class="docutils literal"><span class="pre">unittest.TestCase</span></code>
+<p>Vier Tests sind hier als Methoden einer Unterklasse der Klasse <tt class="docutils literal"><span class="pre">unittest.TestCase</span></tt>
 definiert und werden bei der Ausführung des Testskripts automatisch abgearbeitet.
 Jeder Test soll nach Möglichkeit einen unabhängigen Aspekt des zu testenden Skripts
 überprüfen. So überprüft zum Beispiel der zweite Test, dass bei der Sortierung
 keine Elemente verloren gehen. Die Überprüfung der Testbedingung erfolgt jeweils
-mit <code class="docutils literal"><span class="pre">assert</span></code>-Anweisungen, von denen das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul eine ganze Reihe
+mit <tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisungen, von denen das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul eine ganze Reihe
 für die verschiedensten Zwecke bereitstellt.</p>
 <p>Lässt man die Tests laufen, so erhält man die folgende Ausgabe:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ python -m unittest discover
@@ -326,19 +326,19 @@ Ran 4 tests in 0.000s
 OK
 </pre></div>
 </div>
-<p>Bei diesem Aufruf wird das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul geladen und mit dem
-Schlüsselwort <code class="docutils literal"><span class="pre">discover</span></code> aufgefordert, selbst nach Testskripten
-zu suchen. Es findet unsere Datei <code class="docutils literal"><span class="pre">test_quicksort.py</span></code> und führt
+<p>Bei diesem Aufruf wird das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul geladen und mit dem
+Schlüsselwort <tt class="docutils literal"><span class="pre">discover</span></tt> aufgefordert, selbst nach Testskripten
+zu suchen. Es findet unsere Datei <tt class="docutils literal"><span class="pre">test_quicksort.py</span></tt> und führt
 die vier darin enthaltenen Test aus. Alternativ hätte man statt
-<code class="docutils literal"><span class="pre">discover</span></code> auch einfach den Namen der Testdatei ohne Endung angeben
+<tt class="docutils literal"><span class="pre">discover</span></tt> auch einfach den Namen der Testdatei ohne Endung angeben
 können, also:</p>
 <div class="highlight-python"><div class="highlight"><pre>$ python -m unittest test_quicksort
 </pre></div>
 </div>
 <p>Die Ausgabe zeigt die erfolgreiche Ausführung jedes Tests jeweils durch einen
-Punkt in der zweiten Zeile an. Das abschließende <code class="docutils literal"><span class="pre">OK</span></code> weist nochmals darauf
+Punkt in der zweiten Zeile an. Das abschließende <tt class="docutils literal"><span class="pre">OK</span></tt> weist nochmals darauf
 hin, dass kein Fehler aufgetreten ist.</p>
-<p>Zu Illustration bauen wir nun in unsere <code class="docutils literal"><span class="pre">quicksort</span></code>-Funktion einen Fehler ein.</p>
+<p>Zu Illustration bauen wir nun in unsere <tt class="docutils literal"><span class="pre">quicksort</span></tt>-Funktion einen Fehler ein.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">y</span><span class="o">&lt;</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
@@ -346,8 +346,8 @@ hin, dass kein Fehler aufgetreten ist.</p>
             <span class="o">+</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">y</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>In der letzten Zeile lassen wir fälschlicherweise nur <code class="docutils literal"><span class="pre">y</span></code>-Werte zu, die größer
-als <code class="docutils literal"><span class="pre">x[0]</span></code> sind. Die Ausführung der Tests resultiert in folgender Ausgabe:</p>
+<p>In der letzten Zeile lassen wir fälschlicherweise nur <tt class="docutils literal"><span class="pre">y</span></tt>-Werte zu, die größer
+als <tt class="docutils literal"><span class="pre">x[0]</span></tt> sind. Die Ausführung der Tests resultiert in folgender Ausgabe:</p>
 <div class="highlight-python"><div class="highlight"><pre>F...
 ======================================================================
 FAIL: test_equal_elements (test_quicksort.testQuicksort)
@@ -366,7 +366,7 @@ FAILED (failures=1)
 </div>
 <p>Die erste Zeile gibt an, dass vier Tests ausgeführt wurden, wobei jedoch nur drei davon,
 die mit Punkten dargestellt sind, erfolgreich waren. Ein Test schlug fehl und ist daher
-mit einem <code class="docutils literal"><span class="pre">F</span></code> gekennzeichnet. Details zu diesem Test sind im Hauptteil der Ausgabe
+mit einem <tt class="docutils literal"><span class="pre">F</span></tt> gekennzeichnet. Details zu diesem Test sind im Hauptteil der Ausgabe
 zu finden. Ganz am Ende wird nochmals darauf hingewiesen, dass ein Test fehlschlug.</p>
 <p>In diesem Fall kann es auch hilfreich sein, die Möglichkeit zu nutzen, eine zusätzliche
 Nachricht auszugeben. Wir modifizieren dazu den zweiten Test.</p>
@@ -405,8 +405,8 @@ ein doppelt vorkommendes Element nicht mehrfach einsortiert wurde.</p>
 <p>Beim Test von Gleitkommazahlen auf Gleichheit oder Ungleichheit ist wegen der Möglichkeit
 von Rundungsfehlern immer Vorsicht angebracht. Von numerischen Funktionen
 wird man zudem normalerweise nicht verlangen können, dass das Ergebnis bis zur
-letzten Stelle korrekt ist. Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul stellt aus diesem Grunde die
-<code class="docutils literal"><span class="pre">assertAlmostEqual</span></code>- und <code class="docutils literal"><span class="pre">assertNotAlmostEqual</span></code>-Anweisungen zur Verfügung. Dabei
+letzten Stelle korrekt ist. Das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul stellt aus diesem Grunde die
+<tt class="docutils literal"><span class="pre">assertAlmostEqual</span></tt>- und <tt class="docutils literal"><span class="pre">assertNotAlmostEqual</span></tt>-Anweisungen zur Verfügung. Dabei
 wird standardmäßig die Differenz zwischen den beiden Vergleichswerten auf sieben
 Nachkommastellen gerundet und mit Null verglichen. Bei Bedarf kann die Zahl der
 gerundeten Stellen oder eine maximale bzw. minimale Differenz zwischen den Vergleichswerten
@@ -492,17 +492,17 @@ eine temporäre Datei und überprüfen damit eine Funktion zum Einlesen dieser D
 </pre></div>
 </div>
 <p>Zunächst werden die beiden zum Einlesen verwendeten Funktionen definiert, wobei aus
-dem Test heraus die Funktion <code class="docutils literal"><span class="pre">read_floats</span></code> aufgerufen wird. In der Testklasse gibt
-es neben der Methode <code class="docutils literal"><span class="pre">test_read_floats</span></code>, die die Korrektheit des Einlesens überprüft,
-noch zwei weitere Methoden. Die Methode <code class="docutils literal"><span class="pre">setUp</span></code> bereitet den Test vor. In unserem
+dem Test heraus die Funktion <tt class="docutils literal"><span class="pre">read_floats</span></tt> aufgerufen wird. In der Testklasse gibt
+es neben der Methode <tt class="docutils literal"><span class="pre">test_read_floats</span></tt>, die die Korrektheit des Einlesens überprüft,
+noch zwei weitere Methoden. Die Methode <tt class="docutils literal"><span class="pre">setUp</span></tt> bereitet den Test vor. In unserem
 Beispiel wird dort eine temporäre Datei erzeugt, von der im Laufe des Tests Daten gelesen
-werden. Die Methode <code class="docutils literal"><span class="pre">tearDown</span></code> wird nach dem Test ausgeführt und dient hier dazu, die
+werden. Die Methode <tt class="docutils literal"><span class="pre">tearDown</span></tt> wird nach dem Test ausgeführt und dient hier dazu, die
 temporäre Datei wieder zu entfernen.</p>
 <p>Insbesondere wenn man Tests schreibt, bevor die entsprechende Funktionalität implementiert
 ist, kann es sein, dass Tests fehlschlagen, ohne dass dies als Problem gewertet werden
 muss. In diesem Fall kann man mit Hilfe von Dekoratoren dafür sorgen, dass der betreffende
-Test nicht durchgeführt wird (<code class="docutils literal"><span class="pre">skip</span></code>) oder einen Hinweis auf den erwarteten Fehler
-erhält (<code class="docutils literal"><span class="pre">expectedFailure</span></code>).  Das folgende Beispiel illustriert den zweiten Fall.</p>
+Test nicht durchgeführt wird (<tt class="docutils literal"><span class="pre">skip</span></tt>) oder einen Hinweis auf den erwarteten Fehler
+erhält (<tt class="docutils literal"><span class="pre">expectedFailure</span></tt>).  Das folgende Beispiel illustriert den zweiten Fall.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">expectedFailure</span><span class="p">,</span> <span class="n">TestCase</span>
 
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -530,9 +530,9 @@ erhält (<code class="docutils literal"><span class="pre">expectedFailure</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">xcube</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Von den beiden Funktionen <code class="docutils literal"><span class="pre">square</span></code> und <code class="docutils literal"><span class="pre">cube</span></code> ist die erste fehlerhaft implementiert
+<p>Von den beiden Funktionen <tt class="docutils literal"><span class="pre">square</span></tt> und <tt class="docutils literal"><span class="pre">cube</span></tt> ist die erste fehlerhaft implementiert
 und die zweite ist bis jetzt noch überhaupt nicht implementiert. Daher ist zu erwarten,
-dass der zweite Test fehlschlagen wird. Er ist entsprechend mit dem <code class="docutils literal"><span class="pre">expectedFailure</span></code>-Dekorator
+dass der zweite Test fehlschlagen wird. Er ist entsprechend mit dem <tt class="docutils literal"><span class="pre">expectedFailure</span></tt>-Dekorator
 versehen. Lässt man den Test laufen, so erhält man die folgende Ausgabe:</p>
 <div class="highlight-python"><div class="highlight"><pre>xF
 ======================================================================
@@ -549,25 +549,25 @@ Ran 2 tests in 0.001s
 FAILED (failures=1, expected failures=1)
 </pre></div>
 </div>
-<p>Hier wird also zwischen dem echten Fehler, der in <code class="docutils literal"><span class="pre">test_square</span></code> entdeckt wird, und dem
-erwarteten Fehler in <code class="docutils literal"><span class="pre">test_cube</span></code> unterschieden. Letzterer ist in der ersten Zeile mit
-einem <code class="docutils literal"><span class="pre">x</span></code> statt einem <code class="docutils literal"><span class="pre">F</span></code> markiert.</p>
-<p>Auch ohne dass wir alle Möglichkeiten des <code class="docutils literal"><span class="pre">unittest</span></code>-Moduls besprochen haben,
+<p>Hier wird also zwischen dem echten Fehler, der in <tt class="docutils literal"><span class="pre">test_square</span></tt> entdeckt wird, und dem
+erwarteten Fehler in <tt class="docutils literal"><span class="pre">test_cube</span></tt> unterschieden. Letzterer ist in der ersten Zeile mit
+einem <tt class="docutils literal"><span class="pre">x</span></tt> statt einem <tt class="docutils literal"><span class="pre">F</span></tt> markiert.</p>
+<p>Auch ohne dass wir alle Möglichkeiten des <tt class="docutils literal"><span class="pre">unittest</span></tt>-Moduls besprochen haben,
 dürfte klar geworden sein, dass diese deutlich über die Möglichkeiten des
-<code class="docutils literal"><span class="pre">doctest</span></code>-Moduls hinausgehen.  Eine Übersicht über weitere
-Anwendungsmöglichkeiten des <code class="docutils literal"><span class="pre">unittest</span></code>-Moduls findet man in der zugehörigen
+<tt class="docutils literal"><span class="pre">doctest</span></tt>-Moduls hinausgehen.  Eine Übersicht über weitere
+Anwendungsmöglichkeiten des <tt class="docutils literal"><span class="pre">unittest</span></tt>-Moduls findet man in der zugehörigen
 <a class="reference external" href="http://docs.python.org/2/library/unittest.html">Dokumentation</a>, wo
-inbesondere auch eine vollständige Liste der verfügbaren <code class="docutils literal"><span class="pre">assert</span></code>-Anweisungen
+inbesondere auch eine vollständige Liste der verfügbaren <tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisungen
 angegeben ist.</p>
 </div>
 <div class="section" id="testen-mit-numpy">
-<h2>Testen mit NumPy<a class="headerlink" href="#testen-mit-numpy" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Testen mit NumPy<a class="headerlink" href="#testen-mit-numpy" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Das Programmieren von Tests ist gerade beim numerischen Arbeiten sehr wichtig.
 Bei der Verwendung von NumPy-Arrays ergibt sich allerdings das Problem, dass
 man normalerweise nicht für jedes Arrayelement einzeln die Gültigkeit einer
 Testbedingung überprüfen möchte. Wir wollen daher kurz diskutieren, welche
 Möglichkeiten man in einem solchen Fall besitzt. Da es in erster Linie auf die
-<code class="docutils literal"><span class="pre">assert</span></code>-Anweisung ankommt, können wir hier darauf verzichten, ganze
+<tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisung ankommt, können wir hier darauf verzichten, ganze
 Testfälle zu programmieren.</p>
 <p>Die im folgenden Beispiel definierte Matrix hat nur positive Eigenwerte:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -592,13 +592,13 @@ Testfälle zu programmieren.</p>
 <p>Dies lässt sich in Ausgabe 5 direkt verifizieren. Für einen automatisierten
 Test ist es günstig, die Positivitätsbedingung für jedes Element auszuwerten
 und zu überprüfen, ob sie für alle Elemente erfüllt ist. Dies geschieht in
-Eingabe 6 mit Hilfe der <code class="docutils literal"><span class="pre">all</span></code>-Funktion, die man in einem Test in der
-<code class="docutils literal"><span class="pre">assert</span></code>-Anweisung verwenden würde.</p>
+Eingabe 6 mit Hilfe der <tt class="docutils literal"><span class="pre">all</span></tt>-Funktion, die man in einem Test in der
+<tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisung verwenden würde.</p>
 <p>Wir hatten im letzten Kapitel darauf hingewiesen, dass man bei Tests von Floats
 die Möglichkeit von Rundungsfehlern bedenken muss. Dies gilt natürlich genauso,
 wenn man ganze Arrays von Floats erzeugt und testen will. In diesem Fall ist es
 sinnvoll, auf die Unterstützung zurückzugreifen, die NumPy durch sein
-<code class="docutils literal"><span class="pre">testing</span></code>-Modul <a class="footnote-reference" href="#numpytest" id="id3">[1]</a> gibt. Wir demonstrieren dies an einem kleinen
+<tt class="docutils literal"><span class="pre">testing</span></tt>-Modul <a class="footnote-reference" href="#numpytest" id="id3">[1]</a> gibt. Wir demonstrieren dies an einem kleinen
 Beispiel, das die Berechnung des Sinus für einige Argumente testet.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="kn">import</span> <span class="nn">math</span>
 
@@ -616,9 +616,9 @@ Beispiel, das die Berechnung des Sinus für einige Argumente testet.</p>
 </div>
 <p>In Eingabe 10 wird das zu testende Resultat berechnet, während Eingabe 11 die auf
 den analytischen Ausdrücken basierende Erwartung an das Ergebnis bestimmt. Mit
-der <code class="docutils literal"><span class="pre">assert_array_almost_equal</span></code>-Funktion erfolgt dann in Eingabe 12 der Vergleich.
+der <tt class="docutils literal"><span class="pre">assert_array_almost_equal</span></tt>-Funktion erfolgt dann in Eingabe 12 der Vergleich.
 Dabei haben wir die Genauigkeitsanforderung auf 7 Dezimalstellen festgelegt. Die
-Tatsache, dass es zu keiner <code class="docutils literal"><span class="pre">AssertionError</span></code>-Ausnahme kommt, bedeutet, dass
+Tatsache, dass es zu keiner <tt class="docutils literal"><span class="pre">AssertionError</span></tt>-Ausnahme kommt, bedeutet, dass
 alle Arrayelemente im Rahmen der geforderten Genauigkeit übereinstimmen.</p>
 <table class="docutils footnote" frame="void" id="numpytest" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -632,7 +632,7 @@ alle Arrayelemente im Rahmen der geforderten Genauigkeit übereinstimmen.</p>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav">
       
         <p>
         «&#160;&#160;<a href="git.html">Versionskontrolle mit Git</a>
@@ -644,9 +644,9 @@ alle Arrayelemente im Rahmen der geforderten Genauigkeit übereinstimmen.</p>
 
       </div>
 
-    <div class="footer" role="contentinfo">
+    <div class="footer">
         &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
     </div>
   </body>
 </html>
