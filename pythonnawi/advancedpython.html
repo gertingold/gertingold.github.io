@@ -148,7 +148,7 @@ auf das <tt class="docutils literal"><span class="pre">frozenset</span></tt> zur
 </div>
 <p>Um zu überprüfen, ob ein Objekt Element einer Menge ist, ist es günstig,
 statt einer Liste ein Set zu verwenden, wie die folgenden Tests zeigen.
-<a class="footnote-reference" href="#ipython" id="id1">[1]</a></p>
+<a class="footnote-reference" href="#timeit" id="id1">[1]</a></p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">1000000</span>
 
 <span class="gp">In [2]: </span><span class="n">xlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">))</span>
@@ -217,6 +217,225 @@ Möglichkeiten sind im Folgenden illustriert.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="das-collections-modul">
+<span id="collections"></span><h2>Das <tt class="docutils literal"><span class="pre">collections</span></tt>-Modul<a class="headerlink" href="#das-collections-modul" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Die Standardbibliothek von Python stellt im <tt class="docutils literal"><span class="pre">collections</span></tt>-Modul einige
+interessante Container-Datentypen zur Verfügung, die es erlauben, Probleme
+zu lösen, die gelegentlich mit Listen, Tupeln oder Dictionaries auftreten.
+Im Folgenden soll eine Auswahl dieser Datentypen kurz vorgestellt werden.</p>
+<p>Wir beginnen mit den Tupeln, deren einzelne Elemente mit Hilfe von Integern
+angesprochen werden können. Wenn die einzelnen Elemente eine spezielle Bedeutung
+haben, ist jedoch die Zuordnung zu den Indizes nicht immer offensichtlich.</p>
+<p>Als Beispiel betrachten wir Farben, die im RGB-System durch ein Tupel von drei
+Integern mit Werten zwischen 0 und 255 dargestellt werden können. Eine bestimmte
+Farbe könnte also folgendermaßen durch ein Tupel repräsentiert sein:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">farbe</span> <span class="o">=</span> <span class="p">(</span><span class="mi">135</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">235</span><span class="p">)</span>
+
+<span class="gp">In [2]: </span><span class="n">farbe</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gr">Out[2]: </span><span class="mi">206</span>
+
+<span class="gp">In [3]: </span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">farbe</span>
+
+<span class="gp">In [4]: </span><span class="n">g</span>
+<span class="gr">Out[4]: </span><span class="mi">206</span>
+</pre></div>
+</div>
+<p>Hierbei muss man wissen, dass das Element mit Index 1 dem Grünwert entspricht.
+Um den Code verständlicher zu machen, kann man das Tupel auch wie in
+Eingabezeile 3 in die einzelnen Bestandteile zerlegen und diese entsprechend
+benennen. Es wäre jedoch praktischer, wenn man diesen Schritt nicht explizit
+vornehmen müsste.</p>
+<p>In einem solchen Fall ist ein <tt class="docutils literal"><span class="pre">namedtuple</span></tt> nützlich, um lesbaren Code zu
+schreiben. In der Definition des <tt class="docutils literal"><span class="pre">namedtuple</span></tt> zur Darstellung einer Farbe
+ordnen wir den einzelnen Elementen Namen zu und können mit Hilfe dieser Namen
+auf die Elemente zugreifen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="kn">import</span> <span class="nn">collections</span>
+
+<span class="gp">In [6]: </span><span class="n">Farbe</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Farbe&#39;</span><span class="p">,</span> <span class="s">&#39;r g b&#39;</span><span class="p">)</span>
+
+<span class="gp">In [7]: </span><span class="n">f1</span> <span class="o">=</span> <span class="n">Farbe</span><span class="p">(</span><span class="mi">135</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">235</span><span class="p">)</span>
+
+<span class="gp">In [8]: </span><span class="n">f1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gr">Out[8]: </span><span class="mi">206</span>
+
+<span class="gp">In [9]: </span><span class="n">f1</span><span class="o">.</span><span class="n">g</span>
+<span class="gr">Out[9]: </span><span class="mi">206</span>
+
+<span class="gp">In [10]: </span><span class="n">f2</span> <span class="o">=</span> <span class="n">Farbe</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="gp">In [11]: </span><span class="n">f1</span><span class="o">.</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">f2</span><span class="o">.</span><span class="n">b</span>
+<span class="gr">Out[11]: </span><span class="bp">True</span>
+</pre></div>
+</div>
+<p>Gemäß der Definition in Eingabezeile 6 erhalten die Elemente die Bezeichner
+<tt class="docutils literal"><span class="pre">r</span></tt>, <tt class="docutils literal"><span class="pre">g</span></tt> und <tt class="docutils literal"><span class="pre">b</span></tt> und können dazu verwendet werden, auf die entsprechenden
+Elemente zuzugreifen, wie in den Eingabezeilen 9 und 11 zu sehen ist. Es ist
+jedoch auch weiterhin möglich, wie in Eingabezeile 8 auf ein Element mit Hilfe
+seines Index zuzugreifen.</p>
+<p>Die Bezeichner sind nicht nur auf einzelne Buchstaben beschränkt, sondern können
+bei Bedarf noch aussagekräftiger gewählt werden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">Farbe</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s">&#39;Farbe&#39;</span><span class="p">,</span> <span class="s">&#39;rot grün blau&#39;</span><span class="p">)</span>
+
+<span class="gp">In [13]: </span><span class="n">f1</span> <span class="o">=</span> <span class="n">Farbe</span><span class="p">(</span><span class="mi">135</span><span class="p">,</span> <span class="mi">206</span><span class="p">,</span> <span class="mi">235</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">f1</span><span class="o">.</span><span class="n">gr</span><span class="err">ü</span><span class="n">n</span>
+<span class="gr">Out[14]: </span><span class="mi">206</span>
+</pre></div>
+</div>
+<p>Im Unterschied zum Dictionary ist das <tt class="docutils literal"><span class="pre">namedtuple</span></tt>, genauso wie das Tuple,
+<cite>immutable</cite>, kann also zum Beispiel als Schlüssel für ein Dictionary verwendet
+werden. Zudem ist es so speichereffizient wie ein normales Tuple.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="n">f1</span><span class="o">.</span><span class="n">rot</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="go">---------------------------------------------------------------------------</span>
+<span class="go">AttributeError                            Traceback (most recent call last)</span>
+<span class="go">&lt;ipython-input-15-ac8b7e672be5&gt; in &lt;module&gt;()</span>
+<span class="go">----&gt; 1 f1.rot = 20</span>
+
+<span class="go">AttributeError: can&#39;t set attribute</span>
+
+<span class="gp">In [16]: </span><span class="n">f2</span> <span class="o">=</span> <span class="n">Farbe</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="gp">In [17]: </span><span class="n">rgbdict</span> <span class="o">=</span> <span class="p">{</span><span class="n">f1</span><span class="p">:</span> <span class="s">&#39;SkyBlue&#39;</span><span class="p">,</span> <span class="n">f2</span><span class="p">:</span> <span class="s">&#39;LimeGreen&#39;</span><span class="p">}</span>
+
+<span class="gp">In [18]: </span><span class="n">rgbdict</span><span class="p">[</span><span class="n">Farbe</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">215</span><span class="p">)]</span>
+<span class="gr">Out[18]: </span><span class="s">&#39;SkyBlue&#39;</span>
+</pre></div>
+</div>
+<p>Ein anderes Problem tritt in Zusammenhang mit Listen auf. Während der
+Zeitaufwand für das Anhängen eines neuen Elements sehr klein ist, kann das
+Einfügen eines Elements am Anfang der Liste sehr zeitaufwändig sein wie das
+folgende Beispiel zeigt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="o">%%</span><span class="n">timeit</span>
+<span class="go">    ...: xlist = list()</span>
+<span class="go">    ...: for n in range(100000):</span>
+<span class="go">    ...:     xlist.append(n)</span>
+<span class="go">    ...:</span>
+<span class="go">100 loops, best of 3: 7.66 ms per loop</span>
+
+<span class="gp">In [20]: </span><span class="o">%%</span><span class="n">timeit</span>
+<span class="go">    ...: xlist = list()</span>
+<span class="go">    ...: for n in range(100000):</span>
+<span class="go">    ...:     xlist.insert(0, n)</span>
+<span class="go">    ...:</span>
+<span class="go">1 loop, best of 3: 2.63 s per loop</span>
+</pre></div>
+</div>
+<p>In einem solchen Fall kann ein so genanntes <tt class="docutils literal"><span class="pre">deque</span></tt>, dessen Name sich von
+<cite>double-ended queue</cite> <a class="footnote-reference" href="#deque" id="id2">[2]</a> ableitet, erhebliche Vorteile bringen, so lange
+man Elemente an einem der beiden Enden hinzufügt oder entfernt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="o">%%</span><span class="n">timeit</span>
+<span class="go">    ...: xdeq = collections.deque()</span>
+<span class="go">    ...: for n in range(100000):</span>
+<span class="go">    ...:     xdeq.append(n)</span>
+<span class="go">    ...:</span>
+<span class="go">100 loops, best of 3: 7.57 ms per loop</span>
+
+<span class="gp">In [22]: </span><span class="o">%%</span><span class="n">timeit</span>
+<span class="go">    ...: xdeq = collections.deque()</span>
+<span class="go">    ...: for n in range(100000):</span>
+<span class="go">    ...:     xdeq.appendleft(n)</span>
+<span class="go">    ...:</span>
+<span class="go">100 loops, best of 3: 7.61 ms per loop</span>
+</pre></div>
+</div>
+<p>Eine mögliche Anwendung ist ein FIFO (<cite>first in, first out</cite>), das Objekte
+aufnehmen kann und in dieser Reihenfolge auch wieder zurückgibt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">xdeq</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="gp">In [24]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [25]: </span><span class="n">xdeq</span>
+<span class="gr">Out[25]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="gp">In [26]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="gr">Out[26]: </span><span class="mi">1</span>
+
+<span class="gp">In [27]: </span><span class="n">xdeq</span>
+<span class="gr">Out[27]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="gp">In [28]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="gr">Out[28]: </span><span class="mi">2</span>
+
+<span class="gp">In [29]: </span><span class="n">xdeq</span>
+<span class="gr">Out[29]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [30]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">appendleft</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [31]: </span><span class="n">xdeq</span>
+<span class="gr">Out[31]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="gp">In [32]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="gr">Out[32]: </span><span class="mi">3</span>
+
+<span class="gp">In [33]: </span><span class="n">xdeq</span>
+<span class="gr">Out[33]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Auch das Rotieren eines <tt class="docutils literal"><span class="pre">deque</span></tt> ist leicht möglich.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="n">xdeq</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">deque</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="gp">In [35]: </span><span class="n">xdeq</span>
+<span class="gr">Out[35]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+
+<span class="gp">In [36]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="gp">In [37]: </span><span class="n">xdeq</span>
+<span class="gr">Out[37]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="gp">In [38]: </span><span class="n">xdeq</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="gp">In [39]: </span><span class="n">xdeq</span>
+<span class="gr">Out[39]: </span><span class="n">deque</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Abschließend wollen wir noch kurz das <tt class="docutils literal"><span class="pre">OrderedDict</span></tt> erwähnen. Bei Dictionaries
+sind die Schlüssel im Allgemeinen nicht geordnet. Ein <tt class="docutils literal"><span class="pre">OrderedDict</span></tt>
+dagegen merkt sich, in welcher Reihenfolge die Einträge hinzugefügt wurden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [40]: </span><span class="n">nobelpreise</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s">&#39;Marie Curie&#39;</span><span class="p">,</span> <span class="mi">1903</span><span class="p">),</span>
+<span class="go">    ...:                     (&#39;Maria Goeppert Mayer&#39;, 1963),</span>
+<span class="go">    ...:                     (&#39;Klaus von Klitzing&#39;, 1985),</span>
+<span class="go">    ...:                     (&#39;Albert Einstein&#39;, 1921)])</span>
+
+<span class="gp">In [41]: </span><span class="k">for</span> <span class="n">preis</span> <span class="ow">in</span> <span class="n">nobelpreise</span><span class="p">:</span>
+<span class="go">    ...:     print(preis)</span>
+<span class="go">    ...:</span>
+<span class="go">Maria Goeppert Mayer</span>
+<span class="go">Marie Curie</span>
+<span class="go">Albert Einstein</span>
+<span class="go">Klaus von Klitzing</span>
+
+<span class="gp">In [42]: </span><span class="n">nobelpreise</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s">&#39;Marie Curie&#39;</span><span class="p">,</span> <span class="mi">1903</span><span class="p">),</span>
+<span class="go">    ...:                   (&#39;Maria Goeppert Mayer&#39;, 1963),</span>
+<span class="go">    ...:                   (&#39;Klaus von Klitzing&#39;, 1985),</span>
+<span class="go">    ...:                   (&#39;Albert Einstein&#39;, 1921)])</span>
+
+<span class="gp">In [43]: </span><span class="k">for</span> <span class="n">preis</span> <span class="ow">in</span> <span class="n">nobelpreise</span><span class="p">:</span>
+<span class="go">    ...:     print(preis)</span>
+<span class="go">    ...:</span>
+<span class="go">Marie Curie</span>
+<span class="go">Maria Goeppert Mayer</span>
+<span class="go">Klaus von Klitzing</span>
+<span class="go">Albert Einstein</span>
+</pre></div>
+</div>
+<p>Es gibt die Möglichkeit, mit der Methode <tt class="xref py py-func docutils literal"><span class="pre">move_to_end()</span></tt> einen einzelnen
+Eintrag an das Ende eines <tt class="docutils literal"><span class="pre">OrderedDict</span></tt> zu verschieben. Um ein bestehendes
+Dictionary oder <tt class="docutils literal"><span class="pre">OrderedDict</span></tt> umzusortieren, erzeugt man am besten ein neues
+<tt class="docutils literal"><span class="pre">OrderedDict</span></tt>.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [44]: </span><span class="n">nobelpreise_sorted</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="p">(</span>
+<span class="go">    ...:                          sorted(nobelpreise.items(),</span>
+<span class="go">    ...:                                 key=lambda x: x[1]))</span>
+
+<span class="gp">In [45]: </span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">jahr</span> <span class="ow">in</span> <span class="n">nobelpreise_sorted</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="go">    ...:     print(jahr, name)</span>
+<span class="go">    ...:</span>
+<span class="go">1903 Marie Curie</span>
+<span class="go">1921 Albert Einstein</span>
+<span class="go">1963 Maria Goeppert Mayer</span>
+<span class="go">1985 Klaus von Klitzing</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="list-comprehensions">
 <span id="listcomprehensions"></span><h2>List comprehensions<a class="headerlink" href="#list-comprehensions" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Um eine Liste aufzubauen, kann man sich zum Beispiel der folgenden Konstruktion
@@ -234,7 +453,7 @@ bedienen.</p>
 <p>Hierbei wird zunächst eine leere Liste angelegt, an die anschließend in einer
 Schleife die Quadratzahlen angefügt werden. Etwas kompakter und damit auch
 übersichtlicher kann man diese Funktionalität mit Hilfe einer so genannten
-<em>list comprehension</em> <a class="footnote-reference" href="#listcomprehension" id="id2">[2]</a> erreichen.</p>
+<em>list comprehension</em> <a class="footnote-reference" href="#listcomprehension" id="id3">[3]</a> erreichen.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
 
 <span class="gp">In [2]: </span><span class="n">squares</span>
@@ -257,7 +476,7 @@ erzeugt.</p>
 </pre></div>
 </div>
 <p>List comprehensions sind nicht nur häufig übersichtlicher, sondern in der
-Ausführung auch etwas schneller. <a class="footnote-reference" href="#timeit" id="id3">[3]</a></p>
+Ausführung auch etwas schneller.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="o">%%</span><span class="n">timeit</span> <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
 <span class="gp">   ...:</span>     <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
@@ -1328,32 +1547,30 @@ Code-Block tun, so bietet sich die Verwendung von <tt class="docutils literal"><
 <span class="pre">cython.boundscheck(False)</span></tt> an.  Eine andere Anwendung besteht im Ausschalten
 des <em>Global Interpreter Locks</em> <a class="footnote-reference" href="#gil" id="id8">[8]</a> von Python mit Hilfe des
 <tt class="docutils literal"><span class="pre">nogil</span></tt>-Kontextmanagers.</p>
-<table class="docutils footnote" frame="void" id="ipython" rules="none">
+<table class="docutils footnote" frame="void" id="timeit" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Hier verwenden wir <tt class="docutils literal"><span class="pre">%timeit</span></tt>, eine der so genannten magischen
 Funktionen der verbesserten Python-Shell <tt class="docutils literal"><span class="pre">IPython</span></tt>, die es erlaubt,
-Ausführungszeiten einzelner Befehle oder (ab Version 0.13) von
-Befehlsblöcken zu bestimmen. Wie werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><em>Das Modul timeit</em></a>
-zurückkommen.</td></tr>
+Ausführungszeiten einzelner Befehle zu bestimmen.
+Will man die Ausführungszeit eines ganzen Befehlsblocks bestimmen,
+so muss die magische <tt class="docutils literal"><span class="pre">%%timeit</span></tt>-Funktion mit zwei Prozentzeichen
+verwendet werden. Wir werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><em>Das Modul timeit</em></a> zurückkommen.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="deque" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Für weitere Informationen siehe z.B. den Wikipedia-Eintrag zu
+<a class="reference external" href="https://en.wikipedia.org/wiki/Double-ended_queue">double-ended queue</a>.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="listcomprehension" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Wir belassen es hier bei dem üblicherweise verwendeten
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Wir belassen es hier bei dem üblicherweise verwendeten
 englischen Begriff. Gelegentlich findet man den Begriff
 »Listenabstraktion« als deutsche Übersetzung.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="timeit" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Will man die Ausführungszeit eines ganzen Befehlsblocks bestimmen,
-so muss die magische <tt class="docutils literal"><span class="pre">%%timeit</span></tt>-Funktion mit zwei Prozentzeichen
-verwendet werden. Bei Einzeilern genügt <tt class="docutils literal"><span class="pre">%timeit</span></tt> mit einem
-Prozentzeichen. <tt class="docutils literal"><span class="pre">%%timeit</span></tt> wurde der <tt class="docutils literal"><span class="pre">IPython</span></tt>-Version 0.13
-eingeführt. Wir werden hierauf im Abschnitt <a class="reference internal" href="profiling.html#timeit"><em>Das Modul timeit</em></a> zurückkommen.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="gvrblog" rules="none">
