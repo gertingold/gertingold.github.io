@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>NumPy &mdash; Python für Naturwissenschaftler</title>
+    <title>NumPy &#8212; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,17 +24,17 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
     <link rel="next" title="Erstellung von Grafiken mit matplotlib" href="graphics.html" />
     <link rel="prev" title="Fortgeschrittene Aspekte von Python" href="advancedpython.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>NumPy</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         «&#160;&#160;<a href="advancedpython.html">Fortgeschrittene Aspekte von Python</a>
@@ -49,7 +49,7 @@
         
         
   <div class="section" id="numpy">
-<h1>NumPy<a class="headerlink" href="#numpy" title="Permalink zu dieser Überschrift">¶</a></h1>
+<h1>NumPy<a class="headerlink" href="#numpy" title="Link zu dieser Überschrift">¶</a></h1>
 <p>In der Vorlesung »Einführung in das Programmieren für Physiker und Naturwissenschaftler«
 wurde am Beispiel von NumPy und SciPy eine kurze Einführung in die Benutzung numerischer
 Programmbibliotheken gegeben. Dabei wurde an einigen wenigen Beispielen gezeigt, wie man
@@ -61,7 +61,7 @@ werden. Als Informationsquelle sind zudem die <a class="reference external" href
 Programmbibliotheken diskutiert, die in naturwissenschaftlichen Anwendungen hilfreich
 sein können.</p>
 <div class="section" id="python-listen-und-numpy-arrays">
-<span id="pythonlisten"></span><h2>Python-Listen und NumPy-Arrays<a class="headerlink" href="#python-listen-und-numpy-arrays" title="Permalink zu dieser Überschrift">¶</a></h2>
+<span id="pythonlisten"></span><h2>Python-Listen und NumPy-Arrays<a class="headerlink" href="#python-listen-und-numpy-arrays" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Viele naturwissenschaftliche Problemstellungen lassen sich in natürlicher Weise mit Hilfe
 von Vektoren und Matrizen formulieren. Dies kann entweder eine Eigenschaft des ursprünglichen
 Problems sein, beispielsweise bei der Beschreibung eines gekoppelten schwingenden Systems
@@ -73,7 +73,7 @@ Python zur Verfügung gestellt werden, so wird man auf Listen zurückgreifen
 müssen. Um eine zweidimensionale Matrix zu definieren, würde man eine Liste von
 Listen anlegen und könnte dann durch eine doppelte Indizierung auf ein einzelnes Element
 zugreifen.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.7</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">]]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">6.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.7</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">9.9</span><span class="p">]]</span>
 
 <span class="gp">In [2]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="gr">Out[2]: </span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">]</span>
@@ -82,23 +82,23 @@ zugreifen.</p>
 <span class="gr">Out[3]: </span><span class="mf">3.3</span>
 </pre></div>
 </div>
-<p>Das Beispiel erklärt die doppelte Indizierung. Durch den ersten Index, hier <tt class="docutils literal"><span class="pre">[0]</span></tt>, wird
+<p>Das Beispiel erklärt die doppelte Indizierung. Durch den ersten Index, hier <code class="docutils literal"><span class="pre">[0]</span></code>, wird
 die erste Unterliste ausgewählt aus der wiederum ein einzelnes Element, hier das dritte,
 ausgewählt werden kann. Somit besteht hier, ganz im Gegensatz zu zweidimensionalen Matrizen,
 ein grundsätzlicher Unterschied zwischen Zeilen und Spalten. Eine Zeile kann man entweder
 wie oben in der Eingabe 2 erhalten oder auch etwas umständlicher mit</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][:]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][:]</span>
 <span class="gr">Out[4]: </span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Hier ist explizit angegeben, dass wir alle Elemente der ersten Zeile haben wollen. Ein
 enstprechender Zugriff auf eine Spalte funktioniert jedoch nicht:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">matrix</span><span class="p">[:][</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">matrix</span><span class="p">[:][</span><span class="mi">0</span><span class="p">]</span>
 <span class="gr">Out[5]: </span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Hier gibt <tt class="docutils literal"><span class="pre">matrix[:]</span></tt> eine Liste mit allen Unterlisten, also einfach die ursprüngliche
-Liste zurück. Somit ist <tt class="docutils literal"><span class="pre">matrix[:][0]</span></tt> nichts anderes als die erste Unterliste. Wir
+<p>Hier gibt <code class="docutils literal"><span class="pre">matrix[:]</span></code> eine Liste mit allen Unterlisten, also einfach die ursprüngliche
+Liste zurück. Somit ist <code class="docutils literal"><span class="pre">matrix[:][0]</span></code> nichts anderes als die erste Unterliste. Wir
 erhalten also wiederum die erste Zeile und keineswegs die erste Spalte. Allgemein ist
 die Extraktion einer Untermatrix aus einer durch Listen dargestellten Matrix nicht ohne
 einen gewissen Aufwand möglich.</p>
@@ -109,14 +109,14 @@ Andererseits wird diese Flexibilität bei Matrizen überhaupt nicht benötigt, d
 Einträge vom gleichen Datentyp sind. Es sollte also möglich sein, erheblich effizientere
 Programme zu schreiben, indem man Matrizen nicht durch Listen darstellt, sondern durch
 einen auf diese Aufgabe zugeschnittenen Datentypen. Hierzu greift man auf das von NumPy
-zur Verfügung gestellte <tt class="docutils literal"><span class="pre">ndarray</span></tt>-Objekt, also ein N-dimensionales Array, zurück.</p>
+zur Verfügung gestellte <code class="docutils literal"><span class="pre">ndarray</span></code>-Objekt, also ein N-dimensionales Array, zurück.</p>
 <p>Ein Array <a class="footnote-reference" href="#array" id="id1">[1]</a> besitzt als wesentliche Bestandteile die Daten im eigentlichen Sinne, also die
 Werte der einzelnen Matrixelemente, sowie Information darüber, wie auf ein spezifisches
 Matrixelement zugegriffen werden kann. Die Daten sind im Speicher einfach hintereinander,
 also in eindimensionaler Form, abgelegt. Dabei gibt es die Möglichkeit, die Matrix zeilenweise
 oder spaltenweise abzuspeichern. Ersteres wird von der Programmiersprache C verwendet,
 während die zweite Variante von Fortran verwendet wird.</p>
-<p>Nachdem die Daten strukturlos im Speicher abgelegt sind, müssen <tt class="docutils literal"><span class="pre">ndarray</span></tt>-Objekte, wie
+<p>Nachdem die Daten strukturlos im Speicher abgelegt sind, müssen <code class="docutils literal"><span class="pre">ndarray</span></code>-Objekte, wie
 schon erwähnt, neben den Daten auch Informationen darüber besitzen, wie auf einzelne
 Matrixelemente zugegriffen wird. Auf diese Weise lässt sich sehr leicht die Adresse der
 Daten eines Matrixelements bestimmen. Zudem ist es möglich, die gleichen Daten im Speicher
@@ -126,7 +126,7 @@ im Einzelfall nur eine andere Sicht auf die Daten zur Verfügung stellt oder tat
 ein neues Array erzeugt.</p>
 <p>Um die Informationen über die Struktur eines Arrays besser zu verstehen, betrachten wir
 ein Beispiel.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="gp">In [2]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
 
@@ -134,7 +134,7 @@ ein Beispiel.</p>
 <span class="gr">Out[3]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
 
 <span class="gp">In [4]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">itemsize</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">nbytes</span>
-<span class="gr">Out[4]: </span><span class="p">(</span><span class="n">dtype</span><span class="p">(</span><span class="s">&#39;int64&#39;</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="gr">Out[4]: </span><span class="p">(</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
 
 <span class="gp">In [5]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span>
 <span class="gr">Out[5]: </span><span class="p">(</span><span class="mi">16</span><span class="p">,)</span>
@@ -143,24 +143,24 @@ ein Beispiel.</p>
 <span class="gr">Out[6]: </span><span class="p">(</span><span class="mi">8</span><span class="p">,)</span>
 </pre></div>
 </div>
-<p>Wir laden zunächst das <tt class="docutils literal"><span class="pre">numpy</span></tt>-Modul, für das üblicherweise die Abkürzung
-<tt class="docutils literal"><span class="pre">np</span></tt> verwendet wird. Dieser Schritt wird in allen folgenden Beispielen
+<p>Wir laden zunächst das <code class="docutils literal"><span class="pre">numpy</span></code>-Modul, für das üblicherweise die Abkürzung
+<code class="docutils literal"><span class="pre">np</span></code> verwendet wird. Dieser Schritt wird in allen folgenden Beispielen
 vorausgesetzt.  Dann erzeugen wir uns auf möglichst einfache Weise ein Array
-mit 16 Elementen. Die Funktionsweise von <tt class="docutils literal"><span class="pre">arange</span></tt> werden wir später noch
+mit 16 Elementen. Die Funktionsweise von <code class="docutils literal"><span class="pre">arange</span></code> werden wir später noch
 etwas ausführlicher diskutieren. Wir erhalten somit ein eindimensionales Array,
-das die Zahlen von 0 bis 15 als Integers enthält.  Das Objekt <tt class="docutils literal"><span class="pre">matrix</span></tt> hat
-nun einige Eigenschaften. Der Datentyp <tt class="docutils literal"><span class="pre">dtype</span></tt> ist hier <tt class="docutils literal"><span class="pre">int64</span></tt>, also ein
+das die Zahlen von 0 bis 15 als Integers enthält.  Das Objekt <code class="docutils literal"><span class="pre">matrix</span></code> hat
+nun einige Eigenschaften. Der Datentyp <code class="docutils literal"><span class="pre">dtype</span></code> ist hier <code class="docutils literal"><span class="pre">int64</span></code>, also ein
 Integer mit einer Länge von 64 Bit oder 8 Bytes. Letzteres wird auch durch das
-Attribut <tt class="docutils literal"><span class="pre">itemsize</span></tt> angegeben. Die Größe des Arrays, also <tt class="docutils literal"><span class="pre">size</span></tt>, ist 16,
-so dass sich insgesamt ein Speicherbedarf <tt class="docutils literal"><span class="pre">nbytes</span></tt> von 128 Bytes ergibt. Das
-Tupel <tt class="docutils literal"><span class="pre">shape</span></tt> gibt die Form des Arrays an. In unserem Fall gibt es nur eine
-Dimension, die 16 Elemente enthält. Das Tupel <tt class="docutils literal"><span class="pre">strides</span></tt> schließlich gibt an,
+Attribut <code class="docutils literal"><span class="pre">itemsize</span></code> angegeben. Die Größe des Arrays, also <code class="docutils literal"><span class="pre">size</span></code>, ist 16,
+so dass sich insgesamt ein Speicherbedarf <code class="docutils literal"><span class="pre">nbytes</span></code> von 128 Bytes ergibt. Das
+Tupel <code class="docutils literal"><span class="pre">shape</span></code> gibt die Form des Arrays an. In unserem Fall gibt es nur eine
+Dimension, die 16 Elemente enthält. Das Tupel <code class="docutils literal"><span class="pre">strides</span></code> schließlich gibt an,
 wie weit benachbarte Elemente in einer bestimmten Dimension voneinander
 entfernt sind. Bei einem eindimensionalen Array ist dies gerade die Zahl der
 Bytes, die ein Dateneintrag benötigt.</p>
-<p>Mit Hilfe der Attribute <tt class="docutils literal"><span class="pre">shape</span></tt> und <tt class="docutils literal"><span class="pre">strides</span></tt> kann man nun eine andere
+<p>Mit Hilfe der Attribute <code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> kann man nun eine andere
 Sicht auf das gleiche Array erhalten.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="gp">In [8]: </span><span class="n">matrix</span>
 <span class="go">Out[8]:</span>
@@ -195,20 +195,20 @@ Sicht auf das gleiche Array erhalten.</p>
 </div>
 <p>Wir interpretieren zunächst die 16 Matrixelemente als ein 4×4-Array, ohne dabei
 die eigentlichen Array-Daten im Speicher in irgendeiner Weise zu modifizieren.
-Lediglich das Attribut <tt class="docutils literal"><span class="pre">shape</span></tt> haben wir neu gesetzt. Das Attribut
-<tt class="docutils literal"><span class="pre">strides</span></tt> gibt uns nun an, dass der Abstand der Daten in der ersten
+Lediglich das Attribut <code class="docutils literal"><span class="pre">shape</span></code> haben wir neu gesetzt. Das Attribut
+<code class="docutils literal"><span class="pre">strides</span></code> gibt uns nun an, dass der Abstand der Daten in der ersten
 Dimension, also innerhalb einer Spalte, 32 Bytes beträgt, während der Abstand in
 der zweiten Dimension, also innerhalb einer Zeile, nach wie vor 8 ist. So lange
 das Produkt der Dimensionen der Gesamtzahl der Matrixelemente entspricht,
 können wir auch andere Matrixdimensionen wählen. So können wir unsere Daten
 auch als ein 2×2×2×2-Array ansehen, wie der zweite Teil der obigen Ausgabe
 zeigt.</p>
-<p>Mit Hilfe der Attribute <tt class="docutils literal"><span class="pre">shape</span></tt> und <tt class="docutils literal"><span class="pre">strides</span></tt> lässt sich die Sicht auf ein
+<p>Mit Hilfe der Attribute <code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> lässt sich die Sicht auf ein
 Array auf sehr flexible Weise festlegen. Allerdings ist der Benutzer selbst für
 die Folgen verantwortlich, wie der zweite Teil des folgenden Beispiels zeigt.
-Dazu gehen wir zum 4×4-Array zurück und verändern das Attribut <tt class="docutils literal"><span class="pre">strides</span></tt> mit
-Hilfe der <tt class="docutils literal"><span class="pre">as_strided</span></tt>-Methode.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+Dazu gehen wir zum 4×4-Array zurück und verändern das Attribut <code class="docutils literal"><span class="pre">strides</span></code> mit
+Hilfe der <code class="docutils literal"><span class="pre">as_strided</span></code>-Methode.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="gp">In [14]: </span><span class="n">matrix1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
 
@@ -242,7 +242,7 @@ so das obige Array. In unserem Beispiel erreicht man bei jedem zweiten Wert
 wieder eine korrekte Datengrenze. Die Manipulation von <em>strides</em> erfordert also
 eine gewisse Sorgfalt, und man ist für eventuelle Fehler selbst verantwortlich.</p>
 <p>Für die Anwendung ist es wichtig zu wissen, dass die Manipulation der Attribute
-<tt class="docutils literal"><span class="pre">shape</span></tt> und <tt class="docutils literal"><span class="pre">strides</span></tt> nicht die Daten im Speicher verändert. Es wird also
+<code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> nicht die Daten im Speicher verändert. Es wird also
 nur eine neue Sicht auf die vorhandenen Daten vermittelt. Dies ist insofern von
 Bedeutung als das Kopieren von größeren Datenmengen durchaus mit einem größeren
 Zeitaufwand verbunden sein kann. Ein Beispiel für die Durchführung einer
@@ -252,7 +252,7 @@ kein neues Array erzeugt wurde.</p>
 <p>Dazu setzen wir den oberen linken Eintrag im ursprünglichen Array auf einen neuen
 Wert und zeigen, dass diese Änderung auch in den Arrays mit veränderten <em>strides</em>
 zu sehen ist.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
 
 <span class="gp">In [19]: </span><span class="n">matrix</span>
 <span class="go">Out[19]:</span>
@@ -272,7 +272,7 @@ zu sehen ist.</p>
 <p>Eine Matrix lässt sich nun transponieren, ohne dass Matrixelemente im Speicher hin
 und her kopiert werden müssen. Dies zeigt das folgende Beispiel, in welchem einfach
 die zwei Werte der <em>strides</em> vertrauscht werden:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [21]: </span><span class="n">matrix</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">matrix</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
 <span class="go">Out[21]:</span>
 <span class="go">(array([[99,  1,  2,  3],</span>
 <span class="go">        [ 4,  5,  6,  7],</span>
@@ -292,14 +292,14 @@ die zwei Werte der <em>strides</em> vertrauscht werden:</p>
 transponierten Matrix arbeiten.</p>
 </div>
 <div class="section" id="erzeugung-von-numpy-arrays">
-<span id="arrayerzeugung"></span><h2>Erzeugung von NumPy-Arrays<a class="headerlink" href="#erzeugung-von-numpy-arrays" title="Permalink zu dieser Überschrift">¶</a></h2>
+<span id="arrayerzeugung"></span><h2>Erzeugung von NumPy-Arrays<a class="headerlink" href="#erzeugung-von-numpy-arrays" title="Link zu dieser Überschrift">¶</a></h2>
 <p>NumPy-Arrays lassen sich je nach Bedarf auf verschiedene Arten erzeugen. Die
-Basis bildet die <tt class="docutils literal"><span class="pre">ndarray</span></tt>-Methode, auf die man immer zurückgreifen kann.
+Basis bildet die <code class="docutils literal"><span class="pre">ndarray</span></code>-Methode, auf die man immer zurückgreifen kann.
 In den meisten Fällen wird es aber praktischer sein, auf angepasstere Methoden
 zurückgreifen, die wir im Folgenden besprechen wollen.</p>
 <p>Um ein mit Nullen aufgefülltes 2×2-Array zu erzeugen, geht man folgendermaßen
 vor:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">matrix1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">matrix1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 
 <span class="gp">In [2]: </span><span class="n">matrix1</span><span class="p">,</span> <span class="n">matrix1</span><span class="o">.</span><span class="n">dtype</span>
 <span class="go">Out[2]:</span>
@@ -311,24 +311,24 @@ vor:</p>
 Einträge nicht weiter spezifiziert, so werden Gleitkommazahlen mit einer Länge
 von 8 Byte verwendet. Man kann aber auch explizit zum Beispiel Integereinträge
 verlangen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
 <span class="go">Out[3]:</span>
 <span class="go">array([[0, 0],</span>
 <span class="go">       [0, 0]])</span>
 </pre></div>
 </div>
 <p>Will man alle Elemente eines Arrays mit einem konstanten Wert ungleich Null
-füllen, so kann man <tt class="docutils literal"><span class="pre">ones</span></tt> verwenden und das sich ergebende Array mit einem
+füllen, so kann man <code class="docutils literal"><span class="pre">ones</span></code> verwenden und das sich ergebende Array mit einem
 Faktor multiplizieren.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="go">Out[4]:</span>
 <span class="go">array([[ 2.,  2.,  2.],</span>
 <span class="go">       [ 2.,  2.,  2.]])</span>
 </pre></div>
 </div>
-<p>Häufig benötigt man eine Einheitsmatrix, die man mit Hilfe von <tt class="docutils literal"><span class="pre">identity</span></tt>
+<p>Häufig benötigt man eine Einheitsmatrix, die man mit Hilfe von <code class="docutils literal"><span class="pre">identity</span></code>
 erhält:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">Out[5]:</span>
 <span class="go">array([[ 1.,  0.,  0.],</span>
 <span class="go">       [ 0.,  1.,  0.],</span>
@@ -336,9 +336,9 @@ erhält:</p>
 </pre></div>
 </div>
 <p>Hierbei wird immer eine Diagonalmatrix erzeugt. Will man dies nicht, so kann
-man <tt class="docutils literal"><span class="pre">eye</span></tt> verwenden, das nicht nur nicht quadratische Arrays erzeugen kann,
+man <code class="docutils literal"><span class="pre">eye</span></code> verwenden, das nicht nur nicht quadratische Arrays erzeugen kann,
 sondern auch die Diagonale nach oben oder unten verschieben lässt.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [6]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [6]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="go">Out[6]:</span>
 <span class="go">array([[ 1.,  0.,  0.,  0.],</span>
 <span class="go">       [ 0.,  1.,  0.,  0.]])</span>
@@ -347,8 +347,8 @@ sondern auch die Diagonale nach oben oder unten verschieben lässt.</p>
 <p>Zu beachten ist hier, dass die Form des Arrays nicht als Tupel vorgegeben wird,
 da ohnehin nur zweidimensionale Arrays erzeugt werden können. Lässt man das
 zweite Argument weg, so wird ein quadratisches Array erzeugt. Will man die
-Diagonaleinträge verschieben, so gibt man dies mit Hilfe des Parameters <tt class="docutils literal"><span class="pre">k</span></tt> an:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+Diagonaleinträge verschieben, so gibt man dies mit Hilfe des Parameters <code class="docutils literal"><span class="pre">k</span></code> an:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">Out[7]:</span>
 <span class="go">array([[ 0.,  1.,  0.,  0.],</span>
 <span class="go">       [-1.,  0.,  1.,  0.],</span>
@@ -358,7 +358,7 @@ Diagonaleinträge verschieben, so gibt man dies mit Hilfe des Parameters <tt cla
 </div>
 <p>Hat man, wie zu Beginn des vorigen Abschnitts beschrieben, eine Matrix in Form
 einer Liste mit Unterlisten vorliegen, so kann man diese in ein Array umwandeln:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="go">Out[8]:</span>
 <span class="go">array([[1, 2],</span>
 <span class="go">       [3, 4]])</span>
@@ -366,9 +366,9 @@ einer Liste mit Unterlisten vorliegen, so kann man diese in ein Array umwandeln:
 </div>
 <p>Dies geht zum Beispiel auch, wenn man statt Listen Tupel vorliegen hat.</p>
 <p>Lassen sich die Arrayeinträge als Funktion der Indizes ausdrücken, so kann
-man die <tt class="docutils literal"><span class="pre">fromfunction</span></tt>-Funktion verwenden, wie in dem folgenden Beispiel
+man die <code class="docutils literal"><span class="pre">fromfunction</span></code>-Funktion verwenden, wie in dem folgenden Beispiel
 zu sehen ist, das eine Multiplikationstabelle erzeugt.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
 <span class="go">Out[9]:</span>
 <span class="go">array([[ 1,  2,  3,  4,  5,  6],</span>
 <span class="go">       [ 2,  4,  6,  8, 10, 12],</span>
@@ -380,14 +380,14 @@ zu sehen ist, das eine Multiplikationstabelle erzeugt.</p>
 </div>
 <p>Diese Funktion ist nicht auf zweidimensionale Arrays beschränkt.</p>
 <p>Bei der Konstruktion von Arrays sind auch Funktionen interessant, die als
-Verallgemeinerung der in Python eingebauten Funktion <tt class="docutils literal"><span class="pre">range</span></tt> angesehen werden
+Verallgemeinerung der in Python eingebauten Funktion <code class="docutils literal"><span class="pre">range</span></code> angesehen werden
 können. Ihr Nutzen ergibt sich vor allem aus der Tatsache, dass man gewissen
 Funktionen, den universellen Funktionen oder ufuncs in NumPy, die wir später
 noch besprechen werden, ganze Arrays als Argumente übergeben kann. Damit wird
 eine besonders effiziente Auswertung dieser Funktionen möglich.</p>
-<p>Eindimensionale Arrays lassen sich mit Hilfe von <tt class="docutils literal"><span class="pre">arange</span></tt>, <tt class="docutils literal"><span class="pre">linspace</span></tt> und
-<tt class="docutils literal"><span class="pre">logspace</span></tt> erzeugen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<p>Eindimensionale Arrays lassen sich mit Hilfe von <code class="docutils literal"><span class="pre">arange</span></code>, <code class="docutils literal"><span class="pre">linspace</span></code> und
+<code class="docutils literal"><span class="pre">logspace</span></code> erzeugen:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="gr">Out[10]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span> <span class="p">,</span>  <span class="mf">1.1</span><span class="p">,</span>  <span class="mf">1.2</span><span class="p">,</span>  <span class="mf">1.3</span><span class="p">,</span>  <span class="mf">1.4</span><span class="p">,</span>  <span class="mf">1.5</span><span class="p">,</span>  <span class="mf">1.6</span><span class="p">,</span>  <span class="mf">1.7</span><span class="p">,</span>  <span class="mf">1.8</span><span class="p">,</span>  <span class="mf">1.9</span><span class="p">])</span>
 
 <span class="gp">In [11]: </span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
@@ -407,20 +407,20 @@ eine besonders effiziente Auswertung dieser Funktionen möglich.</p>
 <span class="gr">Out[14]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">,</span>  <span class="mf">4.</span><span class="p">,</span>  <span class="mf">8.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Ähnlich wie bei <tt class="docutils literal"><span class="pre">range</span></tt> erzeugt <tt class="docutils literal"><span class="pre">arange</span></tt> aus der Angabe eines Start- und
+<p>Ähnlich wie bei <code class="docutils literal"><span class="pre">range</span></code> erzeugt <code class="docutils literal"><span class="pre">arange</span></code> aus der Angabe eines Start- und
 eines Endwerts sowie einer Schrittweite eine Folge von Werten. Allerdings
 können diese auch Gleitkommazahlen sein. Zudem wird statt einer Liste ein Array
-erzeugt. Wie bei <tt class="docutils literal"><span class="pre">range</span></tt> ist der Endwert hierin nicht enthalten.</p>
+erzeugt. Wie bei <code class="docutils literal"><span class="pre">range</span></code> ist der Endwert hierin nicht enthalten.</p>
 <p>Häufig möchte man aber statt einer Schrittweite eine Anzahl von Punkten
-vorgeben. Dafür ist <tt class="docutils literal"><span class="pre">linspace</span></tt> eine geeignete Funktion, sofern die
+vorgeben. Dafür ist <code class="docutils literal"><span class="pre">linspace</span></code> eine geeignete Funktion, sofern die
 Schrittweite konstant sein soll. Bei Bedarf kann man sich neben dem Array auch
 noch die Schrittweite ausgeben lassen. Benötigt man eine logarithmische Skala,
-so verwendet man <tt class="docutils literal"><span class="pre">logspace</span></tt>, das den Exponenten linear zwischen einem Start-
+so verwendet man <code class="docutils literal"><span class="pre">logspace</span></code>, das den Exponenten linear zwischen einem Start-
 und einem Endwert verändert. Die Basis ist standardmäßig 10, sie kann aber durch
-Setzen des Parameters <tt class="docutils literal"><span class="pre">base</span></tt> an spezielle Erfordernisse angepasst werden.</p>
+Setzen des Parameters <code class="docutils literal"><span class="pre">base</span></code> an spezielle Erfordernisse angepasst werden.</p>
 <p>Möchte man eine Funktion auf einem Gitter auswerten und benötigt man dazu
-separate Arrays für die x- und y-Werte, so hilft <tt class="docutils literal"><span class="pre">meshgrid</span></tt> weiter.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [15]: </span><span class="n">xvals</span><span class="p">,</span> <span class="n">yvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+separate Arrays für die x- und y-Werte, so hilft <code class="docutils literal"><span class="pre">meshgrid</span></code> weiter.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">xvals</span><span class="p">,</span> <span class="n">yvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 
 <span class="gp">In [16]: </span><span class="n">xvals</span>
 <span class="go">Out[16]:</span>
@@ -435,23 +435,23 @@ separate Arrays für die x- und y-Werte, so hilft <tt class="docutils literal"><
 <span class="go">       [4, 4, 4]])</span>
 </pre></div>
 </div>
-<p>In diesem Zusammenhang sind auch die Funktionen <tt class="docutils literal"><span class="pre">mgrid</span></tt> und <tt class="docutils literal"><span class="pre">ogrid</span></tt> von
+<p>In diesem Zusammenhang sind auch die Funktionen <code class="docutils literal"><span class="pre">mgrid</span></code> und <code class="docutils literal"><span class="pre">ogrid</span></code> von
 Interesse, die wir besprechen werden, wenn wir die Adressierung von Arrays
 genauer angesehen haben.</p>
 <p>Abschließend wollen wir noch kurz andeuten, wie man ein Array durch Einlesen
-von Daten aus einer Datei erhalten kann. Die Datei heiße <tt class="docutils literal"><span class="pre">x_von_t.dat</span></tt>
+von Daten aus einer Datei erhalten kann. Die Datei heiße <code class="docutils literal"><span class="pre">x_von_t.dat</span></code>
 und habe den folgenden Inhalt:</p>
-<div class="highlight-python"><div class="highlight"><pre># Zeit  Ort
-   0.0  0.0
-   0.1  0.1
-   0.2  0.4
-   0.3  0.9
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Zeit  Ort</span>
+   <span class="mf">0.0</span>  <span class="mf">0.0</span>
+   <span class="mf">0.1</span>  <span class="mf">0.1</span>
+   <span class="mf">0.2</span>  <span class="mf">0.4</span>
+   <span class="mf">0.3</span>  <span class="mf">0.9</span>
 </pre></div>
 </div>
-<p>Hierbei zeigt das <tt class="docutils literal"><span class="pre">#</span></tt>-Zeichen in der ersten Zeile an, dass es sich um eine
+<p>Hierbei zeigt das <code class="docutils literal"><span class="pre">#</span></code>-Zeichen in der ersten Zeile an, dass es sich um eine
 Kommentarzeile handelt, die nicht in das Array übernommen werden soll. Unter
-Verwendung von <tt class="docutils literal"><span class="pre">loadtxt</span></tt> kann man die Daten nun einlesen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&quot;x_von_t.dat&quot;</span><span class="p">)</span>
+Verwendung von <code class="docutils literal"><span class="pre">loadtxt</span></code> kann man die Daten nun einlesen:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;x_von_t.dat&quot;</span><span class="p">)</span>
 <span class="go">Out[18]:</span>
 <span class="go">array([[ 0. ,  0. ],</span>
 <span class="go">       [ 0.1,  0.1],</span>
@@ -459,29 +459,29 @@ Verwendung von <tt class="docutils literal"><span class="pre">loadtxt</span></tt
 <span class="go">       [ 0.3,  0.9]])</span>
 </pre></div>
 </div>
-<p>Bei der <tt class="docutils literal"><span class="pre">loadtxt</span></tt>-Funktion lassen sich zum Beispiel das Kommentarzeichen oder
+<p>Bei der <code class="docutils literal"><span class="pre">loadtxt</span></code>-Funktion lassen sich zum Beispiel das Kommentarzeichen oder
 die Trennzeichen zwischen Einträgen konfigurieren. Noch wesentlich flexibler
-ist <tt class="docutils literal"><span class="pre">genfromtxt</span></tt>, das es unter anderem erlaubt, Spaltenüberschriften aus der
+ist <code class="docutils literal"><span class="pre">genfromtxt</span></code>, das es unter anderem erlaubt, Spaltenüberschriften aus der
 Datei zu entnehmen oder mit fehlenden Einträgen umzugehen. Für Details wird auf
 die <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/generated/numpy.genfromtxt.html">zugehörige Dokumentation</a>
 verwiesen.</p>
 </div>
 <div class="section" id="adressierung-von-numpy-arrays">
-<h2>Adressierung von NumPy-Arrays<a class="headerlink" href="#adressierung-von-numpy-arrays" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Adressierung von NumPy-Arrays<a class="headerlink" href="#adressierung-von-numpy-arrays" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Die Adressierungsmöglichkeiten für NumPy-Arrays basieren auf der so genannten
 <em>slice</em>-Syntax, die wir von Python-Listen her kennen und uns hier noch einmal
 kurz in Erinnerung rufen wollen. Einen Ausschnitt aus einer Liste, ein <em>slice</em>,
-erhält man durch die Notation <tt class="docutils literal"><span class="pre">[start:stop:step]</span></tt>. Hierbei werden ausgehend
-von dem Element mit dem Index <tt class="docutils literal"><span class="pre">start</span></tt>  die Elemente bis vor das Element mit dem
-Index <tt class="docutils literal"><span class="pre">stop</span></tt> mit einer Schrittweite <tt class="docutils literal"><span class="pre">step</span></tt> ausgewählt. Wird die Schrittweite
-nicht angegeben, so nimmt <tt class="docutils literal"><span class="pre">step</span></tt> den Defaultwert <tt class="docutils literal"><span class="pre">1</span></tt> an. Negative Schrittweiten
-führen in der Liste von hinten nach vorne. Fehlen <tt class="docutils literal"><span class="pre">start</span></tt> und/oder
-<tt class="docutils literal"><span class="pre">stop</span></tt> so beginnen die ausgewählten Elemente mit dem ersten Element bzw. enden
+erhält man durch die Notation <code class="docutils literal"><span class="pre">[start:stop:step]</span></code>. Hierbei werden ausgehend
+von dem Element mit dem Index <code class="docutils literal"><span class="pre">start</span></code>  die Elemente bis vor das Element mit dem
+Index <code class="docutils literal"><span class="pre">stop</span></code> mit einer Schrittweite <code class="docutils literal"><span class="pre">step</span></code> ausgewählt. Wird die Schrittweite
+nicht angegeben, so nimmt <code class="docutils literal"><span class="pre">step</span></code> den Defaultwert <code class="docutils literal"><span class="pre">1</span></code> an. Negative Schrittweiten
+führen in der Liste von hinten nach vorne. Fehlen <code class="docutils literal"><span class="pre">start</span></code> und/oder
+<code class="docutils literal"><span class="pre">stop</span></code> so beginnen die ausgewählten Elemente mit dem ersten Element bzw. enden
 mit dem letzten Element. Negative Indexwerte werden vom Ende der Liste her genommen.
-Das letzte Element kann also mit dem Index <tt class="docutils literal"><span class="pre">-1</span></tt>, das vorletzten Element mit
-dem Index <tt class="docutils literal"><span class="pre">-2</span></tt> usw. angesprochen werden. Diese Indizierung funktioniert so auch
+Das letzte Element kann also mit dem Index <code class="docutils literal"><span class="pre">-1</span></code>, das vorletzten Element mit
+dem Index <code class="docutils literal"><span class="pre">-2</span></code> usw. angesprochen werden. Diese Indizierung funktioniert so auch
 für NumPy-Arrays wie die folgenden Beispiele zeigen.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [19]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [19]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="gp">In [20]: </span><span class="n">a</span>
 <span class="gr">Out[20]: </span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
@@ -503,10 +503,10 @@ für NumPy-Arrays wie die folgenden Beispiele zeigen.</p>
 </pre></div>
 </div>
 <p>Für mehrdimensionale Arrays wird die Notation direkt verallgemeinert. Im Gegensatz
-zu der im Abschnitt <a class="reference internal" href="#pythonlisten"><em>Python-Listen und NumPy-Arrays</em></a> beschriebenen Notation für Listen von Listen
+zu der im Abschnitt <a class="reference internal" href="#pythonlisten"><span class="std std-ref">Python-Listen und NumPy-Arrays</span></a> beschriebenen Notation für Listen von Listen
 werden hier die diversen Indexangaben durch Kommas getrennt zusammengefasst. Einige
 Beispiele für zweidimensionale Arrays sollen das illustrieren.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [26]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 
 <span class="gp">In [27]: </span><span class="n">a</span>
 <span class="go">Out[27]:</span>
@@ -558,7 +558,7 @@ einen Doppelpunkt, so dass alle Elemente ausgewählt werden, die mit den explizi
 gemachten Indexangaben konsistent sind.</p>
 <p>Will man eine Spalte (oder auch eine Zeile) in einer zweidimensionalen Array auswählen,
 so hat man zwei verschiedene Möglichkeiten:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [34]: </span><span class="n">a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [34]: </span><span class="n">a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 <span class="go">Out[34]:</span>
 <span class="go">array([[ 0],</span>
 <span class="go">       [ 6],</span>
@@ -576,14 +576,14 @@ dass ein zweidimensionales Array erzeugt wird, das die Elemente der ersten
 Spalte enthält. Im zweiten Fall wird für die zweite Dimension ein fester Index
 angegeben, so dass nun ein eindimensionales Array erzeugt wird, die wiederum
 aus den Elementen der ersten Spalte besteht.</p>
-<p>In einigen NumPy-Methoden gibt es einen Parameter <tt class="docutils literal"><span class="pre">axis</span></tt>, der die Richtung
+<p>In einigen NumPy-Methoden gibt es einen Parameter <code class="docutils literal"><span class="pre">axis</span></code>, der die Richtung
 in dem Array angibt, in der die Methode ausgeführt werden soll. Die Achsennummer
 ergibt sich aus der Position der zugehörigen Indexangabe. Wie man aus den obigen
 Beispielen entnehmen kann, verläuft die Achse 0 von oben nach unten, während die
 Achse 1 von links nach rechts verläuft. Das Aufsummieren von Elementen unserer
-Beispielmatrix erfolgt dann mit Hilfe der <tt class="docutils literal"><span class="pre">sum</span></tt>-Methode entweder von oben nach
+Beispielmatrix erfolgt dann mit Hilfe der <code class="docutils literal"><span class="pre">sum</span></code>-Methode entweder von oben nach
 unten, von links nach rechts oder über alle Elemente.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [36]: </span><span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [36]: </span><span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gr">Out[36]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">90</span><span class="p">,</span>  <span class="mi">96</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">120</span><span class="p">])</span>
 
 <span class="gp">In [37]: </span><span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -594,7 +594,7 @@ unten, von links nach rechts oder über alle Elemente.</p>
 </pre></div>
 </div>
 <p>Zur Verdeutlichung betrachten wir noch ein dreidimensionales Array.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [39]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
 <span class="gp">In [40]: </span><span class="n">b</span>
 <span class="go">Out[40]:</span>
@@ -655,7 +655,7 @@ unten, von links nach rechts oder über alle Elemente.</p>
 </div>
 <p>Man sieht hier deutlich, wie je nach Wahl der Achse ein entsprechender Schnitt
 durch das als Würfel vorstellbare Array gemacht wird. Das letzte Beispiel zeigt
-die Benutzung des Auslassungszeichens <tt class="docutils literal"><span class="pre">...</span></tt> (im Englischen <em>ellipsis</em> genannt).
+die Benutzung des Auslassungszeichens <code class="docutils literal"><span class="pre">...</span></code> (im Englischen <em>ellipsis</em> genannt).
 Es steht für die Anzahl von Doppelpunkten, die nötig sind, um die Indizes für
 alle Dimensionen zu spezifizieren. Allerdings funktioniert dies nur beim ersten
 Auftreten des Auslassungszeichens, da sonst nicht klar ist, wie viele Indexspezifikation
@@ -664,10 +664,10 @@ werden daher durch einen einzelnen Doppelpunkt ersetzt.</p>
 <p>Weiter oben hatten wir in einem Beispiel gesehen, dass die Angabe eines festen
 Index die Dimension des Arrays effektiv um Eins vermindert. Umgekehrt ist es
 auch möglich, eine zusätzliche Dimension der Länge Eins hinzuzufügen. Hierzu
-dient <tt class="docutils literal"><span class="pre">newaxis</span></tt>, das an der gewünschten Stelle als Index eingesetzt werden kann.
+dient <code class="docutils literal"><span class="pre">newaxis</span></code>, das an der gewünschten Stelle als Index eingesetzt werden kann.
 Die folgenden Beispiele zeigen, wie aus einem eindimensionalen Array so zwei
 verschiedene zweidimensionale Arrays konstruiert werden können.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [45]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [45]: </span><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="gp">In [46]: </span><span class="n">c</span>
 <span class="gr">Out[46]: </span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -697,7 +697,7 @@ Situationen einsetzen, in denen das normale Indizieren nicht ausreicht.</p>
 Liste, nicht jedoch als Tupel, angegeben. Die Elemente können dabei <em>Integer</em> oder
 <em>Boolean</em> sein. Beginnen wir mit dem ersten Fall, wobei wir zunächst von einem
 eindimensionalen Array ausgehen.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [49]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [49]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 
 <span class="gp">In [50]: </span><span class="n">a</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]]</span>
 <span class="gr">Out[50]: </span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
@@ -713,7 +713,7 @@ wobei auch Wiederholungen sowie eine nichtmonotone Wahl von Indizes möglich sin
 Sind die Indizes als Array angegeben, so wird ein Array der gleichen Form erzeugt.</p>
 <p>Bei der Auswahl von Elementen aus einem mehrdimensionalen Arrays muss man gegebenenfalls
 weitere Indexlisten oder -arrays angeben.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [52]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [52]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="gp">In [53]: </span><span class="n">a</span>
 <span class="go">Out[53]:</span>
@@ -745,32 +745,32 @@ werden.</p>
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.3</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.3</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="k">print</span> <span class="n">a</span>
-<span class="k">print</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span>
+<span class="k">print</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span>
 <span class="n">indexarray</span> <span class="o">=</span> <span class="n">a</span><span class="o">&lt;</span><span class="n">threshold</span>
 <span class="k">print</span> <span class="n">indexarray</span>
-<span class="k">print</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span>
+<span class="k">print</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="mi">30</span>
 <span class="n">a</span><span class="p">[</span><span class="n">indexarray</span><span class="p">]</span> <span class="o">=</span> <span class="n">threshold</span>
 <span class="k">print</span> <span class="n">a</span>
 </pre></div>
 </td></tr></table></div>
 <p>Damit ergibt sich beispielsweise die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>[ 0.11859559  0.49034494  0.08552061  0.69204077  0.18406457  0.06819091
-  0.36785529  0.16873423  0.44615435  0.57774615  0.54327126  0.57381642]
-------------------------------
-[ True False  True False  True  True False  True False False False False]
-------------------------------
-[ 0.3         0.49034494  0.3         0.69204077  0.3         0.3
-  0.36785529  0.3         0.44615435  0.57774615  0.54327126  0.57381642]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mf">0.11859559</span>  <span class="mf">0.49034494</span>  <span class="mf">0.08552061</span>  <span class="mf">0.69204077</span>  <span class="mf">0.18406457</span>  <span class="mf">0.06819091</span>
+  <span class="mf">0.36785529</span>  <span class="mf">0.16873423</span>  <span class="mf">0.44615435</span>  <span class="mf">0.57774615</span>  <span class="mf">0.54327126</span>  <span class="mf">0.57381642</span><span class="p">]</span>
+<span class="o">------------------------------</span>
+<span class="p">[</span> <span class="kc">True</span> <span class="kc">False</span>  <span class="kc">True</span> <span class="kc">False</span>  <span class="kc">True</span>  <span class="kc">True</span> <span class="kc">False</span>  <span class="kc">True</span> <span class="kc">False</span> <span class="kc">False</span> <span class="kc">False</span> <span class="kc">False</span><span class="p">]</span>
+<span class="o">------------------------------</span>
+<span class="p">[</span> <span class="mf">0.3</span>         <span class="mf">0.49034494</span>  <span class="mf">0.3</span>         <span class="mf">0.69204077</span>  <span class="mf">0.3</span>         <span class="mf">0.3</span>
+  <span class="mf">0.36785529</span>  <span class="mf">0.3</span>         <span class="mf">0.44615435</span>  <span class="mf">0.57774615</span>  <span class="mf">0.54327126</span>  <span class="mf">0.57381642</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>In Zeile 5 wird ein Array <tt class="docutils literal"><span class="pre">indexarray</span></tt> erzeugt, das an den Stellen, an denen die Elemente
-des Arrays <tt class="docutils literal"><span class="pre">a</span></tt> kleiner als der Schwellwert sind, den Wahrheitswert <tt class="docutils literal"><span class="pre">True</span></tt>
+<p>In Zeile 5 wird ein Array <code class="docutils literal"><span class="pre">indexarray</span></code> erzeugt, das an den Stellen, an denen die Elemente
+des Arrays <code class="docutils literal"><span class="pre">a</span></code> kleiner als der Schwellwert sind, den Wahrheitswert <code class="docutils literal"><span class="pre">True</span></code>
 besitzt. In Zeile 8 werden die auf diese Weise indizierten Elemente dann auf
 den Schwellwert gesetzt.  Es sei noch angemerkt, dass sich diese Funktionalität
-auch direkt mit der <tt class="docutils literal"><span class="pre">clip</span></tt>-Funktion erreichen lässt.</p>
+auch direkt mit der <code class="docutils literal"><span class="pre">clip</span></code>-Funktion erreichen lässt.</p>
 <p>Im vorigen Beispiel haben wir in der Vergleichsoperation in Zeile 5 ein
 Array und ein Skalar miteinander verglichen. Wie kann dies funktionieren? Den
 Vergleich zweier Arrays derselben Form kann man sinnvoll elementweise definieren.
@@ -779,7 +779,7 @@ zunächst mit gleichen Elementen so erweitert, das ein Array mit der benötigten
 Form entsteht. Dieser als <em>broadcasting</em> bezeichnete Prozess kommt beispielsweise
 auch bei arithmetischen Operationen zum Einsatz. Die beiden folgenden Anweisungen
 sind daher äquivalent:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [56]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [56]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="gp">In [57]: </span><span class="n">a</span><span class="o">*</span><span class="mi">3</span>
 <span class="gr">Out[57]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
@@ -795,7 +795,7 @@ Eins wird durch Wiederholen der Elemente im erforderlichen Umfang verlängert.
 Entsprechendes geschieht beim Hinzufügen von Achsen von vorne, um die
 Dimensionen der Arrays identisch zu machen. Wir illustrieren dies an einem
 Beispiel.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [59]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [59]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
 <span class="gp">In [60]: </span><span class="n">a</span>
 <span class="go">Out[60]:</span>
@@ -820,11 +820,11 @@ Beispiel.</p>
 <span class="go">ValueError: operands could not be broadcast together with shapes (4,5) (4,)</span>
 </pre></div>
 </div>
-<p>Das Array <tt class="docutils literal"><span class="pre">a</span></tt> hat die Form <tt class="docutils literal"><span class="pre">(4,</span> <span class="pre">5)</span></tt> und kann daher mit einem Array der Form
-<tt class="docutils literal"><span class="pre">(5,)</span></tt> multipliziert werden. Von hinten gerechnet stimmen die Achsenlängen überein,
+<p>Das Array <code class="docutils literal"><span class="pre">a</span></code> hat die Form <code class="docutils literal"><span class="pre">(4,</span> <span class="pre">5)</span></code> und kann daher mit einem Array der Form
+<code class="docutils literal"><span class="pre">(5,)</span></code> multipliziert werden. Von hinten gerechnet stimmen die Achsenlängen überein,
 so dass vorne eine Achse der Länge 4 angefügt werden kann. Ein entsprechend erweitertes
 Array hätte folgendes Aussehen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [63]: </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [63]: </span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">Out[63]:</span>
 <span class="go">array([[0, 1, 2, 3, 4],</span>
 <span class="go">       [0, 1, 2, 3, 4],</span>
@@ -833,11 +833,11 @@ Array hätte folgendes Aussehen:</p>
 </pre></div>
 </div>
 <p>Damit ist ein elementweises Multiplizieren möglich. Im zweiten Beispiel oben haben wir
-es neben unserem Array <tt class="docutils literal"><span class="pre">a</span></tt> der Form <tt class="docutils literal"><span class="pre">(4,</span> <span class="pre">5)</span></tt> mit einem Array der Form <tt class="docutils literal"><span class="pre">(4,)</span></tt> zu tun.
-In diesem Fall ist kein <em>broadcasting</em> möglich, und es kommt zu einer <tt class="docutils literal"><span class="pre">ValueError</span></tt>-Ausnahme.
+es neben unserem Array <code class="docutils literal"><span class="pre">a</span></code> der Form <code class="docutils literal"><span class="pre">(4,</span> <span class="pre">5)</span></code> mit einem Array der Form <code class="docutils literal"><span class="pre">(4,)</span></code> zu tun.
+In diesem Fall ist kein <em>broadcasting</em> möglich, und es kommt zu einer <code class="docutils literal"><span class="pre">ValueError</span></code>-Ausnahme.
 Anders stellt sich die Situation dar, wenn die Achsenlänge 4 zur Achse 0 gehört und die Achse 1
-die Länge 1 besitzt. Dies können wir mit Hilfe von <tt class="docutils literal"><span class="pre">newaxis</span></tt> erreichen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [64]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+die Länge 1 besitzt. Dies können wir mit Hilfe von <code class="docutils literal"><span class="pre">newaxis</span></code> erreichen:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [64]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
 <span class="gp">In [65]: </span><span class="n">b</span>
 <span class="go">Out[65]:</span>
@@ -859,13 +859,13 @@ die Länge 1 besitzt. Dies können wir mit Hilfe von <tt class="docutils literal
 </div>
 </div>
 <div class="section" id="universelle-funktionen">
-<h2>Universelle Funktionen<a class="headerlink" href="#universelle-funktionen" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Universelle Funktionen<a class="headerlink" href="#universelle-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Im vorigen Unterkapitel haben wir bereits begonnen, mathematische Operationen
 mit Arrays zu betrachten. Was passiert, wenn wir versuchen, Funktionen von
 Arrays auszuwerten? Für die folgenden Betrachtungen importieren wir zusätzlich
-zum <tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket, das in diesem Kapitel immer importiert sein sollte, noch
-das <tt class="docutils literal"><span class="pre">math</span></tt>-Modul und versuchen dann, den Sinus eines Arrays auszuwerten.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">math</span>
+zum <code class="docutils literal"><span class="pre">numpy</span></code>-Paket, das in diesem Kapitel immer importiert sein sollte, noch
+das <code class="docutils literal"><span class="pre">math</span></code>-Modul und versuchen dann, den Sinus eines Arrays auszuwerten.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="gp">In [2]: </span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 <span class="go">---------------------------------------------------------------------------</span>
@@ -876,13 +876,13 @@ das <tt class="docutils literal"><span class="pre">math</span></tt>-Modul und ve
 <span class="go">TypeError: only length-1 arrays can be converted to Python scalars</span>
 </pre></div>
 </div>
-<p>Dabei scheitern wir jedoch, da der Sinus aus dem <tt class="docutils literal"><span class="pre">math</span></tt>-Modul nur mit skalaren Größen
+<p>Dabei scheitern wir jedoch, da der Sinus aus dem <code class="docutils literal"><span class="pre">math</span></code>-Modul nur mit skalaren Größen
 umgehen kann. Hätte unser Array nur ein Element enthalten, so wären wir noch erfolgreich
 gewesen. Im Beispiel hatten wir jedoch mehr als ein Element, genauer gesagt elf Elemente,
-und somit kommt es zu einer <tt class="docutils literal"><span class="pre">TypeError</span></tt>-Ausnahme.</p>
-<p>Den Ausweg bietet in diesem Fall das <tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket selbst, das eine eigene Sinusfunktion
+und somit kommt es zu einer <code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme.</p>
+<p>Den Ausweg bietet in diesem Fall das <code class="docutils literal"><span class="pre">numpy</span></code>-Paket selbst, das eine eigene Sinusfunktion
 zur Verfügung stellt, die in der Lage ist, auch mit Arrays umzugehen.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 <span class="go">Out[3]:</span>
 <span class="go">array([  0.00000000e+00,   3.09016994e-01,   5.87785252e-01,</span>
 <span class="go">         8.09016994e-01,   9.51056516e-01,   1.00000000e+00,</span>
@@ -897,17 +897,17 @@ zur Verfügung stellt, die in der Lage ist, auch mit Arrays umzugehen.</p>
 <span class="go">         -1.00000000e+00,  -8.66025404e-01,  -5.00000000e-01]])</span>
 </pre></div>
 </div>
-<p>Statt die Kreiszahl aus dem <tt class="docutils literal"><span class="pre">math</span></tt>-Modul zu nehmen, hätten wir sie genauso gut aus dem
-<tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket nehmen können.</p>
-<p>Funktionen wie die gerade benutzte Sinusfunktion aus dem <tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket, die
+<p>Statt die Kreiszahl aus dem <code class="docutils literal"><span class="pre">math</span></code>-Modul zu nehmen, hätten wir sie genauso gut aus dem
+<code class="docutils literal"><span class="pre">numpy</span></code>-Paket nehmen können.</p>
+<p>Funktionen wie die gerade benutzte Sinusfunktion aus dem <code class="docutils literal"><span class="pre">numpy</span></code>-Paket, die
 Arrays als Argumente akzeptieren, werden universelle Funktionen (<em>universal
-function</em> oder kurz <em>ufunc</em>) genannt. Die im <tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket verfügbaren
+function</em> oder kurz <em>ufunc</em>) genannt. Die im <code class="docutils literal"><span class="pre">numpy</span></code>-Paket verfügbaren
 universellen Funktionen sind in der <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/ufuncs.html#available-ufuncs">NumPy-Dokumentation zu ufuncs</a>
 aufgeführt. Implementationen von speziellen Funktionen als universelle Funktion
-sind im <tt class="docutils literal"><span class="pre">scipy</span></tt>-Paket zu finden. Viele Funktionen in <tt class="docutils literal"><span class="pre">scipy.special</span></tt>,
+sind im <code class="docutils literal"><span class="pre">scipy</span></code>-Paket zu finden. Viele Funktionen in <code class="docutils literal"><span class="pre">scipy.special</span></code>,
 jedoch nicht alle,  sind als <em>ufuncs</em> implementiert.  Als nur eines von vielen
 möglichen Beispielen wählen wir die Gammafunktion:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [5]: </span><span class="kn">import</span> <span class="nn">scipy.special</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [5]: </span><span class="kn">import</span> <span class="nn">scipy.special</span>
 
 <span class="gp">In [6]: </span><span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 <span class="go">Out[6]:</span>
@@ -916,11 +916,11 @@ möglichen Beispielen wählen wir die Gammafunktion:</p>
 </pre></div>
 </div>
 <p>Gelegentlich benötigt man eine Funktion von zwei Variablen auf einem Gitter.
-Man könnte hierzu die <tt class="docutils literal"><span class="pre">meshgrid</span></tt>-Funktion heranziehen, die wir im Abschnitt
-<a class="reference internal" href="#arrayerzeugung"><em>Erzeugung von NumPy-Arrays</em></a> erwähnt hatten.  Da man dort die einzelnen Gitterpunkte
-explizit angegeben muss, ist es häufig bequemer, eine <tt class="docutils literal"><span class="pre">mgrid</span></tt>-Gitter zu
+Man könnte hierzu die <code class="docutils literal"><span class="pre">meshgrid</span></code>-Funktion heranziehen, die wir im Abschnitt
+<a class="reference internal" href="#arrayerzeugung"><span class="std std-ref">Erzeugung von NumPy-Arrays</span></a> erwähnt hatten.  Da man dort die einzelnen Gitterpunkte
+explizit angegeben muss, ist es häufig bequemer, eine <code class="docutils literal"><span class="pre">mgrid</span></code>-Gitter zu
 verwenden.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="go">Out[7]:</span>
 <span class="go">array([[[0, 0, 0],</span>
 <span class="go">        [1, 1, 1],</span>
@@ -952,8 +952,8 @@ verwenden.</p>
 <p>Man beachte, dass im zweiten Fall das dritte Element in der <em>slice</em>-Syntax imaginär ist. Damit wird
 angedeutet, dass nicht die Schrittweite gemeint ist, sondern die Anzahl der Werte im durch die
 ersten beiden Zahlen spezifizierten Intervall. Unter Verwendung des <em>Broadcasting</em> genügt auch
-ein <tt class="docutils literal"><span class="pre">ogrid</span></tt>-Gitter.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">]</span>
+ein <code class="docutils literal"><span class="pre">ogrid</span></code>-Gitter.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">]</span>
 <span class="go">Out[9]:</span>
 <span class="go">[array([[ 0. ],</span>
 <span class="go">       [ 0.5],</span>
@@ -966,7 +966,7 @@ ein <tt class="docutils literal"><span class="pre">ogrid</span></tt>-Gitter.</p>
 </pre></div>
 </div>
 <p>Eine Anwendung bei der Berechnung von Kugelflächenfunktionen könnte folgendermaßen aussehen <a class="footnote-reference" href="#sph-harm" id="id2">[2]</a>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.special</span>
 
 <span class="n">thetas</span><span class="p">,</span> <span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">5j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">9j</span><span class="p">]</span>
@@ -978,9 +978,9 @@ ein <tt class="docutils literal"><span class="pre">ogrid</span></tt>-Gitter.</p>
 </div>
 <p>Wir verzichten darauf, das Ergebnis anzugeben, da es keine weiteren Einsichten
 bringt, außer dass tatsächlich ein 5×9-Array erzeugt wird. Abschließend sei
-noch angemerkt, dass der Aufruf von <tt class="docutils literal"><span class="pre">sph_harm</span></tt> nicht funktioniert, wenn man
-<tt class="docutils literal"><span class="pre">phis</span></tt> und <tt class="docutils literal"><span class="pre">thetas</span></tt> folgendermaßen definiert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+noch angemerkt, dass der Aufruf von <code class="docutils literal"><span class="pre">sph_harm</span></code> nicht funktioniert, wenn man
+<code class="docutils literal"><span class="pre">phis</span></code> und <code class="docutils literal"><span class="pre">thetas</span></code> folgendermaßen definiert:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -991,7 +991,7 @@ erhalten.</p>
 <p>Es ist nicht nur praktisch, Funktionen von Arrays direkt berechnen zu können,
 sondern es spart häufig auch Rechenzeit. Wir wollen dies an einem Beispiel
 illustrieren.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">100000</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">100000</span>
 
 <span class="gp">In [11]: </span><span class="o">%%</span><span class="n">timeit</span>
 <span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
@@ -1017,11 +1017,11 @@ illustrieren.</p>
 <p>Die angegebenen Rechenzeiten sind natürlich von der Hardware abhängig, auf der
 der Code ausgeführt wurde. Daher kommt es statt auf die Absolutwerte auf
 Verhältnisse von Rechenzeiten zueinander an. Dabei zeigt sich, dass die im
-ersten Codestück programmierte explizite <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife etwa elfmal
+ersten Codestück programmierte explizite <code class="docutils literal"><span class="pre">for</span></code>-Schleife etwa elfmal
 langsamer ist als das zweite Codestück, das eine universelle Funktion
 verwendet. Ein Anteil dieses Geschwindigkeitsvorteils ergibt sich daraus, dass
-in der <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife unnötige Rechenarbeit geleistet wird. Zieht man die
-Berechnung des konstanten Faktors <tt class="docutils literal"><span class="pre">prefactor</span></tt> aus der Schleife heraus, so
+in der <code class="docutils literal"><span class="pre">for</span></code>-Schleife unnötige Rechenarbeit geleistet wird. Zieht man die
+Berechnung des konstanten Faktors <code class="docutils literal"><span class="pre">prefactor</span></code> aus der Schleife heraus, so
 wird die Rechenzeit immerhin etwas mehr als halbiert. Dennoch ist die
 Verwendung der universellen Funktion deutlich schneller. Der
 Geschwindigkeitsvorteil ergibt sich allerdings erst bei hinreichend großen
@@ -1031,17 +1031,17 @@ verbundene Aufwand überwiegen.</p>
 lohnt, einen Blick in die Liste der von NumPy zur Verfügung gestellten
 <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">mathematischen Funktionen</a>
 zu werfen. Möchte man zum Beispiel die Summe der Elemente eines Arrays berechnen, so verwendet
-man sinnvollerweise die <tt class="docutils literal"><span class="pre">sum</span></tt>-Funktion von NumPy.</p>
+man sinnvollerweise die <code class="docutils literal"><span class="pre">sum</span></code>-Funktion von NumPy.</p>
 </div>
 <div class="section" id="lineare-algebra">
-<h2>Lineare Algebra<a class="headerlink" href="#lineare-algebra" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Lineare Algebra<a class="headerlink" href="#lineare-algebra" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Physikalische Fragestellungen, die sich mit Hilfe von Vektoren und Matrizen formulieren lassen,
 benötigen zur Lösung sehr häufig Methoden der linearen Algebra. NumPy leistet hierbei Unterstützung,
-insbesondere mit dem <tt class="docutils literal"><span class="pre">linalg</span></tt>-Paket. Im Folgenden gehen wir auf einige Aspekte ein, ohne
+insbesondere mit dem <code class="docutils literal"><span class="pre">linalg</span></code>-Paket. Im Folgenden gehen wir auf einige Aspekte ein, ohne
 Vollständigkeit anzustreben. Daher empfiehlt es sich, auch einen Blick in den
 <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.linalg.html">entsprechenden Abschnitt der Dokumentation</a>
 zu werfen. Zunächst importieren wir die Module, die wir für die Beispiele dieses Kapitels benötigen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="kn">as</span> <span class="nn">LA</span>
 </pre></div>
@@ -1049,7 +1049,7 @@ zu werfen. Zunächst importieren wir die Module, die wir für die Beispiele dies
 <p>Beim Arbeiten mit Matrizen und NumPy muss man immer bedenken, dass der Multiplikationsoperator <cite>*</cite>
 nicht für eine Matrixmultiplikation steht. Vielmehr wird damit eine elementweise Multiplikation
 ausgeführt:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">a1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 
 <span class="gp">In [4]: </span><span class="n">a1</span>
 <span class="go">Out[4]:</span>
@@ -1069,16 +1069,16 @@ ausgeführt:</p>
 <span class="go">       [-4, -5]])</span>
 </pre></div>
 </div>
-<p>Möchte man dagegen eine Matrixmultiplikation ausführen, so verwendet man das <tt class="docutils literal"><span class="pre">dot</span></tt>-Produkt:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [8]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
+<p>Möchte man dagegen eine Matrixmultiplikation ausführen, so verwendet man das <code class="docutils literal"><span class="pre">dot</span></code>-Produkt:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">)</span>
 <span class="go">Out[8]:</span>
 <span class="go">array([[-3, -3],</span>
 <span class="go">       [ 4,  7]])</span>
 </pre></div>
 </div>
-<p>Man könnte die Norm eines Vektors ebenfalls mit Hilfe des <tt class="docutils literal"><span class="pre">dot</span></tt>-Produkts bestimmen. Es bietet
-sich jedoch an, hierzu direkt die <tt class="docutils literal"><span class="pre">norm</span></tt>-Funktion zu verwenden:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<p>Man könnte die Norm eines Vektors ebenfalls mit Hilfe des <code class="docutils literal"><span class="pre">dot</span></code>-Produkts bestimmen. Es bietet
+sich jedoch an, hierzu direkt die <code class="docutils literal"><span class="pre">norm</span></code>-Funktion zu verwenden:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
 <span class="gp">In [10]: </span><span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
 <span class="gr">Out[10]: </span><span class="mf">3.7416573867739413</span>
@@ -1087,9 +1087,9 @@ sich jedoch an, hierzu direkt die <tt class="docutils literal"><span class="pre"
 <span class="gr">Out[11]: </span><span class="mf">14.0</span>
 </pre></div>
 </div>
-<p>Als nächstes wollen wir ein inhomogenes lineares Gleichungssystem <tt class="docutils literal"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">b</span></tt> lösen, wobei die
-Matrix <tt class="docutils literal"><span class="pre">a</span></tt> und der Vektor <tt class="docutils literal"><span class="pre">b</span></tt> gegeben sind und der Vektor <tt class="docutils literal"><span class="pre">x</span></tt> gesucht ist.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<p>Als nächstes wollen wir ein inhomogenes lineares Gleichungssystem <code class="docutils literal"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">b</span></code> lösen, wobei die
+Matrix <code class="docutils literal"><span class="pre">a</span></code> und der Vektor <code class="docutils literal"><span class="pre">b</span></code> gegeben sind und der Vektor <code class="docutils literal"><span class="pre">x</span></code> gesucht ist.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 
 <span class="gp">In [13]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
@@ -1101,22 +1101,22 @@ Matrix <tt class="docutils literal"><span class="pre">a</span></tt> und der Vekt
 </pre></div>
 </div>
 <p>In Eingabe 14 haben wir zunächst überprüft, dass die Determinante der Matrix
-<tt class="docutils literal"><span class="pre">a</span></tt> ungleich Null ist, so dass die invertierte Matrix existiert. Anschließend
-haben wir den Vektor <tt class="docutils literal"><span class="pre">b</span></tt> von links mit der Inversen von <tt class="docutils literal"><span class="pre">a</span></tt> multipliziert,
+<code class="docutils literal"><span class="pre">a</span></code> ungleich Null ist, so dass die invertierte Matrix existiert. Anschließend
+haben wir den Vektor <code class="docutils literal"><span class="pre">b</span></code> von links mit der Inversen von <code class="docutils literal"><span class="pre">a</span></code> multipliziert,
 um den Lösungsvektor zu erhalten. Allerdings erfolgt die numerische Lösung
 eines inhomogenen linearen Gleichungssystems normalerweise nicht über eine
 Inversion der Matrix, sondern mit Hilfe einer geeignet durchgeführten Gauß-Elimination.
-NumPy stell hierzu die <tt class="docutils literal"><span class="pre">solve</span></tt>-Funktion zur Verfügung:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">LA</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+NumPy stell hierzu die <code class="docutils literal"><span class="pre">solve</span></code>-Funktion zur Verfügung:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">LA</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 <span class="gr">Out[16]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Eine nicht invertierbare Matrix führt hier wie auch bei der Bestimmung der Determinante
-auf eine <tt class="docutils literal"><span class="pre">LinAlgError</span></tt>-Ausnahme mit dem Hinweis auf eine singuläre Matrix.</p>
+auf eine <code class="docutils literal"><span class="pre">LinAlgError</span></code>-Ausnahme mit dem Hinweis auf eine singuläre Matrix.</p>
 <p>Eine häufig vorkommende Problemstellung im Bereich der linearen Algebra sind
-Eigenwertprobleme. Die <tt class="docutils literal"><span class="pre">eig</span></tt>-Funktion bestimmt rechtsseitige Eigenvektoren und
+Eigenwertprobleme. Die <code class="docutils literal"><span class="pre">eig</span></code>-Funktion bestimmt rechtsseitige Eigenvektoren und
 die zugehörigen Eigenwerte für beliebige quadratische Matrizen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [17]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 
 <span class="gp">In [18]: </span><span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
@@ -1137,13 +1137,13 @@ die zugehörigen Eigenwerte für beliebige quadratische Matrizen:</p>
 </div>
 <p>Die Ausgabe am Ende zeigt, dass die Eigenvektoren und -werte in der Tat korrekt sind.
 Benötigt man nur die Eigenwerte einer Matrix, so kann man durch Benutzung der
-<tt class="docutils literal"><span class="pre">eigvals</span></tt>-Funktion Rechenzeit sparen.</p>
+<code class="docutils literal"><span class="pre">eigvals</span></code>-Funktion Rechenzeit sparen.</p>
 <p>Für die Lösung eines Eigenwertproblems von symmetrischen oder hermiteschen <a class="footnote-reference" href="#hermitesch" id="id3">[3]</a>
-Matrizen gibt es die Funktionen <tt class="docutils literal"><span class="pre">eigh</span></tt> und <tt class="docutils literal"><span class="pre">eigvalsh</span></tt>, bei denen es genügt,
+Matrizen gibt es die Funktionen <code class="docutils literal"><span class="pre">eigh</span></code> und <code class="docutils literal"><span class="pre">eigvalsh</span></code>, bei denen es genügt,
 nur die obere oder die untere Hälfte der Matrix zu spezifizieren. Viel
 wichtiger ist jedoch, dass diese Funktionen einen erheblichen Zeitvorteil
 bieten können:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">250000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [22]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">250000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 
 <span class="gp">In [23]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">a</span><span class="o">.</span><span class="n">T</span>
 
@@ -1155,13 +1155,13 @@ bieten können:</p>
 </pre></div>
 </div>
 <p>Hier wird in Eingabe 23 durch Addition der Transponierten eine symmetrische
-Matrix erzeugt, so dass die beiden Funktionen <tt class="docutils literal"><span class="pre">eig</span></tt> und <tt class="docutils literal"><span class="pre">eigh</span></tt> mit der
-gleichen Matrix arbeiten. Die Funktion <tt class="docutils literal"><span class="pre">eigh</span></tt> ist in diesem Beispiel immerhin
+Matrix erzeugt, so dass die beiden Funktionen <code class="docutils literal"><span class="pre">eig</span></code> und <code class="docutils literal"><span class="pre">eigh</span></code> mit der
+gleichen Matrix arbeiten. Die Funktion <code class="docutils literal"><span class="pre">eigh</span></code> ist in diesem Beispiel immerhin
 um mehr als einen Faktor 3 schneller.</p>
 <table class="docutils footnote" frame="void" id="array" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Wir verwenden im Folgenden das englische Wort <em>Array</em>, um damit den <tt class="docutils literal"><span class="pre">ndarray</span></tt>-Datentyp
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Wir verwenden im Folgenden das englische Wort <em>Array</em>, um damit den <code class="docutils literal"><span class="pre">ndarray</span></code>-Datentyp
 aus NumPy zu bezeichnen. Ein Grund dafür, nicht von Matrizen zu sprechen, besteht darin,
 dass sich Arrays nicht notwendigerweise wie Matrizen verhalten. So entspricht das Produkt
 von zwei Arrays im Allgemeinen nicht dem Matrixprodukt.</td></tr>
@@ -1170,7 +1170,7 @@ von zwei Arrays im Allgemeinen nicht dem Matrixprodukt.</td></tr>
 <table class="docutils footnote" frame="void" id="sph-harm" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Im <tt class="docutils literal"><span class="pre">scipy</span></tt>-Modul sind die Winkel im Vergleich zur üblichen Konvention gerade vertauscht
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Im <code class="docutils literal"><span class="pre">scipy</span></code>-Modul sind die Winkel im Vergleich zur üblichen Konvention gerade vertauscht
 benannt (siehe auch die <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html#scipy.special.sph_harm">Dokumentation zur Funktion sph_harm</a>).</td></tr>
 </tbody>
 </table>
@@ -1186,7 +1186,7 @@ benannt (siehe auch die <a class="reference external" href="http://docs.scipy.or
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         «&#160;&#160;<a href="advancedpython.html">Fortgeschrittene Aspekte von Python</a>
@@ -1198,9 +1198,9 @@ benannt (siehe auch die <a class="reference external" href="http://docs.scipy.or
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
     </div>
   </body>
 </html>

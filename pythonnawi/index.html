@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Vorlesungsmanuskript »Python für Naturwissenschaftler« &mdash; Python für Naturwissenschaftler</title>
+    <title>Vorlesungsmanuskript »Python für Naturwissenschaftler« &#8212; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,16 +24,16 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python für Naturwissenschaftler" href="#" />
     <link rel="next" title="Einführung" href="einleitung.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="#">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="#">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Vorlesungsmanuskript »Python für Naturwissenschaftler«</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         <a class="uplink" href="#">Inhalt</a>
@@ -46,7 +46,7 @@
         
         
   <div class="section" id="vorlesungsmanuskript-python-fur-naturwissenschaftler">
-<h1>Vorlesungsmanuskript »Python für Naturwissenschaftler«<a class="headerlink" href="#vorlesungsmanuskript-python-fur-naturwissenschaftler" title="Permalink zu dieser Überschrift">¶</a></h1>
+<h1>Vorlesungsmanuskript »Python für Naturwissenschaftler«<a class="headerlink" href="#vorlesungsmanuskript-python-fur-naturwissenschaftler" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="einleitung.html">Einführung</a><ul>
@@ -56,12 +56,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="advancedpython.html">Fortgeschrittene Aspekte von Python</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="advancedpython.html#sets">Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advancedpython.html#das-collections-modul">Das <tt class="docutils literal"><span class="pre">collections</span></tt>-Modul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advancedpython.html#das-collections-modul">Das <code class="docutils literal"><span class="pre">collections</span></code>-Modul</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advancedpython.html#list-comprehensions">List comprehensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advancedpython.html#generatoren-und-iteratoren">Generatoren und Iteratoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advancedpython.html#dekoratoren">Dekoratoren</a></li>
 <li class="toctree-l2"><a class="reference internal" href="advancedpython.html#ausnahmen">Ausnahmen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advancedpython.html#kontext-mit-with-anweisung">Kontext mit <tt class="docutils literal"><span class="pre">with</span></tt>-Anweisung</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advancedpython.html#kontext-mit-with-anweisung">Kontext mit <code class="docutils literal"><span class="pre">with</span></code>-Anweisung</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="numpy.html">NumPy</a><ul>
@@ -83,15 +83,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="testing.html">Testen von Programmen</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="testing.html#wozu-braucht-man-tests">Wozu braucht man Tests?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#das-doctest-modul">Das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#das-unittest-modul">Das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#das-doctest-modul">Das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing.html#das-unittest-modul">Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul</a></li>
 <li class="toctree-l2"><a class="reference internal" href="testing.html#testen-mit-numpy">Testen mit NumPy</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="profiling.html">Laufzeituntersuchungen</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="profiling.html#allgemeine-vorbemerkungen">Allgemeine Vorbemerkungen</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#das-modul-timeit">Das Modul <tt class="docutils literal"><span class="pre">timeit</span></tt></a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#das-modul-cprofile">Das Modul <tt class="docutils literal"><span class="pre">cProfile</span></tt></a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html#das-modul-timeit">Das Modul <code class="docutils literal"><span class="pre">timeit</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiling.html#das-modul-cprofile">Das Modul <code class="docutils literal"><span class="pre">cProfile</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -100,7 +100,7 @@
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         <a class="uplink" href="#">Inhalt</a>
@@ -110,9 +110,9 @@
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
     </div>
   </body>
 </html>
