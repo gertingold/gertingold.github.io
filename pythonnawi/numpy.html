@@ -54,14 +54,22 @@
 wurde am Beispiel von NumPy und SciPy eine kurze Einführung in die Benutzung numerischer
 Programmbibliotheken gegeben. Dabei wurde an einigen wenigen Beispielen gezeigt, wie man
 in Python mit Vektoren und Matrizen arbeiten und einfache Problemstellungen der linearen
-Algebra lösen kann. Im Folgenden wollen wir uns etwas genauer mit NumPy beschäftigen ohne
-dabei eine vollständige Beschreibung anzustreben. Bei Bedarf sollte daher die
+Algebra lösen kann. Im Folgenden wollen wir uns etwas genauer mit NumPy beschäftigen, das
+die Basis für wichtige wissenschaftliche Programmbibliotheken bildet, wie das
+bereits genannte <a class="reference external" href="https://www.scipy.org">SciPy</a>, <a class="reference external" href="http://matplotlib.org">Matplotlib</a>
+für die Erstellung von Grafiken, <a class="reference external" href="http://pandas.pydata.org">Pandas</a> für
+die Analyse großer Datenmengen, <a class="reference external" href="http://scikit-image.org">Scikit-image</a> für die Bildbearbeitung,
+<a class="reference external" href="http://scikit-learn.org">Scikit-learn</a> für maschinenbasiertes Lernen und einige andere
+mehr.</p>
+<p>Wegen des großen Umfangs der von NumPy zur Verfügung gestellten Funktionalität
+werden wir uns auf wesentliche Aspekte beschränken und keine
+vollständige Beschreibung anstreben. Bei Bedarf sollte daher die
 <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/">NumPy Referenzdokumentation</a> herangezogen
-werden. Als Informationsquelle sind zudem die <a class="reference external" href="http://scipy-lectures.github.com/">Python Scientific Lecture Notes</a> empfehlenswert. Dort werden auch andere
+werden. Als Informationsquelle sind zudem die <a class="reference external" href="http://scipy-lectures.github.com/">Python Scientific Lecture Notes</a> empfehlenswert. Dort werden auch weitere
 Programmbibliotheken diskutiert, die in naturwissenschaftlichen Anwendungen hilfreich
 sein können.</p>
-<div class="section" id="python-listen-und-numpy-arrays">
-<span id="pythonlisten"></span><h2>Python-Listen und NumPy-Arrays<a class="headerlink" href="#python-listen-und-numpy-arrays" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="python-listen-und-matrizen">
+<span id="pythonlisten"></span><h2>Python-Listen und Matrizen<a class="headerlink" href="#python-listen-und-matrizen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Viele naturwissenschaftliche Problemstellungen lassen sich in natürlicher Weise mit Hilfe
 von Vektoren und Matrizen formulieren. Dies kann entweder eine Eigenschaft des ursprünglichen
 Problems sein, beispielsweise bei der Beschreibung eines gekoppelten schwingenden Systems
@@ -83,10 +91,9 @@ zugreifen.</p>
 </pre></div>
 </div>
 <p>Das Beispiel erklärt die doppelte Indizierung. Durch den ersten Index, hier <code class="docutils literal"><span class="pre">[0]</span></code>, wird
-die erste Unterliste ausgewählt aus der wiederum ein einzelnes Element, hier das dritte,
-ausgewählt werden kann. Somit besteht hier, ganz im Gegensatz zu zweidimensionalen Matrizen,
-ein grundsätzlicher Unterschied zwischen Zeilen und Spalten. Eine Zeile kann man entweder
-wie oben in der Eingabe 2 erhalten oder auch etwas umständlicher mit</p>
+die erste Unterliste ausgewählt, aus der wiederum ein einzelnes Element, hier das dritte,
+ausgewählt werden kann.</p>
+<p>Eine Zeile kann man entweder wie oben in der Eingabe 2 erhalten oder auch etwas umständlicher mit</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][:]</span>
 <span class="gr">Out[4]: </span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">]</span>
 </pre></div>
@@ -97,11 +104,14 @@ enstprechender Zugriff auf eine Spalte funktioniert jedoch nicht:</p>
 <span class="gr">Out[5]: </span><span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Hier gibt <code class="docutils literal"><span class="pre">matrix[:]</span></code> eine Liste mit allen Unterlisten, also einfach die ursprüngliche
-Liste zurück. Somit ist <code class="docutils literal"><span class="pre">matrix[:][0]</span></code> nichts anderes als die erste Unterliste. Wir
-erhalten also wiederum die erste Zeile und keineswegs die erste Spalte. Allgemein ist
-die Extraktion einer Untermatrix aus einer durch Listen dargestellten Matrix nicht ohne
-einen gewissen Aufwand möglich.</p>
+<p>Hier gibt <code class="docutils literal"><span class="pre">matrix[:]</span></code> eine Liste mit allen Unterlisten, also einfach die
+ursprüngliche Liste zurück. Somit ist <code class="docutils literal"><span class="pre">matrix[:][0]</span></code> nichts anderes als die
+erste Unterliste. Wir erhalten also wiederum die erste Zeile und keineswegs die
+erste Spalte. Auch wenn es beispielsweise mit Hilfe einer list comprehension
+möglich ist, eine Spalte aus einer Matrix zu extrahieren, zeigt das Beispiel,
+dass Zeilen und Spalten in einer durch eine Liste dargestellten Matrix nicht in
+gleicher Weise behandelt werden können. Für eine Matrix würde man eine
+Gleichbehandlung jedoch auf jeden Fall erwarten.</p>
 <p>Ein weiterer Nachteil besteht in der Flexibilität von Listen, die ja bekanntlich beliebige
 Objekte enthalten können. Python muss daher einen erheblichen Aufwand bei der Verwaltung
 von Listen treiben. Dies betrifft alleine schon die Adressierung eines einzelnen Elements.
@@ -110,119 +120,237 @@ Einträge vom gleichen Datentyp sind. Es sollte also möglich sein, erheblich ef
 Programme zu schreiben, indem man Matrizen nicht durch Listen darstellt, sondern durch
 einen auf diese Aufgabe zugeschnittenen Datentypen. Hierzu greift man auf das von NumPy
 zur Verfügung gestellte <code class="docutils literal"><span class="pre">ndarray</span></code>-Objekt, also ein N-dimensionales Array, zurück.</p>
-<p>Ein Array <a class="footnote-reference" href="#array" id="id1">[1]</a> besitzt als wesentliche Bestandteile die Daten im eigentlichen Sinne, also die
-Werte der einzelnen Matrixelemente, sowie Information darüber, wie auf ein spezifisches
-Matrixelement zugegriffen werden kann. Die Daten sind im Speicher einfach hintereinander,
-also in eindimensionaler Form, abgelegt. Dabei gibt es die Möglichkeit, die Matrix zeilenweise
-oder spaltenweise abzuspeichern. Ersteres wird von der Programmiersprache C verwendet,
-während die zweite Variante von Fortran verwendet wird.</p>
-<p>Nachdem die Daten strukturlos im Speicher abgelegt sind, müssen <code class="docutils literal"><span class="pre">ndarray</span></code>-Objekte, wie
-schon erwähnt, neben den Daten auch Informationen darüber besitzen, wie auf einzelne
-Matrixelemente zugegriffen wird. Auf diese Weise lässt sich sehr leicht die Adresse der
-Daten eines Matrixelements bestimmen. Zudem ist es möglich, die gleichen Daten im Speicher
-auf verschiedene Weise anzusehen. Damit ist es häufig möglich, unnötige Kopiervorgänge im
-Speicher zu vermeiden. Andererseits ist es aus diesem Grunde wichtig zu wissen, ob NumPy
-im Einzelfall nur eine andere Sicht auf die Daten zur Verfügung stellt oder tatsächlich
-ein neues Array erzeugt.</p>
-<p>Um die Informationen über die Struktur eines Arrays besser zu verstehen, betrachten wir
-ein Beispiel.</p>
+</div>
+<div class="section" id="numpy-arrays">
+<h2>NumPy-Arrays<a class="headerlink" href="#numpy-arrays" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Bevor wir mit NumPy-Arrays <a class="footnote-reference" href="#array" id="id1">[1]</a> arbeiten können, müssen wir NumPy importieren.
+Da der Namensraum von NumPy sehr groß ist, empfiehlt es sich, diesen nicht mit
+<code class="docutils literal"><span class="pre">from</span> <span class="pre">numpy</span> <span class="pre">import</span> <span class="pre">*</span></code> zu importieren. Auch der Import einzelner Objekte empfiehlt
+sich nicht. Importiert man beispielsweise die Sinusfunktion aus NumPy, so ist
+weiter unten in einem Pythonskript nicht mehr ohne Weiteres erkennbar, ob es sich
+um den Sinus aus NumPy oder aus dem <code class="docutils literal"><span class="pre">math</span></code>-Modul handelt. Üblicherweise importiert
+man daher NumPy in folgender Weise:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="gp">In [2]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
-
-<span class="gp">In [3]: </span><span class="n">matrix</span>
-<span class="gr">Out[3]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
-
-<span class="gp">In [4]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">itemsize</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">nbytes</span>
-<span class="gr">Out[4]: </span><span class="p">(</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">),</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
-
-<span class="gp">In [5]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span>
-<span class="gr">Out[5]: </span><span class="p">(</span><span class="mi">16</span><span class="p">,)</span>
-
-<span class="gp">In [6]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
-<span class="gr">Out[6]: </span><span class="p">(</span><span class="mi">8</span><span class="p">,)</span>
 </pre></div>
 </div>
-<p>Wir laden zunächst das <code class="docutils literal"><span class="pre">numpy</span></code>-Modul, für das üblicherweise die Abkürzung
-<code class="docutils literal"><span class="pre">np</span></code> verwendet wird. Dieser Schritt wird in allen folgenden Beispielen
-vorausgesetzt.  Dann erzeugen wir uns auf möglichst einfache Weise ein Array
-mit 16 Elementen. Die Funktionsweise von <code class="docutils literal"><span class="pre">arange</span></code> werden wir später noch
-etwas ausführlicher diskutieren. Wir erhalten somit ein eindimensionales Array,
-das die Zahlen von 0 bis 15 als Integers enthält.  Das Objekt <code class="docutils literal"><span class="pre">matrix</span></code> hat
-nun einige Eigenschaften. Der Datentyp <code class="docutils literal"><span class="pre">dtype</span></code> ist hier <code class="docutils literal"><span class="pre">int64</span></code>, also ein
-Integer mit einer Länge von 64 Bit oder 8 Bytes. Letzteres wird auch durch das
-Attribut <code class="docutils literal"><span class="pre">itemsize</span></code> angegeben. Die Größe des Arrays, also <code class="docutils literal"><span class="pre">size</span></code>, ist 16,
-so dass sich insgesamt ein Speicherbedarf <code class="docutils literal"><span class="pre">nbytes</span></code> von 128 Bytes ergibt. Das
-Tupel <code class="docutils literal"><span class="pre">shape</span></code> gibt die Form des Arrays an. In unserem Fall gibt es nur eine
-Dimension, die 16 Elemente enthält. Das Tupel <code class="docutils literal"><span class="pre">strides</span></code> schließlich gibt an,
-wie weit benachbarte Elemente in einer bestimmten Dimension voneinander
-entfernt sind. Bei einem eindimensionalen Array ist dies gerade die Zahl der
-Bytes, die ein Dateneintrag benötigt.</p>
-<p>Mit Hilfe der Attribute <code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> kann man nun eine andere
-Sicht auf das gleiche Array erhalten.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<p>Die Abkürzung <code class="docutils literal"><span class="pre">np</span></code> erspart dabei etwas Schreibarbeit, macht aber zugleich die Herkunft
+eines Objekts deutlich. Hält man sich an diese Konvention, so trägt man zur Verständlichkeit
+des Codes bei.</p>
+<p>Um die Eigenschaften von Arrays zu untersuchen, müssen wir zunächst wissen, wie sich ein
+Array erzeugen lässt. In NumPy ist es sehr einfach, die Dokumentation nach einem bestimmten
+Text zu durchsuchen. Die zahlreichen Möglichkeiten, ein Array zu erzeugen, lassen sich
+folgendermaßen erhalten:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">np</span><span class="o">.</span><span class="n">lookfor</span><span class="p">(</span><span class="s1">&#39;create array&#39;</span><span class="p">)</span>
+<span class="go">Search results for &#39;create array&#39;</span>
+<span class="go">---------------------------------</span>
+<span class="go">numpy.array</span>
+<span class="go">    Create an array.</span>
+<span class="go">numpy.memmap</span>
+<span class="go">    Create a memory-map to an array stored in a *binary* file on disk.</span>
+<span class="go">numpy.diagflat</span>
+<span class="go">    Create a two-dimensional array with the flattened input as a diagonal.</span>
+<span class="go">numpy.fromiter</span>
+<span class="go">    Create a new 1-dimensional array from an iterable object.</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>Dabei wurde hier nur ein Teil der Ausgabe dargestellt. Gleich der erste Eintrag verrät
+uns, wie man aus einer Liste von Listen ein Array erzeugen kann. Details hierzu erhält
+man bei Bedarf wie üblich mit <code class="docutils literal"><span class="pre">help(np.array)</span></code> oder alternativ mit
+<code class="docutils literal"><span class="pre">np.info(np.array)</span></code>.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+<span class="gp">   ...:</span>           <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+<span class="gp">   ...:</span>           <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
 
-<span class="gp">In [8]: </span><span class="n">matrix</span>
-<span class="go">Out[8]:</span>
+<span class="gp">In [4]: </span><span class="n">myarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="gp">In [5]: </span><span class="n">myarray</span>
+<span class="go">Out[5]:</span>
+<span class="go">array([[0, 1, 2],</span>
+<span class="go">       [3, 4, 5],</span>
+<span class="go">       [6, 7, 8]])</span>
+
+<span class="gp">In [6]: </span><span class="nb">type</span><span class="p">(</span><span class="n">myarray</span><span class="p">)</span>
+<span class="gr">Out[6]: </span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span>
+</pre></div>
+</div>
+<p>Ein Array besitzt als wesentliche Bestandteile die Daten im
+eigentlichen Sinne, also die Werte der einzelnen Matrixelemente, sowie
+Information darüber, wie auf ein spezifisches Matrixelement zugegriffen werden
+kann. Die Daten sind im Speicher einfach hintereinander, also in
+eindimensionaler Form, abgelegt. Dabei gibt es die Möglichkeit, die Matrix
+zeilenweise oder spaltenweise abzuspeichern. Ersteres wird von der
+Programmiersprache C verwendet, während die zweite Variante von Fortran
+verwendet wird.</p>
+<p>Nachdem die Daten strukturlos im Speicher abgelegt sind, müssen
+<code class="docutils literal"><span class="pre">ndarray</span></code>-Objekte, wie schon erwähnt, neben den Daten auch Informationen
+darüber besitzen, wie auf einzelne Matrixelemente zugegriffen wird. Auf diese
+Weise lässt sich sehr leicht die Adresse der Daten eines Matrixelements
+bestimmen. Zudem ist es möglich, die gleichen Daten im Speicher auf
+verschiedene Weise anzusehen. Damit ist es häufig möglich, unnötige
+Kopiervorgänge im Speicher zu vermeiden. Andererseits ist es aus diesem Grunde
+wichtig zu wissen, ob NumPy im Einzelfall nur eine andere Sicht auf die Daten
+zur Verfügung stellt oder tatsächlich ein neues Array erzeugt.</p>
+<p>Um die Informationen über die Struktur eines Arrays besser zu verstehen,
+definieren wir uns eine Funktion, die einige Attribute des Arrays ausgibt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="k">def</span> <span class="nf">array_attributes</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;ndim&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;itemsize&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="s1">&#39;strides&#39;</span><span class="p">):</span>
+<span class="gp">   ...:</span>         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{:8s}: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">attr</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Zum Experimentieren mit Arrays ist die <code class="docutils literal"><span class="pre">arange</span></code>-Methode sehr praktisch, die
+ähnlich wie das uns bereits bekannte <code class="docutils literal"><span class="pre">range</span></code> eine Reihe von Zahlen erzeugt,
+nun jedoch in einem Array.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="gp">In [9]: </span><span class="n">matrix</span>
+<span class="gr">Out[9]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="gp">In [10]: </span><span class="n">array_attributes</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+<span class="go">ndim    : 1</span>
+<span class="go">size    : 16</span>
+<span class="go">itemsize: 8</span>
+<span class="go">dtype   : int64</span>
+<span class="go">shape   : (16,)</span>
+<span class="go">strides : (8,)</span>
+</pre></div>
+</div>
+<p>Das Attribut <code class="docutils literal"><span class="pre">ndim</span></code> gibt an, dass wir es mit einem eindimensionalen Array
+zu tun haben, während das Attribut <code class="docutils literal"><span class="pre">size</span></code> anzeigt, dass das Array insgesamt
+16 Elemente besitzt. Jedes Element besitzt den Datentyp (<code class="docutils literal"><span class="pre">dtype</span></code>) <code class="docutils literal"><span class="pre">int64</span></code>.
+Es handelt sich also um 64-Bit-Integers, die eine Größe von 8 Byte (<code class="docutils literal"><span class="pre">itemsize</span></code>)
+besitzen. Die Attribute können wir auch direkt in der üblichen objektorientierten
+Schreibweise ansprechen. Zum Beispiel gibt</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [11]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">nbytes</span>
+<span class="gr">Out[11]: </span><span class="mi">128</span>
+</pre></div>
+</div>
+<p>den Speicherplatzbedarf des Arrays in Bytes an.</p>
+<p>Für Arrays kommen eine ganze Reihe verschiedener Datentypen in Frage, zum Beispiel
+Integers verschiedener Länge (<code class="docutils literal"><span class="pre">int8</span></code>, <code class="docutils literal"><span class="pre">int16</span></code>, <code class="docutils literal"><span class="pre">int32</span></code>, <code class="docutils literal"><span class="pre">int64</span></code>) oder
+auch ohne Vorzeichen (<code class="docutils literal"><span class="pre">uint8</span></code>, ...), Gleitkommazahlen (<code class="docutils literal"><span class="pre">float16</span></code>, <code class="docutils literal"><span class="pre">float32</span></code>,
+<code class="docutils literal"><span class="pre">float64</span></code>), komplexe Zahlen (<code class="docutils literal"><span class="pre">complex64</span></code>, <code class="docutils literal"><span class="pre">complex128</span></code>), Wahrheitswerte
+(<code class="docutils literal"><span class="pre">bool8</span></code>) und sogar Unicode-Strings als nichtnumerischer Datentyp. Wenn der
+Datentyp nicht angegeben oder durch die Konstruktion des Arrays bestimmt ist,
+werden die im jeweiligen System standardmäßig verwendeten Gleitkommazahlen
+herangezogen, also meistens <code class="docutils literal"><span class="pre">float64</span></code>. Bei Integers ist zu beachten, dass
+es im Gegensatz zu Python-Integers wegen der endlichen Länge zu einem Überlauf
+kommen kann, wie das folgende Beispiel demonstriert.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [12]: </span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="go">Out[12]:</span>
+<span class="go">array([   1,   11,   21,   31,   41,   51,   61,   71,   81,   91,  101,</span>
+<span class="go">        111,  121, -125, -115, -105], dtype=int8)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Wie kann man diese Ausgabe verstehen?</p>
+<p>Besonders interessant sind die beiden Attribute <code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code>. Der
+Wert des Attributs <code class="docutils literal"><span class="pre">shape</span></code>, in unserem Beispiel das Tupel <code class="docutils literal"><span class="pre">(16,)</span></code>, gibt die
+Zahl der Elemente in der jeweiligen Dimension an. Um dies besser zu verstehen,
+ändern wir dieses Attribut ab, wobei darauf zu achten ist, dass die Zahl der
+Elemente des Arrays erhalten bleibt. Wir wandeln das eindimensionale Array mit
+16 Elementen in ein 4×4-Array um.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [14]: </span><span class="n">matrix</span>
+<span class="go">Out[14]:</span>
 <span class="go">array([[ 0,  1,  2,  3],</span>
 <span class="go">       [ 4,  5,  6,  7],</span>
 <span class="go">       [ 8,  9, 10, 11],</span>
 <span class="go">       [12, 13, 14, 15]])</span>
 
-<span class="gp">In [9]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
-<span class="gr">Out[9]: </span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-
-<span class="gp">In [10]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="gp">In [11]: </span><span class="n">matrix</span>
-<span class="go">Out[11]:</span>
-<span class="go">array([[[[ 0,  1],</span>
-<span class="go">         [ 2,  3]],</span>
-
-<span class="go">        [[ 4,  5],</span>
-<span class="go">         [ 6,  7]]],</span>
-
-
-<span class="go">       [[[ 8,  9],</span>
-<span class="go">         [10, 11]],</span>
-
-<span class="go">        [[12, 13],</span>
-<span class="go">         [14, 15]]]])</span>
-
-<span class="gp">In [12]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
-<span class="gr">Out[12]: </span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">In [15]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
+<span class="gr">Out[15]: </span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Wir interpretieren zunächst die 16 Matrixelemente als ein 4×4-Array, ohne dabei
-die eigentlichen Array-Daten im Speicher in irgendeiner Weise zu modifizieren.
-Lediglich das Attribut <code class="docutils literal"><span class="pre">shape</span></code> haben wir neu gesetzt. Das Attribut
-<code class="docutils literal"><span class="pre">strides</span></code> gibt uns nun an, dass der Abstand der Daten in der ersten
-Dimension, also innerhalb einer Spalte, 32 Bytes beträgt, während der Abstand in
-der zweiten Dimension, also innerhalb einer Zeile, nach wie vor 8 ist. So lange
-das Produkt der Dimensionen der Gesamtzahl der Matrixelemente entspricht,
-können wir auch andere Matrixdimensionen wählen. So können wir unsere Daten
-auch als ein 2×2×2×2-Array ansehen, wie der zweite Teil der obigen Ausgabe
-zeigt.</p>
+<p>Dabei wird deutlich, dass nicht nur die Form (<code class="docutils literal"><span class="pre">shape</span></code>) modifiziert wurde, sondern
+auch aus dem Tupel <code class="docutils literal"><span class="pre">(8,)</span></code> des Attributs <code class="docutils literal"><span class="pre">strides</span></code> <a class="footnote-reference" href="#strides" id="id2">[2]</a> das Tupel <code class="docutils literal"><span class="pre">(32,</span> <span class="pre">8)</span></code> wurde.
+Die <em>strides</em> geben an, um wieviel Bytes man weitergehen muss, um zum nächsten Element
+in dieser Dimension zu gelangen. Die folgende Abbildung zeigt dies an einem
+kleinen Array.</p>
+<a class="reference internal image-reference" href="_images/strides.png"><img alt="_images/strides.png" class="align-center" src="_images/strides.png" style="height: 8cm;" /></a>
+<p>Greifen wir speziell den mittleren Fall mit den <em>strides</em> <code class="docutils literal"><span class="pre">(24,</span> <span class="pre">8)</span></code> heraus.
+Bewegt man sich in einer Zeile der Matrix von Element zu Element, so muss man
+im Speicher jeweils um 8 Bytes weitergehen, wenn ein Datentyp <code class="docutils literal"><span class="pre">int64</span></code>
+vorliegt. Entlang einer Spalte beträgt die Schrittweite dagegen 24 Bytes.</p>
+<p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Wie verändern sich die <em>strides</em> in dem 16-elementigen Array <code class="docutils literal"><span class="pre">np.arange(16)</span></code>,
+wenn man einen <code class="docutils literal"><span class="pre">shape</span></code> von <code class="docutils literal"><span class="pre">(2,</span> <span class="pre">2,</span> <span class="pre">2,</span> <span class="pre">2)</span></code> wählt?</p>
+<p>Für die Anwendung ist es wichtig zu wissen, dass die Manipulation der Attribute
+<code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> nicht die Daten im Speicher verändert. Es wird also
+nur eine neue Sicht auf die vorhandenen Daten vermittelt. Dies ist insofern von
+Bedeutung als das Kopieren von größeren Datenmengen durchaus mit einem nicht
+unerheblichen Zeitaufwand verbunden sein kann.</p>
+<p>Um uns davon zu überzeugen, dass tatsächlich kein neues Array erzeugt wird, generieren
+wir nochmals ein eindimensionales Array und daraus mit Hilfe von <code class="docutils literal"><span class="pre">reshape</span></code> ein
+zweidimensionales Array.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [16]: </span><span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="gp">In [17]: </span><span class="n">m1</span>
+<span class="gr">Out[17]: </span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="gp">In [18]: </span><span class="n">m2</span> <span class="o">=</span> <span class="n">m1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+<span class="gp">In [19]: </span><span class="n">m2</span>
+<span class="go">Out[19]:</span>
+<span class="go">array([[ 0,  1,  2,  3],</span>
+<span class="go">       [ 4,  5,  6,  7],</span>
+<span class="go">       [ 8,  9, 10, 11],</span>
+<span class="go">       [12, 13, 14, 15]])</span>
+</pre></div>
+</div>
+<p>Nun ändern wir das erste Element in dem eindimensionalen Array ab und stellen in der
+Tat fest, dass sich diese Änderung auch auf das zweidimensionale Array auswirkt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [20]: </span><span class="n">m1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+
+<span class="gp">In [21]: </span><span class="n">m1</span>
+<span class="gr">Out[21]: </span><span class="n">array</span><span class="p">([</span><span class="mi">99</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">])</span>
+
+<span class="gp">In [22]: </span><span class="n">m2</span>
+<span class="go">Out[22]:</span>
+<span class="go">array([[99,  1,  2,  3],</span>
+<span class="go">       [ 4,  5,  6,  7],</span>
+<span class="go">       [ 8,  9, 10, 11],</span>
+<span class="go">       [12, 13, 14, 15]])</span>
+</pre></div>
+</div>
+<p>Eine Matrix lässt sich auch transponieren, ohne dass Matrixelemente im Speicher hin
+und her kopiert werden müssen. Stattdessen werden nur die beiden Werte der <em>strides</em>
+vertauscht.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [23]: </span><span class="n">m2</span><span class="o">.</span><span class="n">strides</span>
+<span class="gr">Out[23]: </span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="gp">In [24]: </span><span class="n">m2</span><span class="o">.</span><span class="n">T</span>
+<span class="go">Out[24]:</span>
+<span class="go">array([[99,  4,  8, 12],</span>
+<span class="go">       [ 1,  5,  9, 13],</span>
+<span class="go">       [ 2,  6, 10, 14],</span>
+<span class="go">       [ 3,  7, 11, 15]])</span>
+
+<span class="gp">In [25]: </span><span class="n">m2</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">strides</span>
+<span class="gr">Out[25]: </span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Obwohl die Daten im Speicher nicht verändert wurden, kann man jetzt mit der
+transponierten Matrix arbeiten.</p>
 <p>Mit Hilfe der Attribute <code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> lässt sich die Sicht auf ein
 Array auf sehr flexible Weise festlegen. Allerdings ist der Benutzer selbst für
 die Folgen verantwortlich, wie der zweite Teil des folgenden Beispiels zeigt.
-Dazu gehen wir zum 4×4-Array zurück und verändern das Attribut <code class="docutils literal"><span class="pre">strides</span></code> mit
-Hilfe der <code class="docutils literal"><span class="pre">as_strided</span></code>-Methode.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [13]: </span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+Dazu gehen wir zu unserem ursprünglichen 4×4-Array zurück und verändern das
+Attribut <code class="docutils literal"><span class="pre">strides</span></code> mit Hilfe der <code class="docutils literal"><span class="pre">as_strided</span></code>-Methode.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
-<span class="gp">In [14]: </span><span class="n">matrix1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+<span class="gp">In [27]: </span><span class="n">matrix1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
 
-<span class="gp">In [15]: </span><span class="n">matrix1</span>
-<span class="go">Out[15]:</span>
+<span class="gp">In [28]: </span><span class="n">matrix1</span>
+<span class="go">Out[28]:</span>
 <span class="go">array([[ 0,  2,  4,  6],</span>
 <span class="go">       [ 2,  4,  6,  8],</span>
 <span class="go">       [ 4,  6,  8, 10],</span>
 <span class="go">       [ 6,  8, 10, 12]])</span>
 
-<span class="gp">In [16]: </span><span class="n">matrix2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">In [29]: </span><span class="n">matrix2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 
-<span class="gp">In [17]: </span><span class="n">matrix2</span>
-<span class="go">Out[17]:</span>
+<span class="gp">In [30]: </span><span class="n">matrix2</span>
+<span class="go">Out[30]:</span>
 <span class="go">array([[            0,  4294967296,            1,  8589934592],</span>
 <span class="go">       [            2, 12884901888,            3, 17179869184],</span>
 <span class="go">       [            4, 21474836480,            5, 25769803776],</span>
@@ -241,55 +369,6 @@ entspricht. Python interpretiert dennoch die erhaltene Information und erzeugt
 so das obige Array. In unserem Beispiel erreicht man bei jedem zweiten Wert
 wieder eine korrekte Datengrenze. Die Manipulation von <em>strides</em> erfordert also
 eine gewisse Sorgfalt, und man ist für eventuelle Fehler selbst verantwortlich.</p>
-<p>Für die Anwendung ist es wichtig zu wissen, dass die Manipulation der Attribute
-<code class="docutils literal"><span class="pre">shape</span></code> und <code class="docutils literal"><span class="pre">strides</span></code> nicht die Daten im Speicher verändert. Es wird also
-nur eine neue Sicht auf die vorhandenen Daten vermittelt. Dies ist insofern von
-Bedeutung als das Kopieren von größeren Datenmengen durchaus mit einem größeren
-Zeitaufwand verbunden sein kann. Ein Beispiel für die Durchführung einer
-häufigen Matrixoperation durch Anpassung der <em>strides</em> werden wir gleich sehen.
-Zuvor wollen wir uns aber überzeugen, dass in den obigen Beispielen tatsächlich
-kein neues Array erzeugt wurde.</p>
-<p>Dazu setzen wir den oberen linken Eintrag im ursprünglichen Array auf einen neuen
-Wert und zeigen, dass diese Änderung auch in den Arrays mit veränderten <em>strides</em>
-zu sehen ist.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
-
-<span class="gp">In [19]: </span><span class="n">matrix</span>
-<span class="go">Out[19]:</span>
-<span class="go">array([[99,  1,  2,  3],</span>
-<span class="go">       [ 4,  5,  6,  7],</span>
-<span class="go">       [ 8,  9, 10, 11],</span>
-<span class="go">       [12, 13, 14, 15]])</span>
-
-<span class="gp">In [20]: </span><span class="n">matrix1</span>
-<span class="go">Out[20]:</span>
-<span class="go">array([[99,  2,  4,  6],</span>
-<span class="go">       [ 2,  4,  6,  8],</span>
-<span class="go">       [ 4,  6,  8, 10],</span>
-<span class="go">       [ 6,  8, 10, 12]])</span>
-</pre></div>
-</div>
-<p>Eine Matrix lässt sich nun transponieren, ohne dass Matrixelemente im Speicher hin
-und her kopiert werden müssen. Dies zeigt das folgende Beispiel, in welchem einfach
-die zwei Werte der <em>strides</em> vertrauscht werden:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [21]: </span><span class="n">matrix</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">strides</span>
-<span class="go">Out[21]:</span>
-<span class="go">(array([[99,  1,  2,  3],</span>
-<span class="go">        [ 4,  5,  6,  7],</span>
-<span class="go">        [ 8,  9, 10, 11],</span>
-<span class="go">        [12, 13, 14, 15]]), (32, 8))</span>
-
-
-<span class="gp">In [22]: </span><span class="n">np</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">stride_tricks</span><span class="o">.</span><span class="n">as_strided</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">strides</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">))</span>
-<span class="go">Out[22]:</span>
-<span class="go">array([[99,  4,  8, 12],</span>
-<span class="go">       [ 1,  5,  9, 13],</span>
-<span class="go">       [ 2,  6, 10, 14],</span>
-<span class="go">       [ 3,  7, 11, 15]])</span>
-</pre></div>
-</div>
-<p>Obwohl die Daten im Speicher nicht verändert wurden, kann man jetzt mit der
-transponierten Matrix arbeiten.</p>
 </div>
 <div class="section" id="erzeugung-von-numpy-arrays">
 <span id="arrayerzeugung"></span><h2>Erzeugung von NumPy-Arrays<a class="headerlink" href="#erzeugung-von-numpy-arrays" title="Link zu dieser Überschrift">¶</a></h2>
@@ -503,7 +582,7 @@ für NumPy-Arrays wie die folgenden Beispiele zeigen.</p>
 </pre></div>
 </div>
 <p>Für mehrdimensionale Arrays wird die Notation direkt verallgemeinert. Im Gegensatz
-zu der im Abschnitt <a class="reference internal" href="#pythonlisten"><span class="std std-ref">Python-Listen und NumPy-Arrays</span></a> beschriebenen Notation für Listen von Listen
+zu der im Abschnitt <a class="reference internal" href="#pythonlisten"><span class="std std-ref">Python-Listen und Matrizen</span></a> beschriebenen Notation für Listen von Listen
 werden hier die diversen Indexangaben durch Kommas getrennt zusammengefasst. Einige
 Beispiele für zweidimensionale Arrays sollen das illustrieren.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [26]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -965,7 +1044,7 @@ ein <code class="docutils literal"><span class="pre">ogrid</span></code>-Gitter.
 <span class="go"> array([[ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ]])]</span>
 </pre></div>
 </div>
-<p>Eine Anwendung bei der Berechnung von Kugelflächenfunktionen könnte folgendermaßen aussehen <a class="footnote-reference" href="#sph-harm" id="id2">[2]</a>.</p>
+<p>Eine Anwendung bei der Berechnung von Kugelflächenfunktionen könnte folgendermaßen aussehen <a class="footnote-reference" href="#sph-harm" id="id3">[3]</a>.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.special</span>
 
@@ -1138,7 +1217,7 @@ die zugehörigen Eigenwerte für beliebige quadratische Matrizen:</p>
 <p>Die Ausgabe am Ende zeigt, dass die Eigenvektoren und -werte in der Tat korrekt sind.
 Benötigt man nur die Eigenwerte einer Matrix, so kann man durch Benutzung der
 <code class="docutils literal"><span class="pre">eigvals</span></code>-Funktion Rechenzeit sparen.</p>
-<p>Für die Lösung eines Eigenwertproblems von symmetrischen oder hermiteschen <a class="footnote-reference" href="#hermitesch" id="id3">[3]</a>
+<p>Für die Lösung eines Eigenwertproblems von symmetrischen oder hermiteschen <a class="footnote-reference" href="#hermitesch" id="id4">[4]</a>
 Matrizen gibt es die Funktionen <code class="docutils literal"><span class="pre">eigh</span></code> und <code class="docutils literal"><span class="pre">eigvalsh</span></code>, bei denen es genügt,
 nur die obere oder die untere Hälfte der Matrix zu spezifizieren. Viel
 wichtiger ist jedoch, dass diese Funktionen einen erheblichen Zeitvorteil
@@ -1167,17 +1246,23 @@ dass sich Arrays nicht notwendigerweise wie Matrizen verhalten. So entspricht da
 von zwei Arrays im Allgemeinen nicht dem Matrixprodukt.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="strides" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Das englische Wort <em>stride</em> bedeutet Schritt.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="sph-harm" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Im <code class="docutils literal"><span class="pre">scipy</span></code>-Modul sind die Winkel im Vergleich zur üblichen Konvention gerade vertauscht
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Im <code class="docutils literal"><span class="pre">scipy</span></code>-Modul sind die Winkel im Vergleich zur üblichen Konvention gerade vertauscht
 benannt (siehe auch die <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html#scipy.special.sph_harm">Dokumentation zur Funktion sph_harm</a>).</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="hermitesch" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Eine hermitesche Matrix geht beim Transponieren in die konjugiert komplexe Matrix über:
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Eine hermitesche Matrix geht beim Transponieren in die konjugiert komplexe Matrix über:
 <span class="math">\(a_{ij}=a_{ji}^*\)</span>.</td></tr>
 </tbody>
 </table>
