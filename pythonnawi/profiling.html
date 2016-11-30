@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Laufzeituntersuchungen &#8212; Python für Naturwissenschaftler</title>
+    <title>Laufzeituntersuchungen &mdash; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -24,16 +24,16 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
     <link rel="prev" title="Testen von Programmen" href="testing.html" /> 
   </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+  <body>
+      <div class="header"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Laufzeituntersuchungen</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav">
       
         <p>
         «&#160;&#160;<a href="testing.html">Testen von Programmen</a>
@@ -46,9 +46,9 @@
         
         
   <div class="section" id="laufzeituntersuchungen">
-<h1>Laufzeituntersuchungen<a class="headerlink" href="#laufzeituntersuchungen" title="Link zu dieser Überschrift">¶</a></h1>
+<h1>Laufzeituntersuchungen<a class="headerlink" href="#laufzeituntersuchungen" title="Permalink zu dieser Überschrift">¶</a></h1>
 <div class="section" id="allgemeine-vorbemerkungen">
-<h2>Allgemeine Vorbemerkungen<a class="headerlink" href="#allgemeine-vorbemerkungen" title="Link zu dieser Überschrift">¶</a></h2>
+<h2>Allgemeine Vorbemerkungen<a class="headerlink" href="#allgemeine-vorbemerkungen" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Python wird immer wieder vorgeworfen, dass es im Vergleich zu einer Reihe
 anderer Programmiersprachen langsam sei. Häufig stellt dies kein echtes Problem
 dar, aber bei Bedarf gibt es zur Optimierung von Pythonskripten eine Reihe von
@@ -88,25 +88,25 @@ akzeptablen Laufzeit zu kommen.</p>
 Fehler einschleichen können. Es nützt alles nicht, wenn man das Programm
 geändert hat, so dass es viel schneller läuft, dann aber nicht mehr das tut was
 es eigentlich tun soll. Daher sollte man mindestens eine funktionstüchtigte
-Version des Programms aufbewahren, z.B. eine Kopie, die eine Endung <code class="docutils literal"><span class="pre">.bak</span></code>
+Version des Programms aufbewahren, z.B. eine Kopie, die eine Endung <tt class="docutils literal"><span class="pre">.bak</span></tt>
 erhält. Wesentlich besser ist es natürlich, ein Versionskontrollsystem zu
 verwenden, beispielsweise Subversion oder Git, das wir im Kapitel
-<a class="reference internal" href="git.html#vcgit"><span class="std std-ref">Versionskontrolle mit Git</span></a> beschrieben haben. Außerdem ist es sinnvoll, Tests zu
+<a class="reference internal" href="git.html#vcgit"><em>Versionskontrolle mit Git</em></a> beschrieben haben. Außerdem ist es sinnvoll, Tests zu
 programmieren, die es erlauben, die neue Programmversion auf Korrektheit zu
-überprüfen. Techniken hierfür hatten wir im Kapitel <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testen von Programmen</span></a> besprochen.</p>
+überprüfen. Techniken hierfür hatten wir im Kapitel <a class="reference internal" href="testing.html#testing"><em>Testen von Programmen</em></a> besprochen.</p>
 <p>Wenden wir uns nun einigen wichtigen Möglichkeiten zu, die Laufzeit von
 Python-Skripten zu analysieren.</p>
 </div>
 <div class="section" id="das-modul-timeit">
-<span id="timeit"></span><h2>Das Modul <code class="docutils literal"><span class="pre">timeit</span></code><a class="headerlink" href="#das-modul-timeit" title="Link zu dieser Überschrift">¶</a></h2>
+<span id="timeit"></span><h2>Das Modul <tt class="docutils literal"><span class="pre">timeit</span></tt><a class="headerlink" href="#das-modul-timeit" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Um die Laufzeit von Einzeilern oder kleineren Codeteilen zu testen, kann
-man das Python-Modul <code class="docutils literal"><span class="pre">timeit</span></code> heranziehen. Dies ist zum Beispiel dann
+man das Python-Modul <tt class="docutils literal"><span class="pre">timeit</span></tt> heranziehen. Dies ist zum Beispiel dann
 nützlich, wenn man sich ein Bild davon machen möchte, welche Codevariante
-die schnellere sein wird. Die wohl einfachste Möglichkeit, <code class="docutils literal"><span class="pre">timeit</span></code>
+die schnellere sein wird. Die wohl einfachste Möglichkeit, <tt class="docutils literal"><span class="pre">timeit</span></tt>
 einzusetzen, besteht in der Benutzung der IPython-Shell.</p>
 <p>Einen Laufzeitvergleich zwischen zwei Arten eine Zahl zu quadrieren, kann
 man in IPython folgendermaßen vornehmen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="gp">In [2]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span>
 <span class="go">10000000 loops, best of 3: 166 ns per loop</span>
@@ -115,9 +115,9 @@ man in IPython folgendermaßen vornehmen:</p>
 <span class="go">1000000 loops, best of 3: 252 ns per loop</span>
 </pre></div>
 </div>
-<p>Das Prozentzeichen wird <code class="docutils literal"><span class="pre">timeit</span></code> vorangestellt, um es als so genannten
+<p>Das Prozentzeichen wird <tt class="docutils literal"><span class="pre">timeit</span></tt> vorangestellt, um es als so genannten
 »magischen Befehl« zu kennzeichnen, also einen Befehl der IPython-Shell und
-nicht ein Python-Kommando. Da <code class="docutils literal"><span class="pre">timeit</span></code> in diesem Fall nicht als
+nicht ein Python-Kommando. Da <tt class="docutils literal"><span class="pre">timeit</span></tt> in diesem Fall nicht als
 Python-Kommando interpretiert werden kann, könnte man sogar auf das
 Prozentzeichen verzichten. Wie im obigen Beispiel zu sehen ist, wird der
 Befehl, dessen Laufzeit bestimmt werden soll, mehrfach ausgeführt, wobei die
@@ -127,9 +127,9 @@ als die Quadrierung durch Potenzierung, die 252 Nanosekunden benötigt.
 Natürlich hängt die Laufzeit vom verwendeten Prozessor ab und ist auch nicht
 unbedingt auf die letzte Stelle genau reproduzierbar.</p>
 <p>Um die Laufzeit von mehrzeiligem Code zu untersuchen, wendet man den magischen
-<code class="docutils literal"><span class="pre">timeit</span></code>-Befehl auf eine ganze Zelle an, indem man ein zweites Prozentzeichen
+<tt class="docutils literal"><span class="pre">timeit</span></tt>-Befehl auf eine ganze Zelle an, indem man ein zweites Prozentzeichen
 voranstellt. Dies ist in folgendem Beispiel gezeigt.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="o">%%</span><span class="n">timeit</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="o">%%</span><span class="n">timeit</span>
 <span class="gp">   ...:</span> <span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
 <span class="gp">   ...:</span>     <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="n">n</span>
@@ -139,17 +139,17 @@ voranstellt. Dies ist in folgendem Beispiel gezeigt.</p>
 <span class="go">10000 loops, best of 3: 22.2 us per loop</span>
 </pre></div>
 </div>
-<p>Im ersten Fall verwenden wir <code class="docutils literal"><span class="pre">%%timeit</span></code> mit zwei Prozentzeichen, damit
+<p>Im ersten Fall verwenden wir <tt class="docutils literal"><span class="pre">%%timeit</span></tt> mit zwei Prozentzeichen, damit
 sich dieser Befehl auf die nächsten drei Zeilen und nicht nur die nächste
-Zeile bezieht. Im zweiten Fall genügt dagegen wiederum <code class="docutils literal"><span class="pre">%timeit</span></code>. In
+Zeile bezieht. Im zweiten Fall genügt dagegen wiederum <tt class="docutils literal"><span class="pre">%timeit</span></tt>. In
 diesem Beispiel liegt die Ausführungszeit im Mikrosekundenbereich, wobei
 die explizite Schleife fast fünfmal mehr Zeit benötigt.</p>
 <p>Auch wenn man mit der IPython-Shell sehr bequem die Laufzeit von Codestücken
-untersuchen kann, mag es gelegentlich notwendig sein, das <code class="docutils literal"><span class="pre">timeit</span></code>-Modul
+untersuchen kann, mag es gelegentlich notwendig sein, das <tt class="docutils literal"><span class="pre">timeit</span></tt>-Modul
 direkt in einem Python-Skript einzusetzen. Daher wollen wir uns nun die
 Anwendung dieses Moduls ansehen.</p>
 <p>Das folgende Beispiel untersucht den Laufzeitunterschied bei der Berechnung
-des Sinus mit Hilfe des <code class="docutils literal"><span class="pre">math</span></code>-Moduls und mit NumPy in Abhängigkeit von
+des Sinus mit Hilfe des <tt class="docutils literal"><span class="pre">math</span></tt>-Moduls und mit NumPy in Abhängigkeit von
 der Anzahl der Funktionsargumente.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -178,7 +178,7 @@ der Anzahl der Funktionsargumente.</p>
 25
 26
 27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+28</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">timeit</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -195,36 +195,36 @@ der Anzahl der Funktionsargumente.</p>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.31</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
     <span class="n">nint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s2">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
+    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
+                            <span class="s">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
                             <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">t_math</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f_math({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s2">&quot;from __main__ import f_math&quot;</span><span class="p">,</span>
+    <span class="n">t_math</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_math({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
+                            <span class="s">&quot;from __main__ import f_math&quot;</span><span class="p">,</span>
                             <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
     <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nint</span><span class="p">)</span>
     <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_math</span><span class="o">/</span><span class="n">t_numpy</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
 <p>Zunächst definieren wir in den Zeilen 6 bis 12 zwei Funktionen, die jeweils den
 Sinus für eine vorgegebene Anzahl von Argumenten berechnen, einmal mit Hilfe
-von NumPy und einmal mit Hilfe des <code class="docutils literal"><span class="pre">math</span></code>-Moduls. In den Zeilen 16 bis 25
+von NumPy und einmal mit Hilfe des <tt class="docutils literal"><span class="pre">math</span></tt>-Moduls. In den Zeilen 16 bis 25
 wird für verschiedene Argumentanzahlen die Laufzeit für die beiden Varianten
 bestimmt. Sehen wir uns einen der Aufrufe zur Laufzeitbestimmung genauer an,
 konkret den Code in den Zeilen 18 bis 20. Nachdem wir in Zeile 3 das
-<code class="docutils literal"><span class="pre">timeit</span></code>-Modul geladen hatten, können wir in Zeile 18 die <code class="docutils literal"><span class="pre">timeit</span></code>-Funktion
+<tt class="docutils literal"><span class="pre">timeit</span></tt>-Modul geladen hatten, können wir in Zeile 18 die <tt class="docutils literal"><span class="pre">timeit</span></tt>-Funktion
 aus diesem Modul aufrufen. Das erste Argument enthält den auszuführenden Code,
-in unserem Fall also einfach den Funktionsaufruf von <code class="docutils literal"><span class="pre">f_numpy</span></code>.</p>
+in unserem Fall also einfach den Funktionsaufruf von <tt class="docutils literal"><span class="pre">f_numpy</span></tt>.</p>
 <p>Nachdem der Code als String zu übergeben ist, können wir problemlos in der gezeigten
-Weise ein Argument oder auch mehrere übergeben. Da die von <code class="docutils literal"><span class="pre">timeit</span></code>
+Weise ein Argument oder auch mehrere übergeben. Da die von <tt class="docutils literal"><span class="pre">timeit</span></tt>
 aufgerufenen Funktion keinen Zugriff auf den Namensraum des umgebenden Skripts
-besitzt, würde es nicht funktionieren, das Argument einfach als <code class="docutils literal"><span class="pre">nint</span></code> in dem
-String unterzubringen. Tatsächlich ist nicht einmal die Funktion <code class="docutils literal"><span class="pre">f_numpy</span></code>
-bekannt. Der <code class="docutils literal"><span class="pre">timeit</span></code>-Funktion wird daher in Zeile 19 explizit mitgeteilt,
-das zunächst aus unserem Hauptskript, auf das mit <code class="docutils literal"><span class="pre">__main__</span></code> Bezug genommen
-wird, <code class="docutils literal"><span class="pre">f_numpy</span></code> zu importieren ist. In Zeile 20 verlangen wir schließlich noch,
+besitzt, würde es nicht funktionieren, das Argument einfach als <tt class="docutils literal"><span class="pre">nint</span></tt> in dem
+String unterzubringen. Tatsächlich ist nicht einmal die Funktion <tt class="docutils literal"><span class="pre">f_numpy</span></tt>
+bekannt. Der <tt class="docutils literal"><span class="pre">timeit</span></tt>-Funktion wird daher in Zeile 19 explizit mitgeteilt,
+das zunächst aus unserem Hauptskript, auf das mit <tt class="docutils literal"><span class="pre">__main__</span></tt> Bezug genommen
+wird, <tt class="docutils literal"><span class="pre">f_numpy</span></tt> zu importieren ist. In Zeile 20 verlangen wir schließlich noch,
 dass zwanzig Funktionsläufe durchgeführt werden sollen, um eine gemittelte
 Laufzeit berechnen zu können.</p>
 <p>Wie die folgende Abbildung zeigt, bietet NumPy für sehr kleine Argumentanzahlen
@@ -234,16 +234,16 @@ anfällt. Bei mehr als etwa 100 Argumenten erlaubt NumPy in unserem Fall jedoch
 eine schnellere Berechnung des Sinus. Der Geschwindigkeitsvorteil kann auf der
 hier verwendeten Hardware immerhin einen Faktor 4 bis 5 betragen.</p>
 <a class="reference internal image-reference" href="_images/profiling_1.png"><img alt="_images/profiling_1.png" class="align-center" src="_images/profiling_1.png" style="width: 7cm;" /></a>
-<p>Das nächste Beispiel bietet bezüglich des <code class="docutils literal"><span class="pre">timeit</span></code>-Moduls nichts Neues.  Es
+<p>Das nächste Beispiel bietet bezüglich des <tt class="docutils literal"><span class="pre">timeit</span></tt>-Moduls nichts Neues.  Es
 soll vielmehr zeigen, dass es auch jenseits von NumPy noch
 Optimierungsmöglichkeiten gibt. Dies hängt damit zusammen, dass NumPy
 beispielsweise beim Berechnen von Polynomen temporäre Arrays anlegt, was
 man bei einer genaueren Analyse des Codes vermeiden könnte. Damit wird die
 Laufzeit also unnötig lang. Sofern man es mit großen Arrays zu tun hat,
-kann das Modul <code class="docutils literal"><span class="pre">numexpr</span></code> Vorteile bieten. Es bekommt den auszuwertenden
+kann das Modul <tt class="docutils literal"><span class="pre">numexpr</span></tt> Vorteile bieten. Es bekommt den auszuwertenden
 Ausdruck als String übergeben und analysiert diesen zunächst, um eine
 effizientere Auswertung zu ermöglichen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">numexpr</span> <span class="kn">as</span> <span class="nn">ne</span>
 <span class="kn">import</span> <span class="nn">timeit</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -254,67 +254,67 @@ effizientere Auswertung zu ermöglichen.</p>
 
 <span class="k">def</span> <span class="nf">f_numexpr</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="s2">&quot;5*x**3-2*x**2+x-7&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="s">&quot;5*x**3-2*x**2+x-7&quot;</span><span class="p">)</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.31</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
     <span class="n">nint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s2">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
+    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
+                            <span class="s">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
                             <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">t_numexpr</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f_numexpr({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s2">&quot;from __main__ import f_numexpr&quot;</span><span class="p">,</span>
+    <span class="n">t_numexpr</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_numexpr({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
+                            <span class="s">&quot;from __main__ import f_numexpr&quot;</span><span class="p">,</span>
                             <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
     <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nint</span><span class="p">)</span>
     <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_numpy</span><span class="o">/</span><span class="n">t_numexpr</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Die folgende Abbildung zeigt, dass man auf diese Weise unter Umständen die
 Laufzeit halbieren kann. Zu beachten ist allerdings, dass das Polynom in
-<code class="docutils literal"><span class="pre">f_numpy</span></code> bereits geschickt geschrieben wurde, um die aufwändige Berechnung
+<tt class="docutils literal"><span class="pre">f_numpy</span></tt> bereits geschickt geschrieben wurde, um die aufwändige Berechnung
 von Potenzen zu vermeiden. Sonst könnte man auf der hier verwendeten Hardware
 sogar eine Beschleunigung von etwa einem Faktor 4 erhalten.</p>
 <a class="reference internal image-reference" href="_images/profiling_2.png"><img alt="_images/profiling_2.png" class="align-center" src="_images/profiling_2.png" style="width: 7cm;" /></a>
 </div>
 <div class="section" id="das-modul-cprofile">
-<h2>Das Modul <code class="docutils literal"><span class="pre">cProfile</span></code><a class="headerlink" href="#das-modul-cprofile" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Das <code class="docutils literal"><span class="pre">timeit</span></code>-Modul, das wir gerade beschrieben haben, ist sehr gut geeignet,
+<h2>Das Modul <tt class="docutils literal"><span class="pre">cProfile</span></tt><a class="headerlink" href="#das-modul-cprofile" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>Das <tt class="docutils literal"><span class="pre">timeit</span></tt>-Modul, das wir gerade beschrieben haben, ist sehr gut geeignet,
 um die Laufzeit eines bestimmten Codesegments zu untersuchen. Bei der Optimierung
 eines Programms interessiert man sich jedoch vor allem dafür, welche Teile des
 Programms wieviel Zeit benötigen. Dann können die rechenintensiven Codeteile
 identifiziert und gezielt optimiert werden. Man kann hier bis auf einzelne
-Codezeilen heruntergehen, wenn man zum Beispiel <code class="docutils literal"><span class="pre">line_profiler</span></code> benutzt
+Codezeilen heruntergehen, wenn man zum Beispiel <tt class="docutils literal"><span class="pre">line_profiler</span></tt> benutzt
 <a class="footnote-reference" href="#lineprofiler" id="id4">[4]</a>.</p>
 <p>Häufig ist dies jedoch nicht nötig, und es genügt festzustellen, wieviel Zeit
 in den einzelnen Funktionen oder Methoden verbracht wurde. Dies funktioniert
 dann besonders gut, wenn man den Code gut modularisiert, was ja auch im
-Hinblick auf das Testen von Vorteil ist, wie wir im Kapitel <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testen von Programmen</span></a>
+Hinblick auf das Testen von Vorteil ist, wie wir im Kapitel <a class="reference internal" href="testing.html#testing"><em>Testen von Programmen</em></a>
 betont hatten. Im Folgenden werden wir beschreiben, wie man mit Hilfe des
-Moduls <code class="docutils literal"><span class="pre">cProfile</span></code> feststellen kann, wieviel Zeit in welchen Funktionen
+Moduls <tt class="docutils literal"><span class="pre">cProfile</span></tt> feststellen kann, wieviel Zeit in welchen Funktionen
 während des Programmlaufs verbracht wird.</p>
-<p>Als zu analysierendes Beispielprogramm benutzen wir im Folgenden <code class="docutils literal"><span class="pre">pystone.py</span></code>
+<p>Als zu analysierendes Beispielprogramm benutzen wir im Folgenden <tt class="docutils literal"><span class="pre">pystone.py</span></tt>
 <a class="footnote-reference" href="#pystone" id="id5">[5]</a>, ein Programm zur Geschwindigkeitsbeurteilung von Hardware. Ob und
 in welchem Umfang der eigentliche Zweck des Programms erfüllt wird, ist hier
 nicht von Interesse. Es geht vielmehr darum herauszufinden, wieviel Rechenzeit
 in den einzelnen Funktionen, die sich auch untereinander aufrufen, benötigt
 wird.  Um die Rechenzeiten etwas deutlicher zu machen, haben wir die Zahl der
-Schleifen in <code class="docutils literal"><span class="pre">pystone.py</span></code> um einen Faktor 10 hochgesetzt <a class="footnote-reference" href="#loops" id="id6">[6]</a>.</p>
-<p>Von den verschiedenen Varianten, <code class="docutils literal"><span class="pre">cProfile</span></code> zu benutzen, wählen wir hier eine,
+Schleifen in <tt class="docutils literal"><span class="pre">pystone.py</span></tt> um einen Faktor 10 hochgesetzt <a class="footnote-reference" href="#loops" id="id6">[6]</a>.</p>
+<p>Von den verschiedenen Varianten, <tt class="docutils literal"><span class="pre">cProfile</span></tt> zu benutzen, wählen wir hier eine,
 bei der wir das zu untersuchende Programm nicht modifizieren müssen. Dazu
 rufen wir das Modul mit geeigneten Argumenten auf:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m cProfile -o pystone.prof pystone.py
+<div class="highlight-python"><div class="highlight"><pre>$ python -m cProfile -o pystone.prof pystone.py
 </pre></div>
 </div>
-<p>Hierbei wird das Programm <code class="docutils literal"><span class="pre">pystone.py</span></code> unter der Kontrolle des
-<code class="docutils literal"><span class="pre">cProfile</span></code>-Moduls ausgeführt. Die Option <code class="docutils literal"><span class="pre">-o</span></code> legt fest, dass die
-Ergebnisse in der Datei <code class="docutils literal"><span class="pre">pystone.prof</span></code> gespeichert werden sollen. Dabei
-handelt es sich um eine Binärdatei, die mit Hilfe des <code class="docutils literal"><span class="pre">pstats</span></code>-Moduls
+<p>Hierbei wird das Programm <tt class="docutils literal"><span class="pre">pystone.py</span></tt> unter der Kontrolle des
+<tt class="docutils literal"><span class="pre">cProfile</span></tt>-Moduls ausgeführt. Die Option <tt class="docutils literal"><span class="pre">-o</span></tt> legt fest, dass die
+Ergebnisse in der Datei <tt class="docutils literal"><span class="pre">pystone.prof</span></tt> gespeichert werden sollen. Dabei
+handelt es sich um eine Binärdatei, die mit Hilfe des <tt class="docutils literal"><span class="pre">pstats</span></tt>-Moduls
 analysiert werden kann. Dazu geht man folgendermaßen vor:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go"> In [1]: import pstats</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="go"> In [1]: import pstats</span>
 
 <span class="go"> In [2]: p = pstats.Stats(&quot;pystone.prof&quot;)</span>
 
@@ -340,28 +340,28 @@ analysiert werden kann. Dazu geht man folgendermaßen vor:</p>
 <span class="go"> 500000    0.893    0.000    1.208    0.000 pystone.py:195(Proc6)</span>
 </pre></div>
 </div>
-<p>Nachdem in Eingabe 1 das <code class="docutils literal"><span class="pre">pstats</span></code>-Modul geladen wurde, wird in Eingabe 2 die
-zuvor erzeugte binäre Datei <code class="docutils literal"><span class="pre">pystone.prof</span></code> eingelesen. Man erhält so eine
-<code class="docutils literal"><span class="pre">pstats.Stats</span></code>-Instanz, die nun analysiert werden kann. In den meisten Fällen
+<p>Nachdem in Eingabe 1 das <tt class="docutils literal"><span class="pre">pstats</span></tt>-Modul geladen wurde, wird in Eingabe 2 die
+zuvor erzeugte binäre Datei <tt class="docutils literal"><span class="pre">pystone.prof</span></tt> eingelesen. Man erhält so eine
+<tt class="docutils literal"><span class="pre">pstats.Stats</span></tt>-Instanz, die nun analysiert werden kann. In den meisten Fällen
 wird man die Daten nach der benötigten Zeit sortieren und auch nur die obersten
 Daten ausgeben wollen, da die Gesamtliste unter Umständen recht lang sein kann.
-In Eingabe 3 sortieren wir mit der <code class="docutils literal"><span class="pre">sort_stats</span></code>-Methode nach der Zeit, die in
+In Eingabe 3 sortieren wir mit der <tt class="docutils literal"><span class="pre">sort_stats</span></tt>-Methode nach der Zeit, die in
 der jeweiligen Funktion verbracht wurde. Anschließend wird mit der
-<code class="docutils literal"><span class="pre">print_stats</span></code>-Methode dafür gesorgt, dass nur die ersten zehn Zeilen ausgegeben
+<tt class="docutils literal"><span class="pre">print_stats</span></tt>-Methode dafür gesorgt, dass nur die ersten zehn Zeilen ausgegeben
 werden.</p>
-<p>Das Schlüsselwort <code class="docutils literal"><span class="pre">&quot;time&quot;</span></code> in der <code class="docutils literal"><span class="pre">sort_stats</span></code>-Methode verlangt eine
+<p>Das Schlüsselwort <tt class="docutils literal"><span class="pre">&quot;time&quot;</span></tt> in der <tt class="docutils literal"><span class="pre">sort_stats</span></tt>-Methode verlangt eine
 Sortierung nach der totalen Zeit, die in der jeweiligen Funktion verbracht
-wurde.  Nun ruft aber beispielsweise die Funktion <code class="docutils literal"><span class="pre">Proc0</span></code> eine Reihe anderer
+wurde.  Nun ruft aber beispielsweise die Funktion <tt class="docutils literal"><span class="pre">Proc0</span></tt> eine Reihe anderer
 Funktionen auf.  Mit totaler Zeit ist dann die Zeit gemeint, die tatsächlich in
-<code class="docutils literal"><span class="pre">Proc0</span></code> verbracht wurde. Wird zwischendurch Zeit in einer anderen Funktion
-verbracht, so wird gewissermaßen die Uhr für <code class="docutils literal"><span class="pre">Proc0</span></code> angehalten.</p>
+<tt class="docutils literal"><span class="pre">Proc0</span></tt> verbracht wurde. Wird zwischendurch Zeit in einer anderen Funktion
+verbracht, so wird gewissermaßen die Uhr für <tt class="docutils literal"><span class="pre">Proc0</span></tt> angehalten.</p>
 <p>Nicht immer ist diese Art der Zeitmessung erwünscht. Daher gibt es auch die
-Möglichkeit, mit dem Schlüsselwort <code class="docutils literal"><span class="pre">&quot;cumtime&quot;</span></code> die kumulative Zeit zu betrachten.
+Möglichkeit, mit dem Schlüsselwort <tt class="docutils literal"><span class="pre">&quot;cumtime&quot;</span></tt> die kumulative Zeit zu betrachten.
 Dies ist die Zeit, die in einer Funktion vom Eintreten bis zum Verlassen verbracht
-wird. Die für <code class="docutils literal"><span class="pre">Proc0</span></code> angegebenen 23.829 Sekunden in der folgenden Übersicht
-enthalten daher auch die bei <code class="docutils literal"><span class="pre">Proc1</span></code> angegebenen 8.764 Sekunden, da <code class="docutils literal"><span class="pre">Proc1</span></code>
-von <code class="docutils literal"><span class="pre">Proc0</span></code> und sonst von keiner weiteren Funktion aufgerufen wird.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s2">&quot;cumtime&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+wird. Die für <tt class="docutils literal"><span class="pre">Proc0</span></tt> angegebenen 23.829 Sekunden in der folgenden Übersicht
+enthalten daher auch die bei <tt class="docutils literal"><span class="pre">Proc1</span></tt> angegebenen 8.764 Sekunden, da <tt class="docutils literal"><span class="pre">Proc1</span></tt>
+von <tt class="docutils literal"><span class="pre">Proc0</span></tt> und sonst von keiner weiteren Funktion aufgerufen wird.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s">&quot;cumtime&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="go">Sun Jan 18 19:46:17 2015    pystone.prof</span>
 
 <span class="go">      10500020 function calls in 23.829 seconds</span>
@@ -383,8 +383,8 @@ von <code class="docutils literal"><span class="pre">Proc0</span></code> und son
 </pre></div>
 </div>
 <p>Die Ausgabe zeigt auch, dass Funktionen, in denen je Aufruf (Spalte
-<code class="docutils literal"><span class="pre">percall</span></code>) nur sehr wenig Zeit verbracht wird, relevant sein können, wenn die
-Zahl der Aufrufe (Spalte <code class="docutils literal"><span class="pre">ncalls</span></code>) entsprechend groß wird. Es empfiehlt sich,
+<tt class="docutils literal"><span class="pre">percall</span></tt>) nur sehr wenig Zeit verbracht wird, relevant sein können, wenn die
+Zahl der Aufrufe (Spalte <tt class="docutils literal"><span class="pre">ncalls</span></tt>) entsprechend groß wird. Es empfiehlt sich,
 für die Funktionen, die für die Rechenzeit besonders relevant ist, die Zahl der
 Aufrufe zu überprüfen.  Dabei stellt man gelegentlich fest, dass eine Funktion
 scheinbar unerklärlich oft aufgerufen wird, beispielsweise weil sie
@@ -431,15 +431,15 @@ angegebene Zitat befindet sich auf Seite 268.</td></tr>
 <table class="docutils footnote" frame="void" id="pystone" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><code class="docutils literal"><span class="pre">pystone.py</span></code> befindet sich im Verzeichnis <code class="docutils literal"><span class="pre">Lib/test</span></code> des
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><tt class="docutils literal"><span class="pre">pystone.py</span></tt> befindet sich im Verzeichnis <tt class="docutils literal"><span class="pre">Lib/test</span></tt> des
 Python-Quellcodes.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="loops" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Hierzu wurde die Variable <code class="docutils literal"><span class="pre">LOOPS</span></code> zu Beginn des Skripts auf den
-Wert <code class="docutils literal"><span class="pre">500000</span></code> gesetzt.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Hierzu wurde die Variable <tt class="docutils literal"><span class="pre">LOOPS</span></tt> zu Beginn des Skripts auf den
+Wert <tt class="docutils literal"><span class="pre">500000</span></tt> gesetzt.</td></tr>
 </tbody>
 </table>
 </div>
@@ -447,7 +447,7 @@ Wert <code class="docutils literal"><span class="pre">500000</span></code> geset
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav">
       
         <p>
         «&#160;&#160;<a href="testing.html">Testen von Programmen</a>
@@ -457,9 +457,9 @@ Wert <code class="docutils literal"><span class="pre">500000</span></code> geset
 
       </div>
 
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6 erstellt.
+    <div class="footer">
+        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
     </div>
   </body>
 </html>
