@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
-    <link rel="next" title="Erstellung von Grafiken mit matplotlib" href="graphics.html" />
+    <link rel="next" title="Erstellung von Grafiken" href="graphics.html" />
     <link rel="prev" title="Fortgeschrittene Aspekte von Python" href="advancedpython.html" /> 
   </head>
   <body>
@@ -41,7 +41,7 @@
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
         &#160;&#160;::&#160;&#160;
-        <a href="graphics.html">Erstellung von Grafiken mit matplotlib</a>&#160;&#160;»
+        <a href="graphics.html">Erstellung von Grafiken</a>&#160;&#160;»
         </p>
 
       </div>
@@ -1108,8 +1108,10 @@ eines Arrays auszuwerten.</p>
 umgehen kann. Hätte unser Array nur ein Element enthalten, so wären wir noch erfolgreich
 gewesen. Im Beispiel hatten wir jedoch mehr als ein Element, genauer gesagt elf Elemente,
 und somit kommt es zu einer <tt class="docutils literal"><span class="pre">TypeError</span></tt>-Ausnahme.</p>
-<p>Den Ausweg bietet in diesem Fall das <tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket selbst, das eine eigene Sinusfunktion
-zur Verfügung stellt, die in der Lage ist, auch mit Arrays umzugehen.</p>
+<p>Den Ausweg bietet in diesem Fall das <tt class="docutils literal"><span class="pre">numpy</span></tt>-Paket selbst, das neben einer ganzen
+Reihe weiterer Funktionen auch eine eigene Sinusfunktion zur Verfügung stellt. Diese ist
+in der Lage, mit Arrays beliebiger Dimension umzugehen. Dabei wird die Funktion
+elementweise angewandt und wieder ein Array der ursprünglichen Form erzeugt.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [3]: </span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 <span class="go">Out[3]:</span>
 <span class="go">array([  0.00000000e+00,   3.09016994e-01,   5.87785252e-01,</span>
@@ -1145,9 +1147,9 @@ möglichen Beispielen wählen wir die Gammafunktion:</p>
 </div>
 <p>Gelegentlich benötigt man eine Funktion von zwei Variablen auf einem Gitter.
 Man könnte hierzu die <tt class="docutils literal"><span class="pre">meshgrid</span></tt>-Funktion heranziehen, die wir im Abschnitt
-<a class="reference internal" href="#arrayerzeugung"><em>Erzeugung von NumPy-Arrays</em></a> erwähnt hatten.  Da man dort die einzelnen Gitterpunkte
-explizit angegeben muss, ist es häufig bequemer, eine <tt class="docutils literal"><span class="pre">mgrid</span></tt>-Gitter zu
-verwenden.</p>
+<a class="reference internal" href="#arrayerzeugung"><em>Erzeugung von NumPy-Arrays</em></a> erwähnt hatten. Dabei muss allerdings entweder die
+Gitterpunkte explizit angeben oder beispielsweise mit <tt class="docutils literal"><span class="pre">linspace</span></tt> erzeugen.
+Dann ist es häufig einfacher, ein <tt class="docutils literal"><span class="pre">mgrid</span></tt>-Gitter zu verwenden.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="go">Out[7]:</span>
 <span class="go">array([[[0, 0, 0],</span>
@@ -1179,10 +1181,19 @@ verwenden.</p>
 </div>
 <p>Man beachte, dass im zweiten Fall das dritte Element in der <em>slice</em>-Syntax imaginär ist. Damit wird
 angedeutet, dass nicht die Schrittweite gemeint ist, sondern die Anzahl der Werte im durch die
-ersten beiden Zahlen spezifizierten Intervall. Unter Verwendung des <em>Broadcasting</em> genügt auch
-ein <tt class="docutils literal"><span class="pre">ogrid</span></tt>-Gitter.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">]</span>
-<span class="go">Out[9]:</span>
+ersten beiden Zahlen spezifizierten Intervall. Das folgende Beispiel zeigt eine
+weitere Anwendung. Man sieht hier, dass die Schrittweite in <tt class="docutils literal"><span class="pre">mgrid</span></tt> auch durch
+eine Gleitkommazahl gegeben sein kann.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mf">0.1</span><span class="p">]</span>
+
+<span class="gp">In [10]: </span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/mpl_4.png"><img alt="_images/mpl_4.png" class="align-center" src="_images/mpl_4.png" style="height: 4.5cm;" /></a>
+<p>Unter Verwendung des <em>broadcasting</em> genügt auch ein mit <tt class="docutils literal"><span class="pre">ogrid</span></tt> erzeugtes Gitter,
+das wesentlich weniger Speicherplatz erfordert.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [11]: </span><span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">7j</span><span class="p">]</span>
+<span class="go">Out[11]:</span>
 <span class="go">[array([[ 0. ],</span>
 <span class="go">       [ 0.5],</span>
 <span class="go">       [ 1. ],</span>
@@ -1193,73 +1204,95 @@ ein <tt class="docutils literal"><span class="pre">ogrid</span></tt>-Gitter.</p>
 <span class="go"> array([[ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ]])]</span>
 </pre></div>
 </div>
-<p>Eine Anwendung bei der Berechnung von Kugelflächenfunktionen könnte folgendermaßen aussehen <a class="footnote-reference" href="#sph-harm" id="id3">[3]</a>.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.special</span>
+<p>Alternativ kann man die Werte für <tt class="docutils literal"><span class="pre">x</span></tt> und <tt class="docutils literal"><span class="pre">y</span></tt> auch expliziter wie folgt
+erzeugen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
-<span class="n">thetas</span><span class="p">,</span> <span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">5j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">9j</span><span class="p">]</span>
-<span class="n">n</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span>
-<span class="n">resultat</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">special</span><span class="o">.</span><span class="n">sph_harm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">phis</span><span class="p">,</span> <span class="n">thetas</span><span class="p">)</span>
+<span class="gp">In [13]: </span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
-<span class="k">print</span> <span class="n">resultat</span>
+<span class="gp">In [14]: </span><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="gp">In [15]: </span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s">&#39;viridis&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Wir verzichten darauf, das Ergebnis anzugeben, da es keine weiteren Einsichten
-bringt, außer dass tatsächlich ein 5×9-Array erzeugt wird. Abschließend sei
-noch angemerkt, dass der Aufruf von <tt class="docutils literal"><span class="pre">sph_harm</span></tt> nicht funktioniert, wenn man
-<tt class="docutils literal"><span class="pre">phis</span></tt> und <tt class="docutils literal"><span class="pre">thetas</span></tt> folgendermaßen definiert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Diese Definition würde kein <em>Broadcasting</em> erlauben. Hätten beide Arrays die
-gleiche Länge, würde die Kugelflächenfunktion zwar ausgewertet werden, aber man
-würde kein zweidimensionales Array sondern nur ein eindimensionales Array
-erhalten.</p>
+<a class="reference internal image-reference" href="_images/mpl_5.png"><img alt="_images/mpl_5.png" class="align-center" src="_images/mpl_5.png" style="height: 4.5cm;" /></a>
+<p>In Eingabe 13 ist es wichtig, dass eine weitere Achse hinzugefügt wird. Erst
+dann spannen <tt class="docutils literal"><span class="pre">x</span></tt> und <tt class="docutils literal"><span class="pre">y</span></tt> durch <em>broadcasting</em> ein zweidimensionales Gitter
+auf. In Eingabe 14 berechnet <tt class="docutils literal"><span class="pre">hypot</span></tt> die Länge der Hypotenuse eines
+rechtwinkligen Dreiecks mit den durch die Argumente gegebenen Kathetenlängen.</p>
 <p>Es ist nicht nur praktisch, Funktionen von Arrays direkt berechnen zu können,
 sondern es spart häufig auch Rechenzeit. Wir wollen dies an einem Beispiel
-illustrieren.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">100000</span>
+illustrieren, in dem wir den Sinus entweder einzeln in einer Schleife oder
+mit Hilfe einer universellen Funktion berechnen.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-<span class="gp">In [11]: </span><span class="o">%%</span><span class="n">timeit</span>
-<span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
-<span class="gp">   ...:</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="o">/</span><span class="p">(</span><span class="n">nmax</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">   ...:</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">   ...:</span>
-<span class="go">10 loops, best of 3: 33.2 ms per loop</span>
+<span class="k">def</span> <span class="nf">sin_math</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">nmax</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">xvals</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span>
 
-<span class="gp">In [12]: </span><span class="o">%%</span><span class="n">timeit</span>
-<span class="gp">   ...:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">nmax</span><span class="p">)</span>
-<span class="gp">   ...:</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">   ...:</span>
-<span class="go">100 loops, best of 3: 2.96 ms per loop</span>
+<span class="k">def</span> <span class="nf">sin_numpy</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="n">xvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">nmax</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">yvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xvals</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span>
 
-<span class="gp">In [13]: </span><span class="o">%%</span><span class="n">timeit</span>
-<span class="gp">   ...:</span> <span class="n">prefactor</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="n">nmax</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
-<span class="gp">   ...:</span>     <span class="n">y</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">prefactor</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
-<span class="gp">   ...:</span>
-<span class="go">100 loops, best of 3: 16.5 ms per loop</span>
+<span class="n">maxpower</span> <span class="o">=</span> <span class="mi">27</span>
+<span class="n">nvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">maxpower</span><span class="p">)</span>
+<span class="n">tvals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">nvals</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">nr</span><span class="p">,</span> <span class="n">nmax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxpower</span><span class="p">,</span> <span class="n">maxpower</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="mi">2</span><span class="p">)):</span>
+    <span class="n">nvals</span><span class="p">[</span><span class="n">nr</span><span class="p">]</span> <span class="o">=</span> <span class="n">nmax</span>
+    <span class="n">tvals</span><span class="p">[</span><span class="n">nr</span><span class="p">]</span> <span class="o">=</span> <span class="n">sin_math</span><span class="p">(</span><span class="n">nmax</span><span class="p">)</span><span class="o">/</span><span class="n">sin_numpy</span><span class="p">(</span><span class="n">nmax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;$n_\mathrm{max}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;$t_\mathrm{math}/t_\mathrm{numpy}$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">nvals</span><span class="p">,</span> <span class="n">tvals</span><span class="p">,</span> <span class="s">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-</div>
-<p>Die angegebenen Rechenzeiten sind natürlich von der Hardware abhängig, auf der
-der Code ausgeführt wurde. Daher kommt es statt auf die Absolutwerte auf
-Verhältnisse von Rechenzeiten zueinander an. Dabei zeigt sich, dass die im
-ersten Codestück programmierte explizite <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife etwa elfmal
-langsamer ist als das zweite Codestück, das eine universelle Funktion
-verwendet. Ein Anteil dieses Geschwindigkeitsvorteils ergibt sich daraus, dass
-in der <tt class="docutils literal"><span class="pre">for</span></tt>-Schleife unnötige Rechenarbeit geleistet wird. Zieht man die
-Berechnung des konstanten Faktors <tt class="docutils literal"><span class="pre">prefactor</span></tt> aus der Schleife heraus, so
-wird die Rechenzeit immerhin etwas mehr als halbiert. Dennoch ist die
-Verwendung der universellen Funktion deutlich schneller. Der
-Geschwindigkeitsvorteil ergibt sich allerdings erst bei hinreichend großen
-Arrays. Bei kleinen Arrays kann dagegen der mit der Verwaltung der Arrays
-verbundene Aufwand überwiegen.</p>
-<p>Abschließend sei noch angemerkt, dass es sich wegen der genannten Rechenzeitvorteile
-lohnt, einen Blick in die Liste der von NumPy zur Verfügung gestellten
-<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">mathematischen Funktionen</a>
-zu werfen. Möchte man zum Beispiel die Summe der Elemente eines Arrays berechnen, so verwendet
-man sinnvollerweise die <tt class="docutils literal"><span class="pre">sum</span></tt>-Funktion von NumPy.</p>
+</td></tr></table></div>
+<a class="reference internal image-reference" href="_images/mpl_6.png"><img alt="_images/mpl_6.png" class="align-center" src="_images/mpl_6.png" style="height: 6cm;" /></a>
+<p>Ist die jeweilige Funktion häufig zu berechnen, so kann man etwa eine
+Größenordnung an Rechenzeit einsparen. Der Vorteil der universellen Funktion
+wird noch etwas größer, wenn man verlangt, dass das Ergebnis in einem Array
+oder in einer Liste abgespeichert wird. In der Funktion <tt class="docutils literal"><span class="pre">sin_numpy</span></tt> ist das
+bereits der Fall, nicht jedoch in der Funktion <tt class="docutils literal"><span class="pre">sin_math</span></tt>.</p>
+<p>Wegen der genannten Rechenzeitvorteile lohnt es sich, einen Blick in die Liste
+der von NumPy zur Verfügung gestellten <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">mathematischen Funktionen</a> zu werfen.</p>
 </div>
 <div class="section" id="lineare-algebra">
 <h2>Lineare Algebra<a class="headerlink" href="#lineare-algebra" title="Permalink zu dieser Überschrift">¶</a></h2>
@@ -1304,39 +1337,47 @@ ausgeführt:</p>
 <span class="go">       [ 4,  7]])</span>
 </pre></div>
 </div>
+<p>Ab Python 3.5 und NumPy 1.10 steht hierfür auch ein spezieller Operator zur
+Verfügung.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">a1</span> <span class="err">@</span> <span class="n">a2</span>
+<span class="go">Out[9]:</span>
+<span class="go">array([[-3, -3],</span>
+<span class="go">       [ 4,  7]])</span>
+</pre></div>
+</div>
 <p>Man könnte die Norm eines Vektors ebenfalls mit Hilfe des <tt class="docutils literal"><span class="pre">dot</span></tt>-Produkts bestimmen. Es bietet
 sich jedoch an, hierzu direkt die <tt class="docutils literal"><span class="pre">norm</span></tt>-Funktion zu verwenden:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [9]: </span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [10]: </span><span class="n">vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-<span class="gp">In [10]: </span><span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
-<span class="gr">Out[10]: </span><span class="mf">3.7416573867739413</span>
+<span class="gp">In [11]: </span><span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+<span class="gr">Out[11]: </span><span class="mf">3.7416573867739413</span>
 
-<span class="gp">In [11]: </span><span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-<span class="gr">Out[11]: </span><span class="mf">14.0</span>
+<span class="gp">In [12]: </span><span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="gr">Out[12]: </span><span class="mf">14.0</span>
 </pre></div>
 </div>
 <p>Als nächstes wollen wir ein inhomogenes lineares Gleichungssystem <tt class="docutils literal"><span class="pre">ax</span> <span class="pre">=</span> <span class="pre">b</span></tt> lösen, wobei die
 Matrix <tt class="docutils literal"><span class="pre">a</span></tt> und der Vektor <tt class="docutils literal"><span class="pre">b</span></tt> gegeben sind und der Vektor <tt class="docutils literal"><span class="pre">x</span></tt> gesucht ist.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [12]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [13]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 
-<span class="gp">In [13]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">In [14]: </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 
-<span class="gp">In [14]: </span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gr">Out[14]: </span><span class="mf">0.99999999999999978</span>
+<span class="gp">In [15]: </span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gr">Out[15]: </span><span class="mf">0.99999999999999978</span>
 
-<span class="gp">In [15]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">b</span><span class="p">)</span>
-<span class="gr">Out[15]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">])</span>
+<span class="gp">In [16]: </span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">b</span><span class="p">)</span>
+<span class="gr">Out[16]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>In Eingabe 14 haben wir zunächst überprüft, dass die Determinante der Matrix
+<p>In Eingabe 15 haben wir zunächst überprüft, dass die Determinante der Matrix
 <tt class="docutils literal"><span class="pre">a</span></tt> ungleich Null ist, so dass die invertierte Matrix existiert. Anschließend
 haben wir den Vektor <tt class="docutils literal"><span class="pre">b</span></tt> von links mit der Inversen von <tt class="docutils literal"><span class="pre">a</span></tt> multipliziert,
 um den Lösungsvektor zu erhalten. Allerdings erfolgt die numerische Lösung
 eines inhomogenen linearen Gleichungssystems normalerweise nicht über eine
 Inversion der Matrix, sondern mit Hilfe einer geeignet durchgeführten Gauß-Elimination.
 NumPy stell hierzu die <tt class="docutils literal"><span class="pre">solve</span></tt>-Funktion zur Verfügung:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [16]: </span><span class="n">LA</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-<span class="gr">Out[16]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [17]: </span><span class="n">LA</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="gr">Out[17]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">4.</span><span class="p">,</span>  <span class="mf">7.</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Eine nicht invertierbare Matrix führt hier wie auch bei der Bestimmung der Determinante
@@ -1344,48 +1385,125 @@ auf eine <tt class="docutils literal"><span class="pre">LinAlgError</span></tt>-
 <p>Eine häufig vorkommende Problemstellung im Bereich der linearen Algebra sind
 Eigenwertprobleme. Die <tt class="docutils literal"><span class="pre">eig</span></tt>-Funktion bestimmt rechtsseitige Eigenvektoren und
 die zugehörigen Eigenwerte für beliebige quadratische Matrizen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [17]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [18]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 
-<span class="gp">In [18]: </span><span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">In [19]: </span><span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
-<span class="gp">In [19]: </span><span class="n">evals</span>
-<span class="gr">Out[19]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">3.60555128</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.60555128</span><span class="p">])</span>
+<span class="gp">In [20]: </span><span class="n">evals</span>
+<span class="gr">Out[20]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">3.60555128</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.60555128</span><span class="p">])</span>
 
-<span class="gp">In [20]: </span><span class="n">evecs</span>
-<span class="go">Out[20]:</span>
+<span class="gp">In [21]: </span><span class="n">evecs</span>
+<span class="go">Out[21]:</span>
 <span class="go">array([[ 0.75499722, -0.54580557],</span>
 <span class="go">       [ 0.65572799,  0.83791185]])</span>
 
-<span class="gp">In [21]: </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">evecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="gp">In [22]: </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">evecs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
 <span class="go">    print(np.dot(a, evecs[:, n]), evals[n]*evecs[:, n])</span>
-<span class="go">Out[21]:</span>
+<span class="go">Out[22]:</span>
 <span class="go">[ 2.72218119  2.36426089] [ 2.72218119  2.36426089]</span>
 <span class="go">[ 1.96792999 -3.02113415] [ 1.96792999 -3.02113415]</span>
 </pre></div>
 </div>
-<p>Die Ausgabe am Ende zeigt, dass die Eigenvektoren und -werte in der Tat korrekt sind.
-Benötigt man nur die Eigenwerte einer Matrix, so kann man durch Benutzung der
-<tt class="docutils literal"><span class="pre">eigvals</span></tt>-Funktion Rechenzeit sparen.</p>
-<p>Für die Lösung eines Eigenwertproblems von symmetrischen oder hermiteschen <a class="footnote-reference" href="#hermitesch" id="id4">[4]</a>
+<p>Die Ausgabe am Ende zeigt, dass die Eigenvektoren und -werte in der Tat korrekt
+sind.  Zudem wird hier deutlich, dass die Eigenvektoren als Spaltenvektoren in
+der Matrix <tt class="docutils literal"><span class="pre">evecs</span></tt> gespeichert sind. Benötigt man nur die Eigenwerte einer
+Matrix, so kann man durch Benutzung der <tt class="docutils literal"><span class="pre">eigvals</span></tt>-Funktion Rechenzeit sparen.</p>
+<p>Für die Lösung eines Eigenwertproblems von symmetrischen oder hermiteschen <a class="footnote-reference" href="#hermitesch" id="id3">[3]</a>
 Matrizen gibt es die Funktionen <tt class="docutils literal"><span class="pre">eigh</span></tt> und <tt class="docutils literal"><span class="pre">eigvalsh</span></tt>, bei denen es genügt,
 nur die obere oder die untere Hälfte der Matrix zu spezifizieren. Viel
 wichtiger ist jedoch, dass diese Funktionen einen erheblichen Zeitvorteil
 bieten können:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [22]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">250000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [23]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">250000</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
 
-<span class="gp">In [23]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">a</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">In [24]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="n">a</span><span class="o">.</span><span class="n">T</span>
 
-<span class="gp">In [24]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">1 loops, best of 3: 736 ms per loop</span>
+<span class="gp">In [25]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">1 loop, best of 3: 209 ms per loop</span>
 
-<span class="gp">In [25]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">LA</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">10 loops, best of 3: 208 ms per loop</span>
+<span class="gp">In [26]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">LA</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">10 loops, best of 3: 28.2 ms per loop</span>
 </pre></div>
 </div>
-<p>Hier wird in Eingabe 23 durch Addition der Transponierten eine symmetrische
+<p>Hier wird in Eingabe 24 durch Addition der Transponierten eine symmetrische
 Matrix erzeugt, so dass die beiden Funktionen <tt class="docutils literal"><span class="pre">eig</span></tt> und <tt class="docutils literal"><span class="pre">eigh</span></tt> mit der
-gleichen Matrix arbeiten. Die Funktion <tt class="docutils literal"><span class="pre">eigh</span></tt> ist in diesem Beispiel immerhin
-um mehr als einen Faktor 3 schneller.</p>
+gleichen Matrix arbeiten. Die Funktion <tt class="docutils literal"><span class="pre">eigh</span></tt> ist in diesem Beispiel etwa
+siebenmal so schnell.</p>
+</div>
+<div class="section" id="einfache-anwendungen">
+<h2>Einfache Anwendungen<a class="headerlink" href="#einfache-anwendungen" title="Permalink zu dieser Überschrift">¶</a></h2>
+<p>In diesem Abschnitt stellen wir einige einfache Problemstellungen vor, die sich
+mit Hilfe von NumPy gut bearbeiten lassen. Wir verzichten dabei bewusst auf die
+Angabe der Lösung, zeigen jedoch die zu erwartenden Resultate.</p>
+<div class="section" id="mandelbrot-menge">
+<h3>Mandelbrot-Menge<a class="headerlink" href="#mandelbrot-menge" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Betrachtet man die Rekursionsformel <span class="math">\(z_{n+1} = z_n^2+c\)</span> mit <span class="math">\(z_0=0\)</span>,
+so ist die Mandelbrot-Menge durch die komplexen Zahlen <span class="math">\(c\)</span> definiert, für
+die Folge der <span class="math">\(z_n\)</span> beschränkt bleibt. Überschreitet der Betrag von
+<span class="math">\(z\)</span> die Schwelle 2, so divergiert die Folge. In der Praxis wird man
+natürlich nur eine endliche Zahl von Iterationen ausführen können.</p>
+<p>In der linken der beiden folgenden Abbildung ist die Mandelbrot-Menge in weiß
+dargestellt.  Bei der Berechnung wird man möglicherweise Überlaufwarnungen
+erhalten. Diese kann man vermeiden, wenn man die Berechnung nur für die Werte
+von <span class="math">\(c\)</span> fortsetzt, für die die Schwelle von Zwei noch nicht überschritten
+wurde. Dann eröffnet sich auch die Möglichkeit, die Zahl der Iterationen bis zum
+Erreichen der Schwelle abzuspeichern und in einer Farbabbildung darzustellen.
+Dies ist im rechten Bild für einen Ausschnitt gezeigt.</p>
+<a class="reference internal image-reference" href="_images/mandelbrot.png"><img alt="_images/mandelbrot.png" class="align-center" src="_images/mandelbrot.png" style="height: 6cm;" /></a>
+</div>
+<div class="section" id="brownsche-bewegung">
+<h3>Brownsche Bewegung<a class="headerlink" href="#brownsche-bewegung" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Eine Zufallsbewegung in einer Dimension kann man durch Zufallszahlen darstellen,
+die aus der Menge der beiden Zahlen <span class="math">\(-1\)</span> und <span class="math">\(1\)</span> gezogen werden.
+Jede Zufallszahl gibt die Richtung an, in der zu dem entsprechenden Zeitpunkt
+ein Schritt ausgeführt wird. Es sollen nun mehrere Realisierung erzeugt und
+graphisch dargestellt werden. Aus den erzeugten Daten soll auch der Mittelwert
+und die Varianz des Orts als Funktion der Zeit berechnet und dargestellt werden.
+Für die Berechnung ist es praktisch, dass NumPy eine Funktion zur Verfügung
+stellt, die für ein Array sukzessive kumulative Summen berechnen kann.</p>
+<a class="reference internal image-reference" href="_images/brownianmotion.png"><img alt="_images/brownianmotion.png" class="align-center" src="_images/brownianmotion.png" style="height: 10cm;" /></a>
+</div>
+<div class="section" id="fibonacci-zahlen-und-goldener-schnitt">
+<h3>Fibonacci-Zahlen und goldener Schnitt<a class="headerlink" href="#fibonacci-zahlen-und-goldener-schnitt" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>Die Fibonacci-Folge ist durch die Rekursionsformel <span class="math">\(f_{n+1} = f_n+f_{n-1}\)</span>
+mit den Anfangswerten <span class="math">\(f_1=f_2=1\)</span> bestimmt. Das Verhältnis
+<span class="math">\(f_{n+1}/f_{n}\)</span> geht für große <span class="math">\(n\)</span> gegen einen Grenzwert, der mit
+Hilfe des <tt class="docutils literal"><span class="pre">linalg</span></tt>-Moduls von NumPy berechnet werden soll. Dies gelingt, wenn
+man die Rekursionsformel als Abbildung des Tupels <span class="math">\((f_n, f_{n-1})\)</span> auf
+das Tupel <span class="math">\((f_{n+1}, f_n)\)</span> interpretiert.</p>
+</div>
+<div class="section" id="bildbearbeitung">
+<h3>Bildbearbeitung<a class="headerlink" href="#bildbearbeitung" title="Permalink zu dieser Überschrift">¶</a></h3>
+<p>NumPy-Arrays können auch Bilddaten repräsentieren, so dass sich die Bearbeitung
+eines Bildes auf die Manipulation eines NumPy-Arrays zurückführen lässt. Der
+folgende Code zeigt, wie man ein in der SciPy-Bibliothek verfügbares Bild als
+Array interpretieren und graphisch darstellen kann.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">misc</span>
+
+<span class="gp">In [2]: </span><span class="n">face</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">face</span><span class="p">(</span><span class="n">gray</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="gp">In [3]: </span><span class="n">face</span>
+<span class="go">Out[3]:</span>
+<span class="go">array([[114, 130, 145, ..., 119, 129, 137],</span>
+<span class="go">       [ 83, 104, 123, ..., 118, 134, 146],</span>
+<span class="go">       [ 68,  88, 109, ..., 119, 134, 145],</span>
+<span class="go">       ...,</span>
+<span class="go">       [ 98, 103, 116, ..., 144, 143, 143],</span>
+<span class="go">       [ 94, 104, 120, ..., 143, 142, 142],</span>
+<span class="go">       [ 94, 106, 119, ..., 142, 141, 140]], dtype=uint8)</span>
+</pre></div>
+</div>
+<p>Wir haben es hier mit einem Array zu tun, dessen Elemente durch vorzeichenlose
+8-Bit-Integers dargestellt sind, also Zahlen zwischen 0 und 255 repräsentieren.
+Diese können wir als Grauwerte darstellen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">face</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gray</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/face_orig.png"><img alt="_images/face_orig.png" class="align-center" src="_images/face_orig.png" style="height: 5cm;" /></a>
+<p>Durch geeignete Manipulation des NumPy-Arrays <tt class="docutils literal"><span class="pre">face</span></tt> lässt sich das Bild in
+ein Schwarz-Weiß-Bild verwandeln oder man kann die Kontrastkurve verändern.
+Des Weiteren kann man das Bild zum Beispiel mit verschiedenen Rahmen versehen.
+Einige Möglichkeiten zeigen die folgenden Bilder.</p>
+<a class="reference internal image-reference" href="_images/facecollection.png"><img alt="_images/facecollection.png" class="align-center" src="_images/facecollection.png" style="height: 8cm;" /></a>
 <table class="docutils footnote" frame="void" id="array" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -1401,20 +1519,14 @@ von zwei Arrays im Allgemeinen nicht dem Matrixprodukt.</td></tr>
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Das englische Wort <em>stride</em> bedeutet Schritt.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="sph-harm" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Im <tt class="docutils literal"><span class="pre">scipy</span></tt>-Modul sind die Winkel im Vergleich zur üblichen Konvention gerade vertauscht
-benannt (siehe auch die <a class="reference external" href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html#scipy.special.sph_harm">Dokumentation zur Funktion sph_harm</a>).</td></tr>
-</tbody>
-</table>
 <table class="docutils footnote" frame="void" id="hermitesch" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Eine hermitesche Matrix geht beim Transponieren in die konjugiert komplexe Matrix über:
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Eine hermitesche Matrix geht beim Transponieren in die konjugiert komplexe Matrix über:
 <span class="math">\(a_{ij}=a_{ji}^*\)</span>.</td></tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 
@@ -1427,7 +1539,7 @@ benannt (siehe auch die <a class="reference external" href="http://docs.scipy.or
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
         &#160;&#160;::&#160;&#160;
-        <a href="graphics.html">Erstellung von Grafiken mit matplotlib</a>&#160;&#160;»
+        <a href="graphics.html">Erstellung von Grafiken</a>&#160;&#160;»
         </p>
 
       </div>

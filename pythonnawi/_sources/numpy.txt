@@ -1221,8 +1221,10 @@ umgehen kann. Hätte unser Array nur ein Element enthalten, so wären wir noch e
 gewesen. Im Beispiel hatten wir jedoch mehr als ein Element, genauer gesagt elf Elemente,
 und somit kommt es zu einer ``TypeError``-Ausnahme.
 
-Den Ausweg bietet in diesem Fall das ``numpy``-Paket selbst, das eine eigene Sinusfunktion
-zur Verfügung stellt, die in der Lage ist, auch mit Arrays umzugehen.
+Den Ausweg bietet in diesem Fall das ``numpy``-Paket selbst, das neben einer ganzen
+Reihe weiterer Funktionen auch eine eigene Sinusfunktion zur Verfügung stellt. Diese ist
+in der Lage, mit Arrays beliebiger Dimension umzugehen. Dabei wird die Funktion
+elementweise angewandt und wieder ein Array der ursprünglichen Form erzeugt.
 
 .. sourcecode:: ipython
 
@@ -1264,9 +1266,9 @@ möglichen Beispielen wählen wir die Gammafunktion:
 
 Gelegentlich benötigt man eine Funktion von zwei Variablen auf einem Gitter.
 Man könnte hierzu die ``meshgrid``-Funktion heranziehen, die wir im Abschnitt
-:ref:`arrayerzeugung` erwähnt hatten.  Da man dort die einzelnen Gitterpunkte
-explizit angegeben muss, ist es häufig bequemer, eine ``mgrid``-Gitter zu
-verwenden.
+:ref:`arrayerzeugung` erwähnt hatten. Dabei muss allerdings entweder die 
+Gitterpunkte explizit angeben oder beispielsweise mit ``linspace`` erzeugen.
+Dann ist es häufig einfacher, ein ``mgrid``-Gitter zu verwenden.
 
 .. sourcecode:: ipython
 
@@ -1300,13 +1302,28 @@ verwenden.
 
 Man beachte, dass im zweiten Fall das dritte Element in der *slice*-Syntax imaginär ist. Damit wird
 angedeutet, dass nicht die Schrittweite gemeint ist, sondern die Anzahl der Werte im durch die
-ersten beiden Zahlen spezifizierten Intervall. Unter Verwendung des *Broadcasting* genügt auch
-ein ``ogrid``-Gitter.
+ersten beiden Zahlen spezifizierten Intervall. Das folgende Beispiel zeigt eine
+weitere Anwendung. Man sieht hier, dass die Schrittweite in ``mgrid`` auch durch
+eine Gleitkommazahl gegeben sein kann.
 
 .. sourcecode:: ipython
 
-   In [9]: np.ogrid[0:3:7j, 0:3:7j]
-   Out[9]: 
+   In [9]: x, y = np.mgrid[-10:10:0.1, -10:10:0.1]
+
+   In [10]: plt.imshow(np.sin(x*y))
+
+.. image:: images/numpy/mpl_4.*
+           :height: 4.5cm
+           :align: center
+
+
+Unter Verwendung des *broadcasting* genügt auch ein mit ``ogrid`` erzeugtes Gitter,
+das wesentlich weniger Speicherplatz erfordert.
+
+.. sourcecode:: ipython
+
+   In [11]: np.ogrid[0:3:7j, 0:3:7j]
+   Out[11]: 
    [array([[ 0. ],
           [ 0.5],
           [ 1. ],
@@ -1316,81 +1333,80 @@ ein ``ogrid``-Gitter.
           [ 3. ]]),
     array([[ 0. ,  0.5,  1. ,  1.5,  2. ,  2.5,  3. ]])]
 
-Eine Anwendung bei der Berechnung von Kugelflächenfunktionen könnte folgendermaßen aussehen [#sph_harm]_.
-
-.. sourcecode:: python
-
-   import numpy as np
-   import scipy.special
-
-   thetas, phis = np.ogrid[0:np.pi:5j, 0:2*np.pi:9j]
-   n, m = 5, 2
-   resultat = scipy.special.sph_harm(m, n, phis, thetas)
-
-   print resultat
-
-Wir verzichten darauf, das Ergebnis anzugeben, da es keine weiteren Einsichten
-bringt, außer dass tatsächlich ein 5×9-Array erzeugt wird. Abschließend sei
-noch angemerkt, dass der Aufruf von ``sph_harm`` nicht funktioniert, wenn man
-``phis`` und ``thetas`` folgendermaßen definiert:
-
-.. sourcecode:: python
-
-   thetas = np.linspace(0, np.pi, 5)
-   phis = np.linspace(0, 2*np.pi, 9)
-
-Diese Definition würde kein *Broadcasting* erlauben. Hätten beide Arrays die
-gleiche Länge, würde die Kugelflächenfunktion zwar ausgewertet werden, aber man
-würde kein zweidimensionales Array sondern nur ein eindimensionales Array
-erhalten.
-
-Es ist nicht nur praktisch, Funktionen von Arrays direkt berechnen zu können,
-sondern es spart häufig auch Rechenzeit. Wir wollen dies an einem Beispiel
-illustrieren.
+Alternativ kann man die Werte für ``x`` und ``y`` auch expliziter wie folgt
+erzeugen.
 
 .. sourcecode:: ipython
 
-   In [10]: nmax = 100000
-   
-   In [11]: %%timeit
-      ...: for n in range(nmax):
-      ...:     x = 2*math.pi*n/(nmax-1)
-      ...:     y = math.sin(x)
-      ...: 
-   10 loops, best of 3: 33.2 ms per loop
-   
-   In [12]: %%timeit
-      ...: x = np.linspace(0, 2*np.pi, nmax)
-      ...: y = np.sin(x)
-      ...: 
-   100 loops, best of 3: 2.96 ms per loop
-   
-   In [13]: %%timeit
-      ...: prefactor = 2*math.pi/(nmax-1)
-      ...: for n in range(nmax):
-      ...:     y = math.sin(prefactor*n)
-      ...: 
-   100 loops, best of 3: 16.5 ms per loop
-   
-Die angegebenen Rechenzeiten sind natürlich von der Hardware abhängig, auf der
-der Code ausgeführt wurde. Daher kommt es statt auf die Absolutwerte auf
-Verhältnisse von Rechenzeiten zueinander an. Dabei zeigt sich, dass die im
-ersten Codestück programmierte explizite ``for``-Schleife etwa elfmal
-langsamer ist als das zweite Codestück, das eine universelle Funktion
-verwendet. Ein Anteil dieses Geschwindigkeitsvorteils ergibt sich daraus, dass
-in der ``for``-Schleife unnötige Rechenarbeit geleistet wird. Zieht man die
-Berechnung des konstanten Faktors ``prefactor`` aus der Schleife heraus, so
-wird die Rechenzeit immerhin etwas mehr als halbiert. Dennoch ist die
-Verwendung der universellen Funktion deutlich schneller. Der
-Geschwindigkeitsvorteil ergibt sich allerdings erst bei hinreichend großen
-Arrays. Bei kleinen Arrays kann dagegen der mit der Verwaltung der Arrays
-verbundene Aufwand überwiegen.
+   In [12]: x = np.linspace(-40, 40, 200)
 
-Abschließend sei noch angemerkt, dass es sich wegen der genannten Rechenzeitvorteile
-lohnt, einen Blick in die Liste der von NumPy zur Verfügung gestellten 
-`mathematischen Funktionen <http://docs.scipy.org/doc/numpy/reference/routines.math.html>`_
-zu werfen. Möchte man zum Beispiel die Summe der Elemente eines Arrays berechnen, so verwendet
-man sinnvollerweise die ``sum``-Funktion von NumPy.
+   In [13]: y = x[:, np.newaxis]
+
+   In [14]: z = np.sin(np.hypot(x-10, y))+np.sin(np.hypot(x+10, y))
+
+   In [15]: plt.imshow(z, cmap='viridis')
+
+.. image:: images/numpy/mpl_5.*
+           :height: 4.5cm
+           :align: center
+
+In Eingabe 13 ist es wichtig, dass eine weitere Achse hinzugefügt wird. Erst
+dann spannen ``x`` und ``y`` durch *broadcasting* ein zweidimensionales Gitter
+auf. In Eingabe 14 berechnet ``hypot`` die Länge der Hypotenuse eines
+rechtwinkligen Dreiecks mit den durch die Argumente gegebenen Kathetenlängen.
+
+Es ist nicht nur praktisch, Funktionen von Arrays direkt berechnen zu können,
+sondern es spart häufig auch Rechenzeit. Wir wollen dies an einem Beispiel
+illustrieren, in dem wir den Sinus entweder einzeln in einer Schleife oder
+mit Hilfe einer universellen Funktion berechnen.
+
+.. sourcecode:: python
+   :linenos:
+
+   import math
+   import matplotlib.pyplot as plt
+   import numpy as np
+   import time
+   
+   def sin_math(nmax):
+       xvals = np.linspace(0, 2*np.pi, nmax)
+       start = time.time()
+       for x in xvals:
+           y = math.sin(x)
+       return time.time()-start
+   
+   def sin_numpy(nmax):
+       xvals = np.linspace(0, 2*np.pi, nmax)
+       start = time.time()
+       yvals = np.sin(xvals)
+       return time.time()-start
+   
+   maxpower = 27
+   nvals = np.empty(maxpower)
+   tvals = np.empty_like(nvals)
+   for nr, nmax in enumerate(np.logspace(1, maxpower, maxpower, base=2)):
+       nvals[nr] = nmax
+       tvals[nr] = sin_math(nmax)/sin_numpy(nmax)
+   plt.rc('text', usetex=True)
+   plt.xscale('log')
+   plt.xlabel('$n_\mathrm{max}$', fontsize=20)
+   plt.ylabel('$t_\mathrm{math}/t_\mathrm{numpy}$', fontsize=20)
+   plt.plot(nvals, tvals, 'o')
+   plt.show()
+
+.. image:: images/numpy/mpl_6.*
+           :height: 6cm
+           :align: center
+
+Ist die jeweilige Funktion häufig zu berechnen, so kann man etwa eine
+Größenordnung an Rechenzeit einsparen. Der Vorteil der universellen Funktion
+wird noch etwas größer, wenn man verlangt, dass das Ergebnis in einem Array
+oder in einer Liste abgespeichert wird. In der Funktion ``sin_numpy`` ist das
+bereits der Fall, nicht jedoch in der Funktion ``sin_math``.
+
+Wegen der genannten Rechenzeitvorteile lohnt es sich, einen Blick in die Liste
+der von NumPy zur Verfügung gestellten `mathematischen Funktionen
+<http://docs.scipy.org/doc/numpy/reference/routines.math.html>`_ zu werfen.
 
 ---------------
 Lineare Algebra
@@ -1443,35 +1459,45 @@ Möchte man dagegen eine Matrixmultiplikation ausführen, so verwendet man das `
    array([[-3, -3],
           [ 4,  7]])
 
+Ab Python 3.5 und NumPy 1.10 steht hierfür auch ein spezieller Operator zur
+Verfügung.
+
+.. code-block:: ipython
+
+   In [9]: a1 @ a2
+   Out[9]: 
+   array([[-3, -3],
+          [ 4,  7]])
+
 Man könnte die Norm eines Vektors ebenfalls mit Hilfe des ``dot``-Produkts bestimmen. Es bietet
 sich jedoch an, hierzu direkt die ``norm``-Funktion zu verwenden:
 
 .. code-block:: ipython
 
-   In [9]: vec = np.array([1, -2, 3])
+   In [10]: vec = np.array([1, -2, 3])
 
-   In [10]: LA.norm(vec)
-   Out[10]: 3.7416573867739413
+   In [11]: LA.norm(vec)
+   Out[11]: 3.7416573867739413
 
-   In [11]: LA.norm(vec)**2
-   Out[11]: 14.0
+   In [12]: LA.norm(vec)**2
+   Out[12]: 14.0
 
 Als nächstes wollen wir ein inhomogenes lineares Gleichungssystem ``ax = b`` lösen, wobei die
 Matrix ``a`` und der Vektor ``b`` gegeben sind und der Vektor ``x`` gesucht ist.
 
 .. code-block:: ipython
 
-   In [12]: a = np.array([[2, -1], [-3, 2]])
+   In [13]: a = np.array([[2, -1], [-3, 2]])
 
-   In [13]: b = np.array([1, 2])
+   In [14]: b = np.array([1, 2])
 
-   In [14]: LA.det(a)
-   Out[14]: 0.99999999999999978
+   In [15]: LA.det(a)
+   Out[15]: 0.99999999999999978
 
-   In [15]: np.dot(LA.inv(a), b)
-   Out[15]: array([ 4.,  7.])
+   In [16]: np.dot(LA.inv(a), b)
+   Out[16]: array([ 4.,  7.])
 
-In Eingabe 14 haben wir zunächst überprüft, dass die Determinante der Matrix
+In Eingabe 15 haben wir zunächst überprüft, dass die Determinante der Matrix
 ``a`` ungleich Null ist, so dass die invertierte Matrix existiert. Anschließend
 haben wir den Vektor ``b`` von links mit der Inversen von ``a`` multipliziert,
 um den Lösungsvektor zu erhalten. Allerdings erfolgt die numerische Lösung
@@ -1481,8 +1507,8 @@ NumPy stell hierzu die ``solve``-Funktion zur Verfügung:
 
 .. code-block:: ipython
 
-   In [16]: LA.solve(a, b)
-   Out[16]: array([ 4.,  7.])
+   In [17]: LA.solve(a, b)
+   Out[17]: array([ 4.,  7.])
 
 Eine nicht invertierbare Matrix führt hier wie auch bei der Bestimmung der Determinante
 auf eine ``LinAlgError``-Ausnahme mit dem Hinweis auf eine singuläre Matrix.
@@ -1493,27 +1519,28 @@ die zugehörigen Eigenwerte für beliebige quadratische Matrizen:
 
 .. code-block:: ipython
 
-   In [17]: a = np.array([[1, 3], [4, -1]])
+   In [18]: a = np.array([[1, 3], [4, -1]])
 
-   In [18]: evals, evecs = LA.eig(a)
+   In [19]: evals, evecs = LA.eig(a)
 
-   In [19]: evals
-   Out[19]: array([ 3.60555128, -3.60555128])
+   In [20]: evals
+   Out[20]: array([ 3.60555128, -3.60555128])
 
-   In [20]: evecs
-   Out[20]: 
+   In [21]: evecs
+   Out[21]: 
    array([[ 0.75499722, -0.54580557],
           [ 0.65572799,  0.83791185]])
 
-   In [21]: for n in range(evecs.shape[0]):
+   In [22]: for n in range(evecs.shape[0]):
        print(np.dot(a, evecs[:, n]), evals[n]*evecs[:, n])
-   Out[21]: 
+   Out[22]: 
    [ 2.72218119  2.36426089] [ 2.72218119  2.36426089]
    [ 1.96792999 -3.02113415] [ 1.96792999 -3.02113415]
 
-Die Ausgabe am Ende zeigt, dass die Eigenvektoren und -werte in der Tat korrekt sind.
-Benötigt man nur die Eigenwerte einer Matrix, so kann man durch Benutzung der
-``eigvals``-Funktion Rechenzeit sparen.
+Die Ausgabe am Ende zeigt, dass die Eigenvektoren und -werte in der Tat korrekt
+sind.  Zudem wird hier deutlich, dass die Eigenvektoren als Spaltenvektoren in
+der Matrix ``evecs`` gespeichert sind. Benötigt man nur die Eigenwerte einer
+Matrix, so kann man durch Benutzung der ``eigvals``-Funktion Rechenzeit sparen.
 
 Für die Lösung eines Eigenwertproblems von symmetrischen oder hermiteschen [#hermitesch]_
 Matrizen gibt es die Funktionen ``eigh`` und ``eigvalsh``, bei denen es genügt,
@@ -1523,20 +1550,124 @@ bieten können:
 
 .. code-block:: ipython
 
-   In [22]: a = np.random.random(250000).reshape(500, 500)
+   In [23]: a = np.random.random(250000).reshape(500, 500)
 
-   In [23]: a = a+a.T
+   In [24]: a = a+a.T
 
-   In [24]: %timeit LA.eig(a)
-   1 loops, best of 3: 736 ms per loop
+   In [25]: %timeit LA.eig(a)
+   1 loop, best of 3: 209 ms per loop
 
-   In [25]: %timeit LA.eigh(a)
-   10 loops, best of 3: 208 ms per loop
+   In [26]: %timeit LA.eigh(a)
+   10 loops, best of 3: 28.2 ms per loop
 
-Hier wird in Eingabe 23 durch Addition der Transponierten eine symmetrische
+Hier wird in Eingabe 24 durch Addition der Transponierten eine symmetrische
 Matrix erzeugt, so dass die beiden Funktionen ``eig`` und ``eigh`` mit der
-gleichen Matrix arbeiten. Die Funktion ``eigh`` ist in diesem Beispiel immerhin
-um mehr als einen Faktor 3 schneller.
+gleichen Matrix arbeiten. Die Funktion ``eigh`` ist in diesem Beispiel etwa
+siebenmal so schnell.
+
+--------------------
+Einfache Anwendungen
+--------------------
+
+In diesem Abschnitt stellen wir einige einfache Problemstellungen vor, die sich
+mit Hilfe von NumPy gut bearbeiten lassen. Wir verzichten dabei bewusst auf die
+Angabe der Lösung, zeigen jedoch die zu erwartenden Resultate.
+
+................
+Mandelbrot-Menge
+................
+
+Betrachtet man die Rekursionsformel :math:`z_{n+1} = z_n^2+c` mit :math:`z_0=0`,
+so ist die Mandelbrot-Menge durch die komplexen Zahlen :math:`c` definiert, für
+die Folge der :math:`z_n` beschränkt bleibt. Überschreitet der Betrag von
+:math:`z` die Schwelle 2, so divergiert die Folge. In der Praxis wird man
+natürlich nur eine endliche Zahl von Iterationen ausführen können.
+
+In der linken der beiden folgenden Abbildung ist die Mandelbrot-Menge in weiß
+dargestellt.  Bei der Berechnung wird man möglicherweise Überlaufwarnungen
+erhalten. Diese kann man vermeiden, wenn man die Berechnung nur für die Werte
+von :math:`c` fortsetzt, für die die Schwelle von Zwei noch nicht überschritten
+wurde. Dann eröffnet sich auch die Möglichkeit, die Zahl der Iterationen bis zum
+Erreichen der Schwelle abzuspeichern und in einer Farbabbildung darzustellen.
+Dies ist im rechten Bild für einen Ausschnitt gezeigt.
+
+.. image:: images/numpy/mandelbrot.*
+           :height: 6cm
+           :align: center
+
+..................
+Brownsche Bewegung
+..................
+
+Eine Zufallsbewegung in einer Dimension kann man durch Zufallszahlen darstellen,
+die aus der Menge der beiden Zahlen :math:`-1` und :math:`1` gezogen werden.
+Jede Zufallszahl gibt die Richtung an, in der zu dem entsprechenden Zeitpunkt
+ein Schritt ausgeführt wird. Es sollen nun mehrere Realisierung erzeugt und
+graphisch dargestellt werden. Aus den erzeugten Daten soll auch der Mittelwert
+und die Varianz des Orts als Funktion der Zeit berechnet und dargestellt werden. 
+Für die Berechnung ist es praktisch, dass NumPy eine Funktion zur Verfügung
+stellt, die für ein Array sukzessive kumulative Summen berechnen kann.
+
+.. image:: images/numpy/brownianmotion.*
+           :height: 10cm
+           :align: center
+
+.....................................
+Fibonacci-Zahlen und goldener Schnitt
+.....................................
+
+Die Fibonacci-Folge ist durch die Rekursionsformel :math:`f_{n+1} = f_n+f_{n-1}`
+mit den Anfangswerten :math:`f_1=f_2=1` bestimmt. Das Verhältnis
+:math:`f_{n+1}/f_{n}` geht für große :math:`n` gegen einen Grenzwert, der mit
+Hilfe des ``linalg``-Moduls von NumPy berechnet werden soll. Dies gelingt, wenn
+man die Rekursionsformel als Abbildung des Tupels :math:`(f_n, f_{n-1})` auf
+das Tupel :math:`(f_{n+1}, f_n)` interpretiert.
+
+...............
+Bildbearbeitung
+...............
+
+NumPy-Arrays können auch Bilddaten repräsentieren, so dass sich die Bearbeitung
+eines Bildes auf die Manipulation eines NumPy-Arrays zurückführen lässt. Der
+folgende Code zeigt, wie man ein in der SciPy-Bibliothek verfügbares Bild als
+Array interpretieren und graphisch darstellen kann.
+
+.. sourcecode:: ipython
+
+   In [1]: from scipy import misc
+
+   In [2]: face = misc.face(gray=True)
+
+   In [3]: face
+   Out[3]: 
+   array([[114, 130, 145, ..., 119, 129, 137],
+          [ 83, 104, 123, ..., 118, 134, 146],
+          [ 68,  88, 109, ..., 119, 134, 145],
+          ..., 
+          [ 98, 103, 116, ..., 144, 143, 143],
+          [ 94, 104, 120, ..., 143, 142, 142],
+          [ 94, 106, 119, ..., 142, 141, 140]], dtype=uint8)
+
+Wir haben es hier mit einem Array zu tun, dessen Elemente durch vorzeichenlose
+8-Bit-Integers dargestellt sind, also Zahlen zwischen 0 und 255 repräsentieren.
+Diese können wir als Grauwerte darstellen.
+
+.. sourcecode:: ipython
+
+   In [4]: plt.imshow(face, cmap=plt.cm.gray)
+
+.. image:: images/numpy/face_orig.*
+           :height: 5cm
+           :align: center
+
+Durch geeignete Manipulation des NumPy-Arrays ``face`` lässt sich das Bild in
+ein Schwarz-Weiß-Bild verwandeln oder man kann die Kontrastkurve verändern.
+Des Weiteren kann man das Bild zum Beispiel mit verschiedenen Rahmen versehen.
+Einige Möglichkeiten zeigen die folgenden Bilder.
+
+.. image:: images/numpy/facecollection.*
+           :height: 8cm
+           :align: center
 
 .. |frage| image:: images/symbols/question.*
            :height: 1em
@@ -1545,7 +1676,5 @@ um mehr als einen Faktor 3 schneller.
             dass sich Arrays nicht notwendigerweise wie Matrizen verhalten. So entspricht das Produkt
             von zwei Arrays im Allgemeinen nicht dem Matrixprodukt.
 .. [#strides] Das englische Wort *stride* bedeutet Schritt.
-.. [#sph_harm] Im ``scipy``-Modul sind die Winkel im Vergleich zur üblichen Konvention gerade vertauscht
-            benannt (siehe auch die `Dokumentation zur Funktion sph_harm <http://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html#scipy.special.sph_harm>`_).
 .. [#hermitesch] Eine hermitesche Matrix geht beim Transponieren in die konjugiert komplexe Matrix über:
             :math:`a_{ij}=a_{ji}^*`.
