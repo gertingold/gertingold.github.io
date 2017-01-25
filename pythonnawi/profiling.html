@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Laufzeituntersuchungen &mdash; Python für Naturwissenschaftler</title>
+    <title>Laufzeituntersuchungen &#8212; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,28 +17,32 @@
         VERSION:     '2016alpha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" />
+    <link rel="next" title="Aspekte des parallelen Rechnens" href="parallel.html" />
     <link rel="prev" title="Testen von Programmen" href="testing.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Laufzeituntersuchungen</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         «&#160;&#160;<a href="testing.html">Testen von Programmen</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="parallel.html">Aspekte des parallelen Rechnens</a>&#160;&#160;»
         </p>
 
       </div>
@@ -46,9 +50,9 @@
         
         
   <div class="section" id="laufzeituntersuchungen">
-<h1>Laufzeituntersuchungen<a class="headerlink" href="#laufzeituntersuchungen" title="Permalink zu dieser Überschrift">¶</a></h1>
+<h1>Laufzeituntersuchungen<a class="headerlink" href="#laufzeituntersuchungen" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="allgemeine-vorbemerkungen">
-<h2>Allgemeine Vorbemerkungen<a class="headerlink" href="#allgemeine-vorbemerkungen" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Allgemeine Vorbemerkungen<a class="headerlink" href="#allgemeine-vorbemerkungen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Python wird immer wieder vorgeworfen, dass es im Vergleich zu einer Reihe
 anderer Programmiersprachen langsam sei. Häufig stellt dies kein echtes Problem
 dar, aber bei Bedarf gibt es zur Optimierung von Pythonskripten eine Reihe von
@@ -88,25 +92,193 @@ akzeptablen Laufzeit zu kommen.</p>
 Fehler einschleichen können. Es nützt alles nicht, wenn man das Programm
 geändert hat, so dass es viel schneller läuft, dann aber nicht mehr das tut was
 es eigentlich tun soll. Daher sollte man mindestens eine funktionstüchtigte
-Version des Programms aufbewahren, z.B. eine Kopie, die eine Endung <tt class="docutils literal"><span class="pre">.bak</span></tt>
+Version des Programms aufbewahren, z.B. eine Kopie, die eine Endung <code class="docutils literal"><span class="pre">.bak</span></code>
 erhält. Wesentlich besser ist es natürlich, ein Versionskontrollsystem zu
-verwenden, beispielsweise Subversion oder Git, das wir im Kapitel
-<a class="reference internal" href="git.html#vcgit"><em>Versionskontrolle mit Git</em></a> beschrieben haben. Außerdem ist es sinnvoll, Tests zu
-programmieren, die es erlauben, die neue Programmversion auf Korrektheit zu
-überprüfen. Techniken hierfür hatten wir im Kapitel <a class="reference internal" href="testing.html#testing"><em>Testen von Programmen</em></a> besprochen.</p>
-<p>Wenden wir uns nun einigen wichtigen Möglichkeiten zu, die Laufzeit von
-Python-Skripten zu analysieren.</p>
+verwenden, beispielsweise Git, das wir im Kapitel <a class="reference internal" href="git.html#vcgit"><span class="std std-ref">Versionskontrolle mit Git</span></a> beschrieben
+haben. Außerdem ist es sinnvoll, Tests zu programmieren, die es erlauben, die
+neue Programmversion auf Korrektheit zu überprüfen. Techniken hierfür werden
+im Kapitel <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testen von Programmen</span></a> besprochen.</p>
+<p>Bevor wir einige Möglichkeiten diskutieren, die Laufzeit von Python-Skripten zu
+bestimmen, wollen wir im nächsten Abschnitt zunächst auf einige Schwierigkeiten
+bei der Laufzeitmessung hinweisen.</p>
+</div>
+<div class="section" id="fallstricke-bei-der-laufzeitmessung">
+<h2>Fallstricke bei der Laufzeitmessung<a class="headerlink" href="#fallstricke-bei-der-laufzeitmessung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Python stellt mit dem Modul <code class="docutils literal"><span class="pre">time</span></code> eine Möglichkeit zur Verfügung, die
+aktuelle Zeit und damit letztlich auch Zeitdifferenzen zu bestimmen.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="gp">In [2]: </span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">()</span>
+<span class="gr">Out[2]: </span><span class="s1">&#39;Thu Dec 22 14:39:30 2016&#39;</span>
+</pre></div>
+</div>
+<p>Auch wenn die aktuelle Zeit hier in einem gut lesbaren Format ausgegeben wird,
+eignet sich dieses Ergebnis nur schlecht zur Bildung von Zeitdifferenzen. Besser
+ist es, die Zahl der Sekunden seit Beginn der „Zeitrechnung“ zu bestimmen. Dabei
+beginnt die Zeitrechnung auf Unix-Systemen am 1.1.1970 um 00:00:00 UTC.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [3]: </span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="gr">Out[3]: </span><span class="mf">1482413973.190686</span>
+</pre></div>
+</div>
+<p>Damit lässt sich nun die Zeit bestimmen, die ein bestimmter Python-Code
+benötigt, wie folgendes Beispiel zeigt.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+    <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">ende</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;{:5.3f}s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ende</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Hier wird die Zeitdauer gemessen, die die Schleife in den Zeilen 5 und 6 benötigt.
+Allerdings ist diese Zeit keineswegs immer genau gleich lang. Das um eine
+Schleife erweiterte Skript</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000000</span><span class="p">):</span>
+        <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">ende</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{:5.3f}s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ende</span><span class="o">-</span><span class="n">start</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;  &#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>liefert zum Beispiel die folgende Ausgabe</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">0.150</span><span class="n">s</span>  <span class="mf">0.108</span><span class="n">s</span>  <span class="mf">0.104</span><span class="n">s</span>  <span class="mf">0.103</span><span class="n">s</span>  <span class="mf">0.107</span><span class="n">s</span>  <span class="mf">0.106</span><span class="n">s</span>  <span class="mf">0.104</span><span class="n">s</span>  <span class="mf">0.103</span><span class="n">s</span>  <span class="mf">0.103</span><span class="n">s</span>  <span class="mf">0.103</span><span class="n">s</span>
+</pre></div>
+</div>
+<p>wobei das Ergebnis beim nächsten Lauf oder erst recht auf einem anderen Computer
+deutlich anders aussehen kann. Es kann also sinnvoll sein, über mehrere Durchläufe
+zu mitteln, wie es das <code class="docutils literal"><span class="pre">timeit</span></code>-Modul tut, das wir im nächsten Abschnitt
+besprechen werden.</p>
+<p>Bei der Ermittlung von Laufzeiten ist weiter zu bedenken, dass der Prozessor
+auch von anderen Aufgaben in Anspruch genommen wird, so dass wir gerade zwar
+die während des Laufs verstrichene Zeit bestimmt haben, nicht aber die Zeit,
+die der Prozessor hierfür tatsächlich aufgewendet hat. Dies illustrieren wir im
+folgenden Beispiel, in dem wir das Skript zeitweilig pausieren lassen. Damit
+wird in Zeile 9 simuliert, dass andere Prozesse für eine Unterbrechung der
+Ausführung unseres Skripts sorgen. Außerdem benutzen wir in den Zeilen 5 und 11
+<code class="docutils literal"><span class="pre">time.process_time()</span></code>, um die vom Prozessor aufgewandte Zeit für den Prozess
+zu bestimmen, in dem unser Skript abgearbeitet wird.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">start_proc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100000</span><span class="p">):</span>
+        <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ende</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">ende_proc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Gesamtzeit: {:5.3f}s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ende</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Systemzeit: {:5.3f}s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ende_proc</span><span class="o">-</span><span class="n">start_proc</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>Die Ausgabe</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Gesamtzeit</span><span class="p">:</span> <span class="mf">10.248</span><span class="n">s</span>
+<span class="n">Systemzeit</span><span class="p">:</span> <span class="mf">0.238</span><span class="n">s</span>
+</pre></div>
+</div>
+<p>zeigt, dass die Gesamtdauer des Skripts erwartungsgemäß um etwa 10 Sekunden
+länger ist als die in Anspruch genommene Prozessorzeit.</p>
+<p>Vorsicht ist auch geboten, wenn man den zu testenden Codeteil der Übersichtlichkeit
+halber in eine Funktion auslagert, da dann die Zeit für den Funktionsaufruf relevant
+werden kann. Dies ist besonders der Fall, wenn die eigentliche Auswertung der
+Funktion nur sehr wenig Zeit erfordert. So liefert der folgende Code</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">start_proc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">):</span>
+    <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">ende_proc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Systemzeit: {:5.3f}s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ende_proc</span><span class="o">-</span><span class="n">start_proc</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>eine Laufzeit von 1,122 Sekunden, während der äquivalente Code</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">increment_by_one</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">start_proc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000000</span><span class="p">):</span>
+    <span class="n">increment_by_one</span><span class="p">(</span><span class="n">summe</span><span class="p">)</span>
+<span class="n">ende_proc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">process_time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Systemzeit: {:5.3f}s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ende_proc</span><span class="o">-</span><span class="n">start_proc</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></div>
+<p>mit 1,529 Sekunden gemessen wurde und somit um fast 40 Prozent langsamer läuft.</p>
+<p>Unabhängig von den genannten Problemen bedeutet jede Laufzeitmessung immer einen
+Eingriff in die Ausführung des Skripts, so dass die gemessene Laufzeit unter
+Umständen deutlich gegenüber der normalen Laufzeit des entsprechenden Codes
+erhöht sein kann.</p>
+<p>Die in den Beispielen verwendete Methode der Laufzeitbestimmung hat Nachteile.
+Unter anderem erfordert sie eine explizite Modifizierung des Codes, was häufig
+unerwünscht ist. Im Folgenden besprechen wir einige ausgewählte Alternativen,
+die entsprechend den jeweiligen Erfordernissen eingesetzt werden können.</p>
 </div>
 <div class="section" id="das-modul-timeit">
-<span id="timeit"></span><h2>Das Modul <tt class="docutils literal"><span class="pre">timeit</span></tt><a class="headerlink" href="#das-modul-timeit" title="Permalink zu dieser Überschrift">¶</a></h2>
-<p>Um die Laufzeit von Einzeilern oder kleineren Codeteilen zu testen, kann
-man das Python-Modul <tt class="docutils literal"><span class="pre">timeit</span></tt> heranziehen. Dies ist zum Beispiel dann
-nützlich, wenn man sich ein Bild davon machen möchte, welche Codevariante
-die schnellere sein wird. Die wohl einfachste Möglichkeit, <tt class="docutils literal"><span class="pre">timeit</span></tt>
-einzusetzen, besteht in der Benutzung der IPython-Shell.</p>
+<span id="timeit"></span><h2>Das Modul <code class="docutils literal"><span class="pre">timeit</span></code><a class="headerlink" href="#das-modul-timeit" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Um die Laufzeit von Einzeilern oder kleineren Codeteilen zu testen, kann man das
+Python-Modul <code class="docutils literal"><span class="pre">timeit</span></code> heranziehen. Dies ist zum Beispiel dann nützlich, wenn
+man sich ein Bild davon machen möchte, welche Codevariante die schnellere sein
+wird. Im Allgemeinen wird dabei über mehrere oder sogar viele Wiederholungen
+gemittelt, um zu einem möglichst zuverlässigen Ergebnis zu kommen. Die wohl
+einfachste Möglichkeit, <code class="docutils literal"><span class="pre">timeit</span></code> einzusetzen, besteht in der Benutzung der
+IPython-Shell.</p>
 <p>Einen Laufzeitvergleich zwischen zwei Arten eine Zahl zu quadrieren, kann
 man in IPython folgendermaßen vornehmen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
 
 <span class="gp">In [2]: </span><span class="o">%</span><span class="n">timeit</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span>
 <span class="go">10000000 loops, best of 3: 166 ns per loop</span>
@@ -115,21 +287,23 @@ man in IPython folgendermaßen vornehmen:</p>
 <span class="go">1000000 loops, best of 3: 252 ns per loop</span>
 </pre></div>
 </div>
-<p>Das Prozentzeichen wird <tt class="docutils literal"><span class="pre">timeit</span></tt> vorangestellt, um es als so genannten
+<p>Das Prozentzeichen wird <code class="docutils literal"><span class="pre">timeit</span></code> vorangestellt, um es als so genannten
 »magischen Befehl« zu kennzeichnen, also einen Befehl der IPython-Shell und
-nicht ein Python-Kommando. Da <tt class="docutils literal"><span class="pre">timeit</span></tt> in diesem Fall nicht als
+nicht ein Python-Kommando. Da <code class="docutils literal"><span class="pre">timeit</span></code> in diesem Fall nicht als
 Python-Kommando interpretiert werden kann, könnte man sogar auf das
-Prozentzeichen verzichten. Wie im obigen Beispiel zu sehen ist, wird der
-Befehl, dessen Laufzeit bestimmt werden soll, mehrfach ausgeführt, wobei die
-Zahl der Wiederholungen von der Laufzeit abhängt. Es zeigt sich, dass die
-Quadrierung durch Multiplikation mit 166 Nanosekunden schneller ausgeführt wird
-als die Quadrierung durch Potenzierung, die 252 Nanosekunden benötigt.
-Natürlich hängt die Laufzeit vom verwendeten Prozessor ab und ist auch nicht
-unbedingt auf die letzte Stelle genau reproduzierbar.</p>
+Prozentzeichen verzichten. Es zeigt sich, dass die Quadrierung durch
+Multiplikation mit 166 Nanosekunden schneller ausgeführt wird als die
+Quadrierung durch Potenzierung, die 252 Nanosekunden benötigt.  Natürlich hängt
+die Laufzeit vom verwendeten Prozessor ab und ist auch nicht unbedingt auf die
+letzte Stelle genau reproduzierbar.</p>
+<p>Wie in der Ausgabe dieses Beispiels zu sehen ist, wird der Befehl, dessen
+Laufzeit bestimmt werden soll, mehrfach ausgeführt. Dabei wird die Zahl der
+Wiederholungen automatisch so bestimmt, dass sich eine vernünftige
+Gesamtlaufzeit ergibt.</p>
 <p>Um die Laufzeit von mehrzeiligem Code zu untersuchen, wendet man den magischen
-<tt class="docutils literal"><span class="pre">timeit</span></tt>-Befehl auf eine ganze Zelle an, indem man ein zweites Prozentzeichen
+<code class="docutils literal"><span class="pre">timeit</span></code>-Befehl auf eine ganze Zelle an, indem man ein zweites Prozentzeichen
 voranstellt. Dies ist in folgendem Beispiel gezeigt.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="o">%%</span><span class="n">timeit</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="o">%%</span><span class="n">timeit</span>
 <span class="gp">   ...:</span> <span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">   ...:</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
 <span class="gp">   ...:</span>     <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="n">n</span>
@@ -139,17 +313,17 @@ voranstellt. Dies ist in folgendem Beispiel gezeigt.</p>
 <span class="go">10000 loops, best of 3: 22.2 us per loop</span>
 </pre></div>
 </div>
-<p>Im ersten Fall verwenden wir <tt class="docutils literal"><span class="pre">%%timeit</span></tt> mit zwei Prozentzeichen, damit
+<p>Im ersten Fall verwenden wir <code class="docutils literal"><span class="pre">%%timeit</span></code> mit zwei Prozentzeichen, damit
 sich dieser Befehl auf die nächsten drei Zeilen und nicht nur die nächste
-Zeile bezieht. Im zweiten Fall genügt dagegen wiederum <tt class="docutils literal"><span class="pre">%timeit</span></tt>. In
+Zeile bezieht. Im zweiten Fall genügt dagegen wiederum <code class="docutils literal"><span class="pre">%timeit</span></code>. In
 diesem Beispiel liegt die Ausführungszeit im Mikrosekundenbereich, wobei
 die explizite Schleife fast fünfmal mehr Zeit benötigt.</p>
 <p>Auch wenn man mit der IPython-Shell sehr bequem die Laufzeit von Codestücken
-untersuchen kann, mag es gelegentlich notwendig sein, das <tt class="docutils literal"><span class="pre">timeit</span></tt>-Modul
+untersuchen kann, mag es gelegentlich notwendig sein, das <code class="docutils literal"><span class="pre">timeit</span></code>-Modul
 direkt in einem Python-Skript einzusetzen. Daher wollen wir uns nun die
 Anwendung dieses Moduls ansehen.</p>
 <p>Das folgende Beispiel untersucht den Laufzeitunterschied bei der Berechnung
-des Sinus mit Hilfe des <tt class="docutils literal"><span class="pre">math</span></tt>-Moduls und mit NumPy in Abhängigkeit von
+des Sinus mit Hilfe des <code class="docutils literal"><span class="pre">math</span></code>-Moduls und mit NumPy in Abhängigkeit von
 der Anzahl der Funktionsargumente.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -178,7 +352,7 @@ der Anzahl der Funktionsargumente.</p>
 25
 26
 27
-28</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+28</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">timeit</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
@@ -195,38 +369,40 @@ der Anzahl der Funktionsargumente.</p>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.31</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
     <span class="n">nint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
+    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
+                            <span class="s2">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
                             <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">t_math</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_math({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s">&quot;from __main__ import f_math&quot;</span><span class="p">,</span>
+    <span class="n">t_math</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s2">&quot;f_math({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
+                            <span class="s2">&quot;from __main__ import f_math&quot;</span><span class="p">,</span>
                             <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
     <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nint</span><span class="p">)</span>
     <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_math</span><span class="o">/</span><span class="n">t_numpy</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
 <p>Zunächst definieren wir in den Zeilen 6 bis 12 zwei Funktionen, die jeweils den
 Sinus für eine vorgegebene Anzahl von Argumenten berechnen, einmal mit Hilfe
-von NumPy und einmal mit Hilfe des <tt class="docutils literal"><span class="pre">math</span></tt>-Moduls. In den Zeilen 16 bis 25
+von NumPy und einmal mit Hilfe des <code class="docutils literal"><span class="pre">math</span></code>-Moduls. In den Zeilen 16 bis 25
 wird für verschiedene Argumentanzahlen die Laufzeit für die beiden Varianten
 bestimmt. Sehen wir uns einen der Aufrufe zur Laufzeitbestimmung genauer an,
 konkret den Code in den Zeilen 18 bis 20. Nachdem wir in Zeile 3 das
-<tt class="docutils literal"><span class="pre">timeit</span></tt>-Modul geladen hatten, können wir in Zeile 18 die <tt class="docutils literal"><span class="pre">timeit</span></tt>-Funktion
+<code class="docutils literal"><span class="pre">timeit</span></code>-Modul geladen hatten, können wir in Zeile 18 die <code class="docutils literal"><span class="pre">timeit</span></code>-Funktion
 aus diesem Modul aufrufen. Das erste Argument enthält den auszuführenden Code,
-in unserem Fall also einfach den Funktionsaufruf von <tt class="docutils literal"><span class="pre">f_numpy</span></tt>.</p>
+in unserem Fall also einfach den Funktionsaufruf von <code class="docutils literal"><span class="pre">f_numpy</span></code>.</p>
 <p>Nachdem der Code als String zu übergeben ist, können wir problemlos in der gezeigten
-Weise ein Argument oder auch mehrere übergeben. Da die von <tt class="docutils literal"><span class="pre">timeit</span></tt>
+Weise ein Argument oder auch mehrere übergeben. Da die von <code class="docutils literal"><span class="pre">timeit</span></code>
 aufgerufenen Funktion keinen Zugriff auf den Namensraum des umgebenden Skripts
-besitzt, würde es nicht funktionieren, das Argument einfach als <tt class="docutils literal"><span class="pre">nint</span></tt> in dem
-String unterzubringen. Tatsächlich ist nicht einmal die Funktion <tt class="docutils literal"><span class="pre">f_numpy</span></tt>
-bekannt. Der <tt class="docutils literal"><span class="pre">timeit</span></tt>-Funktion wird daher in Zeile 19 explizit mitgeteilt,
-das zunächst aus unserem Hauptskript, auf das mit <tt class="docutils literal"><span class="pre">__main__</span></tt> Bezug genommen
-wird, <tt class="docutils literal"><span class="pre">f_numpy</span></tt> zu importieren ist. In Zeile 20 verlangen wir schließlich noch,
+besitzt, würde es nicht funktionieren, das Argument einfach als <code class="docutils literal"><span class="pre">nint</span></code> in dem
+String unterzubringen. Tatsächlich ist nicht einmal die Funktion <code class="docutils literal"><span class="pre">f_numpy</span></code>
+bekannt. Der <code class="docutils literal"><span class="pre">timeit</span></code>-Funktion wird daher in Zeile 19 explizit mitgeteilt,
+dass zunächst aus unserem Hauptskript, auf das mit <code class="docutils literal"><span class="pre">__main__</span></code> Bezug genommen
+wird, <code class="docutils literal"><span class="pre">f_numpy</span></code> zu importieren ist. In Zeile 20 verlangen wir schließlich noch,
 dass zwanzig Funktionsläufe durchgeführt werden sollen, um eine gemittelte
-Laufzeit berechnen zu können.</p>
+Laufzeit berechnen zu können. Eine automatische Bestimmung einer sinnvollen
+Zahl von Wiederholungen nimmt <code class="docutils literal"><span class="pre">timeit</span></code> hier im Gegensatz zur Verwendung in
+IPython nicht vor.</p>
 <p>Wie die folgende Abbildung zeigt, bietet NumPy für sehr kleine Argumentanzahlen
 keinen Geschwindigkeitsvorteil, ganz im Gegenteil. Dies hängt damit zusammen,
 dass im Zusammenhang mit der Verwendung von Arrays einiges an Zusatzarbeit
@@ -234,161 +410,234 @@ anfällt. Bei mehr als etwa 100 Argumenten erlaubt NumPy in unserem Fall jedoch
 eine schnellere Berechnung des Sinus. Der Geschwindigkeitsvorteil kann auf der
 hier verwendeten Hardware immerhin einen Faktor 4 bis 5 betragen.</p>
 <a class="reference internal image-reference" href="_images/profiling_1.png"><img alt="_images/profiling_1.png" class="align-center" src="_images/profiling_1.png" style="width: 7cm;" /></a>
-<p>Das nächste Beispiel bietet bezüglich des <tt class="docutils literal"><span class="pre">timeit</span></tt>-Moduls nichts Neues.  Es
-soll vielmehr zeigen, dass es auch jenseits von NumPy noch
-Optimierungsmöglichkeiten gibt. Dies hängt damit zusammen, dass NumPy
-beispielsweise beim Berechnen von Polynomen temporäre Arrays anlegt, was
-man bei einer genaueren Analyse des Codes vermeiden könnte. Damit wird die
-Laufzeit also unnötig lang. Sofern man es mit großen Arrays zu tun hat,
-kann das Modul <tt class="docutils literal"><span class="pre">numexpr</span></tt> Vorteile bieten. Es bekommt den auszuwertenden
-Ausdruck als String übergeben und analysiert diesen zunächst, um eine
-effizientere Auswertung zu ermöglichen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numexpr</span> <span class="kn">as</span> <span class="nn">ne</span>
-<span class="kn">import</span> <span class="nn">timeit</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-
-<span class="k">def</span> <span class="nf">f_numpy</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="p">((</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">7</span>
-
-<span class="k">def</span> <span class="nf">f_numexpr</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="p">)</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">ne</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="s">&quot;5*x**3-2*x**2+x-7&quot;</span><span class="p">)</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mf">0.31</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
-    <span class="n">nint</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="n">t_numpy</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_numpy({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s">&quot;from __main__ import f_numpy&quot;</span><span class="p">,</span>
-                            <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">t_numexpr</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s">&quot;f_numexpr({})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nint</span><span class="p">),</span>
-                            <span class="s">&quot;from __main__ import f_numexpr&quot;</span><span class="p">,</span>
-                            <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nint</span><span class="p">)</span>
-    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_numpy</span><span class="o">/</span><span class="n">t_numexpr</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Die folgende Abbildung zeigt, dass man auf diese Weise unter Umständen die
-Laufzeit halbieren kann. Zu beachten ist allerdings, dass das Polynom in
-<tt class="docutils literal"><span class="pre">f_numpy</span></tt> bereits geschickt geschrieben wurde, um die aufwändige Berechnung
-von Potenzen zu vermeiden. Sonst könnte man auf der hier verwendeten Hardware
-sogar eine Beschleunigung von etwa einem Faktor 4 erhalten.</p>
-<a class="reference internal image-reference" href="_images/profiling_2.png"><img alt="_images/profiling_2.png" class="align-center" src="_images/profiling_2.png" style="width: 7cm;" /></a>
 </div>
 <div class="section" id="das-modul-cprofile">
-<h2>Das Modul <tt class="docutils literal"><span class="pre">cProfile</span></tt><a class="headerlink" href="#das-modul-cprofile" title="Permalink zu dieser Überschrift">¶</a></h2>
-<p>Das <tt class="docutils literal"><span class="pre">timeit</span></tt>-Modul, das wir gerade beschrieben haben, ist sehr gut geeignet,
+<span id="cprofile"></span><h2>Das Modul <code class="docutils literal"><span class="pre">cProfile</span></code><a class="headerlink" href="#das-modul-cprofile" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Das <code class="docutils literal"><span class="pre">timeit</span></code>-Modul, das wir gerade beschrieben haben, ist sehr gut geeignet,
 um die Laufzeit eines bestimmten Codesegments zu untersuchen. Bei der Optimierung
 eines Programms interessiert man sich jedoch vor allem dafür, welche Teile des
 Programms wieviel Zeit benötigen. Dann können die rechenintensiven Codeteile
-identifiziert und gezielt optimiert werden. Man kann hier bis auf einzelne
-Codezeilen heruntergehen, wenn man zum Beispiel <tt class="docutils literal"><span class="pre">line_profiler</span></tt> benutzt
-<a class="footnote-reference" href="#lineprofiler" id="id4">[4]</a>.</p>
+identifiziert und gezielt optimiert werden.</p>
 <p>Häufig ist dies jedoch nicht nötig, und es genügt festzustellen, wieviel Zeit
 in den einzelnen Funktionen oder Methoden verbracht wurde. Dies funktioniert
-dann besonders gut, wenn man den Code gut modularisiert, was ja auch im
-Hinblick auf das Testen von Vorteil ist, wie wir im Kapitel <a class="reference internal" href="testing.html#testing"><em>Testen von Programmen</em></a>
+dann besonders gut, wenn man den Code sinnvoll modularisiert, was ja auch im
+Hinblick auf das Testen von Vorteil ist, wie wir im Kapitel <a class="reference internal" href="testing.html#testing"><span class="std std-ref">Testen von Programmen</span></a>
 betont hatten. Im Folgenden werden wir beschreiben, wie man mit Hilfe des
-Moduls <tt class="docutils literal"><span class="pre">cProfile</span></tt> feststellen kann, wieviel Zeit in welchen Funktionen
+Moduls <code class="docutils literal"><span class="pre">cProfile</span></code> feststellen kann, wieviel Zeit in welchen Funktionen
 während des Programmlaufs verbracht wird.</p>
-<p>Als zu analysierendes Beispielprogramm benutzen wir im Folgenden <tt class="docutils literal"><span class="pre">pystone.py</span></tt>
-<a class="footnote-reference" href="#pystone" id="id5">[5]</a>, ein Programm zur Geschwindigkeitsbeurteilung von Hardware. Ob und
-in welchem Umfang der eigentliche Zweck des Programms erfüllt wird, ist hier
-nicht von Interesse. Es geht vielmehr darum herauszufinden, wieviel Rechenzeit
-in den einzelnen Funktionen, die sich auch untereinander aufrufen, benötigt
-wird.  Um die Rechenzeiten etwas deutlicher zu machen, haben wir die Zahl der
-Schleifen in <tt class="docutils literal"><span class="pre">pystone.py</span></tt> um einen Faktor 10 hochgesetzt <a class="footnote-reference" href="#loops" id="id6">[6]</a>.</p>
-<p>Von den verschiedenen Varianten, <tt class="docutils literal"><span class="pre">cProfile</span></tt> zu benutzen, wählen wir hier eine,
+<p>Als Beispiel ziehen wir das folgende Skript mit Namen <code class="docutils literal"><span class="pre">pi.py</span></code> zur Berechnung
+der Kreiszahl π heran, wobei eine Berechnung auf 100.000 Stellen durchgeführt
+wird. Das Skript basiert auf dem
+<a class="reference external" href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Legendre_algorithm">Gauss-Legendre oder Brent-Salamin-Algorithmus</a>
+und nutzt aus, dass Python beliebig lange Integers zulässt.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="k">def</span> <span class="nf">division</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">stellen</span><span class="p">):</span>
+    <span class="n">resultat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">numerator</span><span class="o">//</span><span class="n">denominator</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;.&quot;</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">stellen</span><span class="p">):</span>
+        <span class="n">numerator</span> <span class="o">=</span> <span class="p">(</span><span class="n">numerator</span> <span class="o">%</span> <span class="n">denominator</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span>
+        <span class="n">resultat</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">resultat</span><span class="p">,</span> <span class="n">numerator</span><span class="o">//</span><span class="n">denominator</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+
+<span class="k">def</span> <span class="nf">wurzel_startwert</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;bestimme näherungsweise die Wurzel aus einem langen Integer</span>
+
+<span class="sd">       Es wird die Wurzel auf der Basis der ersten 12 oder 13 Stellen</span>
+<span class="sd">       mit Hilfe des entsprechenden Floats gezogen.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">str_quadrat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">quadrat</span><span class="p">)</span>
+    <span class="n">nrdigits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_quadrat</span><span class="p">)</span>
+    <span class="n">keepdigits</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="k">if</span> <span class="n">nrdigits</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">keepdigits</span> <span class="o">=</span> <span class="n">keepdigits</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">lead_sqrt_estimate</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">str_quadrat</span><span class="p">[:</span><span class="n">keepdigits</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lead_sqrt_estimate</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">nrdigits</span><span class="o">-</span><span class="n">keepdigits</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="k">def</span> <span class="nf">wurzel</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">wurzel_startwert</span><span class="p">(</span><span class="n">quadrat</span><span class="p">)</span>
+    <span class="n">xold</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">xold</span><span class="p">:</span>
+        <span class="n">xold</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">quadrat</span><span class="p">)</span><span class="o">//</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">agm_iteration</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span> <span class="n">wurzel</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">ausgabe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">zeilenlaenge</span><span class="o">=</span><span class="mi">80</span><span class="p">):</span>
+    <span class="n">str_x</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\u03c0</span><span class="s2">=&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\u2026</span><span class="s2">&quot;</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">str_x</span><span class="p">[:</span><span class="n">zeilenlaenge</span><span class="p">])</span>
+        <span class="n">str_x</span> <span class="o">=</span> <span class="n">str_x</span><span class="p">[</span><span class="n">zeilenlaenge</span><span class="p">:]</span>
+
+<span class="n">stellen</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">skalenfaktor</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="n">stellen</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">skalenfaktor</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">wurzel</span><span class="p">(</span><span class="n">skalenfaktor</span><span class="o">**</span><span class="mi">2</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c_sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">faktor_two</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">agm_iteration</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">faktor_two</span> <span class="o">=</span> <span class="n">faktor_two</span><span class="o">*</span><span class="mi">2</span>
+    <span class="n">c_sum</span> <span class="o">=</span> <span class="n">c_sum</span><span class="o">+</span><span class="n">faktor_two</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+<span class="n">numerator</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">denominator</span> <span class="o">=</span> <span class="n">skalenfaktor</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">c_sum</span>
+<span class="n">ergebnis</span> <span class="o">=</span> <span class="n">division</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">denominator</span><span class="p">,</span> <span class="n">stellen</span><span class="p">)</span>
+<span class="n">ausgabe</span><span class="p">(</span><span class="n">ergebnis</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>Die gesamte Ausgabe ist zu lang, um sie hier vollständig wiederzugeben, so dass
+wir uns auf die ersten beiden Zeilen beschränken.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">π</span><span class="o">=</span><span class="mf">3.1415926535897932384626433832795028841971693993751058209749445923078164062862</span>
+<span class="mi">08998628034825342117067982148086513282306647093844609550582231725359408128481117</span>
+</pre></div>
+</div>
+<p>Von den verschiedenen Varianten, <code class="docutils literal"><span class="pre">cProfile</span></code> zu benutzen, wählen wir hier eine,
 bei der wir das zu untersuchende Programm nicht modifizieren müssen. Dazu
 rufen wir das Modul mit geeigneten Argumenten auf:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python -m cProfile -o pystone.prof pystone.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m cProfile -o pi.prof pi.py
 </pre></div>
 </div>
-<p>Hierbei wird das Programm <tt class="docutils literal"><span class="pre">pystone.py</span></tt> unter der Kontrolle des
-<tt class="docutils literal"><span class="pre">cProfile</span></tt>-Moduls ausgeführt. Die Option <tt class="docutils literal"><span class="pre">-o</span></tt> legt fest, dass die
-Ergebnisse in der Datei <tt class="docutils literal"><span class="pre">pystone.prof</span></tt> gespeichert werden sollen. Dabei
-handelt es sich um eine Binärdatei, die mit Hilfe des <tt class="docutils literal"><span class="pre">pstats</span></tt>-Moduls
-analysiert werden kann. Dazu geht man folgendermaßen vor:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="go"> In [1]: import pstats</span>
+<p>Hierbei wird das Programm <code class="docutils literal"><span class="pre">pi.py</span></code> unter der Kontrolle des <code class="docutils literal"><span class="pre">cProfile</span></code>-Moduls
+ausgeführt. Die Option <code class="docutils literal"><span class="pre">-o</span></code> legt fest, dass die Ergebnisse in der Datei
+<code class="docutils literal"><span class="pre">pi.prof</span></code> gespeichert werden sollen. Dabei handelt es sich um eine
+Binärdatei, die mit Hilfe des <code class="docutils literal"><span class="pre">pstats</span></code>-Moduls analysiert werden kann. Dazu
+geht man folgendermaßen vor:</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">pstats</span>
 
-<span class="go"> In [2]: p = pstats.Stats(&quot;pystone.prof&quot;)</span>
+<span class="gp">In [2]: </span><span class="n">p</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="s1">&#39;pi.prof&#39;</span><span class="p">)</span>
 
-<span class="go"> In [3]: p.sort_stats(&quot;time&quot;).print_stats(10)</span>
+<span class="gp">In [3]: </span><span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">Fri Dec 23 15:36:56 2016    pi.prof</span>
 
-<span class="go"> Sun Jan 18 19:46:17 2015    pystone.prof</span>
+<span class="go">         2882 function calls in 68.377 seconds</span>
 
-<span class="go">       10500020 function calls in 23.829 seconds</span>
+<span class="go">   Ordered by: internal time</span>
+<span class="go">   List reduced from 76 to 8 due to restriction &lt;8&gt;</span>
 
-<span class="go"> Ordered by: internal time</span>
-<span class="go"> List reduced from 29 to 10 due to restriction &lt;10&gt;</span>
+<span class="go">   ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span>
+<span class="go">       18   41.008    2.278   49.819    2.768 pi.py:27(wurzel)</span>
+<span class="go">        1   17.776   17.776   17.776   17.776 pi.py:4(division)</span>
+<span class="go">       18    8.812    0.490    8.812    0.490 pi.py:12(wurzel_startwert)</span>
+<span class="go">        1    0.424    0.424   68.377   68.377 pi.py:1(&lt;module&gt;)</span>
+<span class="go">       17    0.320    0.019   47.346    2.785 pi.py:36(agm_iteration)</span>
+<span class="go">        1    0.024    0.024    0.037    0.037 pi.py:40(ausgabe)</span>
+<span class="go">     1251    0.011    0.000    0.011    0.000 {built-in method builtins.print}</span>
+<span class="go">     1270    0.002    0.000    0.002    0.000 {built-in method builtins.len}</span>
 
-<span class="go"> ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span>
-<span class="go">      1    7.358    7.358   23.829   23.829 pystone.py:86(Proc0)</span>
-<span class="go"> 500000    3.602    0.000    8.764    0.000 pystone.py:144(Proc1)</span>
-<span class="go"> 500000    2.644    0.000    2.644    0.000 pystone.py:219(Proc8)</span>
-<span class="go"> 500000    1.498    0.000    2.404    0.000 pystone.py:60(copy)</span>
-<span class="go"> 500000    1.336    0.000    1.674    0.000 pystone.py:240(Func2)</span>
-<span class="go"> 500000    0.959    0.000    1.271    0.000 pystone.py:171(Proc3)</span>
-<span class="go">1500000    0.950    0.000    0.950    0.000 pystone.py:232(Func1)</span>
-<span class="go"> 500002    0.906    0.000    0.906    0.000 pystone.py:52(__init__)</span>
-<span class="go">1500000    0.894    0.000    0.894    0.000 pystone.py:214(Proc7)</span>
-<span class="go"> 500000    0.893    0.000    1.208    0.000 pystone.py:195(Proc6)</span>
+<span class="gr">Out[3]: </span><span class="o">&lt;</span><span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span> <span class="n">at</span> <span class="mh">0x7f1a26ed4ac8</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Nachdem in Eingabe 1 das <tt class="docutils literal"><span class="pre">pstats</span></tt>-Modul geladen wurde, wird in Eingabe 2 die
-zuvor erzeugte binäre Datei <tt class="docutils literal"><span class="pre">pystone.prof</span></tt> eingelesen. Man erhält so eine
-<tt class="docutils literal"><span class="pre">pstats.Stats</span></tt>-Instanz, die nun analysiert werden kann. In den meisten Fällen
+<p>Nachdem in Eingabe 1 das <code class="docutils literal"><span class="pre">pstats</span></code>-Modul geladen wurde, wird in Eingabe 2 die
+zuvor erzeugte binäre Datei <code class="docutils literal"><span class="pre">pi.prof</span></code> eingelesen. Man erhält so eine
+<code class="docutils literal"><span class="pre">pstats.Stats</span></code>-Instanz, die nun analysiert werden kann. In den meisten Fällen
 wird man die Daten nach der benötigten Zeit sortieren und auch nur die obersten
-Daten ausgeben wollen, da die Gesamtliste unter Umständen recht lang sein kann.
-In Eingabe 3 sortieren wir mit der <tt class="docutils literal"><span class="pre">sort_stats</span></tt>-Methode nach der Zeit, die in
-der jeweiligen Funktion verbracht wurde. Anschließend wird mit der
-<tt class="docutils literal"><span class="pre">print_stats</span></tt>-Methode dafür gesorgt, dass nur die ersten zehn Zeilen ausgegeben
-werden.</p>
-<p>Das Schlüsselwort <tt class="docutils literal"><span class="pre">&quot;time&quot;</span></tt> in der <tt class="docutils literal"><span class="pre">sort_stats</span></tt>-Methode verlangt eine
-Sortierung nach der totalen Zeit, die in der jeweiligen Funktion verbracht
-wurde.  Nun ruft aber beispielsweise die Funktion <tt class="docutils literal"><span class="pre">Proc0</span></tt> eine Reihe anderer
-Funktionen auf.  Mit totaler Zeit ist dann die Zeit gemeint, die tatsächlich in
-<tt class="docutils literal"><span class="pre">Proc0</span></tt> verbracht wurde. Wird zwischendurch Zeit in einer anderen Funktion
-verbracht, so wird gewissermaßen die Uhr für <tt class="docutils literal"><span class="pre">Proc0</span></tt> angehalten.</p>
-<p>Nicht immer ist diese Art der Zeitmessung erwünscht. Daher gibt es auch die
-Möglichkeit, mit dem Schlüsselwort <tt class="docutils literal"><span class="pre">&quot;cumtime&quot;</span></tt> die kumulative Zeit zu betrachten.
-Dies ist die Zeit, die in einer Funktion vom Eintreten bis zum Verlassen verbracht
-wird. Die für <tt class="docutils literal"><span class="pre">Proc0</span></tt> angegebenen 23.829 Sekunden in der folgenden Übersicht
-enthalten daher auch die bei <tt class="docutils literal"><span class="pre">Proc1</span></tt> angegebenen 8.764 Sekunden, da <tt class="docutils literal"><span class="pre">Proc1</span></tt>
-von <tt class="docutils literal"><span class="pre">Proc0</span></tt> und sonst von keiner weiteren Funktion aufgerufen wird.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [4]: </span><span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s">&quot;cumtime&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">Sun Jan 18 19:46:17 2015    pystone.prof</span>
+Datensätze ausgeben wollen, da die Gesamtliste unter Umständen recht lang sein
+kann.  In Eingabe 3 sortieren wir mit der <code class="docutils literal"><span class="pre">sort_stats</span></code>-Methode nach der Zeit,
+die in der jeweiligen Funktion verbracht wurde. Anschließend wird mit der
+<code class="docutils literal"><span class="pre">print_stats</span></code>-Methode dafür gesorgt, dass nur die ersten acht Zeilen
+ausgegeben werden.</p>
+<p>Das Schlüsselwort <code class="docutils literal"><span class="pre">time</span></code> in der <code class="docutils literal"><span class="pre">sort_stats</span></code>-Methode verlangt eine
+Sortierung nach der Zeit, die in der jeweiligen Funktion verbracht wurde. Wird
+von einer Funktion aus eine andere Funktion aufgerufen, so wird die Uhr für die
+aufrufende Funktion angehalten. Dies ist zum Beispiel in der Funktion <code class="docutils literal"><span class="pre">wurzel</span></code>
+der Fall, die in Zeile 25 die Funktion <code class="docutils literal"><span class="pre">wurzel_startwert</span></code> aufruft.  Für die
+Funktion <code class="docutils literal"><span class="pre">wurzel</span></code> wurde gemäß der obigen Ausgabe eine Zeit <code class="docutils literal"><span class="pre">tottime</span></code> von
+41,008 Sekunden gemessen. Diese enthält nicht die 8,812 Sekunden, die von
+<code class="docutils literal"><span class="pre">wurzel_startwert</span></code> benötigt werden. Die von <code class="docutils literal"><span class="pre">wurzel</span></code> benötigte Gesamtzeit
+lässt sich in der Spalte <code class="docutils literal"><span class="pre">cumtime</span></code> (<em>cumulative time</em>, also aufsummierte Zeit)
+zu 49,819 Sekunden ablesen. Dies entspricht bis auf einen Rundungsfehler der
+Summe der Zeiten, die in <code class="docutils literal"><span class="pre">wurzel</span></code> und <code class="docutils literal"><span class="pre">wurzel_startwert</span></code> verbracht wurden.
+Ist man an den aufsummierten Zeiten interessiert, so kann man das Schlüsselwort
+<code class="docutils literal"><span class="pre">cumtime</span></code> in der <code class="docutils literal"><span class="pre">sort_stats</span></code>-Methode verwenden.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [4]: </span><span class="n">p</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;cumtime&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">print_stats</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="go">Fri Dec 23 15:36:56 2016    pi.prof</span>
 
-<span class="go">      10500020 function calls in 23.829 seconds</span>
+<span class="go">         2882 function calls in 68.377 seconds</span>
 
-<span class="go">Ordered by: cumulative time</span>
-<span class="go">List reduced from 29 to 10 due to restriction &lt;10&gt;</span>
+<span class="go">   Ordered by: cumulative time</span>
+<span class="go">   List reduced from 76 to 8 due to restriction &lt;8&gt;</span>
 
-<span class="go">ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span>
-<span class="go">     1    0.000    0.000   23.829   23.829 {built-in method exec}</span>
-<span class="go">     1    0.000    0.000   23.829   23.829 pystone.py:40(&lt;module&gt;)</span>
-<span class="go">     1    0.000    0.000   23.829   23.829 pystone.py:67(main)</span>
-<span class="go">     1    0.000    0.000   23.829   23.829 pystone.py:74(pystones)</span>
-<span class="go">     1    7.358    7.358   23.829   23.829 pystone.py:86(Proc0)</span>
-<span class="go">500000    3.602    0.000    8.764    0.000 pystone.py:144(Proc1)</span>
-<span class="go">500000    2.644    0.000    2.644    0.000 pystone.py:219(Proc8)</span>
-<span class="go">500000    1.498    0.000    2.404    0.000 pystone.py:60(copy)</span>
-<span class="go">500000    1.336    0.000    1.674    0.000 pystone.py:240(Func2)</span>
-<span class="go">500000    0.959    0.000    1.271    0.000 pystone.py:171(Proc3)</span>
+<span class="go">   ncalls  tottime  percall  cumtime  percall filename:lineno(function)</span>
+<span class="go">        1    0.000    0.000   68.377   68.377 {built-in method builtins.exec}</span>
+<span class="go">        1    0.424    0.424   68.377   68.377 pi.py:1(&lt;module&gt;)</span>
+<span class="go">       18   41.008    2.278   49.819    2.768 pi.py:27(wurzel)</span>
+<span class="go">       17    0.320    0.019   47.346    2.785 pi.py:36(agm_iteration)</span>
+<span class="go">        1   17.776   17.776   17.776   17.776 pi.py:4(division)</span>
+<span class="go">       18    8.812    0.490    8.812    0.490 pi.py:12(wurzel_startwert)</span>
+<span class="go">        1    0.024    0.024    0.037    0.037 pi.py:40(ausgabe)</span>
+<span class="go">     1251    0.011    0.000    0.011    0.000 {built-in method builtins.print}</span>
+
+<span class="gr">Out[4]: </span><span class="o">&lt;</span><span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span> <span class="n">at</span> <span class="mh">0x7f1a26ed4ac8</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Die Ausgabe zeigt auch, dass Funktionen, in denen je Aufruf (Spalte
-<tt class="docutils literal"><span class="pre">percall</span></tt>) nur sehr wenig Zeit verbracht wird, relevant sein können, wenn die
-Zahl der Aufrufe (Spalte <tt class="docutils literal"><span class="pre">ncalls</span></tt>) entsprechend groß wird. Es empfiehlt sich,
-für die Funktionen, die für die Rechenzeit besonders relevant ist, die Zahl der
-Aufrufe zu überprüfen.  Dabei stellt man gelegentlich fest, dass eine Funktion
-scheinbar unerklärlich oft aufgerufen wird, beispielsweise weil sie
-unnötigerweise in einer Schleife statt außerhalb der Schleife aufgerufen wird.</p>
+<p>Die Ausgabe zeigt auch, dass es nicht immer auf die Zeit ankommt, die pro Aufruf
+einer Funktion benötigt wird. Diese Information findet sich in der Spalte
+<code class="docutils literal"><span class="pre">percall</span></code>. So benötigt <code class="docutils literal"><span class="pre">division</span></code> in unserem Beispiel 17,776 Sekunden je
+Aufruf, während <code class="docutils literal"><span class="pre">wurzel</span></code> nur 2,278 Sekunden je Aufruf benötigt. Allerdings
+wird <code class="docutils literal"><span class="pre">division</span></code> nur einmal aufgerufen, während <code class="docutils literal"><span class="pre">wurzel</span></code> achtzehnmal
+aufgerufen wird. Damit ist der Beitrag von <code class="docutils literal"><span class="pre">wurzel</span></code> zur Gesamtlaufzeit
+erheblich größer als der Beitrag von <code class="docutils literal"><span class="pre">division</span></code>.</p>
+<p>Es kann sinnvoll sein, die in der Spalte <code class="docutils literal"><span class="pre">ncalls</span></code> angegebene Anzahl der
+Aufrufe einer Funktion auf Plausibilität zu überprüfen. Gelegentlich stellt
+sich dabei heraus, dass eine Funktion unnötigerweise mehrfach aufgerufen
+wird. So kann es vorkommen, dass eine Funktion in einer Schleife aufgerufen
+wird, obwohl sich die Funktionsargumente in der Schleife nicht ändern.
+Eine entsprechende Anpassung des Programms kann dann auf einfache
+Weise zu einer Beschleunigung führen.</p>
 <p>Mit den beschriebenen Ausgaben lässt sich nun feststellen, in welchen Teilen
 des Programms der größte Anteil der Rechenzeit verstreicht. Man kann sich somit
 bei der Optimierung des Programms auf diese Teile konzentrieren. Dabei kann es
@@ -400,6 +649,185 @@ Optimierungsbemühungen überhaupt fortzusetzen, da eine Optimierung der
 anderen Programmteile kaum eine Auswirkung auf die Gesamtrechenzeit haben
 wird. Um die Situation einschätzen zu können, sind Laufzeitanalysen, wie wir
 sie hier vorgestellt haben, praktisch unerlässlich.</p>
+</div>
+<div class="section" id="zeilenorientierte-laufzeitbestimmung">
+<h2>Zeilenorientierte Laufzeitbestimmung<a class="headerlink" href="#zeilenorientierte-laufzeitbestimmung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Gelegentlich kann es vorkommen, dass die im letzten Abschnitt beschriebene
+funktionsbasierte Laufzeitauswertung nicht ausreicht, um ein in Hinblick auf
+die Laufzeit kritisches Codestück zu identifizieren. In diesem Fall kann man
+zu einer zeilenorientierten Laufzeitmessung greifen. Wir beschreiben hier
+das von Robert Kern entwickelte Modul <code class="docutils literal"><span class="pre">line_profiler</span></code> <a class="footnote-reference" href="#kern" id="id4">[4]</a>.</p>
+<p>Der besseren Übersichtlichkeit wegen empfiehlt es sich, eine zeilenorientierte
+Laufzeitmessung auf eine einzelne Funktion oder nur wenige Funktionen zu
+beschränken. Dazu bestimmt man am besten mit den zuvor beschriebenen Methoden
+die zeitkritischsten Funktionen. Für Funktionen, die mit einem
+<code class="docutils literal"><span class="pre">&#64;profile</span></code>-Dekorator versehen sind, wird eine zeilenorientierte
+Laufzeitmessung durchgeführt. Wir wollen speziell die Funktionen <code class="docutils literal"><span class="pre">wurzel</span></code> und
+<code class="docutils literal"><span class="pre">wurzel_startwert</span></code> betrachten. Der entsprechende Codeteil sieht dann
+folgendermaßen aus.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span>   <span class="nd">@profile</span>
+   <span class="k">def</span> <span class="nf">wurzel_startwert</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+       <span class="n">str_quadrat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">quadrat</span><span class="p">)</span>
+       <span class="n">nrdigits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_quadrat</span><span class="p">)</span>
+       <span class="n">keepdigits</span> <span class="o">=</span> <span class="mi">12</span>
+       <span class="k">if</span> <span class="n">nrdigits</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+           <span class="n">keepdigits</span> <span class="o">=</span> <span class="n">keepdigits</span><span class="o">+</span><span class="mi">1</span>
+       <span class="n">lead_sqrt_estimate</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">str_quadrat</span><span class="p">[:</span><span class="n">keepdigits</span><span class="p">]))</span>
+       <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lead_sqrt_estimate</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">nrdigits</span><span class="o">-</span><span class="n">keepdigits</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+   <span class="nd">@profile</span>
+   <span class="k">def</span> <span class="nf">wurzel</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+       <span class="n">x</span> <span class="o">=</span> <span class="n">wurzel_startwert</span><span class="p">(</span><span class="n">quadrat</span><span class="p">)</span>
+       <span class="n">xold</span> <span class="o">=</span> <span class="mi">0</span>
+       <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">xold</span><span class="p">:</span>
+           <span class="n">xold</span> <span class="o">=</span> <span class="n">x</span>
+           <span class="n">x</span> <span class="o">=</span> <span class="n">xold</span><span class="o">*</span><span class="n">xold</span><span class="o">+</span><span class="n">quadrat</span>
+           <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">//</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">xold</span><span class="p">)</span>
+       <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</td></tr></table></div>
+<p>Der restliche Code bleibt unverändert. Wesentlich sind hier die beiden
+<code class="docutils literal"><span class="pre">&#64;profile</span></code>-Dekoratoren. Für die folgende Diskussion haben wir den
+Iterationsschritt des Newton-Verfahrens in zwei Zeilen (17 und 18)
+aufgeteilt. Außerdem haben wir einen Docstring entfernt, der hier nicht
+wesentlich ist.</p>
+<p>Von der Befehlszeile kann man nun das Skript unter Verwendung der zeilenorientierten
+Laufzeitmessung ausführen:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">kernprof</span> <span class="o">-</span><span class="n">l</span> <span class="o">-</span><span class="n">v</span> <span class="n">pi</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">kernprof</span></code> ist der Name eines Skripts, das die Verwendung des Moduls
+<code class="docutils literal"><span class="pre">line_profiler</span></code> automatisiert, wenn man die Option <code class="docutils literal"><span class="pre">-l</span></code> angibt. Die
+Option <code class="docutils literal"><span class="pre">-v</span></code> gibt man an, wenn die Ausgabe direkt angezeigt werden soll.
+In jedem Fall werden die relevanten Daten ähnlich wie beim <code class="docutils literal"><span class="pre">cProfile</span></code>-Modul
+in eine Binärdatei geschrieben. Sofern nicht mit der Option <code class="docutils literal"><span class="pre">-o</span></code> etwas
+anderes angegeben wird, ergibt sich der Name der Datei durch Anhängen der
+Endung <code class="docutils literal"><span class="pre">.lprof</span></code>. In unserem Falle heißt sie also <code class="docutils literal"><span class="pre">pi.py.lprof</span></code>. Aus
+ihr kann man mit</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">line_profiler</span> <span class="n">pi</span><span class="o">.</span><span class="n">py</span><span class="o">.</span><span class="n">lprof</span>
+</pre></div>
+</div>
+<p>die folgende Ausgabe erzeugen:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Timer</span> <span class="n">unit</span><span class="p">:</span> <span class="mf">1e-06</span> <span class="n">s</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">8.71038</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">pi</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">wurzel_startwert</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">10</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+    <span class="mi">10</span>                                           <span class="nd">@profile</span>
+    <span class="mi">11</span>                                           <span class="k">def</span> <span class="nf">wurzel_startwert</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+    <span class="mi">12</span>        <span class="mi">18</span>      <span class="mi">8621108</span> <span class="mf">478950.4</span>     <span class="mf">99.0</span>      <span class="n">str_quadrat</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">quadrat</span><span class="p">)</span>
+    <span class="mi">13</span>        <span class="mi">18</span>           <span class="mi">61</span>      <span class="mf">3.4</span>      <span class="mf">0.0</span>      <span class="n">nrdigits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_quadrat</span><span class="p">)</span>
+    <span class="mi">14</span>        <span class="mi">18</span>           <span class="mi">20</span>      <span class="mf">1.1</span>      <span class="mf">0.0</span>      <span class="n">keepdigits</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="mi">15</span>        <span class="mi">18</span>           <span class="mi">39</span>      <span class="mf">2.2</span>      <span class="mf">0.0</span>      <span class="k">if</span> <span class="n">nrdigits</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="mi">16</span>                                                   <span class="n">keepdigits</span> <span class="o">=</span> <span class="n">keepdigits</span><span class="o">+</span><span class="mi">1</span>
+    <span class="mi">17</span>        <span class="mi">18</span>          <span class="mi">207</span>     <span class="mf">11.5</span>      <span class="mf">0.0</span>      <span class="n">lead_sqrt_estimate</span> <span class="o">=</span>
+                                                       <span class="n">sqrt</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">str_quadrat</span><span class="p">[:</span><span class="n">keepdigits</span><span class="p">]))</span>
+    <span class="mi">18</span>        <span class="mi">18</span>        <span class="mi">88949</span>   <span class="mf">4941.6</span>      <span class="mf">1.0</span>      <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">lead_sqrt_estimate</span><span class="p">)</span>
+                                                       <span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="n">nrdigits</span><span class="o">-</span><span class="n">keepdigits</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">49.5045</span> <span class="n">s</span>
+<span class="n">File</span><span class="p">:</span> <span class="n">pi</span><span class="o">.</span><span class="n">py</span>
+<span class="n">Function</span><span class="p">:</span> <span class="n">wurzel</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">20</span>
+
+<span class="n">Line</span> <span class="c1">#      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="o">==============================================================</span>
+    <span class="mi">20</span>                                           <span class="nd">@profile</span>
+    <span class="mi">21</span>                                           <span class="k">def</span> <span class="nf">wurzel</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+    <span class="mi">22</span>        <span class="mi">18</span>      <span class="mi">8710713</span> <span class="mf">483928.5</span>     <span class="mf">17.6</span>      <span class="n">x</span> <span class="o">=</span> <span class="n">wurzel_startwert</span><span class="p">(</span><span class="n">quadrat</span><span class="p">)</span>
+    <span class="mi">23</span>        <span class="mi">18</span>           <span class="mi">31</span>      <span class="mf">1.7</span>      <span class="mf">0.0</span>      <span class="n">xold</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="mi">24</span>       <span class="mi">288</span>          <span class="mi">898</span>      <span class="mf">3.1</span>      <span class="mf">0.0</span>      <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">xold</span><span class="p">:</span>
+    <span class="mi">25</span>       <span class="mi">270</span>          <span class="mi">254</span>      <span class="mf">0.9</span>      <span class="mf">0.0</span>          <span class="n">xold</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="mi">26</span>       <span class="mi">270</span>      <span class="mi">3026189</span>  <span class="mf">11208.1</span>      <span class="mf">6.1</span>          <span class="n">x</span> <span class="o">=</span> <span class="n">xold</span><span class="o">*</span><span class="n">xold</span><span class="o">+</span><span class="n">quadrat</span>
+    <span class="mi">27</span>       <span class="mi">270</span>     <span class="mi">37766390</span> <span class="mf">139875.5</span>     <span class="mf">76.3</span>          <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">//</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">xold</span><span class="p">)</span>
+    <span class="mi">28</span>        <span class="mi">18</span>           <span class="mi">31</span>      <span class="mf">1.7</span>      <span class="mf">0.0</span>      <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>In der Ausgabe zur Funktion <code class="docutils literal"><span class="pre">wurzel_startwert</span></code> haben wir die Zeilen 17 und 18 wegen
+der Zeilenlänge nachträglich umgebrochen. Die Ausgabe zeigt uns in der Funktion
+<code class="docutils literal"><span class="pre">wurzel_startwert</span></code> nun deutlich, welcher Teil der Funktion für die Ausführungsdauer
+von fast 9 Sekunden verantwortlich ist, nämlich die Umwandlung eines Integers in einen
+String. Dieser Schritt ist hier erforderlich, um die Zahl der Ziffern in dem Integer
+<code class="docutils literal"><span class="pre">quadrat</span></code> zu bestimmen.</p>
+<p>Interessant ist auch die Funktion <code class="docutils literal"><span class="pre">wurzel</span></code>, die für einen größten Teil der Laufzeit
+verantwortlich ist. In den Zeilen 26 und 27 sehen wir, dass der Großteil der Zeit im
+Newton-Iterationsschritt verbracht wird. Dabei spielt die Berechnung des Quadrats von
+<code class="docutils literal"><span class="pre">xold</span></code> kaum eine Rolle. Es ist vielmehr die Division in Zeile 27, die einen sehr hohen
+Zeitaufwand erfordert. Zwar ist die Zeit für die Berechnung des Startwerts in Zeile 22
+auf einen einzelnen Aufruf bezogen größer, aber nachdem die Division 270-mal aufgerufen
+wird, ist sie für mehr als Dreiviertel der Laufzeit der Funktion <code class="docutils literal"><span class="pre">wurzel</span></code> verantwortlich.</p>
+<p>Bei der Programmentwicklung kann es praktisch sein, das Modul <code class="docutils literal"><span class="pre">line_profiler</span></code> in
+IPython zu verwenden. Im Folgenden ist ein Beispiel gezeigt, das einen Vergleich
+zwischen der Wurzelfunktion aus dem <code class="docutils literal"><span class="pre">math</span></code>-Modul und der Wurzelberechnung mit Hilfe
+des Newton-Verfahrens anstellt.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="o">%</span><span class="n">load_ext</span> <span class="n">line_profiler</span>
+
+<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="gp">In [3]: </span><span class="k">def</span> <span class="nf">newton_sqrt</span><span class="p">(</span><span class="n">quadrat</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">   ...:</span>     <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">quadrat</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-13</span><span class="p">:</span>
+<span class="gp">   ...:</span>         <span class="n">x</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">quadrat</span><span class="p">)</span><span class="o">/</span><span class="n">x</span>
+<span class="gp">   ...:</span>     <span class="k">return</span> <span class="n">x</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [4]: </span><span class="k">def</span> <span class="nf">comparison</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">   ...:</span>     <span class="n">sqrt1</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ...:</span>     <span class="n">sqrt2</span> <span class="o">=</span> <span class="n">newton_sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">   ...:</span>     <span class="k">print</span><span class="p">(</span><span class="n">sqrt1</span><span class="p">,</span> <span class="n">sqrt2</span><span class="p">)</span>
+<span class="gp">   ...:</span>
+
+<span class="gp">In [5]: </span><span class="o">%</span><span class="n">lprun</span> <span class="o">-</span><span class="n">f</span> <span class="n">newton_sqrt</span> <span class="n">comparison</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="go">22.360679774997898 22.360679774997898</span>
+<span class="go">Timer unit: 1e-06 s</span>
+
+<span class="go">Total time: 7e-05 s</span>
+<span class="go">File: &lt;ipython-input-3-e6f13bf0d844&gt;</span>
+<span class="go">Function: newton_sqrt at line 1</span>
+
+<span class="go">Line #      Hits         Time  Per Hit   % Time  Line Contents</span>
+<span class="go">==============================================================</span>
+<span class="go">     1                                           def newton_sqrt(quadrat):</span>
+<span class="go">     2         1            4      4.0      5.7      x = 1</span>
+<span class="go">     3        10           34      3.4     48.6      while abs(quadrat-x*x) &gt; 1e-13:</span>
+<span class="go">     4         9           29      3.2     41.4          x = 0.5*(x*x+quadrat)/x</span>
+<span class="go">     5         1            3      3.0      4.3      return x</span>
+</pre></div>
+</div>
+<p>Zunächst lädt man in Eingabe 1 <code class="docutils literal"><span class="pre">line_profiler</span></code> als Erweiterung. Nachdem man
+die nötigen Funktionen definiert und für dieses Beispiel auch noch das <code class="docutils literal"><span class="pre">math</span></code>-Modul
+geladen hat, kann man in Eingabe 5 mit Hilfe von <code class="docutils literal"><span class="pre">%lprun</span></code> die zeilenorientierte
+Laufzeitmessung ausführen. Dazu gibt man mit der Option <code class="docutils literal"><span class="pre">-f</span></code> die Funktion an,
+in der die Laufzeitmessung benötigt wird. Diese Option ersetzt also den <code class="docutils literal"><span class="pre">&#64;profile</span></code>-Dekorator.
+Bei Bedarf kann die Option <code class="docutils literal"><span class="pre">-f</span></code> auch mehrfach angegeben werden. Am Ende steht der
+Aufruf der Funktion, mit der der gewünschte Code ausgeführt wird, hier also
+<code class="docutils literal"><span class="pre">comparison(500)</span></code>.</p>
+<p>Nachdem wir uns in diesem Kapitel auf die Messung von Laufzeiten konzentriert
+hatten, sei abschließend noch angemerkt, dass man auch die Entwicklung des
+Speicherbedarfs während der Ausführung eines Skripts messen kann. Dies ist
+besonders dann nützlich, wenn man mit größeren Arrays arbeitet oder an die
+Grenzen des Arbeitsspeichers stößt. Um im Skript zeilenweise die Entwicklung
+des Speicherbedarfs messen zu können, verwendet man das Modul <code class="docutils literal"><span class="pre">memory_profiler</span></code>.</p>
 <table class="docutils footnote" frame="void" id="rootofallevil" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -421,25 +849,11 @@ angegebene Zitat befindet sich auf Seite 268.</td></tr>
 <a class="reference external" href="http://numba.pydata.org">numba.pydata.org</a>.</td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="lineprofiler" rules="none">
+<table class="docutils footnote" frame="void" id="kern" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Für eine genauere Beschreibung siehe
-<a class="reference external" href="https://github.com/rkern/line_profiler/">line_profiler and kernprof</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="pystone" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><tt class="docutils literal"><span class="pre">pystone.py</span></tt> befindet sich im Verzeichnis <tt class="docutils literal"><span class="pre">Lib/test</span></tt> des
-Python-Quellcodes.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="loops" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Hierzu wurde die Variable <tt class="docutils literal"><span class="pre">LOOPS</span></tt> zu Beginn des Skripts auf den
-Wert <tt class="docutils literal"><span class="pre">500000</span></tt> gesetzt.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Die Quellen zu diesem Modul findet man unter
+<a class="reference external" href="https://github.com/rkern/line_profiler">https://github.com/rkern/line_profiler</a>.</td></tr>
 </tbody>
 </table>
 </div>
@@ -447,19 +861,21 @@ Wert <tt class="docutils literal"><span class="pre">500000</span></tt> gesetzt.<
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         «&#160;&#160;<a href="testing.html">Testen von Programmen</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="parallel.html">Aspekte des parallelen Rechnens</a>&#160;&#160;»
         </p>
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2 erstellt.
     </div>
   </body>
 </html>
