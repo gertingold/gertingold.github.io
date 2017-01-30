@@ -391,7 +391,7 @@ durch vier Prozesse, die durch unterschiedliche Farben gekennzeichnet sind.</spa
 </div>
 <p>Im Folgenden sind die wesentlichen Codeteile dargestellt, die für die
 parallele Berechnung der Mandelbrotmenge benötigen.</p>
-<div class="literal-block-wrapper container" id="code-mandelbrot-parallel">
+<div class="literal-block-wrapper docutils container" id="code-mandelbrot-parallel">
 <div class="code-block-caption"><span class="caption-number">Quellcode 1 </span><span class="caption-text">Wesentliche Teile eines Programms zur Berechnung der
 Mandelbrotmenge unter Verwendung von parallelen Prozessen</span><a class="headerlink" href="#code-mandelbrot-parallel" title="Link zu diesem Quellcode">¶</a></div>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -748,7 +748,7 @@ Parallelverarbeitung nicht gewünscht, zum Beispiel weil das Problem zu klein
 ist und das Starten eines Threads nur unnötig Zeit kosten würde, so kann man
 auch <code class="docutils literal"><span class="pre">target='cpu'</span></code> setzen. Hat man einen geeigneten Grafikprozessor, so
 kann dieser mit <code class="docutils literal"><span class="pre">target='cuda'</span></code> zur Rechnung herangezogen werden.</p>
-<div class="literal-block-wrapper container" id="code-zeta-numba-parallel">
+<div class="literal-block-wrapper docutils container" id="code-zeta-numba-parallel">
 <div class="code-block-caption"><span class="caption-number">Quellcode 2 </span><span class="caption-text">Die Erzeugung einer universellen Funktion mit Hilfe des
 <code class="docutils literal"><span class="pre">vectorize</span></code>-Dekorators von Numba wird am Beispiel der
 Auswertung der Zetafunktion demonstriert.</span><a class="headerlink" href="#code-zeta-numba-parallel" title="Link zu diesem Quellcode">¶</a></div>
@@ -904,7 +904,7 @@ unterstützt, wird dieses Programm in knapp 0,48 Sekunden ausgeführt. Wir
 erreichen somit eine Beschleunigung gegenüber unserem bisher schnellsten
 <a class="reference internal" href="#code-mandelbrot-parallel"><span class="std std-numref">Quellcode 1</span></a> um fast eine Größenordnung. Gegenüber unserer
 allerersten Version haben wird auf diesem Prozessortyp sogar eine Beschleunigung
-um mehr als einen Faktor 1000 erreicht.</p>
+um einen Faktor 200 erreicht.</p>
 <table class="docutils footnote" frame="void" id="cpython" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -943,7 +943,7 @@ ist zum Beispiel das in Java geschriebene Jython.</td></tr>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2 erstellt.
     </div>
   </body>
 </html>
