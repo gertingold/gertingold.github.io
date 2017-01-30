@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Versionskontrolle mit Git &mdash; Python für Naturwissenschaftler</title>
+    <title>Versionskontrolle mit Git &#8212; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,27 +17,28 @@
         VERSION:     '2016alpha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Testen von Programmen" href="testing.html" />
-    <link rel="prev" title="Erstellung von Grafiken mit matplotlib" href="graphics.html" /> 
+    <link rel="prev" title="Erstellung von Grafiken" href="graphics.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Versionskontrolle mit Git</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="graphics.html">Erstellung von Grafiken mit matplotlib</a>
+        «&#160;&#160;<a href="graphics.html">Erstellung von Grafiken</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
         &#160;&#160;::&#160;&#160;
@@ -49,9 +50,9 @@
         
         
   <div class="section" id="versionskontrolle-mit-git">
-<span id="vcgit"></span><h1>Versionskontrolle mit Git<a class="headerlink" href="#versionskontrolle-mit-git" title="Permalink zu dieser Überschrift">¶</a></h1>
+<span id="vcgit"></span><h1>Versionskontrolle mit Git<a class="headerlink" href="#versionskontrolle-mit-git" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="vorbemerkungen">
-<h2>Vorbemerkungen<a class="headerlink" href="#vorbemerkungen" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Vorbemerkungen<a class="headerlink" href="#vorbemerkungen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Bei der Entwicklung von Programmen ist es sinnvoll, ein Versionskontrollsystem
 zu verwenden, das es erlaubt, alte Programmversionen systematisch aufzubewahren.
 Damit wird es beispielsweise möglich, auf definierte ältere Programmstände
@@ -86,45 +87,45 @@ wesentlich besser geeignet als ein zentrales System. Detaillierte Informationen
 <a class="reference external" href="http://git-scm.com/documentation">Dokumentationsbereich</a>.</p>
 </div>
 <div class="section" id="grundlegende-arbeitsschritte">
-<h2>Grundlegende Arbeitsschritte<a class="headerlink" href="#grundlegende-arbeitsschritte" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Grundlegende Arbeitsschritte<a class="headerlink" href="#grundlegende-arbeitsschritte" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Um für ein Verzeichnis sowie die darunterliegenden Verzeichnisse eine
 Versionierung zu ermöglichen, muss man zunächst die von Git benötigte
 Verzeichnisstruktur einrichten. Wir nehmen an, dass in unserem
-Benutzerverzeichnis, hier <tt class="docutils literal"><span class="pre">/home/gert</span></tt>, ein Verzeichnis <tt class="docutils literal"><span class="pre">wd</span></tt> für »working
+Benutzerverzeichnis, hier <code class="docutils literal"><span class="pre">/home/gert</span></code>, ein Verzeichnis <code class="docutils literal"><span class="pre">wd</span></code> für »working
 directory« existiert, in dem wir unsere Programmentwicklung durchführen wollen.
 Dieses Verzeichnis kann im Prinzip jeden beliebigen geeigneten Namen haben. Wir
 gehen zunächst in dieses Verzeichnis und initialisieren es für die Benutzung
 mit Git:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ cd ~/wd
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd ~/wd
 $ git init
 Initialisierte leeres Git-Repository in /home/gert/wd/.git/
 </pre></div>
 </div>
-<p>Im Unterverzeichnis <tt class="docutils literal"><span class="pre">.git</span></tt> werden alle relevanten Daten des Archivs liegen. So
+<p>Im Unterverzeichnis <code class="docutils literal"><span class="pre">.git</span></code> werden alle relevanten Daten des Archivs liegen. So
 lange dieses Verzeichnis nicht modifiziert wird, was man ohnehin nicht tun
 sollte, oder gar gelöscht wird, sind die dort abgelegten Daten und damit alle
 Versionen noch verfügbar auch wenn alle anderen Dateien im Arbeitsverzeichnis
 gelöscht wurden.</p>
 <p>Zu diesem Zeitpunkt ist es sinnvoll, Git auch den vollständigen Namen des
 Benutzers und eine zugehörige E-Mail-Adresse mitzuteilen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git config user.name &quot;Gert-Ludwig Ingold&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git config user.name &quot;Gert-Ludwig Ingold&quot;
 $ git config user.email &quot;gert.ingold@physik.uni-augsburg.de&quot;
 </pre></div>
 </div>
 <p>Diese Informationen legt Git im Hauptverzeichnis des Benutzers in der Datei
-<tt class="docutils literal"><span class="pre">.gitconfig</span></tt> ab und verwendet sie bei der Übernahme von Dateien in das
+<code class="docutils literal"><span class="pre">.gitconfig</span></code> ab und verwendet sie bei der Übernahme von Dateien in das
 Versionsarchiv. Bei Bedarf lassen sich noch weitere Parameter einstellen,
 beispielsweise der Editor, den Git aufrufen soll, um dem Benutzer beim
 Abspeichern einer neuen Version die Möglichkeit zu geben, einen Kommentar
 abzuspeichern.</p>
 <p>Um das Arbeiten mit Git zu illustrieren, legen wir anschließend eine erste
-Version eines Skripts <tt class="docutils literal"><span class="pre">hello.py</span></tt> mit folgendem Inhalt</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Hello world&#39;</span><span class="p">)</span>
+Version eines Skripts <code class="docutils literal"><span class="pre">hello.py</span></code> mit folgendem Inhalt</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>in unserem Verzeichnis an. Nun, aber auch zu jeder anderen Zeit, kann man
 den Zustand des Arbeitsverzeichnisses abfragen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git status
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git status
 Auf Branch master
 
 Initialer Commit
@@ -140,18 +141,18 @@ nichts zum Commit vorgemerkt, aber es gibt unbeobachtete Dateien (benutzen Sie
 </div>
 <p>Git gibt hier eine ganze Menge an Informationen einschließlich eines Vorschlags, was wir als
 Nächstes tun könnten. Doch gehen wir der Reihe nach vor. Wir befinden uns laut der ersten
-Zeile der Statusausgabe auf dem <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig. Weiter unten werden wir sehen, dass wir
+Zeile der Statusausgabe auf dem <code class="docutils literal"><span class="pre">master</span></code>-Zweig. Weiter unten werden wir sehen, dass wir
 unter Git weitere Zweige anlegen können, in denen wir beispielsweise bestimmte Aspekte eines
 Programms weiterentwickeln wollen. Solche Zweige können später auch wieder zusammengeführt
 werden. Ferner weist uns Git darauf hin, dass noch keine Dateien versioniert wurden. Dem
 unteren Teil der Ausgabe können wir entnehmen, dass die Versionierung in zwei Stufen vor
 sich geht und es demzufolge zwei verschiedene Arten von Dateien gibt.</p>
-<p>Git hat sehr wohl bemerkt, dass es eine neue Datei <tt class="docutils literal"><span class="pre">hello.py</span></tt> gibt, beachtet diese jedoch
+<p>Git hat sehr wohl bemerkt, dass es eine neue Datei <code class="docutils literal"><span class="pre">hello.py</span></code> gibt, beachtet diese jedoch
 zunächst nicht weiter. Es wird aber am Ende darauf hingewiesen, dass sich Dateien mit
-Hilfe von <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> für einen <em>commit</em>, also eine Versionierung, vormerken lassen.
+Hilfe von <code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></code> für einen <em>commit</em>, also eine Versionierung, vormerken lassen.
 Diese Dateien werden dabei in eine so genannte <em>staging area</em> gebracht. Wir führen diesen
 Schritt nun aus und sehen uns den neuen Status an:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git add hello.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add hello.py
 $ git status
 Auf Branch master
 
@@ -167,8 +168,8 @@ zum Commit vorgemerkte Änderungen:
 Hinweis, wie wir die Datei wieder aus der <em>staging area</em> entfernen können, falls wir doch
 keine Versionierung durchführen möchten. Bevor wir mit einem <em>commit</em> fortfahren, wollen
 wir zunächst erkunden, was es damit auf sich hat, wenn eine Datei in die <em>staging
-area</em> gebracht wird. Dazu sehen wir uns etwas im <tt class="docutils literal"><span class="pre">.git</span></tt>-Unterverzeichnis um:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ls .git
+area</em> gebracht wird. Dazu sehen wir uns etwas im <code class="docutils literal"><span class="pre">.git</span></code>-Unterverzeichnis um:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ls .git
 branches  config  description  HEAD  hooks  index  info  objects  refs
 $ ls .git/objects
 75  info  pack
@@ -176,19 +177,19 @@ $ ls .git/objects/75
 d9766db981cf4e8c59be50ff01e574581d43fc
 </pre></div>
 </div>
-<p>Im Unterverzeichnis <tt class="docutils literal"><span class="pre">.git/objects/75</span></tt> liegt nun eine Datei mit der etwas
-merkwürdigen Bezeichnung <tt class="docutils literal"><span class="pre">d9766db981cf4e8c59be50ff01e574581d43fc</span></tt>. Stellt man
-noch die <tt class="docutils literal"><span class="pre">75</span></tt> aus dem Verzeichnisnamen voran, so handelt es sich hierbei um
+<p>Im Unterverzeichnis <code class="docutils literal"><span class="pre">.git/objects/75</span></code> liegt nun eine Datei mit der etwas
+merkwürdigen Bezeichnung <code class="docutils literal"><span class="pre">d9766db981cf4e8c59be50ff01e574581d43fc</span></code>. Stellt man
+noch die <code class="docutils literal"><span class="pre">75</span></code> aus dem Verzeichnisnamen voran, so handelt es sich hierbei um
 den so genannten SHA1-Hashwert <a class="footnote-reference" href="#sha1" id="id2">[2]</a> des Objekts, wie wir folgendermaßen
 überprüfen können <a class="footnote-reference" href="#so552659" id="id3">[3]</a>:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha1</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">sha1</span>
 <span class="k">def</span> <span class="nf">githash</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="n">sha1</span><span class="p">()</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="s">&quot;blob </span><span class="si">%u</span><span class="se">\0</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">))</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">((</span><span class="s2">&quot;blob </span><span class="si">%u</span><span class="se">\0</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf8&#39;</span><span class="p">))</span>
     <span class="n">s</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
 
-<span class="n">content</span> <span class="o">=</span> <span class="s">&quot;print(&#39;hello world&#39;)</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;print(&#39;hello world&#39;)</span><span class="se">\n</span><span class="s2">&quot;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">githash</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -199,25 +200,25 @@ identifizieren und auf Gleichheit testen zu können.  Meistens genügen die
 ersten sechs oder sieben Hexadezimalzahlen, um ein Objekt eindeutig
 auszuwählen. Wir können uns den Inhalt des erzeugten Objekts mit Hilfe von Git
 folgendermaßen ansehen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git cat-file -p 75d9766
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git cat-file -p 75d9766
 print(&#39;hello world&#39;)
 </pre></div>
 </div>
 <p>Gemäß der obigen Statusanzeige müssen wir in einem zweiten Schritt noch einen <em>commit</em>
 ausführen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git commit -m &quot;ein erstes Skript&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git commit -m &quot;ein erstes Skript&quot;
 [master (Basis-Commit) f442b34] ein erstes Skript
  1 file changed, 1 insertion(+)
   create mode 100644 hello.py
 </pre></div>
 </div>
-<p>Mit Hilfe des Arguments <tt class="docutils literal"><span class="pre">-m</span></tt> haben wir noch einen Kommentar angegeben. Ohne dieses
+<p>Mit Hilfe des Arguments <code class="docutils literal"><span class="pre">-m</span></code> haben wir noch einen Kommentar angegeben. Ohne dieses
 Argument hätte Git einen Editor geöffnet, um die Eingabe eines Kommentars zu ermöglichen.
 Es empfiehlt sich im Hinblick auf die Übersichtlichkeit von späteren längeren Ausgaben,
 Kommentare auf nicht zu lange Einzeiler zu beschränken.</p>
 <p>Was hat sich durch den <em>commit</em> im Verzeichnis der Objekte getan? Wir stellen fest,
 dass unser altes Objekt noch vorhanden ist und zwei Objekte hinzugekommen sind:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ ls -R .git/objects
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ls -R .git/objects
 .git/objects:
 75  ed  f4  info  pack
 
@@ -236,7 +237,7 @@ d9766db981cf4e8c59be50ff01e574581d43fc
 </pre></div>
 </div>
 <p>Sehen wir uns die neuen Objekte an:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git cat-file -p f442b34
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git cat-file -p f442b34
 tree ed868ae92a213b64de2ad627b27458537539bcdc
 author Gert-Ludwig Ingold &lt;gert.ingold@physik.uni-augsburg.de&gt; 1420469345 +0100
 committer Gert-Ludwig Ingold &lt;gert.ingold@physik.uni-augsburg.de&gt; 1420469345 +0100
@@ -250,10 +251,10 @@ $ git cat-file -p ed868ae
 den Angaben zur Person und dem Kommentar einen Verweis auf ein <em>tree</em>-Objekt enthält.
 Das zweite neue Objekt ist genau dieses <em>tree</em>-Objekt. Es enthält Informationen über
 die Objekte, die zu dem betreffenden <em>commit</em> gehören. In unserem Fall ist dies das
-uns bereits bekannte <em>blob</em>-Objekt, das den Inhalt unseres Skripts <tt class="docutils literal"><span class="pre">hello.py</span></tt> enthält.</p>
+uns bereits bekannte <em>blob</em>-Objekt, das den Inhalt unseres Skripts <code class="docutils literal"><span class="pre">hello.py</span></code> enthält.</p>
 <p>Nun ist es Zeit, unser Skript zu überarbeiten. Im Wort »hello« ersetzen wir das kleine
-<tt class="docutils literal"><span class="pre">h</span></tt> durch ein großes <tt class="docutils literal"><span class="pre">H</span></tt>. Git meldet dann den folgenden Status:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git status
+<code class="docutils literal"><span class="pre">h</span></code> durch ein großes <code class="docutils literal"><span class="pre">H</span></code>. Git meldet dann den folgenden Status:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git status
 Auf Branch master
 Änderungen, die nicht zum Commit vorgemerkt sind:
   (benutzen Sie &quot;git add &lt;Datei&gt;...&quot;, um die Änderungen zum Commit vorzumerken)
@@ -270,7 +271,7 @@ keine Änderungen zum Commit vorgemerkt (benutzen Sie &quot;git add&quot; und/od
 Schritte im Hinblick auf eine Versionierung aus. Diese sind uns überlassen, wobei
 uns Git wieder Hilfestellung gibt. Nehmen wir an, dass wir die Änderungen wieder
 rückgängig machen wollen. Dies geht wie folgt:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout -- hello.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout -- hello.py
 $ git status
 Auf Branch master
 nichts zu committen, Arbeitsverzeichnis unverändert
@@ -284,21 +285,21 @@ wir die neue Fassung nicht zur <em>staging area</em> hinzugefügt haben, sind un
 wie dies bei einer erfolgten Versionierung der Fall gewesen wäre. Man sollte
 daher mit dem beschriebenen Vorgehen besonders vorsichtig sein.</p>
 <p>Wir wiederholen nun zur Wiederherstellung der geänderten Version die Umwandlung
-des <tt class="docutils literal"><span class="pre">h</span></tt> in einen Großbuchstaben. Anschließend könnten wir wieder die beiden
-Schritte <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">hello.py</span></tt> und <tt class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></tt> ausführen. Alternativ lässt
+des <code class="docutils literal"><span class="pre">h</span></code> in einen Großbuchstaben. Anschließend könnten wir wieder die beiden
+Schritte <code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">hello.py</span></code> und <code class="docutils literal"><span class="pre">git</span> <span class="pre">commit</span></code> ausführen. Alternativ lässt
 sich dies in unserem Fall in einem einzigen Schritt bewältigen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git commit -a -m &quot;fange mit Großbuchstabe an&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git commit -a -m &quot;fange mit Großbuchstabe an&quot;
 [master 79ff614] fange mit Großbuchstabe an
  1 file changed, 1 insertion(+), 1 deletion(-)
 </pre></div>
 </div>
 <p>Zu beachten ist dabei allerdings, dass auf diese Weise alle Dateien, von denen
 Git weiß, dem <em>commit</em> unterzogen werden auch wenn dies vielleicht nicht
-gewünscht ist. Es ist daher oft sinnvoll, zunächst explizit mit <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> die
+gewünscht ist. Es ist daher oft sinnvoll, zunächst explizit mit <code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></code> die
 Dateien für einen <em>commit</em> festzulegen. Damit lassen sich gezielt thematisch
 zusammenhängende Änderungen auswählen.</p>
-<p>Während der Hashwert des ersten <em>commit</em>-Objekts mit <tt class="docutils literal"><span class="pre">f442b34</span></tt> begann, fängt
-der Hashwert des neuesten <em>commit</em>-Objekts mit <tt class="docutils literal"><span class="pre">79ff614</span></tt> an. Git bezieht sich
+<p>Während der Hashwert des ersten <em>commit</em>-Objekts mit <code class="docutils literal"><span class="pre">f442b34</span></code> begann, fängt
+der Hashwert des neuesten <em>commit</em>-Objekts mit <code class="docutils literal"><span class="pre">79ff614</span></code> an. Git bezieht sich
 auf Versionen mit Hilfe dieser Hashwerte und nicht mit zeitlich ansteigenden
 Versionsnummern. Letzteres ist für ein dezentral organisiertes
 Versionskontrollsystem nicht möglich, da im Allgemeinen nicht bekannt sein
@@ -306,7 +307,7 @@ kann, ob andere Entwickler in der Zwischenzeit Änderungen am gleichen Projekt
 durchgeführt haben.</p>
 <p>Einen Überblick über die verschiedenen vorhandenen Versionen kann man sich
 folgendermaßen verschaffen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git log
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git log
 commit 79ff6141783ca76a5424271d2cede769ff45fb28
 Author: Gert-Ludwig Ingold &lt;gert.ingold@physik.uni-augsburg.de&gt;
 Date:   Mon Jan 5 16:30:22 2015 +0100
@@ -322,7 +323,7 @@ Date:   Mon Jan 5 15:49:05 2015 +0100
 </div>
 <p>Die Ausgabe kann mit Optionen sehr detailliert beeinflusst werden. Wir geben
 hier nur ein Beispiel:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git log --pretty=oneline
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git log --pretty=oneline
 79ff6141783ca76a5424271d2cede769ff45fb28 fange mit Großbuchstabe an
 f442b34f6400811648a3c94a8ddd5bfb417e1cf5 ein erstes Skript
 </pre></div>
@@ -330,12 +331,12 @@ f442b34f6400811648a3c94a8ddd5bfb417e1cf5 ein erstes Skript
 <p>Diese einzeilige Ausgabe funktioniert dann besonders gut, wenn man sich wie
 weiter oben bereits empfohlen bei der Beschreibung der Version auf eine
 einzige, möglichst informative Zeile beschränkt. Informationen über weitere
-Optionen von Git-Befehlen erhält man grundsätzlich mit <tt class="docutils literal"><span class="pre">git</span> <span class="pre">help</span></tt> und der
-anschließenden Angabe des gewünschten Befehls, in unserem Falle also <tt class="docutils literal"><span class="pre">git</span> <span class="pre">help</span>
-<span class="pre">log</span></tt>.</p>
-<p>Details zu einer Version, im Folgenden die Version <tt class="docutils literal"><span class="pre">79ff614</span></tt>, erhält man
+Optionen von Git-Befehlen erhält man grundsätzlich mit <code class="docutils literal"><span class="pre">git</span> <span class="pre">help</span></code> und der
+anschließenden Angabe des gewünschten Befehls, in unserem Falle also <code class="docutils literal"><span class="pre">git</span> <span class="pre">help</span>
+<span class="pre">log</span></code>.</p>
+<p>Details zu einer Version, im Folgenden die Version <code class="docutils literal"><span class="pre">79ff614</span></code>, erhält man
 folgendermaßen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git show 79ff614
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git show 79ff614
 commit 79ff6141783ca76a5424271d2cede769ff45fb28
 Author: Gert-Ludwig Ingold &lt;gert.ingold@physik.uni-augsburg.de&gt;
 Date:   Mon Jan 5 16:30:22 2015 +0100
@@ -351,16 +352,16 @@ index 75d9766..f7d1785 100644
 +print(&#39;Hello world&#39;)
 </pre></div>
 </div>
-<p>Dieser Ausgabe kann man entnehmen, dass das Objekt <tt class="docutils literal"><span class="pre">75d9766...</span></tt> in das
-Objekt <tt class="docutils literal"><span class="pre">f7d1785...</span></tt> umgewandelt wurde. Aus den letzten Zeilen kann man die
+<p>Dieser Ausgabe kann man entnehmen, dass das Objekt <code class="docutils literal"><span class="pre">75d9766...</span></code> in das
+Objekt <code class="docutils literal"><span class="pre">f7d1785...</span></code> umgewandelt wurde. Aus den letzten Zeilen kann man die
 Details der Änderung ersehen.</p>
 <p>Wir hatten weiter oben darauf hingewiesen, dass man im Detail beeinflussen
 kann, welche Dateien beim nächsten <em>commit</em> berücksichtigt werden. Dazu
-werden die betreffenden Dateien mit einem <tt class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></tt> in die <em>staging area</em>
+werden die betreffenden Dateien mit einem <code class="docutils literal"><span class="pre">git</span> <span class="pre">add</span></code> in die <em>staging area</em>
 aufgenommen.  In diesem Zusammenhang kann es passieren, dass man eine Datei
 versehentlich zu diesem Index hinzufügt. Im folgenden Beispiel sei dies eine
-Datei namens <tt class="docutils literal"><span class="pre">spam.py</span></tt>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git add spam.py
+Datei namens <code class="docutils literal"><span class="pre">spam.py</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add spam.py
 $ git status
 Auf Branch master
 zum Commit vorgemerkte Änderungen:
@@ -370,7 +371,7 @@ zum Commit vorgemerkte Änderungen:
 </pre></div>
 </div>
 <p>Diese Datei lässt sich nun wie angegeben wieder aus der <em>staging area</em> entfernen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git reset HEAD spam.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git reset HEAD spam.py
 $ git status
 Auf Branch master
 Unbeobachtete Dateien:
@@ -382,12 +383,12 @@ nichts zum Commit vorgemerkt, aber es gibt unbeobachtete Dateien (benutzen Sie
 &quot;git add&quot; zum Beobachten)
 </pre></div>
 </div>
-<p>Im Arbeitsverzeichnis ist die Datei <tt class="docutils literal"><span class="pre">spam.py</span></tt> weiterhin vorhanden. Im <tt class="docutils literal"><span class="pre">reset</span></tt>-Befehl
-verweist <tt class="docutils literal"><span class="pre">HEAD</span></tt> hier auf die Arbeitsversion im aktuellen Zweig, deren Hashwert
+<p>Im Arbeitsverzeichnis ist die Datei <code class="docutils literal"><span class="pre">spam.py</span></code> weiterhin vorhanden. Im <code class="docutils literal"><span class="pre">reset</span></code>-Befehl
+verweist <code class="docutils literal"><span class="pre">HEAD</span></code> hier auf die Arbeitsversion im aktuellen Zweig, deren Hashwert
 wir somit nicht explizit kennen müssen.</p>
 </div>
 <div class="section" id="verzweigen-und-zusammenfuhren">
-<h2>Verzweigen und Zusammenführen<a class="headerlink" href="#verzweigen-und-zusammenfuhren" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Verzweigen und Zusammenführen<a class="headerlink" href="#verzweigen-und-zusammenfuhren" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Bei der Entwicklung von Software ist es häufig sinnvoll, gewisse
 Weiterentwicklungen vom Hauptentwicklungsstrang zumindest zeitweise
 abzukoppeln. Dies erreicht man durch Verzweigungen. Ein typischer Fall wäre ein
@@ -402,36 +403,36 @@ zusammenführen können. Das Verzweigen und Zusammenführen geht in Git sehr
 einfach, da lediglich Markierungen gesetzt werden. Daher gehört das Verzweigen
 und Zusammenführen bei der Arbeit mit Git zu den Standardverfahren, die
 regelmäßig zum Einsatz kommen.</p>
-<p>Zu Beginn gibt es nur einen Zweig, der, wie wir bereits wissen, den Namen <tt class="docutils literal"><span class="pre">master</span></tt>
+<p>Zu Beginn gibt es nur einen Zweig, der, wie wir bereits wissen, den Namen <code class="docutils literal"><span class="pre">master</span></code>
 besitzt. Im vorigen Kapitel haben wir in diesem Zweig zwei Versionen erzeugt. Eine
-graphische Darstellung, die hier mit dem Git-Archive-Betrachter <tt class="docutils literal"><span class="pre">gitg</span></tt> erzeugt
+graphische Darstellung, die hier mit dem Git-Archive-Betrachter <code class="docutils literal"><span class="pre">gitg</span></code> erzeugt
 wurde, sieht dann folgendermaßen aus:</p>
 <a class="reference internal image-reference" href="_images/gitbranch_01.png"><img alt="_images/gitbranch_01.png" class="align-center" src="_images/gitbranch_01.png" style="width: 12cm;" /></a>
 <p>Die Information über die vorhandenen Zweige lässt sich auch direkt auf der
 Kommandzeile erhalten. In der folgenden Ausgabe ist zu erkennen, dass es nur
-einen Zweig, nämlich <tt class="docutils literal"><span class="pre">master</span></tt> gibt. Der Stern zeigt zudem an, dass wir uns
+einen Zweig, nämlich <code class="docutils literal"><span class="pre">master</span></code> gibt. Der Stern zeigt zudem an, dass wir uns
 gerade in diesem Zweig befinden.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git branch
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git branch
 * master
 </pre></div>
 </div>
 <p>Die Situation wird interessanter, wenn wir einen weiteren Zweig anlegen, der
-von <tt class="docutils literal"><span class="pre">master</span></tt> abzweigt. Wir nennen ihn <tt class="docutils literal"><span class="pre">develop</span></tt>, da dort die
-Programmentwicklung erfolgen soll, während in <tt class="docutils literal"><span class="pre">master</span></tt> immer eine lauffähige
+von <code class="docutils literal"><span class="pre">master</span></code> abzweigt. Wir nennen ihn <code class="docutils literal"><span class="pre">develop</span></code>, da dort die
+Programmentwicklung erfolgen soll, während in <code class="docutils literal"><span class="pre">master</span></code> immer eine lauffähige
 Version enthalten sein soll. Damit ist es unproblematisch, wenn das Programm
-im <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig zeitweise nicht funktionsfähig ist.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git branch develop
+im <code class="docutils literal"><span class="pre">develop</span></code>-Zweig zeitweise nicht funktionsfähig ist.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git branch develop
 $ git branch
   develop
 * master
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/gitbranch_02.png"><img alt="_images/gitbranch_02.png" class="align-center" src="_images/gitbranch_02.png" style="width: 12cm;" /></a>
-<p>Der neue Zweig <tt class="docutils literal"><span class="pre">develop</span></tt> tritt zunächst nur als weitere Bezeichnung neben
-<tt class="docutils literal"><span class="pre">master</span></tt> in Erscheinung. Die Verzweigung wird erst später deutlich werden,
+<p>Der neue Zweig <code class="docutils literal"><span class="pre">develop</span></code> tritt zunächst nur als weitere Bezeichnung neben
+<code class="docutils literal"><span class="pre">master</span></code> in Erscheinung. Die Verzweigung wird erst später deutlich werden,
 wenn wir Dateien in den jeweiligen Zweigen verändern.</p>
-<p>Um nun in <tt class="docutils literal"><span class="pre">develop</span></tt> arbeiten zu können, müssen wir in diesen Zweig wechseln:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout develop
+<p>Um nun in <code class="docutils literal"><span class="pre">develop</span></code> arbeiten zu können, müssen wir in diesen Zweig wechseln:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout develop
 Zu Branch &#39;develop&#39; gewechselt
 $ git branch
 * develop
@@ -439,14 +440,14 @@ $ git branch
 </pre></div>
 </div>
 <p>Der Stern zeigt an, dass der Zweigwechsel tatsächlich vollzogen wurde.</p>
-<p>Bearbeitet man nun eine Datei im <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig und führt ein <em>commit</em> durch,
+<p>Bearbeitet man nun eine Datei im <code class="docutils literal"><span class="pre">develop</span></code>-Zweig und führt ein <em>commit</em> durch,
 so wird die Trennung der beiden Zweige deutlich.</p>
 <a class="reference internal image-reference" href="_images/gitbranch_03.png"><img alt="_images/gitbranch_03.png" class="align-center" src="_images/gitbranch_03.png" style="width: 12cm;" /></a>
-<p>Wir wechseln nun in den <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig zurück und führen ein <em>merge</em>, also eine
+<p>Wir wechseln nun in den <code class="docutils literal"><span class="pre">master</span></code>-Zweig zurück und führen ein <em>merge</em>, also eine
 Vereinigung von zwei Zweigen durch. Git sucht in diesem Fall nach dem gemeinsamen
-Vorfahren der beiden Zweige und baut die im <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig durchgeführten
-Änderungen auch im <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig ein:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout master
+Vorfahren der beiden Zweige und baut die im <code class="docutils literal"><span class="pre">develop</span></code>-Zweig durchgeführten
+Änderungen auch im <code class="docutils literal"><span class="pre">master</span></code>-Zweig ein:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout master
 Zu Branch &#39;master&#39; gewechselt
 $ git merge develop
 Aktualisiere 79ff614..79f695b
@@ -455,22 +456,22 @@ Fast-forward
   1 file changed, 1 insertion(+)
 </pre></div>
 </div>
-<p>Da im <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig in der Zwischenzeit keine Änderungen vorgenommen wurden,
+<p>Da im <code class="docutils literal"><span class="pre">master</span></code>-Zweig in der Zwischenzeit keine Änderungen vorgenommen wurden,
 linearisiert Git die Vorgeschichte. Es sind aber nach wie vor beide Zweige
 vorhanden.</p>
 <a class="reference internal image-reference" href="_images/gitbranch_04.png"><img alt="_images/gitbranch_04.png" class="align-center" src="_images/gitbranch_04.png" style="width: 12cm;" /></a>
-<p>Möchte man festhalten, dass die Entwicklung im <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig durchgeführt
-wurde, so kann man dieses so genannte <em>fast forward</em> mit der Option <tt class="docutils literal"><span class="pre">--no-ff</span></tt>
+<p>Möchte man festhalten, dass die Entwicklung im <code class="docutils literal"><span class="pre">develop</span></code>-Zweig durchgeführt
+wurde, so kann man dieses so genannte <em>fast forward</em> mit der Option <code class="docutils literal"><span class="pre">--no-ff</span></code>
 beim Zusammenführen der beiden Zweige verhindern. Um dies zu zeigen, wechseln
-wir zunächst in den <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout develop
+wir zunächst in den <code class="docutils literal"><span class="pre">develop</span></code>-Zweig.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout develop
 Zu Branch &#39;develop&#39; gewechselt
 </pre></div>
 </div>
 <p>Dort führen wir die gewünschten Änderungen und einen anschließenden <em>commit</em> durch.
-Nach dem Wechsel in den <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig benutzen wir nun beim Zusammenführen die
-Option <tt class="docutils literal"><span class="pre">--no-ff</span></tt>.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git commit -a -m &#39;dreifache Ausgabe&#39;
+Nach dem Wechsel in den <code class="docutils literal"><span class="pre">master</span></code>-Zweig benutzen wir nun beim Zusammenführen die
+Option <code class="docutils literal"><span class="pre">--no-ff</span></code>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git commit -a -m &#39;dreifache Ausgabe&#39;
 [develop d2bfce0] dreifache Ausgabe
  1 file changed, 3 insertions(+), 2 deletions(-)
 $ git checkout master
@@ -484,16 +485,16 @@ Merge made by the &#39;recursive&#39; strategy.
 <p>Die folgende Abbildung zeigt, dass die Versionsgeschichte jetzt den Zweig darstellt,
 in dem die Änderung tatsächlich erfolgte.</p>
 <a class="reference internal image-reference" href="_images/gitbranch_05.png"><img alt="_images/gitbranch_05.png" class="align-center" src="_images/gitbranch_05.png" style="width: 12cm;" /></a>
-<p>Genauso wie man Änderungen aus dem <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig in den <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig übernehmen
-kann, kann man auch Änderungen vom <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig in den <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig übernehmen.
-Eine typische Situation besteht darin, dass im <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig ein Fehler korrigiert
+<p>Genauso wie man Änderungen aus dem <code class="docutils literal"><span class="pre">develop</span></code>-Zweig in den <code class="docutils literal"><span class="pre">master</span></code>-Zweig übernehmen
+kann, kann man auch Änderungen vom <code class="docutils literal"><span class="pre">master</span></code>-Zweig in den <code class="docutils literal"><span class="pre">develop</span></code>-Zweig übernehmen.
+Eine typische Situation besteht darin, dass im <code class="docutils literal"><span class="pre">master</span></code>-Zweig ein Fehler korrigiert
 wird, der auch in der Entwicklungsversion vorliegt. Zunächst nehmen wir an, dass im
-<tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig weiter gearbeitet wird. Im <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig wird der Fehler korrigiert,
+<code class="docutils literal"><span class="pre">develop</span></code>-Zweig weiter gearbeitet wird. Im <code class="docutils literal"><span class="pre">master</span></code>-Zweig wird der Fehler korrigiert,
 so dass jetzt in beiden Zweigen Änderungen vorliegen.</p>
 <a class="reference internal image-reference" href="_images/gitbranch_06.png"><img alt="_images/gitbranch_06.png" class="align-center" src="_images/gitbranch_06.png" style="width: 12cm;" /></a>
-<p>Um Änderungen aus dem <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig in den <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig zu übernehmen, wechseln
-wir in Letzteren und führen dort ein <em>merge</em> des <tt class="docutils literal"><span class="pre">master</span></tt>-Zweigs durch:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout develop
+<p>Um Änderungen aus dem <code class="docutils literal"><span class="pre">master</span></code>-Zweig in den <code class="docutils literal"><span class="pre">develop</span></code>-Zweig zu übernehmen, wechseln
+wir in Letzteren und führen dort ein <em>merge</em> des <code class="docutils literal"><span class="pre">master</span></code>-Zweigs durch:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout develop
 Zu Branch &#39;develop&#39; gewechselt
 $ git merge master
 Merge made by the &#39;recursive&#39; strategy.
@@ -504,19 +505,19 @@ Merge made by the &#39;recursive&#39; strategy.
 <p>Damit sieht unser Verzweigungsschema folgendermaßen aus:</p>
 <a class="reference internal image-reference" href="_images/gitbranch_07.png"><img alt="_images/gitbranch_07.png" class="align-center" src="_images/gitbranch_07.png" style="width: 12cm;" /></a>
 <p>Um ein neues Feature für ein Programm zu entwickeln, wird häufig ein Zweig vom
-<tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig abgespalten und nach der Entwicklung mit Letzterem wieder
+<code class="docutils literal"><span class="pre">develop</span></code>-Zweig abgespalten und nach der Entwicklung mit Letzterem wieder
 zusammengeführt. Sollte die Entwicklung nicht erfolgreich gewesen sein, so
 verzichtet man auf die Zusammenführung oder löscht den überflüssig gewordenen
 Zweig. Bei dieser Gelegenheit zeigen wir, wie man das Anlegen eines neuen Zweigs
 und das Wechseln in diesen Zweig mit einem Kommando erledigen kann:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout -b feature1
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout -b feature1
 Gewechselt zu einem neuen Branch &#39;feature1&#39;
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/gitbranch_08.png"><img alt="_images/gitbranch_08.png" class="align-center" src="_images/gitbranch_08.png" style="width: 12cm;" /></a>
-<p>Unabhängig von der Entwicklung im <tt class="docutils literal"><span class="pre">feature1</span></tt>-Zweig kann man nun Änderungen
-zwischen dem <tt class="docutils literal"><span class="pre">master</span></tt>- und dem <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig austauschen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git branch
+<p>Unabhängig von der Entwicklung im <code class="docutils literal"><span class="pre">feature1</span></code>-Zweig kann man nun Änderungen
+zwischen dem <code class="docutils literal"><span class="pre">master</span></code>- und dem <code class="docutils literal"><span class="pre">develop</span></code>-Zweig austauschen:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git branch
   develop
 * feature1
   master
@@ -534,15 +535,15 @@ Fast-forward
 <p>Bis jetzt gingen alle Zusammenführungen problemlos von statten. Es kann aber
 durchaus zu Konflikten kommen, die sich für Git nicht eindeutig auflösen
 lassen. Dann muss der Konflikt von Hand gelöst werden. Um dies zu illustrieren,
-führen wir im <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig eine Änderung ein, die beim Zusammenführen mit
-dem <tt class="docutils literal"><span class="pre">feature1</span></tt>-Zweig zu einem Konflikt führt.</p>
+führen wir im <code class="docutils literal"><span class="pre">develop</span></code>-Zweig eine Änderung ein, die beim Zusammenführen mit
+dem <code class="docutils literal"><span class="pre">feature1</span></code>-Zweig zu einem Konflikt führt.</p>
 <a class="reference internal image-reference" href="_images/gitbranch_10.png"><img alt="_images/gitbranch_10.png" class="align-center" src="_images/gitbranch_10.png" style="width: 14cm;" /></a>
 <p>Die folgende Ausgabe zeigt, wie Git einen Konflikt anzeigt. In der konfliktbehafteten
-Datei <tt class="docutils literal"><span class="pre">hello.py</span></tt> sind die kritischen Stellen gegenübergestellt. Zunächst wird die
-problematische Codestelle in der Arbeitsversion des <tt class="docutils literal"><span class="pre">develop</span></tt>-Zweigs angezeigt.
-Getrennt von <tt class="docutils literal"><span class="pre">=======</span></tt> folgt dann der Code aus dem <tt class="docutils literal"><span class="pre">feature1</span></tt>-Zweig, der im
-<tt class="docutils literal"><span class="pre">develop</span></tt>-Zweig aufgenommen werden soll.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git branch
+Datei <code class="docutils literal"><span class="pre">hello.py</span></code> sind die kritischen Stellen gegenübergestellt. Zunächst wird die
+problematische Codestelle in der Arbeitsversion des <code class="docutils literal"><span class="pre">develop</span></code>-Zweigs angezeigt.
+Getrennt von <code class="docutils literal"><span class="pre">=======</span></code> folgt dann der Code aus dem <code class="docutils literal"><span class="pre">feature1</span></code>-Zweig, der im
+<code class="docutils literal"><span class="pre">develop</span></code>-Zweig aufgenommen werden soll.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git branch
 * develop
   feature1
   master
@@ -568,13 +569,13 @@ def myfunc1(n):
 ist. Unter Umständen kann es erwünscht, Teile jeweils aus dem einen oder dem anderen
 Zweig zu entnehmen. Hat man eine zufriedenstellende Version erstellt, kann man einen
 <em>commit</em> durchführen.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git add hello.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add hello.py
 $ git commit -m&#39;Konflikt behoben&#39;
 [develop ef71e70] Konflikt behoben
 </pre></div>
 </div>
 <p>Um abschließend die drei Zweige zu zeigen, die in der Diskussion eine Rolle gespielt haben,
-führen wir noch je eine Änderung im <tt class="docutils literal"><span class="pre">master</span></tt>- und im <tt class="docutils literal"><span class="pre">feature1</span></tt>-Zweig durch und erhalten
+führen wir noch je eine Änderung im <code class="docutils literal"><span class="pre">master</span></code>- und im <code class="docutils literal"><span class="pre">feature1</span></code>-Zweig durch und erhalten
 damit das folgende Bild:</p>
 <a class="reference internal image-reference" href="_images/gitbranch_11.png"><img alt="_images/gitbranch_11.png" class="align-center" src="_images/gitbranch_11.png" style="width: 12cm;" /></a>
 <p>Der Umstand, dass wir bereits in wenigen Schritten ein relativ komplexes
@@ -586,7 +587,7 @@ Entwickler nicht unnötig mit Code zu belasten, der nur lokal für einen Entwick
 von Bedeutung ist.</p>
 </div>
 <div class="section" id="umgang-mit-entfernten-archiven">
-<h2>Umgang mit entfernten Archiven<a class="headerlink" href="#umgang-mit-entfernten-archiven" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Umgang mit entfernten Archiven<a class="headerlink" href="#umgang-mit-entfernten-archiven" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Bis jetzt haben wir uns nur mit der Arbeit mit einem lokalen Archiv
 beschäftigt. Wenn mehrere Entwickler zusammenarbeiten, muss es jedoch die
 Möglichkeit des Austauschs von Code geben. Unter einem zentralen
@@ -600,17 +601,17 @@ möglich ist.</p>
 <p>Je nachdem welches Protokoll für den Datenzugriff zugelassen ist und welche
 Zugriffsrechte man besitzt, kann man auf das zentrale Archiv lesend oder
 eventuell auch schreibend zugreifen. In den folgenden Beispielen wollen wir
-einen Zugriff per <tt class="docutils literal"><span class="pre">ssh</span></tt>, also <em>secure shell</em>, annehmen, der uns, nach
+einen Zugriff per <code class="docutils literal"><span class="pre">ssh</span></code>, also <em>secure shell</em>, annehmen, der uns, nach
 entsprechender Authentifizierung, sowohl Lese- als auch Schreibzugriff
-ermöglicht. Das zentrale Archiv soll auf dem Rechner <tt class="docutils literal"><span class="pre">nonexistent</span></tt> liegen,
+ermöglicht. Das zentrale Archiv soll auf dem Rechner <code class="docutils literal"><span class="pre">nonexistent</span></code> liegen,
 der, wie der Name schon andeutet, in Wirklichkeit nicht existiert. Der Name
 ist also entsprechend anzupassen. Der Zugriff erfolge über einen Benutzer
-namens <tt class="docutils literal"><span class="pre">user</span></tt>. Auch der Benutzername muss an die tatsächlichen Gegebenheiten
+namens <code class="docutils literal"><span class="pre">user</span></code>. Auch der Benutzername muss an die tatsächlichen Gegebenheiten
 angepasst werden.</p>
 <p>Als erstes erzeugen wir uns lokal ein Git-Arbeitsverzeichnis, indem wir das
 zentrale Archiv klonen. Zur Illustration haben wir dort zunächst wieder nur
 eine Version eines einfachen Skripts abgelegt.</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git clone ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git dummy
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git dummy
 Klone nach &#39;dummy&#39;...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
@@ -626,20 +627,20 @@ print(&#39;hello world&#39;)
 </pre></div>
 </div>
 <p>Nach dem Wechsel in das Arbeitsverzeichnis sehen wir, dass neben dem gewohnten
-<tt class="docutils literal"><span class="pre">master</span></tt>-Zweig noch zwei <tt class="docutils literal"><span class="pre">remote</span></tt>-Zweige existieren. Hierbei handelt es
+<code class="docutils literal"><span class="pre">master</span></code>-Zweig noch zwei <code class="docutils literal"><span class="pre">remote</span></code>-Zweige existieren. Hierbei handelt es
 sich um Zweige, die auf das zentrale Archiv verweisen, das standardmäßig mit
-<tt class="docutils literal"><span class="pre">origin</span></tt> bezeichnet wird. Um die <tt class="docutils literal"><span class="pre">remote</span></tt>-Zweige angezeigt zu bekommen,
-muss die Option <tt class="docutils literal"><span class="pre">-a</span></tt> angegeben werden. Andernfalls beschränkt sich die
+<code class="docutils literal"><span class="pre">origin</span></code> bezeichnet wird. Um die <code class="docutils literal"><span class="pre">remote</span></code>-Zweige angezeigt zu bekommen,
+muss die Option <code class="docutils literal"><span class="pre">-a</span></code> angegeben werden. Andernfalls beschränkt sich die
 Ausgabe auf die lokal vorhandenen Zweige. Informationen über entfernte Archive
 und den zugehörigen Zugriffsweg erhält man mit:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git remote -v
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git remote -v
 origin  ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git (fetch)
 origin  ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git (push)
 </pre></div>
 </div>
 <p>Nehmen wir an, dass auf dem zentralen Server eine Datei verändert wurde, so
 können wir diese von dort in unser Arbeitsverzeichnis holen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git fetch origin
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git fetch origin
 remote: Counting objects: 5, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Entpacke Objekte: 100% (3/3), Fertig.
@@ -647,9 +648,9 @@ Von ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git
    96ffbf6..26f3c10  master     -&gt; origin/master
 </pre></div>
 </div>
-<p>Dabei wird nur der <tt class="docutils literal"><span class="pre">origin</span></tt>-Zweig aktualisiert, wie am Ausrufezeichen, das in
-der aktuellen Version von <tt class="docutils literal"><span class="pre">hello.py</span></tt> hinzugefügt wurde, zu sehen ist:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git branch -a
+<p>Dabei wird nur der <code class="docutils literal"><span class="pre">origin</span></code>-Zweig aktualisiert, wie am Ausrufezeichen, das in
+der aktuellen Version von <code class="docutils literal"><span class="pre">hello.py</span></code> hinzugefügt wurde, zu sehen ist:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git branch -a
 * master
   remotes/origin/HEAD -&gt; origin/master
   remotes/origin/master
@@ -672,12 +673,12 @@ $ cat hello.py
 print(&#39;hello world!&#39;)
 </pre></div>
 </div>
-<p>Wie uns Git informiert, können wir im <tt class="docutils literal"><span class="pre">origin</span></tt>-Zweig keine Änderungen
+<p>Wie uns Git informiert, können wir im <code class="docutils literal"><span class="pre">origin</span></code>-Zweig keine Änderungen
 vornehmen.  Wir können uns dort aber umsehen und uns auf diese Weise davon
 überzeugen, dass das Skript dort das Aufrufezeichen enthält. Die Änderung
-können wir wie im vorigen Kapitel beschrieben in den <tt class="docutils literal"><span class="pre">master</span></tt>-Zweig unseres
+können wir wie im vorigen Kapitel beschrieben in den <code class="docutils literal"><span class="pre">master</span></code>-Zweig unseres
 lokalen Archivs übernehmen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git checkout master
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git checkout master
 Vorherige Position von HEAD war 26f3c10... mit Ausrufezeichen
 Zu Branch &#39;master&#39; gewechselt
 Ihr Branch ist zu &#39;origin/master&#39; um 1 Commit hinterher, und kann vorgespult werden.
@@ -696,7 +697,7 @@ Schritten durchgeführt.  Es ist jedoch auch möglich, dies in einem Schritt zu
 erledigen. Wir nehmen an, dass ein anderer Entwickler das Skript mit einem
 weiteren Ausrufezeichen versehen hat, und führen dann eine so genannte
 <em>pull</em>-Operation aus:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git pull origin
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git pull origin
 remote: Counting objects: 5, done.
 remote: Total 3 (delta 0), reused 0 (delta 0)
 Entpacke Objekte: 100% (3/3), Fertig.
@@ -714,7 +715,7 @@ print(&quot;hello world!!&quot;)
 zentralen Archiv ablegen. Hierzu dient die <em>push</em>-Operation. Hierzu ändern wir
 den Ausgabetext unseres Skripts und legen das neue Skript in unser lokales
 Archiv. Anschließend kann die Übertragung in das zentrale Archiv erfolgen:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ cat hello.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cat hello.py
 print &quot;Hallo Welt!!&quot;
 $ git commit hello.py -m&quot;deutsche Variante&quot;
 [master d2b98d1] deutsche Variante
@@ -729,7 +730,7 @@ To ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git
 </div>
 <p>Problematisch wird die Situation, wenn zwischen einer <em>pull</em>-Operation und einer <em>push</em>-Operation ein
 anderer Entwickler das zentrale Archiv verändert hat:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git commit hello.py -m&quot;Ausgabe deutsch und englisch&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git commit hello.py -m&quot;Ausgabe deutsch und englisch&quot;
 [master 8e5577d] Ausgabe deutsch und englisch
  1 file changed, 1 insertion(+)
 $ git push origin
@@ -747,7 +748,7 @@ Hinweis: für weitere Details.
 </pre></div>
 </div>
 <p>Wir folgen dem Hinweis und holen uns zunächst die veränderte Version:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git pull origin
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git pull origin
 remote: Counting objects: 10, done.
 remote: Compressing objects: 100% (2/2), done.
 remote: Total 6 (delta 0), reused 0 (delta 0)
@@ -763,14 +764,14 @@ das Ergebnis.
 <p>Dabei kommt es zu einem Konflikt, da das gleiche Skript in verschiedener Weise verändert wurde.
 Zunächst muss nun dieser Konflikt beseitigt werden, damit anschließend die gewünschte Fassung
 der Datei versioniert werden kann:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git add hello.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git add hello.py
 $ git commit
 [master c189281] Merge branch &#39;master&#39; of
    ssh://user@nonexistent.physik.uni-augsburg.de/home/user/dummy.git
 </pre></div>
 </div>
 <p>Anschließend kann diese Version erfolgreich im zentralen Archiv abgelegt werden:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ git push origin
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git push origin
 Zähle Objekte: 4, Fertig.
 Delta compression using up to 4 threads.
 Komprimiere Objekte: 100% (2/2), Fertig.
@@ -818,10 +819,10 @@ wenn man bedenkt, dass <em>git</em> im Englischen so viel wie Blödmann oder Dep
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="graphics.html">Erstellung von Grafiken mit matplotlib</a>
+        «&#160;&#160;<a href="graphics.html">Erstellung von Grafiken</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Inhalt</a>
         &#160;&#160;::&#160;&#160;
@@ -830,9 +831,9 @@ wenn man bedenkt, dass <em>git</em> im Englischen so viel wie Blödmann oder Dep
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1 erstellt.
     </div>
   </body>
 </html>

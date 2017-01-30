@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Testen von Programmen &mdash; Python für Naturwissenschaftler</title>
+    <title>Testen von Programmen &#8212; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,24 +17,25 @@
         VERSION:     '2016alpha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Laufzeituntersuchungen" href="profiling.html" />
     <link rel="prev" title="Versionskontrolle mit Git" href="git.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Testen von Programmen</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         «&#160;&#160;<a href="git.html">Versionskontrolle mit Git</a>
@@ -49,9 +50,9 @@
         
         
   <div class="section" id="testen-von-programmen">
-<span id="testing"></span><h1>Testen von Programmen<a class="headerlink" href="#testen-von-programmen" title="Permalink zu dieser Überschrift">¶</a></h1>
+<span id="testing"></span><h1>Testen von Programmen<a class="headerlink" href="#testen-von-programmen" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="wozu-braucht-man-tests">
-<h2>Wozu braucht man Tests?<a class="headerlink" href="#wozu-braucht-man-tests" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Wozu braucht man Tests?<a class="headerlink" href="#wozu-braucht-man-tests" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Ein offensichtliches Ziel beim Programmieren besteht darin, letztlich ein
 funktionierendes Programm zu haben. Funktionierend heißt hierbei, dass das
 Programm die gewünschte Funktionalität korrekt bereitstellt.  Im Bereich des
@@ -84,34 +85,51 @@ Entdeckt man einen Fehler, der nicht von einem der Tests angezeigt wurde, so sol
 man es sich zur Regel machen, einen Test zu schreiben, der diesen Fehler feststellen
 kann. Auf diese Weise kann man verhindern, dass sich dieser Fehler nochmals unbemerkt
 in das Programm einschleicht.</p>
-<p>Man sollte nicht nur auf eine möglichst vollständige Abdeckung der Funktionalität
-durch Tests achten, sondern auch darauf, dass diese Tests möglichst unabhängig voneinander
-sind, also jeweils spezifische Aspekte des Codes überprüfen. Außerdem sollte das
-Fehlschlagen eines Tests schon einen Hinweis darauf geben, wo der Fehler zu suchen ist.
-Hierfür ist es sinnvoll, den Code in überschaubare Funktionen mit einer klaren Aufgabe
-zu zerlegen, die jeweils für sich getestet werden können. Das Schreiben von Tests kann
-hier dazu beitragen, die logische Gliederung des Codes zu verbessern.</p>
+<p>Um von dem Fehlschlagen eines Tests möglichst direkt auf die Fehlerursache
+schließen zu können, empfiehlt es sich, den Code in überschaubare Funktionen mit
+einer klaren Aufgabe zu zerlegen, die jeweils für sich getestet werden können.
+Das Schreiben von Tests kann dabei nicht nur die Korrektheit des Codes
+überprüfen helfen, sondern auch dazu beitragen, die logische Gliederung des
+Codes zu verbessern. Das Testen einzelner Codeeinheiten nennt man <em>Unit
+testing</em>, auf das wir uns in diesem Kapitel konzentrieren werden. Zusätzlich
+wird man aber auch das Zusammenwirken der einzelnen Teile eines Programms
+im Rahmen von Integrationstests überprüfen.</p>
+<p>Beim Schreiben von Tests sollte man darauf achten, dass die einzelnen Test
+möglichst unabhängig voneinander sind, also jeweils spezifische Aspekte des
+Codes überprüfen. Dabei lohnt es sich, auf Randfälle zu achten, also
+Situationen, die nicht dem allgemeinen Fall entsprechen und denen beim
+Programmieren eventuell nicht die notwendige Aufmerksamkeit zu Teil wird. Als
+Beispiel könnte man die Auswertung einer Funktion mit Hilfe einer
+Rekursionsformel nennen. Dabei wäre auch auf Argumente zu achten, bei denen die
+Rekursionsformel nicht verwendet wird, sondern direkt deren Anfangswert
+zurückzugeben ist.</p>
+<p>Außerdem sollte man es sich zum Ziel setzen, den Code möglichst vollständig
+durch Tests abzudecken. <a class="footnote-reference" href="#coverage" id="id1">[1]</a> Werden Teile des Codes durch keinen Test ausgeführt, so
+könnten sich dort Fehler verstecken. Andererseits ist es nicht nötig,
+Bibliotheken, die bereits von Haus aus eigene umfangreiche Testsuites besitzen,
+zu testen. Man wird also zum Beispiel darauf verzichten, Funktionen der Python
+Standard Library zu testen.</p>
 <p>Aus den verschiedenen Möglichkeiten, in Python einen Testrahmen aufzubauen, wollen wir
-zwei herausgreifen. Die erste basiert auf dem <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul, das es erlaubt, einfache
+zwei herausgreifen. Die erste basiert auf dem <code class="docutils literal"><span class="pre">doctest</span></code>-Modul, das es erlaubt, einfache
 Tests in den Dokumentationsstrings unterzubringen. Diese Tests erfüllen somit neben ihrer
 eigentlichen Aufgabe auch noch die Funktion, die Möglichkeiten der Verwendung beispielsweise
 einer Funktion oder einer Klasse zu dokumentieren. Die zweite Möglichkeit, die wir
-besprechen wollen, basiert auf dem <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul, das auch komplexere Testszenarien
+besprechen wollen, basiert auf dem <code class="docutils literal"><span class="pre">unittest</span></code>-Modul, das auch komplexere Testszenarien
 ermöglicht.</p>
 </div>
 <div class="section" id="das-doctest-modul">
-<h2>Das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul<a class="headerlink" href="#das-doctest-modul" title="Permalink zu dieser Überschrift">¶</a></h2>
-<p>In Python ist die Dokumentation von Code nicht nur mit Kommentaren, die mit <tt class="docutils literal"><span class="pre">#</span></tt> eingeleitet
+<h2>Das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul<a class="headerlink" href="#das-doctest-modul" title="Link zu dieser Überschrift">¶</a></h2>
+<p>In Python ist die Dokumentation von Code nicht nur mit Kommentaren, die mit <code class="docutils literal"><span class="pre">#</span></code> eingeleitet
 werden, möglich, sondern auch mit Hilfe von Dokumentationsstrings. So können zum Beispiel
 Funktionen dokumentiert werden, indem nach der Kopfzeile ein typischerweise mehrzeiliger
 Dokumentationstext eingefügt wird. Dieses Vorgehen wird in Python unter anderem dadurch
-belohnt, dass dieser Text mit Hilfe der eingebauten <tt class="docutils literal"><span class="pre">help</span></tt>-Methode verfügbar gemacht wird.
+belohnt, dass dieser Text mit Hilfe der eingebauten <code class="docutils literal"><span class="pre">help</span></code>-Methode verfügbar gemacht wird.
 Ein weiterer Bonus besteht darin, dass im Dokumentationsstring Tests untergebracht werden
 können, die zugleich die Verwendung des dokumentierten Objekts illustrieren.</p>
 <p>Während der Dokumentationsaspekt alleine durch die Anwesenheit des entsprechenden Textteils
-im Dokumentationsstring erfüllt wird, benötigen wir für den Test das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul.
+im Dokumentationsstring erfüllt wird, benötigen wir für den Test das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul.
 Die Vorgehensweise soll an dem folgenden Beispiel erläutert werden, das auf dem Quicksort-Code
-aus dem Abschnitt <a class="reference internal" href="advancedpython.html#listcomprehensions"><em>List comprehensions</em></a> basiert.</p>
+aus dem Abschnitt <a class="reference internal" href="advancedpython.html#listcomprehensions"><span class="std std-ref">List comprehensions</span></a> basiert.</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -134,7 +152,7 @@ aus dem Abschnitt <a class="reference internal" href="advancedpython.html#listco
 20
 21
 22
-23</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;sortiere Liste x mit dem Quicksort-Verfahren</span>
 
 <span class="sd">       Beispiele:</span>
@@ -154,7 +172,7 @@ aus dem Abschnitt <a class="reference internal" href="advancedpython.html#listco
             <span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
             <span class="o">+</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;=</span><span class="n">y</span><span class="p">]))</span>
 
-<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">doctest</span>
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
@@ -167,12 +185,12 @@ Anwendungsbeispiele illustriert, die in der Python-Shell direkt nachvollzogen we
 Das dritte Beispiel dient dazu, auf einen nicht zulässigen Aufruf hinzuweisen und den zugehörigen
 Grund kurz zu erläutern.</p>
 <p>Die Verwendung des Formats der Python-Shell besitzt jedoch nicht nur einen besonderen
-Wiedererkennungswert für den Betrachter, sondern auch für das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul, das
+Wiedererkennungswert für den Betrachter, sondern auch für das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul, das
 genau hiernach in Dokumentationsstrings sucht. Unser Beispiel ist so aufgebaut, dass
-es bei einem direkten Aufruf das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul lädt und mit dem Aufruf der <tt class="docutils literal"><span class="pre">testmod</span></tt>-Methode
+es bei einem direkten Aufruf das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul lädt und mit dem Aufruf der <code class="docutils literal"><span class="pre">testmod</span></code>-Methode
 die Dokumentationsstrings von Funktionen und Klassen nach Testdefinitionen durchsucht und
 diese ausführt. Führt man das Skript aus, so erhält man das folgende Ergebnis:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python doctest_example.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python doctest_example.py
 $
 </pre></div>
 </div>
@@ -180,8 +198,8 @@ $
 er bedeutet, dass es bei der Durchführung der Tests keine Fehler gab. Das
 Auftreten eines Fehlers hätte dagegen zu einer entsprechenden Ausgabe geführt.
 Vielleicht will man aber wissen, ob und, wenn ja, welche Tests durchgeführt wurden.
-Hierzu verwendet man die Kommandozeilenoption <tt class="docutils literal"><span class="pre">-v</span></tt> für <em>verbose</em>:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python doctest_example.py -v
+Hierzu verwendet man die Kommandozeilenoption <code class="docutils literal"><span class="pre">-v</span></code> für <em>verbose</em>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python doctest_example.py -v
 Trying:
     quicksort([2, 5, 3, 7, -1])
 Expecting:
@@ -210,12 +228,12 @@ Test passed.
 </div>
 <p>Der Ausgabe entnimmt man, dass in der Tat die erwarteten drei Tests durchgeführt wurden und
 zu dem erwarteten Ergebnis geführt haben. Will man diese ausführliche Ausgabe
-unabhängig von einer Kommandozeilenoption erzwingen, kann man beim Aufruf von <tt class="docutils literal"><span class="pre">testmod</span></tt>
-die Variable <tt class="docutils literal"><span class="pre">verbose</span></tt> auf <tt class="docutils literal"><span class="pre">True</span></tt> setzen.</p>
+unabhängig von einer Kommandozeilenoption erzwingen, kann man beim Aufruf von <code class="docutils literal"><span class="pre">testmod</span></code>
+die Variable <code class="docutils literal"><span class="pre">verbose</span></code> auf <code class="docutils literal"><span class="pre">True</span></code> setzen.</p>
 <p>Alternativ zu der bisher beschriebenen Vorgehensweise könnte man die Zeilen 20-23 unseres
-Beispielcodes weglassen und das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul beim Aufruf des Skripts laden. Will man
+Beispielcodes weglassen und das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul beim Aufruf des Skripts laden. Will man
 eine ausführliche Ausgabe erhalten, so hätte der Aufruf die folgende Form:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python -m doctest -v doctest_example.py
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m doctest -v doctest_example.py
 </pre></div>
 </div>
 <p>Die Einfachheit, mit der Tests in Dokumentationsstring eingebaut und damit
@@ -232,7 +250,7 @@ Gleitkommazahlen in unserem Beispiel so gewählt, dass die Binärdarstellung nur
 wenige Nachkommastellen besitzt, so dass Rundungsfehler ausgeschlossen werden
 können.</p>
 <p>Der dritte Test im obigen Beispiel bezieht sich auf eine Eingabe, die keine
-Sortierung zulässt und somit zu einer <tt class="docutils literal"><span class="pre">TypeError</span></tt>-Ausnahme führt. Die
+Sortierung zulässt und somit zu einer <code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme führt. Die
 tatsächliche Ausgabe ist in diesem Fall etwas ausführlicher, wobei die Details
 jedoch irrelevant sind. Daher sind in Zeile 13 im Dokumentationsstring drei
 Auslassungspunkte, auf Englisch <em>ellipsis</em> zu finden, die als Platzhalter für
@@ -241,38 +259,38 @@ Beschreibung nach dem Doppelpunkt in Zeile 14 ebenfalls durch drei Punkte zu
 ersetzen. Dies würde jedoch nicht zum Erfolg führen. In diesem Fall müsste man
 am Ende von Zeile 11 noch einen Kommentar anfügen, der die Auslassungspunkte
 explizit zulässt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">   &gt;&gt;&gt; quicksort([2j, 1-3j]) # doctest: +ELLIPSIS</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 <p>Für eine detailliertere Diskussion der verschiedenen Optionen und Direktiven im
-<tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul verweisen wir auf die zugehörige
+<code class="docutils literal"><span class="pre">doctest</span></code>-Modul verweisen wir auf die zugehörige
 <a class="reference external" href="http://docs.python.org/2/library/doctest.html">Dokumentation</a>.</p>
-<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Das <tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul kann auch eingesetzt werden, um Python-Code
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul kann auch eingesetzt werden, um Python-Code
 zu testen, der in Textdokumente eingebettet ist, die unter Verwendung von
 <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> erstellt wurden.
 Letzeres ist unter anderem bei diesem Vorlesungsskript der Fall.</p>
 </div>
 <div class="section" id="das-unittest-modul">
-<span id="unittest"></span><h2>Das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul<a class="headerlink" href="#das-unittest-modul" title="Permalink zu dieser Überschrift">¶</a></h2>
+<span id="unittest"></span><h2>Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul<a class="headerlink" href="#das-unittest-modul" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Für umfangreichere Testszenarien sind die Möglichkeiten, die das
-<tt class="docutils literal"><span class="pre">doctest</span></tt>-Modul bietet, meistens nicht ausreichend. So hatten wir im vorigen
+<code class="docutils literal"><span class="pre">doctest</span></code>-Modul bietet, meistens nicht ausreichend. So hatten wir im vorigen
 Abschnitt bereits gesehen, dass Tests mit Gleitkommazahlen Schwierigkeiten
 bereiten können. Auch ist es nicht unbedingt sinnvoll, einen
 Dokumentationsstring mit einer zu großen Zahl an Tests zu versehen. Ferner kann
 man sich Testszenarien vorstellen, die eine Vorbereitung und Abschlussarbeiten
 erfordern. In solchen Fällen bietet es sich an, die Möglichkeiten zu nutzen,
-die das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul bietet. Wie schon im vorigen Abschnitt werden wir
+die das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul bietet. Wie schon im vorigen Abschnitt werden wir
 uns auf die wesentlichen Aspekte konzentrieren und verweisen für Details auf
 die <a class="reference external" href="http://docs.python.org/2/library/unittest.html">Dokumentation</a> des
-<tt class="docutils literal"><span class="pre">unittest</span></tt>-Moduls.</p>
-<p>Wir beginnen mit einem Beispiel, das die <tt class="docutils literal"><span class="pre">quicksort</span></tt>-Funktion aus dem vorigen
-Abschnitt testet. Dazu nehmen wir an, dass die Funktion in einem Skript <tt class="docutils literal"><span class="pre">myquicksort.py</span></tt>
-definiert sei. Der folgende Code befinde sich in einem Skript <tt class="docutils literal"><span class="pre">test_quicksort.py</span></tt>.
+<code class="docutils literal"><span class="pre">unittest</span></code>-Moduls.</p>
+<p>Wir beginnen mit einem Beispiel, das die <code class="docutils literal"><span class="pre">quicksort</span></code>-Funktion aus dem vorigen
+Abschnitt testet. Dazu nehmen wir an, dass die Funktion in einem Skript <code class="docutils literal"><span class="pre">myquicksort.py</span></code>
+definiert sei. Der folgende Code befinde sich in einem Skript <code class="docutils literal"><span class="pre">test_quicksort.py</span></code>.
 Dieses Namenswahl ist sinnvoll, da Testskripten standardmäßig in Dateien gesucht
-werden, deren Namen mit <tt class="docutils literal"><span class="pre">test</span></tt> beginnt. Wir definieren die folgenden vier Tests:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">myquicksort</span> <span class="kn">import</span> <span class="n">quicksort</span>
+werden, deren Namen mit <code class="docutils literal"><span class="pre">test</span></code> beginnt. Wir definieren die folgenden vier Tests:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">myquicksort</span> <span class="kn">import</span> <span class="n">quicksort</span>
 <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
 
 <span class="k">class</span> <span class="nc">testQuicksort</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
@@ -310,15 +328,15 @@ werden, deren Namen mit <tt class="docutils literal"><span class="pre">test</spa
             <span class="n">quicksort</span><span class="p">([</span><span class="mf">3.5</span><span class="o">+</span><span class="mi">1j</span><span class="p">,</span> <span class="mi">2</span><span class="o">+</span><span class="mf">3.5j</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Vier Tests sind hier als Methoden einer Unterklasse der Klasse <tt class="docutils literal"><span class="pre">unittest.TestCase</span></tt>
+<p>Vier Tests sind hier als Methoden einer Unterklasse der Klasse <code class="docutils literal"><span class="pre">unittest.TestCase</span></code>
 definiert und werden bei der Ausführung des Testskripts automatisch abgearbeitet.
 Jeder Test soll nach Möglichkeit einen unabhängigen Aspekt des zu testenden Skripts
 überprüfen. So überprüft zum Beispiel der zweite Test, dass bei der Sortierung
 keine Elemente verloren gehen. Die Überprüfung der Testbedingung erfolgt jeweils
-mit <tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisungen, von denen das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul eine ganze Reihe
+mit <code class="docutils literal"><span class="pre">assert</span></code>-Anweisungen, von denen das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul eine ganze Reihe
 für die verschiedensten Zwecke bereitstellt.</p>
 <p>Lässt man die Tests laufen, so erhält man die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python -m unittest discover
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m unittest discover
 ....
 ----------------------------------------------------------------------
 Ran 4 tests in 0.000s
@@ -326,78 +344,78 @@ Ran 4 tests in 0.000s
 OK
 </pre></div>
 </div>
-<p>Bei diesem Aufruf wird das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul geladen und mit dem
-Schlüsselwort <tt class="docutils literal"><span class="pre">discover</span></tt> aufgefordert, selbst nach Testskripten
-zu suchen. Es findet unsere Datei <tt class="docutils literal"><span class="pre">test_quicksort.py</span></tt> und führt
+<p>Bei diesem Aufruf wird das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul geladen und mit dem
+Schlüsselwort <code class="docutils literal"><span class="pre">discover</span></code> aufgefordert, selbst nach Testskripten
+zu suchen. Es findet unsere Datei <code class="docutils literal"><span class="pre">test_quicksort.py</span></code> und führt
 die vier darin enthaltenen Test aus. Alternativ hätte man statt
-<tt class="docutils literal"><span class="pre">discover</span></tt> auch einfach den Namen der Testdatei ohne Endung angeben
+<code class="docutils literal"><span class="pre">discover</span></code> auch einfach den Namen der Testdatei ohne Endung angeben
 können, also:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ python -m unittest test_quicksort
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m unittest test_quicksort
 </pre></div>
 </div>
 <p>Die Ausgabe zeigt die erfolgreiche Ausführung jedes Tests jeweils durch einen
-Punkt in der zweiten Zeile an. Das abschließende <tt class="docutils literal"><span class="pre">OK</span></tt> weist nochmals darauf
+Punkt in der zweiten Zeile an. Das abschließende <code class="docutils literal"><span class="pre">OK</span></code> weist nochmals darauf
 hin, dass kein Fehler aufgetreten ist.</p>
-<p>Zu Illustration bauen wir nun in unsere <tt class="docutils literal"><span class="pre">quicksort</span></tt>-Funktion einen Fehler ein.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<p>Zu Illustration bauen wir nun in unsere <code class="docutils literal"><span class="pre">quicksort</span></code>-Funktion einen Fehler ein.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">quicksort</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">y</span><span class="o">&lt;</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
             <span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
             <span class="o">+</span><span class="n">quicksort</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;</span><span class="n">y</span><span class="p">]))</span>
 </pre></div>
 </div>
-<p>In der letzten Zeile lassen wir fälschlicherweise nur <tt class="docutils literal"><span class="pre">y</span></tt>-Werte zu, die größer
-als <tt class="docutils literal"><span class="pre">x[0]</span></tt> sind. Die Ausführung der Tests resultiert in folgender Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>F...
-======================================================================
-FAIL: test_equal_elements (test_quicksort.testQuicksort)
-test whether equal elements are lost
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File &quot;test_quicksort.py&quot;, line 20, in test_equal_elements
-    len(list_unsorted))
-AssertionError: 4 != 5
+<p>In der letzten Zeile lassen wir fälschlicherweise nur <code class="docutils literal"><span class="pre">y</span></code>-Werte zu, die größer
+als <code class="docutils literal"><span class="pre">x[0]</span></code> sind. Die Ausführung der Tests resultiert in folgender Ausgabe:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">...</span>
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">test_equal_elements</span> <span class="p">(</span><span class="n">test_quicksort</span><span class="o">.</span><span class="n">testQuicksort</span><span class="p">)</span>
+<span class="n">test</span> <span class="n">whether</span> <span class="n">equal</span> <span class="n">elements</span> <span class="n">are</span> <span class="n">lost</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;test_quicksort.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">20</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_equal_elements</span>
+    <span class="nb">len</span><span class="p">(</span><span class="n">list_unsorted</span><span class="p">))</span>
+<span class="ne">AssertionError</span><span class="p">:</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">5</span>
 
-----------------------------------------------------------------------
-Ran 4 tests in 0.001s
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.001</span><span class="n">s</span>
 
-FAILED (failures=1)
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Die erste Zeile gibt an, dass vier Tests ausgeführt wurden, wobei jedoch nur drei davon,
 die mit Punkten dargestellt sind, erfolgreich waren. Ein Test schlug fehl und ist daher
-mit einem <tt class="docutils literal"><span class="pre">F</span></tt> gekennzeichnet. Details zu diesem Test sind im Hauptteil der Ausgabe
+mit einem <code class="docutils literal"><span class="pre">F</span></code> gekennzeichnet. Details zu diesem Test sind im Hauptteil der Ausgabe
 zu finden. Ganz am Ende wird nochmals darauf hingewiesen, dass ein Test fehlschlug.</p>
 <p>In diesem Fall kann es auch hilfreich sein, die Möglichkeit zu nutzen, eine zusätzliche
 Nachricht auszugeben. Wir modifizieren dazu den zweiten Test.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">test_equal_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_equal_elements</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;test whether equal elements are lost</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">list_unsorted</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
     <span class="n">list_sorted</span> <span class="o">=</span> <span class="n">quicksort</span><span class="p">(</span><span class="n">list_unsorted</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_sorted</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_unsorted</span><span class="p">),</span>
-                     <span class="n">msg</span><span class="o">=</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">  ursprüngliche Liste: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list_unsorted</span><span class="p">)</span> <span class="o">+</span>
-                         <span class="s">&quot;</span><span class="se">\n</span><span class="s">  sortierte Liste:     {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list_sorted</span><span class="p">))</span>
+                     <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  ursprüngliche Liste: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list_unsorted</span><span class="p">)</span> <span class="o">+</span>
+                         <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  sortierte Liste:     {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list_sorted</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Damit erhalten wir die folgende Fehlerausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>F...
-======================================================================
-FAIL: test_equal_elements (test_quicksort.testQuicksort)
-test whether equal elements are lost
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File &quot;test_quicksort.py&quot;, line 22, in test_equal_elements
-    &quot;\n  sortierte Liste:     {}&quot;.format(list_sorted))
-AssertionError: 4 != 5 :
-  ursprüngliche Liste: [2, 3, 4, -1, 3]
-  sortierte Liste:     [-1, 2, 3, 4]
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">...</span>
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">test_equal_elements</span> <span class="p">(</span><span class="n">test_quicksort</span><span class="o">.</span><span class="n">testQuicksort</span><span class="p">)</span>
+<span class="n">test</span> <span class="n">whether</span> <span class="n">equal</span> <span class="n">elements</span> <span class="n">are</span> <span class="n">lost</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;test_quicksort.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">22</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_equal_elements</span>
+    <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">  sortierte Liste:     </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">list_sorted</span><span class="p">))</span>
+<span class="ne">AssertionError</span><span class="p">:</span> <span class="mi">4</span> <span class="o">!=</span> <span class="mi">5</span> <span class="p">:</span>
+  <span class="n">ursprüngliche</span> <span class="n">Liste</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+  <span class="n">sortierte</span> <span class="n">Liste</span><span class="p">:</span>     <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 
-----------------------------------------------------------------------
-Ran 4 tests in 0.001s
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">4</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.001</span><span class="n">s</span>
 
-FAILED (failures=1)
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Damit wird deutlich, dass die beiden Listen in der Tat ungleich lang sind, weil
@@ -405,14 +423,14 @@ ein doppelt vorkommendes Element nicht mehrfach einsortiert wurde.</p>
 <p>Beim Test von Gleitkommazahlen auf Gleichheit oder Ungleichheit ist wegen der Möglichkeit
 von Rundungsfehlern immer Vorsicht angebracht. Von numerischen Funktionen
 wird man zudem normalerweise nicht verlangen können, dass das Ergebnis bis zur
-letzten Stelle korrekt ist. Das <tt class="docutils literal"><span class="pre">unittest</span></tt>-Modul stellt aus diesem Grunde die
-<tt class="docutils literal"><span class="pre">assertAlmostEqual</span></tt>- und <tt class="docutils literal"><span class="pre">assertNotAlmostEqual</span></tt>-Anweisungen zur Verfügung. Dabei
+letzten Stelle korrekt ist. Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul stellt aus diesem Grunde die
+<code class="docutils literal"><span class="pre">assertAlmostEqual</span></code>- und <code class="docutils literal"><span class="pre">assertNotAlmostEqual</span></code>-Anweisungen zur Verfügung. Dabei
 wird standardmäßig die Differenz zwischen den beiden Vergleichswerten auf sieben
 Nachkommastellen gerundet und mit Null verglichen. Bei Bedarf kann die Zahl der
 gerundeten Stellen oder eine maximale bzw. minimale Differenz zwischen den Vergleichswerten
 vorgegeben werden.</p>
 <p>Das folgende Beispiel illustriert das Vorgehen bei Tests für Gleitkommazahlen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
 
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
@@ -430,19 +448,19 @@ vorgegeben werden.</p>
 </pre></div>
 </div>
 <p>Dabei ergibt sich die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>.F
-======================================================================
-FAIL: test_equal (test_square.testNumeric)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File &quot;test_square.py&quot;, line 10, in test_equal
-    self.assertEqual(xsquare, x2)
-AssertionError: 1.6900000000000002 != 1.69
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">F</span>
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">test_equal</span> <span class="p">(</span><span class="n">test_square</span><span class="o">.</span><span class="n">testNumeric</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;test_square.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">10</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_equal</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">xsquare</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+<span class="ne">AssertionError</span><span class="p">:</span> <span class="mf">1.6900000000000002</span> <span class="o">!=</span> <span class="mf">1.69</span>
 
-----------------------------------------------------------------------
-Ran 2 tests in 0.000s
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">2</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.000</span><span class="n">s</span>
 
-FAILED (failures=1)
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Tatsächlich schlägt der Test auf Gleichheit wegen des Auftretens von Rundungsfehlern
@@ -452,15 +470,15 @@ Dies ist zum Beispiel beim Umgang mit Datenbanken der Fall, wo Tests nicht an Or
 durchgeführt werden. Stattdessen müssen zunächst Datentabellen für den Test angelegt
 und am Ende wieder entfernt werden. In dem folgenden Beispiel schreiben wir Daten in
 eine temporäre Datei und überprüfen damit eine Funktion zum Einlesen dieser Daten.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
 <span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
 
 <span class="k">def</span> <span class="nf">convert_to_float</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">datalist</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;;&quot;</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">datalist</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)))</span>
 
 <span class="k">def</span> <span class="nf">read_floats</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
          <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">convert_to_float</span><span class="p">,</span> <span class="nb">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
     <span class="k">return</span> <span class="n">data</span>
 
@@ -469,12 +487,12 @@ eine temporäre Datei und überprüfen damit eine Funktion zum Einlesen dieser D
         <span class="sd">&quot;&quot;&quot;speichere Testdaten in temporärer Datei</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s">&quot;w&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.23</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.89</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">]]</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
-            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
+            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">test_read_floats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -492,18 +510,18 @@ eine temporäre Datei und überprüfen damit eine Funktion zum Einlesen dieser D
 </pre></div>
 </div>
 <p>Zunächst werden die beiden zum Einlesen verwendeten Funktionen definiert, wobei aus
-dem Test heraus die Funktion <tt class="docutils literal"><span class="pre">read_floats</span></tt> aufgerufen wird. In der Testklasse gibt
-es neben der Methode <tt class="docutils literal"><span class="pre">test_read_floats</span></tt>, die die Korrektheit des Einlesens überprüft,
-noch zwei weitere Methoden. Die Methode <tt class="docutils literal"><span class="pre">setUp</span></tt> bereitet den Test vor. In unserem
+dem Test heraus die Funktion <code class="docutils literal"><span class="pre">read_floats</span></code> aufgerufen wird. In der Testklasse gibt
+es neben der Methode <code class="docutils literal"><span class="pre">test_read_floats</span></code>, die die Korrektheit des Einlesens überprüft,
+noch zwei weitere Methoden. Die Methode <code class="docutils literal"><span class="pre">setUp</span></code> bereitet den Test vor. In unserem
 Beispiel wird dort eine temporäre Datei erzeugt, von der im Laufe des Tests Daten gelesen
-werden. Die Methode <tt class="docutils literal"><span class="pre">tearDown</span></tt> wird nach dem Test ausgeführt und dient hier dazu, die
+werden. Die Methode <code class="docutils literal"><span class="pre">tearDown</span></code> wird nach dem Test ausgeführt und dient hier dazu, die
 temporäre Datei wieder zu entfernen.</p>
 <p>Insbesondere wenn man Tests schreibt, bevor die entsprechende Funktionalität implementiert
 ist, kann es sein, dass Tests fehlschlagen, ohne dass dies als Problem gewertet werden
 muss. In diesem Fall kann man mit Hilfe von Dekoratoren dafür sorgen, dass der betreffende
-Test nicht durchgeführt wird (<tt class="docutils literal"><span class="pre">skip</span></tt>) oder einen Hinweis auf den erwarteten Fehler
-erhält (<tt class="docutils literal"><span class="pre">expectedFailure</span></tt>).  Das folgende Beispiel illustriert den zweiten Fall.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">expectedFailure</span><span class="p">,</span> <span class="n">TestCase</span>
+Test nicht durchgeführt wird (<code class="docutils literal"><span class="pre">skip</span></code>) oder einen Hinweis auf den erwarteten Fehler
+erhält (<code class="docutils literal"><span class="pre">expectedFailure</span></code>).  Das folgende Beispiel illustriert den zweiten Fall.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">expectedFailure</span><span class="p">,</span> <span class="n">TestCase</span>
 
 <span class="k">def</span> <span class="nf">square</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;fehlerhafte Implementierung</span>
@@ -530,47 +548,47 @@ erhält (<tt class="docutils literal"><span class="pre">expectedFailure</span></
         <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">xcube</span><span class="p">,</span> <span class="n">x3</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Von den beiden Funktionen <tt class="docutils literal"><span class="pre">square</span></tt> und <tt class="docutils literal"><span class="pre">cube</span></tt> ist die erste fehlerhaft implementiert
+<p>Von den beiden Funktionen <code class="docutils literal"><span class="pre">square</span></code> und <code class="docutils literal"><span class="pre">cube</span></code> ist die erste fehlerhaft implementiert
 und die zweite ist bis jetzt noch überhaupt nicht implementiert. Daher ist zu erwarten,
-dass der zweite Test fehlschlagen wird. Er ist entsprechend mit dem <tt class="docutils literal"><span class="pre">expectedFailure</span></tt>-Dekorator
+dass der zweite Test fehlschlagen wird. Er ist entsprechend mit dem <code class="docutils literal"><span class="pre">expectedFailure</span></code>-Dekorator
 versehen. Lässt man den Test laufen, so erhält man die folgende Ausgabe:</p>
-<div class="highlight-python"><div class="highlight"><pre>xF
-======================================================================
-FAIL: test_square (square.testNumeric)
-----------------------------------------------------------------------
-Traceback (most recent call last):
-  File &quot;test_powers.py&quot;, line 19, in test_square
-    self.assertAlmostEqual(xsquare, x2)
-AssertionError: 0.8450000000000001 != 1.69 within 7 places
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">xF</span>
+<span class="o">======================================================================</span>
+<span class="n">FAIL</span><span class="p">:</span> <span class="n">test_square</span> <span class="p">(</span><span class="n">square</span><span class="o">.</span><span class="n">testNumeric</span><span class="p">)</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">&quot;test_powers.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">19</span><span class="p">,</span> <span class="ow">in</span> <span class="n">test_square</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">xsquare</span><span class="p">,</span> <span class="n">x2</span><span class="p">)</span>
+<span class="ne">AssertionError</span><span class="p">:</span> <span class="mf">0.8450000000000001</span> <span class="o">!=</span> <span class="mf">1.69</span> <span class="n">within</span> <span class="mi">7</span> <span class="n">places</span>
 
-----------------------------------------------------------------------
-Ran 2 tests in 0.001s
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">2</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.001</span><span class="n">s</span>
 
-FAILED (failures=1, expected failures=1)
+<span class="n">FAILED</span> <span class="p">(</span><span class="n">failures</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expected</span> <span class="n">failures</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Hier wird also zwischen dem echten Fehler, der in <tt class="docutils literal"><span class="pre">test_square</span></tt> entdeckt wird, und dem
-erwarteten Fehler in <tt class="docutils literal"><span class="pre">test_cube</span></tt> unterschieden. Letzterer ist in der ersten Zeile mit
-einem <tt class="docutils literal"><span class="pre">x</span></tt> statt einem <tt class="docutils literal"><span class="pre">F</span></tt> markiert.</p>
-<p>Auch ohne dass wir alle Möglichkeiten des <tt class="docutils literal"><span class="pre">unittest</span></tt>-Moduls besprochen haben,
+<p>Hier wird also zwischen dem echten Fehler, der in <code class="docutils literal"><span class="pre">test_square</span></code> entdeckt wird, und dem
+erwarteten Fehler in <code class="docutils literal"><span class="pre">test_cube</span></code> unterschieden. Letzterer ist in der ersten Zeile mit
+einem <code class="docutils literal"><span class="pre">x</span></code> statt einem <code class="docutils literal"><span class="pre">F</span></code> markiert.</p>
+<p>Auch ohne dass wir alle Möglichkeiten des <code class="docutils literal"><span class="pre">unittest</span></code>-Moduls besprochen haben,
 dürfte klar geworden sein, dass diese deutlich über die Möglichkeiten des
-<tt class="docutils literal"><span class="pre">doctest</span></tt>-Moduls hinausgehen.  Eine Übersicht über weitere
-Anwendungsmöglichkeiten des <tt class="docutils literal"><span class="pre">unittest</span></tt>-Moduls findet man in der zugehörigen
+<code class="docutils literal"><span class="pre">doctest</span></code>-Moduls hinausgehen.  Eine Übersicht über weitere
+Anwendungsmöglichkeiten des <code class="docutils literal"><span class="pre">unittest</span></code>-Moduls findet man in der zugehörigen
 <a class="reference external" href="http://docs.python.org/2/library/unittest.html">Dokumentation</a>, wo
-inbesondere auch eine vollständige Liste der verfügbaren <tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisungen
+inbesondere auch eine vollständige Liste der verfügbaren <code class="docutils literal"><span class="pre">assert</span></code>-Anweisungen
 angegeben ist.</p>
 </div>
 <div class="section" id="testen-mit-numpy">
-<h2>Testen mit NumPy<a class="headerlink" href="#testen-mit-numpy" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Testen mit NumPy<a class="headerlink" href="#testen-mit-numpy" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Das Programmieren von Tests ist gerade beim numerischen Arbeiten sehr wichtig.
 Bei der Verwendung von NumPy-Arrays ergibt sich allerdings das Problem, dass
 man normalerweise nicht für jedes Arrayelement einzeln die Gültigkeit einer
 Testbedingung überprüfen möchte. Wir wollen daher kurz diskutieren, welche
 Möglichkeiten man in einem solchen Fall besitzt. Da es in erster Linie auf die
-<tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisung ankommt, können wir hier darauf verzichten, ganze
+<code class="docutils literal"><span class="pre">assert</span></code>-Anweisung ankommt, können wir hier darauf verzichten, ganze
 Testfälle zu programmieren.</p>
 <p>Die im folgenden Beispiel definierte Matrix hat nur positive Eigenwerte:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="kn">as</span> <span class="nn">LA</span>
 
@@ -592,15 +610,15 @@ Testfälle zu programmieren.</p>
 <p>Dies lässt sich in Ausgabe 5 direkt verifizieren. Für einen automatisierten
 Test ist es günstig, die Positivitätsbedingung für jedes Element auszuwerten
 und zu überprüfen, ob sie für alle Elemente erfüllt ist. Dies geschieht in
-Eingabe 6 mit Hilfe der <tt class="docutils literal"><span class="pre">all</span></tt>-Funktion, die man in einem Test in der
-<tt class="docutils literal"><span class="pre">assert</span></tt>-Anweisung verwenden würde.</p>
+Eingabe 6 mit Hilfe der <code class="docutils literal"><span class="pre">all</span></code>-Funktion, die man in einem Test in der
+<code class="docutils literal"><span class="pre">assert</span></code>-Anweisung verwenden würde.</p>
 <p>Wir hatten im letzten Kapitel darauf hingewiesen, dass man bei Tests von Floats
 die Möglichkeit von Rundungsfehlern bedenken muss. Dies gilt natürlich genauso,
 wenn man ganze Arrays von Floats erzeugt und testen will. In diesem Fall ist es
 sinnvoll, auf die Unterstützung zurückzugreifen, die NumPy durch sein
-<tt class="docutils literal"><span class="pre">testing</span></tt>-Modul <a class="footnote-reference" href="#numpytest" id="id3">[1]</a> gibt. Wir demonstrieren dies an einem kleinen
+<code class="docutils literal"><span class="pre">testing</span></code>-Modul <a class="footnote-reference" href="#numpytest" id="id4">[2]</a> gibt. Wir demonstrieren dies an einem kleinen
 Beispiel, das die Berechnung des Sinus für einige Argumente testet.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [7]: </span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="gp">In [8]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 
@@ -616,14 +634,21 @@ Beispiel, das die Berechnung des Sinus für einige Argumente testet.</p>
 </div>
 <p>In Eingabe 10 wird das zu testende Resultat berechnet, während Eingabe 11 die auf
 den analytischen Ausdrücken basierende Erwartung an das Ergebnis bestimmt. Mit
-der <tt class="docutils literal"><span class="pre">assert_array_almost_equal</span></tt>-Funktion erfolgt dann in Eingabe 12 der Vergleich.
+der <code class="docutils literal"><span class="pre">assert_array_almost_equal</span></code>-Funktion erfolgt dann in Eingabe 12 der Vergleich.
 Dabei haben wir die Genauigkeitsanforderung auf 7 Dezimalstellen festgelegt. Die
-Tatsache, dass es zu keiner <tt class="docutils literal"><span class="pre">AssertionError</span></tt>-Ausnahme kommt, bedeutet, dass
+Tatsache, dass es zu keiner <code class="docutils literal"><span class="pre">AssertionError</span></code>-Ausnahme kommt, bedeutet, dass
 alle Arrayelemente im Rahmen der geforderten Genauigkeit übereinstimmen.</p>
+<table class="docutils footnote" frame="void" id="coverage" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Zur Überprüfung der Codeabdeckung durch Tests kann <code class="docutils literal"><span class="pre">coverage.py</span></code>
+dienen, dessen Dokumentation unter <a class="reference external" href="http://coverage.readthedocs.io">http://coverage.readthedocs.io</a> zu finden ist.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="numpytest" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td>Eine detaillierte Liste der verschiedenen Funktionen findet man in der
+<tr><td class="label"><a class="fn-backref" href="#id4">[2]</a></td><td>Eine detaillierte Liste der verschiedenen Funktionen findet man in der
 <a class="reference external" href="http://docs.scipy.org/doc/numpy-dev/reference/routines.testing.html">Dokumentation zum Test Support</a>.</td></tr>
 </tbody>
 </table>
@@ -632,7 +657,7 @@ alle Arrayelemente im Rahmen der geforderten Genauigkeit übereinstimmen.</p>
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         «&#160;&#160;<a href="git.html">Versionskontrolle mit Git</a>
@@ -644,9 +669,9 @@ alle Arrayelemente im Rahmen der geforderten Genauigkeit übereinstimmen.</p>
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1 erstellt.
     </div>
   </body>
 </html>
