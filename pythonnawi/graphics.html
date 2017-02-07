@@ -99,7 +99,7 @@ importiert werden:</p>
 <span class="gp">   ...:</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="kn">as</span> <span class="nn">mpl</span>
 <span class="gp">   ...:</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="gp">   ...:</span> <span class="o">%</span><span class="n">matplotlib</span>
-<span class="go">Using matplotlib backend: Qt4Agg</span>
+<span class="go">Using matplotlib backend: Qt5Agg</span>
 </pre></div>
 </div>
 <p>In den meisten Fällen wird hierzu das NumPy-Modul gehören, das wir wie gewohnt
@@ -131,7 +131,7 @@ wollen.</p>
 </div>
 <p>Führt man diese beiden Kommandos aus, so öffnet sich ein Fenster, das neben der
 Grafik auch einige Icons enthält, die es erlauben, die Darstellung zu
-modifizieren.</p>
+modifizieren. <a class="footnote-reference" href="#matplotlib2" id="id4">[4]</a></p>
 <a class="reference internal image-reference" href="_images/mpl1.png"><img alt="_images/mpl1.png" class="align-center" src="_images/mpl1.png" style="height: 5cm;" /></a>
 <p>Die acht Icons haben von links nach rechts die folgenden Funktionen:</p>
 <blockquote>
@@ -148,14 +148,15 @@ eines Rechtecks wählen. Man kann also bei Bedarf in die Abbildung
 hineinzoomen.</li>
 <li>Dieses Icon erlaubt es, die Seitenverhältnisse der Abbildung und die
 Größe der Ränder zu verändern.</li>
-<li>Dieses Icon dient dazu, die Grafik in einer Datei zu speichern, sei es
-in einem Bitmap-Format wie zum Beispiel <code class="docutils literal"><span class="pre">png</span></code> oder in einem
-Vektorgrafik-Format wie <code class="docutils literal"><span class="pre">eps</span></code>, <code class="docutils literal"><span class="pre">pdf</span></code> oder <code class="docutils literal"><span class="pre">svg</span></code>.</li>
-<li>Das letzte Icon ist nicht bei jedem Backend vorhanden, wird aber bei dem hier
+<li>Dieses Icon ist nicht bei jedem Backend vorhanden, wird aber bei dem hier
 verwendeten Qt-Backend angezeigt. Es erlaubt die Wahl des <em>x</em>- und
 <em>y</em>-Achsenabschnitts, das Setzen von Beschriftungen sowie die Wahl von
-logarithmischen Achsen. Diese Funktionalität ist aber auch durch
+logarithmischen Achsen. Je nach Art der Grafik lässt sich hier zum Beispiel
+auch die Farbpalette einstellen. Diese Funktionalität ist aber auch durch
 entsprechende pyplot-Funktionen verfügbar, wie wir im Folgenden sehen werden.</li>
+<li>Das letzte Icon dient dazu, die Grafik in einer Datei zu speichern, sei es
+in einem Bitmap-Format wie zum Beispiel <code class="docutils literal"><span class="pre">png</span></code> oder in einem
+Vektorgrafik-Format wie <code class="docutils literal"><span class="pre">eps</span></code>, <code class="docutils literal"><span class="pre">pdf</span></code> oder <code class="docutils literal"><span class="pre">svg</span></code>.</li>
 </ul>
 </div></blockquote>
 <p>Bevor wir uns aber mit der Beschriftung der Grafik beschäftigen, wollen wir uns
@@ -200,22 +201,21 @@ verwenden dafür wieder die <code class="docutils literal"><span class="pre">set
 <p>und erhalten folgende Ausgabe:</p>
 <a class="reference internal image-reference" href="_images/mpl4.png"><img alt="_images/mpl4.png" class="align-center" src="_images/mpl4.png" style="height: 5cm;" /></a>
 <p>In diesem Beispiel haben wir ausgenutzt, dass sich eine Reihe von Farben mit Hilfe
-eines Buchstabens auswählen lassen. Eine Liste dieser Farben lässt sich
-folgendermaßen ausgeben:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">ColorConverter</span><span class="o">.</span><span class="n">colors</span>
-<span class="gr">Out[8]: </span><span class="p">{</span><span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-<span class="go"> &#39;w&#39;: (1.0, 1.0, 1.0),</span>
-<span class="go"> &#39;g&#39;: (0.0, 0.5, 0.0),</span>
-<span class="go"> &#39;m&#39;: (0.75, 0, 0.75),</span>
-<span class="go"> &#39;r&#39;: (1.0, 0.0, 0.0),</span>
-<span class="go"> &#39;c&#39;: (0.0, 0.75, 0.75),</span>
-<span class="go"> &#39;k&#39;: (0.0, 0.0, 0.0),</span>
-<span class="go"> &#39;b&#39;: (0.0, 0.0, 1.0)}</span>
+eines Buchstabens auswählen lassen, nämlich</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [8]: </span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">BASE_COLORS</span>
+<span class="gr">Out[8]: </span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="go">         &#39;c&#39;: (0, 0.75, 0.75),</span>
+<span class="go">         &#39;g&#39;: (0, 0.5, 0),</span>
+<span class="go">         &#39;k&#39;: (0, 0, 0),</span>
+<span class="go">         &#39;m&#39;: (0.75, 0, 0.75),</span>
+<span class="go">         &#39;r&#39;: (1, 0, 0),</span>
+<span class="go">         &#39;w&#39;: (1, 1, 1),</span>
+<span class="go">         &#39;y&#39;: (0.75, 0.75, 0)}</span>
 </pre></div>
 </div>
-<p>Es stehen auf diese Weise also die Farben Gelb (<code class="docutils literal"><span class="pre">y</span></code>), Weiß (<code class="docutils literal"><span class="pre">w</span></code>), Grün
-(<code class="docutils literal"><span class="pre">g</span></code>), Magenta (<code class="docutils literal"><span class="pre">m</span></code>), Rot (<code class="docutils literal"><span class="pre">r</span></code>), Cyan (<code class="docutils literal"><span class="pre">c</span></code>), Schwarz (<code class="docutils literal"><span class="pre">k</span></code>) und Blau
-(<code class="docutils literal"><span class="pre">b</span></code>) zur Verfügung. Die aufgelisteten Tupel geben die RGB-Darstellung der
+<p>Es stehen auf diese Weise also die Farben Blau (<code class="docutils literal"><span class="pre">b</span></code>), Cyan (<code class="docutils literal"><span class="pre">c</span></code>), Grün
+(<code class="docutils literal"><span class="pre">g</span></code>), Schwarz (<code class="docutils literal"><span class="pre">k</span></code>), Magenta (<code class="docutils literal"><span class="pre">m</span></code>), Rot (<code class="docutils literal"><span class="pre">r</span></code>), Weiß (<code class="docutils literal"><span class="pre">w</span></code>) und Gelb
+(<code class="docutils literal"><span class="pre">y</span></code>) zur Verfügung. Die aufgelisteten Tupel geben die RGB-Darstellung der
 jeweiligen Farben an, das heißt den Anteil der Farben Rot, Grün und Blau.
 Dieses ist direkt an den Farben Rot und Blau nachvollziehbar. Bei Grün ist die
 Helligkeit reduziert, da diese Farbe bei voller Helligkeit im Allgemeinen
@@ -226,11 +226,11 @@ Cyan, Magenta und Gelb sind zwei der drei Kanäle beteiligt.</p>
 wobei man sich eine vollständige Liste der verfügbaren Namen anzeigen lassen
 kann.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [9]: </span><span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">cnames</span>
-<span class="gr">Out[9]: </span><span class="p">{</span><span class="s1">&#39;gold&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFD700&#39;</span><span class="p">,</span> <span class="s1">&#39;darkorchid&#39;</span><span class="p">:</span> <span class="s1">&#39;#9932CC&#39;</span><span class="p">,</span> <span class="s1">&#39;silver&#39;</span><span class="p">:</span> <span class="s1">&#39;#C0C0C0&#39;</span><span class="p">,</span>
-<span class="go">&#39;aquamarine&#39;: &#39;#7FFFD4&#39;, &#39;mediumseagreen&#39;: &#39;#3CB371&#39;, &#39;gray&#39;: &#39;#808080&#39;,</span>
-<span class="go">...</span>
-<span class="go">&#39;mediumspringgreen&#39;: &#39;#00FA9A&#39;, &#39;darkturquoise&#39;: &#39;#00CED1&#39;,&#39;darkblue&#39;: &#39;#00008B&#39;,</span>
-<span class="go">&#39;deeppink&#39;: &#39;#FF1493&#39;, &#39;sage&#39;: &#39;#87AE73&#39;, &#39;mediumorchid&#39;: &#39;#BA55D3&#39;}</span>
+<span class="gr">Out[9]: </span><span class="p">{</span><span class="s1">&#39;aliceblue&#39;</span><span class="p">:</span> <span class="s1">&#39;#F0F8FF&#39;</span><span class="p">,</span> <span class="s1">&#39;antiquewhite&#39;</span><span class="p">:</span> <span class="s1">&#39;#FAEBD7&#39;</span><span class="p">,</span> <span class="s1">&#39;aqua&#39;</span><span class="p">:</span> <span class="s1">&#39;#00FFFF&#39;</span><span class="p">,</span>
+<span class="go">         &#39;aquamarine&#39;: &#39;#7FFFD4&#39;, &#39;azure&#39;: &#39;#F0FFFF&#39;, &#39;beige&#39;: &#39;#F5F5DC&#39;,</span>
+<span class="go">         ...</span>
+<span class="go">         &#39;violet&#39;: &#39;#EE82EE&#39;, &#39;wheat&#39;: &#39;#F5DEB3&#39;, &#39;white&#39;: &#39;#FFFFFF&#39;,</span>
+<span class="go">         &#39;whitesmoke&#39;: &#39;#F5F5F5&#39;, &#39;yellow&#39;: &#39;#FFFF00&#39;, &#39;yellowgreen&#39;: &#39;#9ACD32&#39;}</span>
 </pre></div>
 </div>
 <p>Jeder Farbe ist wieder ein RGB-Wert zugeordnet, der in diesem Fall
@@ -243,8 +243,8 @@ Für die Farbauswahl praktischer ist die folgende, daraus erstellte Farbtabelle,
 die mit Hilfe des Skripts <code class="docutils literal"><span class="pre">named_colors.py</span></code> aus der matplotlib-Galerie erzeugt
 werden kann.</p>
 <a class="reference internal image-reference" href="_images/named_colors_hires.png"><img alt="_images/named_colors_hires.png" class="align-center" src="_images/named_colors_hires.png" style="width: 16cm;" /></a>
-<p>Als Beispiel ändern wir die Farbe der zweiten Linie auf <code class="docutils literal"><span class="pre">darksalmon</span></code></p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">line2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darksalmon&#39;</span><span class="p">)</span>
+<p>Als Beispiel ändern wir die Farbe der zweiten Linie auf <code class="docutils literal"><span class="pre">seagreen</span></code></p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [10]: </span><span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">line2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;seagreen&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>und erhalten damit die folgende Ausgabe</p>
@@ -295,13 +295,13 @@ würden.</p>
 <p>Die Linienart wird in matplotlib durch einen String charakterisiert, der sich
 aus der folgenden Auflistung ergibt.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [15]: </span><span class="n">mpl</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="o">.</span><span class="n">lineStyles</span>
-<span class="gr">Out[15]: </span><span class="p">{</span><span class="s1">&#39;--&#39;</span><span class="p">:</span> <span class="s1">&#39;_draw_dashed&#39;</span><span class="p">,</span>
-<span class="go"> &#39;-&#39;: &#39;_draw_solid&#39;,</span>
-<span class="go"> &#39;&#39;: &#39;_draw_nothing&#39;,</span>
-<span class="go"> &#39; &#39;: &#39;_draw_nothing&#39;,</span>
-<span class="go"> &#39;None&#39;: &#39;_draw_nothing&#39;,</span>
-<span class="go"> &#39;-.&#39;: &#39;_draw_dash_dot&#39;,</span>
-<span class="go"> &#39;:&#39;: &#39;_draw_dotted&#39;}</span>
+<span class="gr">Out[15]: </span><span class="p">{</span><span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="s1">&#39;_draw_nothing&#39;</span><span class="p">,</span>
+<span class="go">          &#39; &#39;: &#39;_draw_nothing&#39;,</span>
+<span class="go">          &#39;-&#39;: &#39;_draw_solid&#39;,</span>
+<span class="go">          &#39;--&#39;: &#39;_draw_dashed&#39;,</span>
+<span class="go">          &#39;-.&#39;: &#39;_draw_dash_dot&#39;,</span>
+<span class="go">          &#39;:&#39;: &#39;_draw_dotted&#39;,</span>
+<span class="go">          &#39;None&#39;: &#39;_draw_nothing&#39;}</span>
 </pre></div>
 </div>
 <p>Möchte man eine Linie gestrichelt darstellen, kann man wie bei den Farben
@@ -313,11 +313,11 @@ die <code class="docutils literal"><span class="pre">setp</span></code>-Methode 
 <a class="reference internal image-reference" href="_images/mpl10.png"><img alt="_images/mpl10.png" class="align-center" src="_images/mpl10.png" style="height: 5cm;" /></a>
 <p>Bei Bedarf kann man die Strichlänge anpassen oder auch die Form der Strichenden
 festlegen.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">line2</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [17]: </span><span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">line2</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/mpl11.png"><img alt="_images/mpl11.png" class="align-center" src="_images/mpl11.png" style="height: 5cm;" /></a>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">line2</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">dash_capstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">)</span>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [18]: </span><span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">line2</span><span class="p">,</span> <span class="n">dashes</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dash_capstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/mpl12.png"><img alt="_images/mpl12.png" class="align-center" src="_images/mpl12.png" style="height: 5cm;" /></a>
@@ -385,9 +385,11 @@ nun mit der bewährten <code class="docutils literal"><span class="pre">setp</sp
 <p>Neben Kreisen und Rauten stellt matplotlib natürlich noch weitere Symbole zur
 Verfügung, die man sich als Dictionary ausgeben lassen kann.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [24]: </span><span class="n">mpl</span><span class="o">.</span><span class="n">lines</span><span class="o">.</span><span class="n">Line2D</span><span class="o">.</span><span class="n">markers</span>
-<span class="gr">Out[24]: </span><span class="p">{</span><span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;triangle_down&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s1">&#39;tickleft&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;tickup&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="s1">&#39;square&#39;</span><span class="p">,</span>
-<span class="go"> ...</span>
-<span class="go"> &#39;h&#39;: &#39;hexagon1&#39;, &#39;1&#39;: &#39;tri_down&#39;, &#39;p&#39;: &#39;pentagon&#39;, &#39;2&#39;: &#39;tri_up&#39;}</span>
+<span class="gr">Out[24]: </span><span class="p">{</span><span class="s1">&#39;.&#39;</span><span class="p">:</span> <span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">:</span> <span class="s1">&#39;pixel&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">:</span> <span class="s1">&#39;circle&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="s1">&#39;triangle_down&#39;</span><span class="p">,</span>
+<span class="go">          ...</span>
+<span class="go">          8: &#39;caretleftbase&#39;, 9: &#39;caretrightbase&#39;, 10: &#39;caretupbase&#39;,</span>
+<span class="go">          11: &#39;caretdownbase&#39;, &#39;None&#39;: &#39;nothing&#39;, None: &#39;nothing&#39;,</span>
+<span class="go">          &#39; &#39;: &#39;nothing&#39;, &#39;&#39;: &#39;nothing&#39;}</span>
 </pre></div>
 </div>
 <p>Das Dictionary ist hier nur auszugsweise wiedergegeben, da die folgende grafische
@@ -421,7 +423,7 @@ Angabe einer Schriftgröße in Punkten, wie es hier für die <em>y</em>-Achse ge
 </div>
 <a class="reference internal image-reference" href="_images/mpl18.png"><img alt="_images/mpl18.png" class="align-center" src="_images/mpl18.png" style="height: 5cm;" /></a>
 <p>Einen besseren Mathematiksatz erhält man, wenn man die TeX-Syntax verwendet
-<a class="footnote-reference" href="#latex" id="id4">[4]</a>. Dabei werden mathematische Teile in Dollarzeichen eingeschlossen,
+<a class="footnote-reference" href="#latex" id="id5">[5]</a>. Dabei werden mathematische Teile in Dollarzeichen eingeschlossen,
 was unter anderem zur Konsequenz hat, dass mathematische Symbole kursiv dargestellt
 werden. TeX- und LaTeX-Kommandos beginnen mit <code class="docutils literal"><span class="pre">\</span></code> und so lassen sich
 beispielsweise griechische Buchstaben durch Voranstellen dieses Zeichens vor den
@@ -442,8 +444,6 @@ vorhandenen TeX-Installation gesetzt wird.</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/mpl20.png"><img alt="_images/mpl20.png" class="align-center" src="_images/mpl20.png" style="height: 5cm;" /></a>
-<p>Dadurch verbessert sich in unserem Beispiel unter anderem die Platzierung des
-Kommas deutlich.</p>
 <p>Gelegentlich ist es sinnvoll, eine Grafik mit einer Legende zu versehen, die
 die Bedeutung der einzelnen Kurven erläutert. Eine Möglichkeit, den
 Beschriftungstext vorzugeben, besteht darin, dies gleich bei der Erzeugung der
@@ -461,9 +461,8 @@ setzen.</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/mpl22.png"><img alt="_images/mpl22.png" class="align-center" src="_images/mpl22.png" style="height: 5cm;" /></a>
-<p>Bei einer recht vollen Grafik, wie es hier der Fall ist, kann es sinnvoll
-sein, den Ort der Legende explizit vorzugeben.</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">)</span>
+<p>Man kann aber beispielsweise auch verlangen, dass die Legende rechts oben platziert wird.</p>
+<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [32]: </span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
 <span class="gr">Out[32]: </span><span class="o">&lt;</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">legend</span><span class="o">.</span><span class="n">Legend</span> <span class="n">at</span> <span class="mh">0x7f48af946ba8</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -545,7 +544,7 @@ ist zunächst das gewünschte Format festzulegen.</p>
 <p>Für die Darstellung auf einem Bildschirm oder zum Beispiel für die Einbindung
 in eine Webseite eignet sich ein Bitmapformat, das die Abbildung in einer
 gerasterten Form abspeichert. Hierfür gibt es sehr viele verschiedene Formate.
-In matplotlib bietet sich die Verwendung des <code class="docutils literal"><span class="pre">png</span></code>-Formats <a class="footnote-reference" href="#png" id="id5">[5]</a> an.</p>
+In matplotlib bietet sich die Verwendung des <code class="docutils literal"><span class="pre">png</span></code>-Formats <a class="footnote-reference" href="#png" id="id6">[6]</a> an.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [39]: </span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;example.png&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -633,15 +632,17 @@ Standardeinstellung läuft unter dem Namen <code class="docutils literal"><span 
 Reihe verschiedener Farbpaletten zur Verfügung, von denen einige auch gut
 für Konturplots geeignet sind. Eine Zusammenstellung der Farbpaletten aus der
 matplotlib-Galerie ist nachfolgend abgebildet.</p>
-<a class="reference internal image-reference" href="_images/cm_01.png"><img alt="_images/cm_01.png" class="align-center" src="_images/cm_01.png" style="height: 6.5cm;" /></a>
-<a class="reference internal image-reference" href="_images/cm_23.png"><img alt="_images/cm_23.png" class="align-center" src="_images/cm_23.png" style="height: 4.6cm;" /></a>
-<a class="reference internal image-reference" href="_images/colormaps_reference_04_hires.png"><img alt="_images/colormaps_reference_04_hires.png" class="align-center" src="_images/colormaps_reference_04_hires.png" style="height: 6.5cm;" /></a>
-<p>Im folgenden Beispiel wählen wir die Farbpalette <code class="docutils literal"><span class="pre">hot</span></code> und füllen mit Hilfe
-der Funktion <code class="docutils literal"><span class="pre">contourf</span></code> die Flächen zwischen den Konturlinien. Damit die
-Linien deutlicher sichtbar werden, werden sie in schwarz dargestellt.</p>
+<a class="reference internal image-reference" href="_images/cm_012.png"><img alt="_images/cm_012.png" class="align-center" src="_images/cm_012.png" style="width: 12cm;" /></a>
+<a class="reference internal image-reference" href="_images/cm_345.png"><img alt="_images/cm_345.png" class="align-center" src="_images/cm_345.png" style="width: 12cm;" /></a>
+<p>Im folgenden Beispiel wählen wir mit <code class="docutils literal"><span class="pre">viridis</span></code> eine der Farbpaletten, deren
+Helligkeit gleichmäßig variiert und damit auch in einer
+Schwarz-Weiß-Darstellung eine adäquate Darstellung der Farben liefert. Mit
+Hilfe der Funktion <code class="docutils literal"><span class="pre">contourf</span></code> füllen wir die Flächen zwischen den
+Konturlinien. Damit die Linien deutlicher sichtbar werden, werden sie in
+schwarz dargestellt.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [47]: </span><span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
 <span class="gp">   ...:</span> <span class="n">levels</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">   ...:</span> <span class="n">contourset</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hot&#39;</span><span class="p">)</span>
+<span class="gp">   ...:</span> <span class="n">contourset</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
 <span class="gp">   ...:</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">contourset</span><span class="p">)</span>
 <span class="gp">   ...:</span> <span class="n">contourlines</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">levels</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">,))</span>
 <span class="gp">   ...:</span> <span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contourlines</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1389,7 +1390,7 @@ der Symbole enthalten. Diese Information könnte man alternativ direkt in der
 zu verwenden, hat neben der Übersichtlichkeit auch den Vorteil, dass sich die
 Vorgaben in verschiedenen <code class="docutils literal"><span class="pre">plot</span></code>-Aufrufen verwenden lassen und so für eine
 einheitliche Darstellung sorgen sowie das Programmieren nach dem DRY-Prinzip
-<a class="footnote-reference" href="#dry" id="id6">[6]</a> unterstützen.</p>
+<a class="footnote-reference" href="#dry" id="id7">[7]</a> unterstützen.</p>
 <p>Mit <code class="docutils literal"><span class="pre">graph.style.line</span></code> werden die Eigenschaften der zu zeichnenden Linien
 festgelegt. Diese werden im Argument als Liste angegeben, selbst wenn es sich,
 wie im folgenden Beispiel, nur um ein Attribut handelt, das hier die Farbe
@@ -1613,7 +1614,7 @@ den Daten auf zugehörige Farben bewerkstelligt.</p>
 <a class="reference internal image-reference" href="_images/pyx42.png"><img alt="_images/pyx42.png" class="align-center" src="_images/pyx42.png" style="height: 5cm;" /></a>
 <p>Konturlinien werden derzeit von PyX nicht unterstützt. Man kann sich allerdings
 bis zu einem gewissen Grad damit behelfen, dass man auf das Paket
-<code class="docutils literal"><span class="pre">scikit-image</span></code> <a class="footnote-reference" href="#scikitimage" id="id7">[7]</a> zurückgreift. Dieses Paket bietet eine Vielzahl
+<code class="docutils literal"><span class="pre">scikit-image</span></code> <a class="footnote-reference" href="#scikitimage" id="id8">[8]</a> zurückgreift. Dieses Paket bietet eine Vielzahl
 interessanter Methoden zur Bildbearbeitung mit Python. Das <code class="docutils literal"><span class="pre">measure</span></code>-Paket
 bietet unter anderem die Möglichkeit, in einem zweidimensionalen Datensatz zu
 einem vorgegebenen Wert die Konturlinie oder gegebenenfalls mehrere Konturlinien
@@ -1814,10 +1815,17 @@ findet man auf der <a class="reference external" href="http://matplotlib.sourcef
 man auf der <a class="reference external" href="http://pyx.sourceforge.net/">PyX-Webseite</a>.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="matplotlib2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Die Abbildungen sind mit Matplotlib 2.0 unter Verwendung des
+Defaultstils erstellt worden.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="latex" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Bei TeX und seiner Variante LaTeX handelt es sich um ein sehr mächtiges
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>Bei TeX und seiner Variante LaTeX handelt es sich um ein sehr mächtiges
 Textsatzsystem, das im wissenschaftlichen Umfeld stark genutzt wird. Für weitere
 Informationen siehe zum Beispiel <a class="reference external" href="http://www.dante.de/">www.dante.de</a>.</td></tr>
 </tbody>
@@ -1825,21 +1833,21 @@ Informationen siehe zum Beispiel <a class="reference external" href="http://www.
 <table class="docutils footnote" frame="void" id="png" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><code class="docutils literal"><span class="pre">png</span></code> steht für »portable network graphics« und speichert die Abbildung
+<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td><code class="docutils literal"><span class="pre">png</span></code> steht für »portable network graphics« und speichert die Abbildung
 erlustfrei, aber durch Komprimierung platzsparend.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="dry" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>DRY steht für »don&#8217;t repeat yourself«. Das DRY-Prinzip fordert dazu
+<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>DRY steht für »don&#8217;t repeat yourself«. Das DRY-Prinzip fordert dazu
 auf, Codewiederholungen nach Möglichkeit zu vermeiden.</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="scikitimage" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Scikits sind Erweiterungen von SciPy. Informationen zu
+<tr><td class="label"><a class="fn-backref" href="#id8">[8]</a></td><td>Scikits sind Erweiterungen von SciPy. Informationen zu
 <code class="docutils literal"><span class="pre">scikit-image</span></code> findet man unter <a class="reference external" href="http://scikit-image.org/">scikit-image.org</a>.</td></tr>
 </tbody>
 </table>
