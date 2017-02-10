@@ -27,6 +27,7 @@
     <script type="text/javascript" src="_static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Suche" href="search.html" />
+    <link rel="copyright" title="Copyright" href="copyright.html" />
     <link rel="next" title="Testen von Programmen" href="testing.html" />
     <link rel="prev" title="Erstellung von Grafiken" href="graphics.html" /> 
   </head>
@@ -108,16 +109,24 @@ Versionen noch verfügbar auch wenn alle anderen Dateien im Arbeitsverzeichnis
 gelöscht wurden.</p>
 <p>Zu diesem Zeitpunkt ist es sinnvoll, Git auch den vollständigen Namen des
 Benutzers und eine zugehörige E-Mail-Adresse mitzuteilen:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ git config user.name &quot;Gert-Ludwig Ingold&quot;
-$ git config user.email &quot;gert.ingold@physik.uni-augsburg.de&quot;
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git config --global user.name &quot;Gert-Ludwig Ingold&quot;
+$ git config --global user.email &quot;gert.ingold@physik.uni-augsburg.de&quot;
 </pre></div>
 </div>
 <p>Diese Informationen legt Git im Hauptverzeichnis des Benutzers in der Datei
 <code class="docutils literal"><span class="pre">.gitconfig</span></code> ab und verwendet sie bei der Übernahme von Dateien in das
-Versionsarchiv. Bei Bedarf lassen sich noch weitere Parameter einstellen,
-beispielsweise der Editor, den Git aufrufen soll, um dem Benutzer beim
-Abspeichern einer neuen Version die Möglichkeit zu geben, einen Kommentar
-abzuspeichern.</p>
+Versionsarchiv. Lässt man die Option <code class="docutils literal"><span class="pre">--global</span></code> weg, so wird die Information
+im lokalen Git-Verzeichnis abgelegt und gilt auch nur dort.</p>
+<p>Bei Bedarf lassen sich noch weitere Parameter einstellen, beispielsweise der
+Editor, den Git aufrufen soll, um dem Benutzer beim Abspeichern einer neuen
+Version die Möglichkeit zu geben, einen Kommentar abzuspeichern. Da es immer
+wieder vorkommt, dass defaultmäßig ein Editor verwendet wird, mit dessen
+Bedienung man nicht vertraut ist, empfiehlt es sich, die gewünschte Einstellung
+vorzunehmen, zum Beispiel</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git config --global core.editor vim
+</pre></div>
+</div>
+<p>wenn man den Editor <code class="docutils literal"><span class="pre">vim</span></code> benutzen möchte.</p>
 <p>Um das Arbeiten mit Git zu illustrieren, legen wir anschließend eine erste
 Version eines Skripts <code class="docutils literal"><span class="pre">hello.py</span></code> mit folgendem Inhalt</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
@@ -832,7 +841,7 @@ wenn man bedenkt, dass <em>git</em> im Englischen so viel wie Blödmann oder Dep
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2012-2016, Gert-Ludwig Ingold.
+        &#169; <a href="copyright.html">Copyright</a> 2012-2017, Gert-Ludwig Ingold, licensed under CC BY 4.0 International.
       Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2 erstellt.
     </div>
   </body>
