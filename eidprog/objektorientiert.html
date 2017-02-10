@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Objektorientiertes Programmieren &mdash; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
+    <title>Objektorientiertes Programmieren &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,24 +17,25 @@
         VERSION:     '2016',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index.html" />
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Erstellung von Grafiken" href="grafik.html" />
     <link rel="prev" title="Numerische Programmbibliotheken am Beispiel von NumPy/SciPy" href="scipy.html" /> 
   </head>
-  <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+  <body role="document">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Objektorientiertes Programmieren</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         «&#160;&#160;<a href="scipy.html">Numerische Programmbibliotheken am Beispiel von NumPy/SciPy</a>
@@ -49,7 +50,7 @@
         
         
   <div class="section" id="objektorientiertes-programmieren">
-<span id="oop"></span><h1>Objektorientiertes Programmieren<a class="headerlink" href="#objektorientiertes-programmieren" title="Permalink zu dieser Überschrift">¶</a></h1>
+<span id="oop"></span><h1>Objektorientiertes Programmieren<a class="headerlink" href="#objektorientiertes-programmieren" title="Link zu dieser Überschrift">¶</a></h1>
 <p>In diesem Kapitel soll ein, wenn auch knapper, Einblick in das
 objektorientierte Programmieren gegeben werden. Dabei spielt das Konzept von
 Objekten eine zentrale Rolle, die gewisse Eigenschaften, sogenannte Attribute,
@@ -62,7 +63,7 @@ weiteres wichtiges Konzept ist die Vererbung, die es erlaubt, verwandte Klassen
 voneinander abzuleiten. Damit wird es möglich, dass eine Unterklasse Attribute
 und Methoden von einer Basisklasse erbt.</p>
 <div class="section" id="klassen-attribute-und-methoden">
-<h2>Klassen, Attribute und Methoden<a class="headerlink" href="#klassen-attribute-und-methoden" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Klassen, Attribute und Methoden<a class="headerlink" href="#klassen-attribute-und-methoden" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Diese abstrakten Bemerkungen werden klarer, wenn wir gleich ein konkretes
 Beispiel betrachten. Wir haben eine ganze Reihe an Datentypen kennengelernt,
 die von Python zur Verfügung gestellt werden. Echte Brüche waren jedoch nicht
@@ -71,15 +72,15 @@ Datentyp zur Verfügung gestellt werden kann.  Offenbar besitzt ein Bruch
 Attribute, nämlich den Wert des Zählers sowie den des Nenners. Darüber hinaus
 gibt es Methoden. Man kann beispielsweise Brüche addieren oder multiplizieren
 oder sie in verschiedenen Weisen ausgeben.</p>
-<p>Wir definieren uns nun zunächst eine Klasse <tt class="docutils literal"><span class="pre">Bruch</span></tt> zusammen mit der Konstruktormethode
-<tt class="xref py py-func docutils literal"><span class="pre">__init__()</span></tt></p>
+<p>Wir definieren uns nun zunächst eine Klasse <code class="docutils literal"><span class="pre">Bruch</span></code> zusammen mit der Konstruktormethode
+<code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code></p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="n">nenner</span>
 </pre></div>
@@ -87,17 +88,17 @@ oder sie in verschiedenen Weisen ausgeben.</p>
 <p>und wenden diese Klassendefinition sofort an</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 <span class="go">2 5</span>
 </pre></div>
 </td></tr></table></div>
-<p>Während die Klassendefinition die Attribute <tt class="docutils literal"><span class="pre">zaehler</span></tt> und <tt class="docutils literal"><span class="pre">nenner</span></tt> in
-abstrakter Weise definiert, wird bei der Zuweisung an die Variable <tt class="docutils literal"><span class="pre">x</span></tt> eine
+<p>Während die Klassendefinition die Attribute <code class="docutils literal"><span class="pre">zaehler</span></code> und <code class="docutils literal"><span class="pre">nenner</span></code> in
+abstrakter Weise definiert, wird bei der Zuweisung an die Variable <code class="docutils literal"><span class="pre">x</span></code> eine
 Instanz, also eine konkrete Realisierung eines Bruchs erzeugt. Dabei wird die
-Konstruktormethode <tt class="xref py py-func docutils literal"><span class="pre">__init__()</span></tt>, die in der Klassendefinition in den Zeilen
+Konstruktormethode <code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code>, die in der Klassendefinition in den Zeilen
 3-5 definiert wird, mit Hilfe des Klassennamens aufgerufen. In unserem Beispiel
-handelt es sich um die Anweisung <tt class="docutils literal"><span class="pre">Bruch(2,</span> <span class="pre">5)</span></tt>. Die Variable <tt class="docutils literal"><span class="pre">self</span></tt>, die in
+handelt es sich um die Anweisung <code class="docutils literal"><span class="pre">Bruch(2,</span> <span class="pre">5)</span></code>. Die Variable <code class="docutils literal"><span class="pre">self</span></code>, die in
 der Konstruktormethode als erstes Argument auftritt, kann man sich als
 Platzhalter für die tatsächliche Instanz vorstellen. Man beachte, dass dieses
 Argument im Aufruf der Konstruktormethode immer fehlt. Bei der Ausführung der
@@ -106,11 +107,11 @@ Konstruktormethode den Attributen des Objekts zugewiesen. Auf diese Attribute
 kann im Hauptprogramm zugegriffen werden, wie die Zeile 2 im zweiten Codeblock
 zeigt. Dabei wird der Attributname mit einem Punkt an den Variablenname des
 Objekts angehängt.  Schließlich sei noch angemerkt, dass der Defaultwert für
-<tt class="docutils literal"><span class="pre">nenner</span></tt> hier dafür sorgt, dass auch bei nur einem Argument im Aufruf der
-Konstruktormethode eine sinnvolle Instanz des <tt class="docutils literal"><span class="pre">Bruch</span></tt>-Objekts erzeugt wird.
+<code class="docutils literal"><span class="pre">nenner</span></code> hier dafür sorgt, dass auch bei nur einem Argument im Aufruf der
+Konstruktormethode eine sinnvolle Instanz des <code class="docutils literal"><span class="pre">Bruch</span></code>-Objekts erzeugt wird.
 Im Folgenden wird angenommen, dass die Konstruktormethode mit strikt positiven
 ganzen Zahlen aufgerufen wird.</p>
-<p>Nun müssen wir unsere <tt class="docutils literal"><span class="pre">Bruch</span></tt>-Klasse mit etwas Funktionalität ausstatten. Zunächst einmal
+<p>Nun müssen wir unsere <code class="docutils literal"><span class="pre">Bruch</span></code>-Klasse mit etwas Funktionalität ausstatten. Zunächst einmal
 wollen wir den Fall vorsehen, dass der Bruch gekürzt werden kann. Außerdem wollen wir den
 Bruch ausgeben können, ohne explizit auf seine Attribute zugreifen zu müssen. Dies wird von
 dem folgenden Code erledigt</p>
@@ -134,9 +135,9 @@ dem folgenden Code erledigt</p>
 18
 19
 20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="n">nenner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__reduce</span><span class="p">()</span>
@@ -150,38 +151,38 @@ dem folgenden Code erledigt</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">//</span><span class="n">a</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">//</span><span class="n">a</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
 <p>wie hier zu sehen ist</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">7/5</span>
 </pre></div>
 </div>
-<p>Zum Kürzen des Bruchs rufen wir in Zeile 6 die Methode <tt class="xref py py-func docutils literal"><span class="pre">__reduce()</span></tt> auf. Da
-es sich um eine in der Klasse <tt class="docutils literal"><span class="pre">Bruch</span></tt> definierte Methode handelt, muss ein
-von einem Punkt gefolgtes <tt class="docutils literal"><span class="pre">self</span></tt> vorangestellt werden. Sonst würde nach einer
+<p>Zum Kürzen des Bruchs rufen wir in Zeile 6 die Methode <code class="xref py py-func docutils literal"><span class="pre">__reduce()</span></code> auf. Da
+es sich um eine in der Klasse <code class="docutils literal"><span class="pre">Bruch</span></code> definierte Methode handelt, muss ein
+von einem Punkt gefolgtes <code class="docutils literal"><span class="pre">self</span></code> vorangestellt werden. Sonst würde nach einer
 Funktion außerhalb der Klassendefinition gesucht werden.  Die zwei Unterstriche
 zu Beginn des Methodennamens machen die Methode zu einer privaten Methode, die
 nur zum Aufruf innerhalb der Klasse gedacht ist. Auf entsprechende Weise kann
 man auch private Attribute einführen. Wie schon in der Konstruktormethode
-<tt class="xref py py-func docutils literal"><span class="pre">__init__()</span></tt> muss das erste Argument <tt class="docutils literal"><span class="pre">self</span></tt> sein.  Damit stehen die
-Attribute <tt class="docutils literal"><span class="pre">zaehler</span></tt> und <tt class="docutils literal"><span class="pre">nenner</span></tt> in der Methode zur Verfügung. In den
+<code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code> muss das erste Argument <code class="docutils literal"><span class="pre">self</span></code> sein.  Damit stehen die
+Attribute <code class="docutils literal"><span class="pre">zaehler</span></code> und <code class="docutils literal"><span class="pre">nenner</span></code> in der Methode zur Verfügung. In den
 Zeilen 9-15 ist der euklidsche Algorithmus zur Bestimmung des größten
 gemeinsamen Teilers implementiert, mit dessen Hilfe der Bruch gekürzt werden
 kann.</p>
 <p>In den Zeilen 17-21 ist eine Methode mit dem speziellen Namen
-<tt class="xref py py-func docutils literal"><span class="pre">__str__()</span></tt> implementiert, die automatisch immer dann aufgerufen wird, wenn
-das <tt class="docutils literal"><span class="pre">Bruch</span></tt>-Objekt in einen String umgewandelt werden soll. Dies ist
-beispielsweise bei der Ausgabe mit <tt class="docutils literal"><span class="pre">print</span></tt> der Fall. Solche speziellen
+<code class="xref py py-func docutils literal"><span class="pre">__str__()</span></code> implementiert, die automatisch immer dann aufgerufen wird, wenn
+das <code class="docutils literal"><span class="pre">Bruch</span></code>-Objekt in einen String umgewandelt werden soll. Dies ist
+beispielsweise bei der Ausgabe mit <code class="docutils literal"><span class="pre">print</span></code> der Fall. Solche speziellen
 Methodennamen existieren zum Beispiel auch für die Addition, die Multiplikation
 und einige andere Operationen mehr.  Wir wollen uns hier auf die
-Implementierung der ersten beiden Methoden, der Umwandlung in den <tt class="docutils literal"><span class="pre">float</span></tt>-Typ
+Implementierung der ersten beiden Methoden, der Umwandlung in den <code class="docutils literal"><span class="pre">float</span></code>-Typ
 sowie zweier Vergleichsmethoden beschränken und erweitern unsere
 Klassendefinition in folgender Weise:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -221,9 +222,9 @@ Klassendefinition in folgender Weise:</p>
 35
 36
 37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="n">nenner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__reduce</span><span class="p">()</span>
@@ -237,33 +238,33 @@ Klassendefinition in folgender Weise:</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">//</span><span class="n">a</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">//</span><span class="n">a</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Bruch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span>
                      <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Bruch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span>
                      <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span>
 
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">==</span><span class="n">other</span><span class="o">.</span><span class="n">zaehler</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">==</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span>
 </pre></div>
 </td></tr></table></div>
 <p>Jetzt sind wir in der Lage, echte Brüche zu addieren und zu multiplizieren, sie
 in Gleitkommazahlen umzuwandeln und zu vergleichen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 <span class="go">29/35</span>
@@ -287,16 +288,16 @@ Addition oder Multiplikation brauchen wir uns um diese jedoch nicht explizit zu
 kümmern. Dadurch gewinnt das Programm enorm an Übersichtlichkeit. Dies ist ein
 nicht zu unterschätzender Vorteil dieser Programmweise.</p>
 <p>Bis jetzt haben wir spezielle Methoden definiert, die mit Operatoren wie zum
-Beispiel <tt class="docutils literal"><span class="pre">+</span></tt> und <tt class="docutils literal"><span class="pre">*</span></tt> verknüpft sind. Damit wurden diese Operatoren, die
+Beispiel <code class="docutils literal"><span class="pre">+</span></code> und <code class="docutils literal"><span class="pre">*</span></code> verknüpft sind. Damit wurden diese Operatoren, die
 zunächst für andere Datentypen definiert waren, auch für Brüche bereitgestellt.
 Man spricht hier vom Überladen von Operatoren.  Wir können aber auch Methoden
 definieren, die mit ihrem Namen von außerhalb der Klasse aufgerufen werden. Als
-Beispiel definieren wir eine <tt class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></tt>-Methode, die den Bruch in
+Beispiel definieren wir eine <code class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></code>-Methode, die den Bruch in
 mehreren Zeilen mit einem horizontalen Bruchstrich ausgeben soll. Unsere
 Klassendefinition nimmt dann die folgende Form an:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="n">nenner</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">__reduce</span><span class="p">()</span>
@@ -310,41 +311,41 @@ Klassendefinition nimmt dann die folgende Form an:</p>
             <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">//</span><span class="n">a</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">//</span><span class="n">a</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">!=</span><span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="s">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
+            <span class="k">return</span> <span class="s2">&quot;{}/{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Bruch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span>
                      <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">Bruch</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span>
                      <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__float__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span>
 
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">zaehler</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="o">==</span><span class="n">other</span><span class="o">.</span><span class="n">zaehler</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="o">==</span><span class="n">other</span><span class="o">.</span><span class="n">nenner</span>
 
     <span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">zaehler_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
         <span class="n">nenner_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
         <span class="n">feldbreite</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zaehler_str</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nenner_str</span><span class="p">))</span>
-        <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
-        <span class="k">print</span> <span class="s">&quot;{}</span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
+        <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
+        <span class="k">print</span> <span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">{}</span><span class="se">\n</span><span class="s2">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
                                   <span class="n">bruchstrich</span><span class="p">,</span>
                                   <span class="n">nenner_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Nun können wir die <tt class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></tt>-Methode anwenden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">213</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
+<p>Nun können wir die <code class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></code>-Methode anwenden:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">213</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3091</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">prettyprint</span><span class="p">()</span>
@@ -357,25 +358,25 @@ Klassendefinition nimmt dann die folgende Form an:</p>
 <span class="go">163823</span>
 </pre></div>
 </div>
-<p>Wie beim Aufruf der <tt class="xref py py-func docutils literal"><span class="pre">__reduce()</span></tt>-Methode in der Konstruktormethode der
-<tt class="docutils literal"><span class="pre">Bruch</span></tt>-Klasse wird der Methodenname mit einem Punkt an das Objekt angehängt.
-Letzteres kann durch eine Variable, hier <tt class="docutils literal"><span class="pre">z</span></tt>, spezifiziert sein oder durch
-einen Ausdruck, hier <tt class="docutils literal"><span class="pre">x+y</span></tt>. Im Allgemeinen können beim Aufruf einer Methode
+<p>Wie beim Aufruf der <code class="xref py py-func docutils literal"><span class="pre">__reduce()</span></code>-Methode in der Konstruktormethode der
+<code class="docutils literal"><span class="pre">Bruch</span></code>-Klasse wird der Methodenname mit einem Punkt an das Objekt angehängt.
+Letzteres kann durch eine Variable, hier <code class="docutils literal"><span class="pre">z</span></code>, spezifiziert sein oder durch
+einen Ausdruck, hier <code class="docutils literal"><span class="pre">x+y</span></code>. Im Allgemeinen können beim Aufruf einer Methode
 natürlich auch Argumente übergeben werden.</p>
 <p>Nun wird klar, dass wir auch in früheren Kapiteln immer wieder Methoden
 aufgerufen haben ohne uns dessen wirklich bewusst gewesen zu sein. Wenn wir
-bespielsweise im Kapitel über <a class="reference internal" href="einausgabe.html#einausgabe"><em>Ein- und Ausgabe</em></a> die Anweisung <tt class="docutils literal"><span class="pre">datei.write(…)</span></tt>
-verwendet haben, so hatten wir ein Dateiobjekt <tt class="docutils literal"><span class="pre">datei</span></tt> benutzt und dessen
-<tt class="docutils literal"><span class="pre">write</span></tt>-Methode aufgerufen.</p>
+bespielsweise im Kapitel über <a class="reference internal" href="einausgabe.html#einausgabe"><span class="std std-ref">Ein- und Ausgabe</span></a> die Anweisung <code class="docutils literal"><span class="pre">datei.write(…)</span></code>
+verwendet haben, so hatten wir ein Dateiobjekt <code class="docutils literal"><span class="pre">datei</span></code> benutzt und dessen
+<code class="docutils literal"><span class="pre">write</span></code>-Methode aufgerufen.</p>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Zum Abschluss dieses Unterkapitels soll noch auf zwei Aspekte
 im Zusammenhang mit dem hier entwickelten Beispiel eingegangen werden. Vor allem
 wenn man eine Klasse programmiert, um sie anderen Nutzern zur Verfügung zu stellen,
 ist die Dokumentation der Methoden wichtig, mit deren Hilfe der Nutzer mit den
-Objekten arbeiten kann. Wie schon im Kapitel <a class="reference internal" href="funktionen.html#funcdoc"><em>Dokumentation von Funktionen</em></a> für Funktionen
+Objekten arbeiten kann. Wie schon im Kapitel <a class="reference internal" href="funktionen.html#funcdoc"><span class="std std-ref">Dokumentation von Funktionen</span></a> für Funktionen
 besprochen, kann auch bei Methoden in einer Klassendefinition ein Dokumentationstext
-direkt nach der mit <tt class="docutils literal"><span class="pre">def</span></tt> beginnenden Zeile eingebaut werden. Die Methode <tt class="docutils literal"><span class="pre">prettyprint</span></tt>
+direkt nach der mit <code class="docutils literal"><span class="pre">def</span></code> beginnenden Zeile eingebaut werden. Die Methode <code class="docutils literal"><span class="pre">prettyprint</span></code>
 könnte dann folgendermaßen aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gibt den Bruch dreizeilig aus, wobei Zähler und Nenner</span>
 <span class="sd">    zentriert gesetzt sind.</span>
 
@@ -383,14 +384,14 @@ könnte dann folgendermaßen aussehen:</p>
     <span class="n">zaehler_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span><span class="p">)</span>
     <span class="n">nenner_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
     <span class="n">feldbreite</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zaehler_str</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">nenner_str</span><span class="p">))</span>
-    <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
-    <span class="k">print</span> <span class="s">&quot;{}</span><span class="se">\n</span><span class="s">{}</span><span class="se">\n</span><span class="s">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
+    <span class="n">bruchstrich</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span><span class="o">*</span><span class="n">feldbreite</span>
+    <span class="k">print</span> <span class="s2">&quot;{}</span><span class="se">\n</span><span class="s2">{}</span><span class="se">\n</span><span class="s2">{}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zaehler_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">),</span>
                               <span class="n">bruchstrich</span><span class="p">,</span>
                               <span class="n">nenner_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>In der Python-Shell kann man Information über alle Methoden in folgender Weise bekommen:</p>
-<div class="highlight-python"><div class="highlight"><pre> &gt;&gt;&gt; help(Bruch)
+<div class="highlight-python"><div class="highlight"><pre><span></span> &gt;&gt;&gt; help(Bruch)
 
  Help on class Bruch in module __main__:
 
@@ -426,15 +427,15 @@ könnte dann folgendermaßen aussehen:</p>
 </pre></div>
 </div>
 <p>Man kann also Informationen über alle Methoden oder aber über eine spezifische Methode
-erhalten, wie wir das schon in den Kapiteln <a class="reference internal" href="datentypen.html#mathfunc"><em>Funktionen für reelle Zahlen</em></a> und <a class="reference internal" href="scipy.html#ode"><em>Integration gewöhnlicher Differentialgleichungen</em></a> kennengelernt
+erhalten, wie wir das schon in den Kapiteln <a class="reference internal" href="datentypen.html#mathfunc"><span class="std std-ref">Funktionen für reelle Zahlen</span></a> und <a class="reference internal" href="scipy.html#ode"><span class="std std-ref">Integration gewöhnlicher Differentialgleichungen</span></a> kennengelernt
 haben. Hier sehen wir zudem, dass Python sich bemüht, hilfreiche Informationen über die
 Methoden zur Verfügung zu stellen, selbst wenn keine expliziten Dokumentationstexte
 vorhanden sind. Dies ist jedoch keinesfalls eine Entschuldigung dafür, auf eine
 Dokumentation von Seiten des Programmierers zu verzichten!</p>
-<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Ein Manko unserer bisherigen Version der <tt class="docutils literal"><span class="pre">Bruch</span></tt>-Klasse besteht
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Ein Manko unserer bisherigen Version der <code class="docutils literal"><span class="pre">Bruch</span></code>-Klasse besteht
 darin, dass stillschweigend vorausgesetzt wird, dass Zähler und Nenner als Integers
 übergeben werden müssen. Dies ist unnötig restriktiv. Es würde ausreichen, wenn
-die entsprechenden Werte in Integers umwandelbar sind. Die <tt class="docutils literal"><span class="pre">__init__()</span></tt>-Methode
+die entsprechenden Werte in Integers umwandelbar sind. Die <code class="docutils literal"><span class="pre">__init__()</span></code>-Methode
 könnte zum Beispiel wie folgt erweitert werden:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -442,18 +443,18 @@ könnte zum Beispiel wie folgt erweitert werden:</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">zaehler</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nenner</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">nenner</span><span class="p">)</span>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span><span class="p">)</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">__reduce</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>In den Zeilen 3 und 4 wird versucht, die Werte der Variablen <tt class="docutils literal"><span class="pre">zaehler</span></tt> und
-<tt class="docutils literal"><span class="pre">nenner</span></tt> in Integers umzuwandeln. Da dies durchaus misslingen kann, wie wir
-gleich noch sehen werden, wird hier die <tt class="docutils literal"><span class="pre">ValueError</span></tt>-Ausnahme abgefangen. Um
+<p>In den Zeilen 3 und 4 wird versucht, die Werte der Variablen <code class="docutils literal"><span class="pre">zaehler</span></code> und
+<code class="docutils literal"><span class="pre">nenner</span></code> in Integers umzuwandeln. Da dies durchaus misslingen kann, wie wir
+gleich noch sehen werden, wird hier die <code class="docutils literal"><span class="pre">ValueError</span></code>-Ausnahme abgefangen. Um
 dem aufrufenden Programm den Fehler mitzuteilen, wird in Zeile 6 diese Ausnahme
 gleich wieder geworfen. Dies bietet die Gelegenheit, eine aussagekräftige
 Fehlermeldung mitzuliefern, und ermöglicht es dem aufrufenden Programmteil, den
@@ -472,19 +473,14 @@ Fehler adäquat zu behandeln.</p>
 12
 13
 14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s">&quot;33&quot;</span><span class="p">,</span> <span class="s">&quot;47&quot;</span><span class="p">)</span>
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s2">&quot;33&quot;</span><span class="p">,</span> <span class="s2">&quot;47&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">33/47</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;bruch.py&quot;</span>, line <span class="m">10</span>, in <span class="n">__init__</span>
-    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="s">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">,</span> <span class="s2">&quot;Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.&quot;</span>
 <span class="gr">ValueError</span>: <span class="n">Die Bruchklasse erwartet ganzzahlige Zähler und Nenner.</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">([</span><span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">],</span> <span class="mi">44</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -492,23 +488,18 @@ Fehler adäquat zu behandeln.</p>
   File <span class="nb">&quot;bruch.py&quot;</span>, line <span class="m">7</span>, in <span class="n">__init__</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">zaehler</span><span class="p">)</span>
 <span class="gr">TypeError</span>: <span class="n">int() argument must be a string or a number, not &#39;list&#39;</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-  File <span class="nb">&quot;bruch.py&quot;</span>, line <span class="m">7</span>, in <span class="n">__init__</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">zaehler</span><span class="p">)</span>
-<span class="gr">TypeError</span>: <span class="n">int() argument must be a string or a number, not &#39;list&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>In den Zeilen 1 bis 3 sieht man, dass die neue <tt class="docutils literal"><span class="pre">__init__()</span></tt>-Methode in der Lage ist,
+<p>In den Zeilen 1 bis 3 sieht man, dass die neue <code class="docutils literal"><span class="pre">__init__()</span></code>-Methode in der Lage ist,
 auch Strings korrekt zu verarbeiten, sofern sie sich in Integers umwandeln lassen.
-In Zeile 4 ist dies nicht der Fall, und es wird somit eine <tt class="docutils literal"><span class="pre">ValueError</span></tt>-Ausnahme
+In Zeile 4 ist dies nicht der Fall, und es wird somit eine <code class="docutils literal"><span class="pre">ValueError</span></code>-Ausnahme
 ausgelöst, die mit einer entsprechenden Fehlermeldung in Zeile 9 versehen ist.
-Wie die Zeilen 10 bis 15 zeigen, kann man allerdings auch eine <tt class="docutils literal"><span class="pre">TypeError</span></tt>-Ausnahme
-hervorrufen, die somit in der <tt class="docutils literal"><span class="pre">__init__()</span></tt>-Methode noch adäquat abgefangen werden
+Wie die Zeilen 10 bis 15 zeigen, kann man allerdings auch eine <code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme
+hervorrufen, die somit in der <code class="docutils literal"><span class="pre">__init__()</span></code>-Methode noch adäquat abgefangen werden
 müsste.</p>
 </div>
 <div class="section" id="vererbung">
-<h2>Vererbung<a class="headerlink" href="#vererbung" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Vererbung<a class="headerlink" href="#vererbung" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Bei der Definition von Klassen kann man auf Attribute und Methoden anderer Klassen
 zurückgreifen, die dann nicht noch einmal implementiert werden müssen, sondern
 vererbt werden. Wir wollen die Vererbung anhand zweier Objekte illustrieren, dem
@@ -521,27 +512,27 @@ zeigt. Neben der Methode, die die Richtung der Achse ausgibt, wollen wir eine Me
 implementieren, die die Achse des Körpers dreht, wobei Drehwinkel und Drehachse
 als Argumente übergeben werden.</p>
 <p>Wir definieren zunächst eine Klasse für den Massepunkt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="k">class</span> <span class="nc">Massepunkt</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">verschiebe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shift</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="o">+</span><span class="n">shift</span>
 
     <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Die Konstruktormethode legt den Massepunkt in den Ursprung. Da wir für die Drehung
 des Rotationskörpers Skalar- und Kreuzprodukt benötigen, verwenden wir die NumPy-Bibliothek
-um Vektoren zu definieren. Die <tt class="xref py py-func docutils literal"><span class="pre">verschiebe()</span></tt>-Methode verschiebt den Massepunkt um den
-Vektor <tt class="docutils literal"><span class="pre">shift</span></tt>. Mit der <tt class="xref py py-func docutils literal"><span class="pre">position()</span></tt>-Methode lässt sich die aktuelle Position des
-Massepunkts ausgeben, auf die sich auch mit Hilfe des Attributs <tt class="docutils literal"><span class="pre">pos</span></tt> zugreifen lässt.
+um Vektoren zu definieren. Die <code class="xref py py-func docutils literal"><span class="pre">verschiebe()</span></code>-Methode verschiebt den Massepunkt um den
+Vektor <code class="docutils literal"><span class="pre">shift</span></code>. Mit der <code class="xref py py-func docutils literal"><span class="pre">position()</span></code>-Methode lässt sich die aktuelle Position des
+Massepunkts ausgeben, auf die sich auch mit Hilfe des Attributs <code class="docutils literal"><span class="pre">pos</span></code> zugreifen lässt.
 Testen wir zunächst die Funktionalität dieser Klasse:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Massepunkt</span><span class="p">()</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Massepunkt</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">pos</span>
 <span class="go">array([0, 0, 0])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
@@ -554,7 +545,7 @@ Testen wir zunächst die Funktionalität dieser Klasse:</p>
 <span class="go">Die Masse befindet sich am Ort (3, 4, -3).</span>
 </pre></div>
 </div>
-<p>Von der <tt class="docutils literal"><span class="pre">Massepunkt</span></tt>-Klasse leiten wir nun die <tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>-Klasse ab und bekommen
+<p>Von der <code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse leiten wir nun die <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse ab und bekommen
 so insgesamt den folgenden Code:</p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -586,26 +577,26 @@ so insgesamt den folgenden Code:</p>
 28
 29
 30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
 
 <span class="k">class</span> <span class="nc">Massepunkt</span><span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">verschiebe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shift</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="o">+</span><span class="n">shift</span>
 
     <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Masse befindet sich am Ort ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">))</span>
 
 
 <span class="k">class</span> <span class="nc">Rotationskoerper</span><span class="p">(</span><span class="n">Massepunkt</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">achse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-        <span class="n">Massepunkt</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">Massepunkt</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">drehe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">drehachse</span><span class="p">,</span> <span class="n">winkel</span><span class="p">):</span>
         <span class="n">drehachse</span> <span class="o">=</span> <span class="n">drehachse</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">drehachse</span><span class="p">)</span>
@@ -615,24 +606,24 @@ so insgesamt den folgenden Code:</p>
                      <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">drehachse</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">winkel</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">orientierung</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s">&quot;Die Achse des starren Körpers liegt in Richtung &quot;</span>
-              <span class="s">&quot;des Vektors ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Achse des starren Körpers liegt in Richtung &quot;</span>
+              <span class="s2">&quot;des Vektors ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>In Zeile 16 wird die Basisklasse <tt class="docutils literal"><span class="pre">Massepunkt</span></tt> als Argument der Klasse <tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>
+<p>In Zeile 16 wird die Basisklasse <code class="docutils literal"><span class="pre">Massepunkt</span></code> als Argument der Klasse <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>
 angegeben, so dass Attribute und Methoden der Basisklasse geerbt werden können. Im Prinzip ist
 es möglich, auch mehrere Basisklassen anzugeben. In der Konstruktormethode der
-<tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>-Klasse initialisieren wir zunächst die Achse, die die Orientierung des Körpers
+<code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse initialisieren wir zunächst die Achse, die die Orientierung des Körpers
 angibt. Um die Position des Körpers zu initialisieren, greifen wir auf die Konstruktormethode der
-<tt class="docutils literal"><span class="pre">Massepunkt</span></tt>-Klasse zurück. Dies ist sinnvoll, aber keineswegs verpflichtend.</p>
+<code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse zurück. Dies ist sinnvoll, aber keineswegs verpflichtend.</p>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Um auf die Konstruktormethode der Elternklasse zuzugreifen, könnte man in
-Zeile 20 alternativ <tt class="docutils literal"><span class="pre">super().__init__()</span></tt> verwenden.</p>
-<p>In der <tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>-Klasse definieren wir zwei neue Methoden. Es wäre
-durchaus auch möglich, Methoden der <tt class="docutils literal"><span class="pre">Massepunkt</span></tt>-Klasse zu überladen. Wir
+Zeile 20 alternativ <code class="docutils literal"><span class="pre">super().__init__()</span></code> verwenden.</p>
+<p>In der <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse definieren wir zwei neue Methoden. Es wäre
+durchaus auch möglich, Methoden der <code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse zu überladen. Wir
 wollen dies hier jedoch nicht tun, da wir die Methoden dieser Klasse
 unverändert verwenden wollen. Sehen wir uns nun an, ob die
-<tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>-Klasse wie gewünscht funktioniert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span> <span class="o">=</span> <span class="n">Rotationskoerper</span><span class="p">()</span>
+<code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse wie gewünscht funktioniert:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span> <span class="o">=</span> <span class="n">Rotationskoerper</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
 <span class="go">Die Masse befindet sich am Ort (0, 0, 0).</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span><span class="o">.</span><span class="n">orientierung</span><span class="p">()</span>
@@ -650,13 +641,13 @@ unverändert verwenden wollen. Sehen wir uns nun an, ob die
 <span class="go">Die Achse des starren Körpers liegt in Richtung des Vektors (0.707107, -5.55112e-17, 0.707107).</span>
 </pre></div>
 </div>
-<p>Das <tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>-Objekt <tt class="docutils literal"><span class="pre">rk</span></tt> besitzt tatsächlich sowohl die Objektattribute der
-<tt class="docutils literal"><span class="pre">Massepunkt</span></tt>-Klasse als auch die der <tt class="docutils literal"><span class="pre">Rotationskoerper</span></tt>-Klasse. Zudem können die Methoden
+<p>Das <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Objekt <code class="docutils literal"><span class="pre">rk</span></code> besitzt tatsächlich sowohl die Objektattribute der
+<code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse als auch die der <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse. Zudem können die Methoden
 beider Klassen verwendet werden.</p>
 <table class="docutils footnote" frame="void" id="fractions" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Python stellt Brüche über das Modul <tt class="docutils literal"><span class="pre">fractions</span></tt> zur Verfügung. Weitere
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Python stellt Brüche über das Modul <code class="docutils literal"><span class="pre">fractions</span></code> zur Verfügung. Weitere
 Informationen sind in der Python-Dokumentation unter
 <a class="reference external" href="https://docs.python.org/3/library/fractions.html">https://docs.python.org/3/library/fractions.html</a>
 verfügbar.</td></tr>
@@ -667,7 +658,7 @@ verfügbar.</td></tr>
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         «&#160;&#160;<a href="scipy.html">Numerische Programmbibliotheken am Beispiel von NumPy/SciPy</a>
@@ -679,9 +670,9 @@ verfügbar.</td></tr>
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2010-2017, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2 erstellt.
     </div>
   </body>
 </html>
