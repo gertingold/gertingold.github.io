@@ -1,6 +1,6 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016alpha',
+        VERSION:     '2017beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -25,12 +25,12 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Erstellung von Grafiken" href="graphics.html" />
     <link rel="prev" title="Fortgeschrittene Aspekte von Python" href="advancedpython.html" /> 
   </head>
-  <body role="document">
+  <body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>NumPy</span></h2>
@@ -138,7 +138,19 @@ man daher NumPy in folgender Weise:</p>
 eines Objekts deutlich. Hält man sich an diese Konvention, so trägt man zur Verständlichkeit
 des Codes bei.</p>
 <p>Um die Eigenschaften von Arrays zu untersuchen, müssen wir zunächst wissen, wie sich ein
-Array erzeugen lässt. In NumPy ist es sehr einfach, die Dokumentation nach einem bestimmten
+Array erzeugen lässt. Nachdem wir im vorigen Unterkapitel die Verwendung von
+Listen für die Darstellung von Matrizen diskutiert haben, mag man versucht sein,
+zu diesem Zweck die <code class="docutils literal"><span class="pre">append</span></code>-Methode von NumPy zu verwenden. Hiervon ist
+allerdings abzuraten, da bei jeder Ausführung von <code class="docutils literal"><span class="pre">append</span></code> eine Kopie des
+NumPy-Arrays erstellt wird. Vor allem bei großen Arrays kann bereits das Anlegen
+einer Kopie im Speicher sehr zeitaufwendig sein, und dies gilt ganz besonders,
+wenn dieser Kopiervorgang häufig durchgeführt werden muss. Bei der Arbeit mit
+NumPy-Arrays wird man also nach Möglichkeit immer darauf achten, dass keine
+unnötigen Kopien von Arrays angelegt werden. Für die Erzeugung von NumPy-Arrays
+bedeutet dies, dass man am besten die Größe bereits zu Beginn festlegt und dann aus den
+vielen zur Verfügung stehenden Methoden eine geeignete auswählt, um das Array
+mit Werten zu füllen.</p>
+<p>In NumPy ist es sehr einfach, die Dokumentation nach einem bestimmten
 Text zu durchsuchen. Die zahlreichen Möglichkeiten, ein Array zu erzeugen, lassen sich
 folgendermaßen erhalten:</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [2]: </span><span class="n">np</span><span class="o">.</span><span class="n">lookfor</span><span class="p">(</span><span class="s1">&#39;create array&#39;</span><span class="p">)</span>
@@ -187,11 +199,12 @@ verwendet wird.</p>
 <code class="docutils literal"><span class="pre">ndarray</span></code>-Objekte, wie schon erwähnt, neben den Daten auch Informationen
 darüber besitzen, wie auf einzelne Matrixelemente zugegriffen wird. Auf diese
 Weise lässt sich sehr leicht die Adresse der Daten eines Matrixelements
-bestimmen. Zudem ist es möglich, die gleichen Daten im Speicher auf
-verschiedene Weise anzusehen. Damit ist es häufig möglich, unnötige
-Kopiervorgänge im Speicher zu vermeiden. Andererseits ist es aus diesem Grunde
-wichtig zu wissen, ob NumPy im Einzelfall nur eine andere Sicht auf die Daten
-zur Verfügung stellt oder tatsächlich ein neues Array erzeugt.</p>
+bestimmen. Zudem ist es möglich, die gleichen Daten im Speicher auf verschiedene
+Weise anzusehen. Damit ist es häufig möglich, unnötige Kopiervorgänge im
+Speicher zu vermeiden. Wie weiter oben schon angedeutet ist dies von großer
+Bedeutung für die Effizienz des Programms. Aus diesem Grunde ist es wichtig zu
+wissen, ob NumPy im Einzelfall nur eine andere Sicht auf die Daten zur Verfügung
+stellt oder tatsächlich ein neues Array erzeugt.</p>
 <p>Um die Informationen über die Struktur eines Arrays besser zu verstehen,
 definieren wir uns eine Funktion, die einige Attribute des Arrays ausgibt.</p>
 <div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [7]: </span><span class="k">def</span> <span class="nf">array_attributes</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
@@ -229,7 +242,7 @@ Schreibweise ansprechen. Zum Beispiel gibt</p>
 <p>den Speicherplatzbedarf des Arrays in Bytes an.</p>
 <p>Für Arrays kommen eine ganze Reihe verschiedener Datentypen in Frage, zum Beispiel
 Integers verschiedener Länge (<code class="docutils literal"><span class="pre">int8</span></code>, <code class="docutils literal"><span class="pre">int16</span></code>, <code class="docutils literal"><span class="pre">int32</span></code>, <code class="docutils literal"><span class="pre">int64</span></code>) oder
-auch ohne Vorzeichen (<code class="docutils literal"><span class="pre">uint8</span></code>, ...), Gleitkommazahlen (<code class="docutils literal"><span class="pre">float16</span></code>, <code class="docutils literal"><span class="pre">float32</span></code>,
+auch ohne Vorzeichen (<code class="docutils literal"><span class="pre">uint8</span></code>, …), Gleitkommazahlen (<code class="docutils literal"><span class="pre">float16</span></code>, <code class="docutils literal"><span class="pre">float32</span></code>,
 <code class="docutils literal"><span class="pre">float64</span></code>), komplexe Zahlen (<code class="docutils literal"><span class="pre">complex64</span></code>, <code class="docutils literal"><span class="pre">complex128</span></code>), Wahrheitswerte
 (<code class="docutils literal"><span class="pre">bool8</span></code>) und sogar Unicode-Strings als nichtnumerischer Datentyp. Wenn der
 Datentyp nicht angegeben oder durch die Konstruktion des Arrays bestimmt ist,
@@ -1547,7 +1560,7 @@ von zwei Arrays im Allgemeinen nicht dem Matrixprodukt.</td></tr>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2012-2017, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.2 erstellt.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2 erstellt.
     </div>
   </body>
 </html>
