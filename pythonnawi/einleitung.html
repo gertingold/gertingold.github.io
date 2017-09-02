@@ -1,12 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Einführung &mdash; Python für Naturwissenschaftler</title>
+    <title>Einführung &#8212; Python für Naturwissenschaftler</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,27 +14,28 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016alpha',
+        VERSION:     '2017beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Python für Naturwissenschaftler" href="index.html" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Fortgeschrittene Aspekte von Python" href="advancedpython.html" />
     <link rel="prev" title="Vorlesungsmanuskript »Python für Naturwissenschaftler«" href="index.html" /> 
   </head>
   <body>
-      <div class="header"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Einführung</span></h2>
       </div>
-      <div class="topnav">
+      <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
         «&#160;&#160;<a href="index.html">Vorlesungsmanuskript »Python für Naturwissenschaftler«</a>
@@ -49,7 +50,7 @@
         
         
   <div class="section" id="einfuhrung">
-<h1>Einführung<a class="headerlink" href="#einfuhrung" title="Permalink zu dieser Überschrift">¶</a></h1>
+<h1>Einführung<a class="headerlink" href="#einfuhrung" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Die Vorlesung »Python für Naturwissenschaftler« baut auf der Vorlesung
 »Einführung in das Programmieren für Physiker und Naturwissenschaftler«, im
 Folgenden kurz Einführungsvorlesung genannt, auf. Sie setzt daher Kenntnisse
@@ -80,25 +81,26 @@ aktuellen Version von Python 3 vorgesehen. Ein Großteil der Beispiele ist
 aber auch unter Python 2.7 lauffähig oder lässt sich durch kleinere Anpassungen
 lauffähig machen.</p>
 <div class="section" id="verwendete-symbole">
-<h2>Verwendete Symbole<a class="headerlink" href="#verwendete-symbole" title="Permalink zu dieser Überschrift">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></tt> stellt den Prompt des IPython-Interpreters dar, wobei statt der <tt class="docutils literal"><span class="pre">1</span></tt>
+<h2>Verwendete Symbole<a class="headerlink" href="#verwendete-symbole" title="Link zu dieser Überschrift">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></code> stellt den Prompt des IPython-Interpreters dar, wobei statt der <code class="docutils literal"><span class="pre">1</span></code>
 auch eine andere Eingabenummer stehen kann.</p>
-<p><tt class="docutils literal"><span class="pre">Out[1]:</span></tt> weist auf die Ausgabe des IPython-Interpreters zur Eingabe <tt class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></tt> hin.</p>
-<p><tt class="docutils literal"><span class="pre">...:</span></tt> wird im IPython-Interpreter als Prompt verwendet, wenn die Eingabe fortzusetzen
+<p><code class="docutils literal"><span class="pre">Out[1]:</span></code> weist auf die Ausgabe des IPython-Interpreters zur Eingabe <code class="docutils literal"><span class="pre">In</span> <span class="pre">[1]:</span></code> hin.</p>
+<p><code class="docutils literal"><span class="pre">...:</span></code> wird im IPython-Interpreter als Prompt verwendet, wenn die Eingabe fortzusetzen
 ist, zum Beispiel im Rahmen einer Schleife. Diese Art der Eingabe kann sich über
-mehrere Zeilen hinziehen. Zum Beenden wird die <tt class="kbd docutils literal"><span class="pre">EINGABE</span></tt>-Taste ohne zuvorige
+mehrere Zeilen hinziehen. Zum Beenden wird die <code class="kbd docutils literal"><span class="pre">EINGABE</span></code>-Taste ohne zuvorige
 Eingabe von Text verwendet.</p>
-<p><tt class="docutils literal"><span class="pre">$</span></tt> steht für den Prompt, also die Eingabeaufforderung, der Shell beim
+<p><code class="docutils literal"><span class="pre">$</span></code> steht für den Prompt, also die Eingabeaufforderung, der Shell beim
 kommandozeilenbasierten Arbeiten in einem Terminalfenster.</p>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Dieses Symbol kennzeichnet weiterführende Anmerkungen, die sich unter
 anderem auf speziellere Aspekte der Programmiersprache Python beziehen.</p>
 </div>
 <div class="section" id="danke-an">
-<h2>Danke an …<a class="headerlink" href="#danke-an" title="Permalink zu dieser Überschrift">¶</a></h2>
+<h2>Danke an …<a class="headerlink" href="#danke-an" title="Link zu dieser Überschrift">¶</a></h2>
 <ul class="simple">
 <li>… die Hörerinnen und Hörer der Vorlesung „Python für Naturwissenschaftler“, deren
 Fragen und Anregungen in diesem Manuskript ihren Niederschlag fanden;</li>
-<li>Michael Hartmann und Benjamin Spreng für eine Reihe von Kommentaren zu diesem Manuskript.</li>
+<li>Michael Hartmann, Oliver Kanschat-Krebs und Benjamin Spreng für eine Reihe von
+Kommentaren zu diesem Manuskript.</li>
 </ul>
 <table class="docutils footnote" frame="void" id="arxiv1210-0530" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -111,7 +113,7 @@ Fragen und Anregungen in diesem Manuskript ihren Niederschlag fanden;</li>
 
 
       </div>
-      <div class="bottomnav">
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
         «&#160;&#160;<a href="index.html">Vorlesungsmanuskript »Python für Naturwissenschaftler«</a>
@@ -123,9 +125,9 @@ Fragen und Anregungen in diesem Manuskript ihren Niederschlag fanden;</li>
 
       </div>
 
-    <div class="footer">
-        &copy; Copyright 2012-2016, Gert-Ludwig Ingold.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2012-2017, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2 erstellt.
     </div>
   </body>
 </html>

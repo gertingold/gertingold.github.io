@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '2016',
+        VERSION:     '2017beta',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -79,7 +79,7 @@ und den darin enthaltenen Funktionen getan haben.</p>
 <div class="section" id="funktionsdefinitionen">
 <span id="funcdef"></span><h2>Funktionsdefinitionen<a class="headerlink" href="#funktionsdefinitionen" title="Permalink zu dieser Überschrift">¶</a></h2>
 <p>Betrachten wir zunächst eine Funktion, die weder ein Argument besitzt noch
-Daten zurückgibt.</p>
+Daten zurückgibt. <a class="footnote-reference" href="#returnnone" id="id2">[2]</a></p>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -478,7 +478,7 @@ genannter Lambda-Funktionen in einer einzigen Zeile deklariert werden:</p>
 </td></tr></table></div>
 <p>Der Variablenname auf der linken Seite in Zeile 1 fungiert im Weiteren als
 Funktionsname so wie wir es schon im Abschnitt <a class="reference internal" href="#funcarg"><em>Funktionen als Argumente von Funktionen</em></a> kennengelernt
-hatten. <tt class="docutils literal"><span class="pre">lambda</span></tt> ist ein Schlüsselwort <a class="footnote-reference" href="#keywordverweis" id="id2">[2]</a>, das die Definition einer
+hatten. <tt class="docutils literal"><span class="pre">lambda</span></tt> ist ein Schlüsselwort <a class="footnote-reference" href="#keywordverweis" id="id3">[3]</a>, das die Definition einer
 Lambda-Funktion andeutet. Darauf folgt ein Funktionsargument, hier <tt class="docutils literal"><span class="pre">x</span></tt>, oder
 auch mehrere, durch Komma getrennte Argumente und schließlich nach dem Doppelpunkt
 die Funktionsdefinition.</p>
@@ -611,10 +611,18 @@ zurückkommen, da wir erst dort den hierzu benötigten Datentyp kennenlernen wer
 once and only once.</td></tr>
 </tbody>
 </table>
+<table class="docutils footnote" frame="void" id="returnnone" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Genau genommen hat auch eine solche Funktion einen
+Rückgabewert, nämlich <tt class="docutils literal"><span class="pre">None</span></tt>, siehe den weiterführenden Punkt am Ende dieses
+Unterkapitels.</td></tr>
+</tbody>
+</table>
 <table class="docutils footnote" frame="void" id="keywordverweis" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Siehe hierzu Abschnitt <a class="reference internal" href="datentypen.html#variablen"><em>Variablen und Zuweisungen</em></a>.</td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Siehe hierzu Abschnitt <a class="reference internal" href="datentypen.html#variablen"><em>Variablen und Zuweisungen</em></a>.</td></tr>
 </tbody>
 </table>
 </div>
@@ -635,7 +643,7 @@ once and only once.</td></tr>
       </div>
 
     <div class="footer">
-        &copy; Copyright 2010-2016, Gert-Ludwig Ingold.
+        &copy; Copyright 2010-2017, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
       Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3 erstellt.
     </div>
   </body>
