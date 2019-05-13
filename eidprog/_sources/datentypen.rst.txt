@@ -677,7 +677,9 @@ empfohlenen Konventionen für Bezeichner finden Sie im Python Enhancement Propos
 mit dem Titel »Style Guide for Python Code« im Abschnitt *Naming Conventions*.
 
 Die folgenden Schlüsselwörter sind in Python als Sprachelemente reserviert und dürfen
-nicht für Bezeichner verwendet werden [#keywords]_::
+nicht für Bezeichner verwendet werden [#keywords]_:
+
+.. code-block:: none
 
   False     assert      continue   except    if        nonlocal  return
   None      async       def        finally   import    not       try  
