@@ -1,34 +1,23 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>64-Bit-Gleitkommazahlen nach IEEE-Standard 754 &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018alpha',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" /> 
-  </head>
-  <body role="document">
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" /> 
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>64-Bit-Gleitkommazahlen nach IEEE-Standard 754</span></h2>
@@ -65,8 +54,8 @@ man von E den Wert 2<sup>10</sup>-1=1023 abziehen. Damit resultiert im Binärsys
 der zwischen 2<sup>-1022</sup> und 2<sup>1023</sup> liegt. Die Mantisse ist als Nachkommaanteil
 im Binärsystem zu interpretieren, wobei implizit eine führende 1 vor dem Komma steht.</p>
 <p>Ein Beispiel soll diese Kodierung verdeutlichen. Gegeben sei die
-64-Bit-Darstellung <code class="docutils literal"><span class="pre">C039A40000000000</span></code>, deren führende Bits
-<code class="docutils literal"><span class="pre">1|10000000011|100110100100...</span></code> lauten. Die senkrechten Striche verdeutlichen
+64-Bit-Darstellung <code class="docutils literal notranslate"><span class="pre">C039A40000000000</span></code>, deren führende Bits
+<code class="docutils literal notranslate"><span class="pre">1|10000000011|100110100100...</span></code> lauten. Die senkrechten Striche verdeutlichen
 dabei die Einteilung in die drei Bereiche S, E und T.  Das erste Bit gibt an,
 dass es sich um eine negative Zahl handelt. Die folgenden 11 Bit ergeben 2<sup>10</sup>+2<sup>1</sup>+2<sup>0</sup> = 1027. Subtrahiert man 1023, so ergibt
 sich für die kodierte Zahl ein Faktor 2<sup>4</sup>. Die restlichen Bits
@@ -82,7 +71,7 @@ gleich Null, so liegt je nach Wert des Vorzeichenbits die Zahl 0 oder -0 vor.
 Ist dagegen die Mantisse T von Null verschieden, so hat man es mit einer so
 genannten denormalisierten Zahl zu tun. Denormalisierte Zahlen wurden
 eingeführt, weil der Minimalwert einer normalisierten 64-Bit-Gleitkommazahl
-betragsmäßig gleich 2<sup>-1022</sup> ≈ 2,225·10<sup>-308</sup> ist. Zwischen
+betragsmäßig gleich <span class="math notranslate nohighlight">\(2^{-1022}\approx 2,225\cdot 10^{-308}\)</span> ist. Zwischen
 dieser Zahl und Null existiert somit eine Lücke, die man im Rahmen der
 Möglichkeiten einer 64-Bit-Gleitkommazahl zu füllen versucht. Im Gegensatz zu
 normalisierten Zahlen, bei denen eine implizite Eins vor den Nachkommaanteil zu
@@ -97,19 +86,19 @@ Exponentenfeld ergebende Faktor gleich dem kleinsten Faktor für normalisierte
 Zahlen, also 2<sup>1-1023</sup> = 2<sup>-1022</sup>.</p>
 <p>Wir charakterisieren abschließend die 64-Bit-Gleitkommazahlen durch einige ihrer
 Eigenschaften. Die kleinste darstellbare Zahl größer als Null ist
-2<sup>-1022</sup>×2<sup>-52</sup> = 2<sup>-1074</sup> ≈ 4,941·10<sup>-324</sup>.
-Die größte darstellbare endliche Zahl ist 2<sup>1023</sup> ×(1+1-2<sup>-52</sup>)
-≈ 1,798·10<sup>308</sup>. Der Abstand zwischen der Zahl Eins und der nächst größeren
-darstellbaren Zahl beträgt 2<sup>-52</sup> ≈ 2,22·10<sup>-16</sup>. Die letzten beiden
+<span class="math notranslate nohighlight">\(2^{-1022}\times 2^{-52} = 2^{-1074} \approx 4,941\cdot 10^{-324}\)</span>.
+Die größte darstellbare endliche Zahl ist <span class="math notranslate nohighlight">\(2^{1023}\times(1+(1-2^{-52}))
+\approx 1,798\cdot 10^{308}\)</span>. Der Abstand zwischen der Zahl Eins und der nächst größeren
+darstellbaren Zahl beträgt <span class="math notranslate nohighlight">\(2^{-52} \approx 2,22\cdot 10^{-16}\)</span>. Die letzten beiden
 Angaben lassen sich in Python folgendermaßen verifizieren:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span>
 <span class="go">1.7976931348623157e+308</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span>
 <span class="go">2.220446049250313e-16</span>
 </pre></div>
 </div>
-<p>Mit <code class="docutils literal"><span class="pre">sys.float_info.min</span></code> erhält man nicht die kleinste überhaupt darstellbare Zahl,
+<p>Mit <code class="docutils literal notranslate"><span class="pre">sys.float_info.min</span></code> erhält man nicht die kleinste überhaupt darstellbare Zahl,
 sondern die kleinste darstellbare normalisierte Zahl 2<sup>-1022</sup>.</p>
 <table class="docutils footnote" frame="void" id="ieee754" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
@@ -130,8 +119,8 @@ sondern die kleinste darstellbare normalisierte Zahl 2<sup>-1022</sup>.</p>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2018, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9 erstellt.
+        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
     </div>
   </body>
 </html>

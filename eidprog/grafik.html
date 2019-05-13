@@ -1,35 +1,24 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Erstellung von Grafiken &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018alpha',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" />
     <link rel="prev" title="Objektorientiertes Programmieren" href="objektorientiert.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Erstellung von Grafiken</span></h2>
@@ -69,8 +58,8 @@ Grafik anschließend direkt erzeugt. Nichts ist ärgerlicher, als viel Rechenzei
 in den Sand gesetzt zu haben, weil der Grafikteil einen Programmierfehler enthielt
 und so die errechneten Daten letztlich verloren gingen. Gegebenenfalls kann man den
 Grafikteil des Programms mit schnell erzeugbaren Daten testen.</p>
-<p>Im Folgenden werden wir eine Einführung in die Benutzung von <code class="docutils literal"><span class="pre">matplotlib</span></code> und
-<code class="docutils literal"><span class="pre">PyX</span></code> geben, die allerdings beide wesentlich mächtiger sind als es in diesem
+<p>Im Folgenden werden wir eine Einführung in die Benutzung von <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> und
+<code class="docutils literal notranslate"><span class="pre">PyX</span></code> geben, die allerdings beide wesentlich mächtiger sind als es in diesem
 Rahmen gezeigt werden kann. Die Beschreibung kann also nur einen allerersten Eindruck
 geben. Für einen guten Überblick über die Möglichkeiten dieser
 Grafikmodule empfiehlt sich ein Blick auf die Beispielseiten
@@ -79,8 +68,8 @@ Grafikmodule empfiehlt sich ein Blick auf die Beispielseiten
 <div class="section" id="matplotlib">
 <h2>matplotlib<a class="headerlink" href="#matplotlib" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Nachdem SciPy/NumPy keine grafischen Fähigkeiten besitzt, wird in diesem Umfeld
-zur Erzeugung von Grafiken häufig <code class="docutils literal"><span class="pre">matplotlib</span></code> empfohlen, das unter anderem
-auf den Array-Datentyp von NumPy zurückgreift.  <code class="docutils literal"><span class="pre">matplotlib</span></code> kann auf zwei
+zur Erzeugung von Grafiken häufig <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> empfohlen, das unter anderem
+auf den Array-Datentyp von NumPy zurückgreift.  <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> kann auf zwei
 verschiedene Arten verwendet werden. Zum einen kann man mit Hilfe des
 Python-Interpreters durch direkte Eingabe von Kommandos schnell Grafiken
 erzeugen.  Zum anderen kann man Grafiken aber auch mit einem vollständigen
@@ -88,7 +77,7 @@ Python-Programm erstellen.  Letzteres ist vor allem dann sinnvoll, wenn man
 Eigenschaften der Grafik im Detail festlegen will. Wir beginnen zunächst mit der
 ersten Variante und betrachten ein Beispiel, in dem zwei Besselfunktionen unter
 Verwendung von SciPy dargestellt werden.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -112,16 +101,16 @@ Verwendung von SciPy dargestellt werden.</p>
 </pre></div>
 </td></tr></table></div>
 <p>In Zeile 1 wird zunächst das NumPy-Paket geladen, um in Zeile 4 ein Array mit
-<code class="docutils literal"><span class="pre">x</span></code>-Werten erzeugen zu können. Anschließend wird in Zeile 2 die
-Plot-Funktionalität von <code class="docutils literal"><span class="pre">matplotlib</span></code>, soweit sie im Folgenden benötigt wird,
+<code class="docutils literal notranslate"><span class="pre">x</span></code>-Werten erzeugen zu können. Anschließend wird in Zeile 2 die
+Plot-Funktionalität von <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, soweit sie im Folgenden benötigt wird,
 geladen <a class="footnote-reference" href="#pylab" id="id4">[4]</a>. Auch hier wird, wie schon bei NumPy, eine übliche Abkürzung
 eingeführt, um Tipparbeit zu sparen.  Schließlich werden in der Zeile 3 zwei
 Besselfunktionen aus SciPy importiert, die im Weiteren dargestellt werden
 sollen. In Zeile 4 wird nun, wie schon angedeutet, ein Array mit den
-<code class="docutils literal"><span class="pre">x</span></code>-Werten erzeugt, für die in den folgenden beiden Zeilen Arrays mit den
-Besselfunktionen <span class="math">\(J_0(x)\)</span> und <span class="math">\(J_1(x)\)</span> berechnet werden. In den
+<code class="docutils literal notranslate"><span class="pre">x</span></code>-Werten erzeugt, für die in den folgenden beiden Zeilen Arrays mit den
+Besselfunktionen <span class="math notranslate nohighlight">\(J_0(x)\)</span> und <span class="math notranslate nohighlight">\(J_1(x)\)</span> berechnet werden. In den
 Zeilen 7-10 werden dann die beiden Funktionsgraphen erzeugt. Wie die Zeilen 8
-und 10 andeuten, handelt es sich dabei um <code class="docutils literal"><span class="pre">matplotlib.lines.Line2D</span></code>-Objekte.
+und 10 andeuten, handelt es sich dabei um <code class="docutils literal notranslate"><span class="pre">matplotlib.lines.Line2D</span></code>-Objekte.
 Abschließend erfolgt die Darstellung des Graphen in Zeile 11. Die Ausgabe
 erfolgt auf den Bildschirm, wo die Grafik in einem Fenster, wie in der
 folgenden Abbildung gezeigt, dargestellt wird.</p>
@@ -134,7 +123,7 @@ den dargestellten Ausschnitt zu verschieben.</p>
 <p>Alternativ zu dieser interaktiven Arbeitsweise kann man Grafiken auch mit Hilfe
 eines normalen Python-Programms erzeugen. Als Beispiel wollen wir ein Programm
 betrachten, das eine Zufallsbewegung berechnet und darstellt.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -174,41 +163,41 @@ betrachten, das eine Zufallsbewegung berechnet und darstellt.</p>
 <p>In den ersten vier Zeilen werden zunächst wieder wie gewohnt Module importiert,
 wobei in Zeile 2 eine Funktion zur Erzeugung von Zufallszahlen aus NumPy
 importiert wird. Die Zufallsbewegung wird nun in einer diskreten Weise durch
-<code class="docutils literal"><span class="pre">npts</span></code> Punkte spezifiziert, wobei jeweils ein Schritt der Länge <code class="docutils literal"><span class="pre">r</span></code> in eine
-Zufallsrichtung, die durch ein Element des Arrays <code class="docutils literal"><span class="pre">richtung</span></code> festgelegt ist,
+<code class="docutils literal notranslate"><span class="pre">npts</span></code> Punkte spezifiziert, wobei jeweils ein Schritt der Länge <code class="docutils literal notranslate"><span class="pre">r</span></code> in eine
+Zufallsrichtung, die durch ein Element des Arrays <code class="docutils literal notranslate"><span class="pre">richtung</span></code> festgelegt ist,
 ausgeführt wird. Diese Schritte werden in den Zeilen 12 und 13 kumulativ
 aufsummiert, um die Trajektorien zu erzeugen. Durch die Zeilen 9 und 10 und die
 verschobene Indizierung in den Zeilen 12 und 13 wird dafür gesorgt, dass alle
-Trajektorien im Ursprung starten. Die durch die Werte in <code class="docutils literal"><span class="pre">x</span></code> und <code class="docutils literal"><span class="pre">y</span></code>
+Trajektorien im Ursprung starten. Die durch die Werte in <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>
 definierte Trajektorie wird in Zeile 14 geplottet.  Insgesamt wird dieser
-Vorgang mit Hilfe der <code class="docutils literal"><span class="pre">for</span></code>-Schleife dreimal durchgeführt. Abschließend wird
+Vorgang mit Hilfe der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife dreimal durchgeführt. Abschließend wird
 noch eine Achsenbeschriftung hinzugefügt und schließlich die Abbildung in einer
 PDF-Datei abgespeichert, die im Folgenden dargestellt ist.</p>
 <a class="reference internal image-reference" href="_images/randomwalk.png"><img alt="_images/randomwalk.png" class="align-center" src="_images/randomwalk.png" style="width: 10cm;" /></a>
-<p>Hier stellt man fest, dass <code class="docutils literal"><span class="pre">matplotlib</span></code> automatisch die Farbe der Linien wechselt.
+<p>Hier stellt man fest, dass <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> automatisch die Farbe der Linien wechselt.
 Alternativ hätte man die Farben auch explizit spezifizieren können.</p>
 </div>
 <div class="section" id="pyx">
 <h2>PyX<a class="headerlink" href="#pyx" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Eine mögliche Alternative zu <code class="docutils literal"><span class="pre">matplotlib</span></code> stellt <code class="docutils literal"><span class="pre">PyX</span></code> dar, das
+<p>Eine mögliche Alternative zu <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> stellt <code class="docutils literal notranslate"><span class="pre">PyX</span></code> dar, das
 von André Wobst und Jörg Lehmann, in der Anfangsphase der Programmentwicklung
 als Doktoranden am Lehrstuhl für Theoretische Physik I der Universität Augsburg
 tätig, programmiert wurde und noch weiterentwickelt wird. Etwas später kam noch
-Michael Schindler hinzu. Die drei Buchstaben in <code class="docutils literal"><span class="pre">PyX</span></code> stehen für
+Michael Schindler hinzu. Die drei Buchstaben in <code class="docutils literal notranslate"><span class="pre">PyX</span></code> stehen für
 »Postscript«, »Python« und »(La)TeX« <a class="footnote-reference" href="#latex" id="id5">[5]</a>.  Postscript wurde als
-Ausgabeformat inzwischen noch durch PDF erweitert.  <code class="docutils literal"><span class="pre">PyX</span></code> ist in Python
+Ausgabeformat inzwischen noch durch PDF erweitert.  <code class="docutils literal notranslate"><span class="pre">PyX</span></code> ist in Python
 geschrieben und wird zur Erzeugung von Grafiken in Python-Programme importiert.
 Zudem lassen sich bei Bedarf in Python eigene Erweiterungen programmieren.
 (La)TeX schließlich wird für eine qualitativ hochwertige Textausgabe benutzt,
-wobei <code class="docutils literal"><span class="pre">matplotlib</span></code> ähnliche Möglichkeiten bietet. Seit Version 0.13 läuft
-<code class="docutils literal"><span class="pre">PyX</span></code> ausschließlich unter Python 3.</p>
-<p>Mit <code class="docutils literal"><span class="pre">PyX</span></code> lassen sich nicht nur Graphen erstellen, sondern auch
+wobei <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> ähnliche Möglichkeiten bietet. Seit Version 0.13 läuft
+<code class="docutils literal notranslate"><span class="pre">PyX</span></code> ausschließlich unter Python 3.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">PyX</span></code> lassen sich nicht nur Graphen erstellen, sondern auch
 Schemazeichnungen erzeugen. So wurden die meisten Abbildungen in diesem
-Manuskript mit <code class="docutils literal"><span class="pre">PyX</span></code> erstellt.</p>
+Manuskript mit <code class="docutils literal notranslate"><span class="pre">PyX</span></code> erstellt.</p>
 <p>Sehen wir uns zunächst an, wie aus einem in einer Datei vorliegenden Datensatz
 eine graphische Darstellung erzeugt werden kann. Liegt eine Datei
-<code class="docutils literal"><span class="pre">foo_pyx.dat</span></code> mit folgendem Inhalt</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="mi">1</span>   <span class="mi">0</span>
+<code class="docutils literal notranslate"><span class="pre">foo_pyx.dat</span></code> mit folgendem Inhalt</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>   <span class="mi">0</span>
 <span class="mi">2</span>   <span class="mi">1</span>
 <span class="mi">3</span>   <span class="mi">4</span>
 <span class="mi">4</span>   <span class="mf">2.5</span>
@@ -216,7 +205,7 @@ eine graphische Darstellung erzeugt werden kann. Liegt eine Datei
 </pre></div>
 </div>
 <p>vor, so erzeugt das Programm</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -227,19 +216,19 @@ eine graphische Darstellung erzeugt werden kann. Liegt eine Datei
 <span class="n">g</span><span class="o">.</span><span class="n">writePDFfile</span><span class="p">(</span><span class="s2">&quot;foo_pyx&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>eine PDF-Datei mit Namen <code class="docutils literal"><span class="pre">foo_pyx.pdf</span></code>, die folgendermaßen aussieht.</p>
+<p>eine PDF-Datei mit Namen <code class="docutils literal notranslate"><span class="pre">foo_pyx.pdf</span></code>, die folgendermaßen aussieht.</p>
 <a class="reference internal image-reference" href="_images/pyx1.png"><img alt="_images/pyx1.png" class="align-center" src="_images/pyx1.png" style="width: 8cm;" /></a>
-<p>In Zeile 1 wird zunächst <code class="docutils literal"><span class="pre">PyX</span></code> importiert. Anschließend wird in Zeile 3 ein
-zweidimensionaler Graph der Breite <code class="docutils literal"><span class="pre">8</span></code> erzeugt. Wird die Höhe des Graphen
+<p>In Zeile 1 wird zunächst <code class="docutils literal notranslate"><span class="pre">PyX</span></code> importiert. Anschließend wird in Zeile 3 ein
+zweidimensionaler Graph der Breite <code class="docutils literal notranslate"><span class="pre">8</span></code> erzeugt. Wird die Höhe des Graphen
 nicht spezifiziert, so ist das Seitenverhältnis durch den goldenen Schnitt
 gegeben. In Zeile 4 werden die Daten aus der angegebenen Datei eingelesen und
 in den gerade initialisierten Graphen gezeichnet. Dabei geben die Werte der
-benannten Argumente <code class="docutils literal"><span class="pre">x</span></code> und <code class="docutils literal"><span class="pre">y</span></code> die Spalten an, aus denen die jeweiligen
-Daten zu entnehmen sind. Schließlich wird mit der <code class="docutils literal"><span class="pre">writePDFfile</span></code>-Methode
+benannten Argumente <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code> die Spalten an, aus denen die jeweiligen
+Daten zu entnehmen sind. Schließlich wird mit der <code class="docutils literal notranslate"><span class="pre">writePDFfile</span></code>-Methode
 die PDF-Datei erzeugt.</p>
 <p>Um einen gewissen Einblick in die Möglichkeiten von PyX zu gewinnen, wollen
 wir diese Graphik nun modifizieren. Dabei erzeugt der Code</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -271,31 +260,31 @@ wir diese Graphik nun modifizieren. Dabei erzeugt der Code</p>
 <p>die folgende Grafik</p>
 <a class="reference internal image-reference" href="_images/pyx2.png"><img alt="_images/pyx2.png" class="align-center" src="_images/pyx2.png" style="width: 8cm;" /></a>
 <p>Hier haben wir die folgenden Veränderungen vorgenommen. In Zeile 3 wurden alle
-Beschriftungen um einen Faktor 1,3 vergrößert. <code class="docutils literal"><span class="pre">PyX</span></code> erlaubt es, verschiedene
+Beschriftungen um einen Faktor 1,3 vergrößert. <code class="docutils literal notranslate"><span class="pre">PyX</span></code> erlaubt es, verschiedene
 Längen, zum Beispiel Textgrößen und Liniendicken unabhängig voneinander global
-zu verändern. <code class="docutils literal"><span class="pre">xscale</span></code> ist dabei für die Textgröße zuständig. In den Zeilen
+zu verändern. <code class="docutils literal notranslate"><span class="pre">xscale</span></code> ist dabei für die Textgröße zuständig. In den Zeilen
 6 und 7 wurden die beiden Achsen mit Beschriftungen versehen, wobei die Dollarzeichen
-durch <code class="docutils literal"><span class="pre">TeX</span></code> bedingt sind und ein Umschalten in den Mathematikmodus bewirken.
-Außerdem werden hier lineare Achsen verwendet. Mit <code class="docutils literal"><span class="pre">graph.axis.logarithmic</span></code> könnte
+durch <code class="docutils literal notranslate"><span class="pre">TeX</span></code> bedingt sind und ein Umschalten in den Mathematikmodus bewirken.
+Außerdem werden hier lineare Achsen verwendet. Mit <code class="docutils literal notranslate"><span class="pre">graph.axis.logarithmic</span></code> könnte
 man auch logarithmische Achsen verlangen. Zudem wäre es möglich, eigene Achsentypen
 zu programmieren.</p>
 <p>In den Zeilen 9-12 wird die Darstellung der Daten festgelegt. In diesem Fall
 haben wir angegeben, dass wir die Datenpunkte sowohl durch Symbole darstellen als auch
-mit Linien verbinden wollen. Letzteres geschieht mit <code class="docutils literal"><span class="pre">graph.style.line</span></code>, das
+mit Linien verbinden wollen. Letzteres geschieht mit <code class="docutils literal notranslate"><span class="pre">graph.style.line</span></code>, das
 als Argument eine Liste von Linieneigenschaften erwartet. Hier haben wir einen
 gestrichelten Linienstil und die Farbe blau im RGB-Format <a class="footnote-reference" href="#rgb" id="id6">[6]</a> verlangt. Für
-die Symbole haben wir mit <code class="docutils literal"><span class="pre">graph.style.symbol.circle</span></code> Kreise ausgewählt,
-deren Größe durch den Wert des Arguments <code class="docutils literal"><span class="pre">size</span></code> bestimmt ist. Zudem kann eine
+die Symbole haben wir mit <code class="docutils literal notranslate"><span class="pre">graph.style.symbol.circle</span></code> Kreise ausgewählt,
+deren Größe durch den Wert des Arguments <code class="docutils literal notranslate"><span class="pre">size</span></code> bestimmt ist. Zudem kann eine
 Liste von Attributen übergeben werden.  Wir verlangen beispielsweise, dass
 die Kreise rot gefüllt sind, wobei hier zur Abwechslung der Farbenname verwendet
 wurde. Außerdem wird die Kontur des Kreises in grau ausgeführt, da
-<code class="docutils literal"><span class="pre">color.grey</span></code> mit einem Argument zwischen Null und Eins auf einen Grauwert
+<code class="docutils literal notranslate"><span class="pre">color.grey</span></code> mit einem Argument zwischen Null und Eins auf einen Grauwert
 zwischen schwarz und weiß abgebildet wird. Man sieht in diesem
 Programmbeispiel, dass man sich einiges an Tipparbeit durch geeignete
-<code class="docutils literal"><span class="pre">import</span></code>-Anweisungen zu Beginn des Programms sparen könnte.</p>
+<code class="docutils literal notranslate"><span class="pre">import</span></code>-Anweisungen zu Beginn des Programms sparen könnte.</p>
 <p>Wir beenden dieses Kapitel mit einem Beispiel von der <a class="reference external" href="http://pyx.sourceforge.net/">PyX-Webseite</a>, das die Mächtigkeit des Programmpakets bei
 Schemazeichnungen demonstriert.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -331,18 +320,18 @@ Schemazeichnungen demonstriert.</p>
 <p>Das Ergebnis sieht folgendermaßen aus:</p>
 <a class="reference internal image-reference" href="_images/pyx3.png"><img alt="_images/pyx3.png" class="align-center" src="_images/pyx3.png" style="width: 6cm;" /></a>
 <p>In den Zeilen 3 und 4 werden zunächst zwei Pfade definiert, und zwar eine
-Bézier-Kurve <code class="docutils literal"><span class="pre">p1</span></code> und ein Kreis <code class="docutils literal"><span class="pre">p2</span></code>.  In Zeile 6 werden die beiden
+Bézier-Kurve <code class="docutils literal notranslate"><span class="pre">p1</span></code> und ein Kreis <code class="docutils literal notranslate"><span class="pre">p2</span></code>.  In Zeile 6 werden die beiden
 Pfade miteinander geschnitten. Das Ergebnis sind zwei Tupel, die die
 Lage der beiden Schnittpunkte entlang der beiden Kurven angeben. Die
 zugehörigen Koordinaten werden in den Zeilen 8 und 9 mit Hilfe der ersten
 Kurve bestimmt. In Zeile 11 beginnt das Zeichnen mit der Einrichtung eines
 »canvas«, also einer Leinwand, auf der gemalt werden kann. Dann werden
 in den Zeilen 12 und 13 an den zuvor berechneten Schnittpunkten zwei blau
-gefüllte Kreise mit Radius <code class="docutils literal"><span class="pre">0.1</span></code> positioniert. Schließlich werden die
+gefüllte Kreise mit Radius <code class="docutils literal notranslate"><span class="pre">0.1</span></code> positioniert. Schließlich werden die
 beiden Pfade in rot bzw. grün gezeichnet und das Ergebnis mit Hilfe der
-<code class="docutils literal"><span class="pre">writePDFfile</span></code>-Methode des Canvas ausgegeben.</p>
+<code class="docutils literal notranslate"><span class="pre">writePDFfile</span></code>-Methode des Canvas ausgegeben.</p>
 <p>Abschließend muss noch einmal betont werden, dass sowohl die Beschreibung von
-<code class="docutils literal"><span class="pre">matplotlib</span></code> als auch die Beschreibung von <code class="docutils literal"><span class="pre">PyX</span></code> nur jeweils einen winzigen
+<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> als auch die Beschreibung von <code class="docutils literal notranslate"><span class="pre">PyX</span></code> nur jeweils einen winzigen
 Ausschnitt aus den Möglichkeiten der beiden Programmpakete darstellen konnten.
 Einen guten Überblick bieten die oben bereits erwähnten Beispielseiten.</p>
 <table class="docutils footnote" frame="void" id="gnuplot" rules="none">
@@ -369,8 +358,8 @@ der <a class="reference external" href="http://pyx.sourceforge.net/">PyX-Webseit
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Das Laden der Module in den ersten beiden Zeilen wird überflüssig, wenn
-man die erweiterte Python-Shell <code class="docutils literal"><span class="pre">ipython</span></code> mit der Option <code class="docutils literal"><span class="pre">-pylab</span></code> verwendet.
-Dann führt jede <code class="docutils literal"><span class="pre">plot</span></code>-Anweisung zu einer Aktualisierung der in einem externen
+man die erweiterte Python-Shell <code class="docutils literal notranslate"><span class="pre">ipython</span></code> mit der Option <code class="docutils literal notranslate"><span class="pre">-pylab</span></code> verwendet.
+Dann führt jede <code class="docutils literal notranslate"><span class="pre">plot</span></code>-Anweisung zu einer Aktualisierung der in einem externen
 Fenster angezeigten Grafik.</td></tr>
 </tbody>
 </table>
@@ -406,8 +395,8 @@ durch eine Zahl zwischen Null und Eins angegeben wird.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2018, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9 erstellt.
+        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
     </div>
   </body>
 </html>

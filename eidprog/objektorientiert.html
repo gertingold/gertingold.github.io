@@ -1,36 +1,25 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Objektorientiertes Programmieren &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018alpha',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" />
     <link rel="next" title="Erstellung von Grafiken" href="grafik.html" />
     <link rel="prev" title="Numerische Programmbibliotheken am Beispiel von NumPy/SciPy" href="scipy.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Objektorientiertes Programmieren</span></h2>
@@ -72,9 +61,9 @@ Datentyp zur Verfügung gestellt werden kann.  Offenbar besitzt ein Bruch
 Attribute, nämlich den Wert des Zählers sowie den des Nenners. Darüber hinaus
 gibt es Methoden. Man kann beispielsweise Brüche addieren oder multiplizieren
 oder sie in verschiedenen Weisen ausgeben.</p>
-<p>Wir definieren uns nun zunächst eine Klasse <code class="docutils literal"><span class="pre">Bruch</span></code> zusammen mit der Konstruktormethode
-<code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code></p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<p>Wir definieren uns nun zunächst eine Klasse <code class="docutils literal notranslate"><span class="pre">Bruch</span></code> zusammen mit der Konstruktormethode
+<code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code></p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -86,19 +75,19 @@ oder sie in verschiedenen Weisen ausgeben.</p>
 </pre></div>
 </td></tr></table></div>
 <p>und wenden diese Klassendefinition sofort an</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">zaehler</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">nenner</span><span class="p">)</span>
 <span class="go">2 5</span>
 </pre></div>
 </td></tr></table></div>
-<p>Während die Klassendefinition die Attribute <code class="docutils literal"><span class="pre">zaehler</span></code> und <code class="docutils literal"><span class="pre">nenner</span></code> in
-abstrakter Weise definiert, wird bei der Zuweisung an die Variable <code class="docutils literal"><span class="pre">x</span></code> eine
+<p>Während die Klassendefinition die Attribute <code class="docutils literal notranslate"><span class="pre">zaehler</span></code> und <code class="docutils literal notranslate"><span class="pre">nenner</span></code> in
+abstrakter Weise definiert, wird bei der Zuweisung an die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> eine
 Instanz, also eine konkrete Realisierung eines Bruchs erzeugt. Dabei wird die
-Konstruktormethode <code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code>, die in der Klassendefinition in den Zeilen
+Konstruktormethode <code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code>, die in der Klassendefinition in den Zeilen
 3-5 definiert wird, mit Hilfe des Klassennamens aufgerufen. In unserem Beispiel
-handelt es sich um die Anweisung <code class="docutils literal"><span class="pre">Bruch(2,</span> <span class="pre">5)</span></code>. Die Variable <code class="docutils literal"><span class="pre">self</span></code>, die in
+handelt es sich um die Anweisung <code class="docutils literal notranslate"><span class="pre">Bruch(2,</span> <span class="pre">5)</span></code>. Die Variable <code class="docutils literal notranslate"><span class="pre">self</span></code>, die in
 der Konstruktormethode als erstes Argument auftritt, kann man sich als
 Platzhalter für die tatsächliche Instanz vorstellen. Man beachte, dass dieses
 Argument im Aufruf der Konstruktormethode immer fehlt. Bei der Ausführung der
@@ -107,15 +96,15 @@ Konstruktormethode den Attributen des Objekts zugewiesen. Auf diese Attribute
 kann im Hauptprogramm zugegriffen werden, wie die Zeile 2 im zweiten Codeblock
 zeigt. Dabei wird der Attributname mit einem Punkt an den Variablenname des
 Objekts angehängt.  Schließlich sei noch angemerkt, dass der Defaultwert für
-<code class="docutils literal"><span class="pre">nenner</span></code> hier dafür sorgt, dass auch bei nur einem Argument im Aufruf der
-Konstruktormethode eine sinnvolle Instanz des <code class="docutils literal"><span class="pre">Bruch</span></code>-Objekts erzeugt wird.
+<code class="docutils literal notranslate"><span class="pre">nenner</span></code> hier dafür sorgt, dass auch bei nur einem Argument im Aufruf der
+Konstruktormethode eine sinnvolle Instanz des <code class="docutils literal notranslate"><span class="pre">Bruch</span></code>-Objekts erzeugt wird.
 Im Folgenden wird angenommen, dass die Konstruktormethode mit strikt positiven
 ganzen Zahlen aufgerufen wird.</p>
-<p>Nun müssen wir unsere <code class="docutils literal"><span class="pre">Bruch</span></code>-Klasse mit etwas Funktionalität ausstatten. Zunächst einmal
+<p>Nun müssen wir unsere <code class="docutils literal notranslate"><span class="pre">Bruch</span></code>-Klasse mit etwas Funktionalität ausstatten. Zunächst einmal
 wollen wir den Fall vorsehen, dass der Bruch gekürzt werden kann. Außerdem wollen wir den
 Bruch ausgeben können, ohne explizit auf seine Attribute zugreifen zu müssen. Dies wird von
 dem folgenden Code erledigt</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -159,33 +148,33 @@ dem folgenden Code erledigt</p>
 </pre></div>
 </td></tr></table></div>
 <p>wie hier zu sehen ist</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="go">7/5</span>
 </pre></div>
 </div>
-<p>Zum Kürzen des Bruchs rufen wir in Zeile 6 die Methode <code class="xref py py-func docutils literal"><span class="pre">__reduce()</span></code> auf. Da
-es sich um eine in der Klasse <code class="docutils literal"><span class="pre">Bruch</span></code> definierte Methode handelt, muss ein
-von einem Punkt gefolgtes <code class="docutils literal"><span class="pre">self</span></code> vorangestellt werden. Sonst würde nach einer
+<p>Zum Kürzen des Bruchs rufen wir in Zeile 6 die Methode <code class="xref py py-func docutils literal notranslate"><span class="pre">__reduce()</span></code> auf. Da
+es sich um eine in der Klasse <code class="docutils literal notranslate"><span class="pre">Bruch</span></code> definierte Methode handelt, muss ein
+von einem Punkt gefolgtes <code class="docutils literal notranslate"><span class="pre">self</span></code> vorangestellt werden. Sonst würde nach einer
 Funktion außerhalb der Klassendefinition gesucht werden.  Die zwei Unterstriche
 zu Beginn des Methodennamens machen die Methode zu einer privaten Methode, die
 nur zum Aufruf innerhalb der Klasse gedacht ist. Auf entsprechende Weise kann
 man auch private Attribute einführen. Wie schon in der Konstruktormethode
-<code class="xref py py-func docutils literal"><span class="pre">__init__()</span></code> muss das erste Argument <code class="docutils literal"><span class="pre">self</span></code> sein.  Damit stehen die
-Attribute <code class="docutils literal"><span class="pre">zaehler</span></code> und <code class="docutils literal"><span class="pre">nenner</span></code> in der Methode zur Verfügung. In den
+<code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code> muss das erste Argument <code class="docutils literal notranslate"><span class="pre">self</span></code> sein.  Damit stehen die
+Attribute <code class="docutils literal notranslate"><span class="pre">zaehler</span></code> und <code class="docutils literal notranslate"><span class="pre">nenner</span></code> in der Methode zur Verfügung. In den
 Zeilen 9-15 ist der euklidsche Algorithmus zur Bestimmung des größten
 gemeinsamen Teilers implementiert, mit dessen Hilfe der Bruch gekürzt werden
 kann.</p>
 <p>In den Zeilen 17-21 ist eine Methode mit dem speziellen Namen
-<code class="xref py py-func docutils literal"><span class="pre">__str__()</span></code> implementiert, die automatisch immer dann aufgerufen wird, wenn
-das <code class="docutils literal"><span class="pre">Bruch</span></code>-Objekt in einen String umgewandelt werden soll. Dies ist
-beispielsweise bei der Ausgabe mit <code class="docutils literal"><span class="pre">print</span></code> der Fall. Solche speziellen
+<code class="xref py py-func docutils literal notranslate"><span class="pre">__str__()</span></code> implementiert, die automatisch immer dann aufgerufen wird, wenn
+das <code class="docutils literal notranslate"><span class="pre">Bruch</span></code>-Objekt in einen String umgewandelt werden soll. Dies ist
+beispielsweise bei der Ausgabe mit <code class="docutils literal notranslate"><span class="pre">print</span></code> der Fall. Solche speziellen
 Methodennamen existieren zum Beispiel auch für die Addition, die Multiplikation
 und einige andere Operationen mehr.  Wir wollen uns hier auf die
-Implementierung der ersten beiden Methoden, der Umwandlung in den <code class="docutils literal"><span class="pre">float</span></code>-Typ
+Implementierung der ersten beiden Methoden, der Umwandlung in den <code class="docutils literal notranslate"><span class="pre">float</span></code>-Typ
 sowie zweier Vergleichsmethoden beschränken und erweitern unsere
 Klassendefinition in folgender Weise:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -264,7 +253,7 @@ Klassendefinition in folgender Weise:</p>
 </td></tr></table></div>
 <p>Jetzt sind wir in der Lage, echte Brüche zu addieren und zu multiplizieren, sie
 in Gleitkommazahlen umzuwandeln und zu vergleichen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
 <span class="go">29/35</span>
@@ -288,14 +277,14 @@ Addition oder Multiplikation brauchen wir uns um diese jedoch nicht explizit zu
 kümmern. Dadurch gewinnt das Programm enorm an Übersichtlichkeit. Dies ist ein
 nicht zu unterschätzender Vorteil dieser Programmweise.</p>
 <p>Bis jetzt haben wir spezielle Methoden definiert, die mit Operatoren wie zum
-Beispiel <code class="docutils literal"><span class="pre">+</span></code> und <code class="docutils literal"><span class="pre">*</span></code> verknüpft sind. Damit wurden diese Operatoren, die
+Beispiel <code class="docutils literal notranslate"><span class="pre">+</span></code> und <code class="docutils literal notranslate"><span class="pre">*</span></code> verknüpft sind. Damit wurden diese Operatoren, die
 zunächst für andere Datentypen definiert waren, auch für Brüche bereitgestellt.
 Man spricht hier vom Überladen von Operatoren.  Wir können aber auch Methoden
 definieren, die mit ihrem Namen von außerhalb der Klasse aufgerufen werden. Als
-Beispiel definieren wir eine <code class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></code>-Methode, die den Bruch in
+Beispiel definieren wir eine <code class="xref py py-func docutils literal notranslate"><span class="pre">prettyprint()</span></code>-Methode, die den Bruch in
 mehreren Zeilen mit einem horizontalen Bruchstrich ausgeben soll. Unsere
 Klassendefinition nimmt dann die folgende Form an:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Bruch</span><span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zaehler</span><span class="p">,</span> <span class="n">nenner</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">zaehler</span>
@@ -344,8 +333,8 @@ Klassendefinition nimmt dann die folgende Form an:</p>
                                   <span class="n">nenner_str</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">feldbreite</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Nun können wir die <code class="xref py py-func docutils literal"><span class="pre">prettyprint()</span></code>-Methode anwenden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">213</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
+<p>Nun können wir die <code class="xref py py-func docutils literal notranslate"><span class="pre">prettyprint()</span></code>-Methode anwenden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">213</span><span class="p">,</span> <span class="mi">53</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">Bruch</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3091</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">prettyprint</span><span class="p">()</span>
@@ -358,25 +347,25 @@ Klassendefinition nimmt dann die folgende Form an:</p>
 <span class="go">163823</span>
 </pre></div>
 </div>
-<p>Wie beim Aufruf der <code class="xref py py-func docutils literal"><span class="pre">__reduce()</span></code>-Methode in der Konstruktormethode der
-<code class="docutils literal"><span class="pre">Bruch</span></code>-Klasse wird der Methodenname mit einem Punkt an das Objekt angehängt.
-Letzteres kann durch eine Variable, hier <code class="docutils literal"><span class="pre">z</span></code>, spezifiziert sein oder durch
-einen Ausdruck, hier <code class="docutils literal"><span class="pre">x+y</span></code>. Im Allgemeinen können beim Aufruf einer Methode
+<p>Wie beim Aufruf der <code class="xref py py-func docutils literal notranslate"><span class="pre">__reduce()</span></code>-Methode in der Konstruktormethode der
+<code class="docutils literal notranslate"><span class="pre">Bruch</span></code>-Klasse wird der Methodenname mit einem Punkt an das Objekt angehängt.
+Letzteres kann durch eine Variable, hier <code class="docutils literal notranslate"><span class="pre">z</span></code>, spezifiziert sein oder durch
+einen Ausdruck, hier <code class="docutils literal notranslate"><span class="pre">x+y</span></code>. Im Allgemeinen können beim Aufruf einer Methode
 natürlich auch Argumente übergeben werden.</p>
 <p>Nun wird klar, dass wir auch in früheren Kapiteln immer wieder Methoden
 aufgerufen haben ohne uns dessen wirklich bewusst gewesen zu sein. Wenn wir
-bespielsweise im Kapitel über <a class="reference internal" href="einausgabe.html#einausgabe"><span class="std std-ref">Ein- und Ausgabe</span></a> die Anweisung <code class="docutils literal"><span class="pre">datei.write(…)</span></code>
-verwendet haben, so hatten wir ein Dateiobjekt <code class="docutils literal"><span class="pre">datei</span></code> benutzt und dessen
-<code class="docutils literal"><span class="pre">write</span></code>-Methode aufgerufen.</p>
+bespielsweise im Kapitel über <a class="reference internal" href="einausgabe.html#einausgabe"><span class="std std-ref">Ein- und Ausgabe</span></a> die Anweisung <code class="docutils literal notranslate"><span class="pre">datei.write(…)</span></code>
+verwendet haben, so hatten wir ein Dateiobjekt <code class="docutils literal notranslate"><span class="pre">datei</span></code> benutzt und dessen
+<code class="docutils literal notranslate"><span class="pre">write</span></code>-Methode aufgerufen.</p>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Zum Abschluss dieses Unterkapitels soll noch auf zwei Aspekte
 im Zusammenhang mit dem hier entwickelten Beispiel eingegangen werden. Vor allem
 wenn man eine Klasse programmiert, um sie anderen Nutzern zur Verfügung zu stellen,
 ist die Dokumentation der Methoden wichtig, mit deren Hilfe der Nutzer mit den
 Objekten arbeiten kann. Wie schon im Kapitel <a class="reference internal" href="funktionen.html#funcdoc"><span class="std std-ref">Dokumentation von Funktionen</span></a> für Funktionen
 besprochen, kann auch bei Methoden in einer Klassendefinition ein Dokumentationstext
-direkt nach der mit <code class="docutils literal"><span class="pre">def</span></code> beginnenden Zeile eingebaut werden. Die Methode <code class="docutils literal"><span class="pre">prettyprint</span></code>
+direkt nach der mit <code class="docutils literal notranslate"><span class="pre">def</span></code> beginnenden Zeile eingebaut werden. Die Methode <code class="docutils literal notranslate"><span class="pre">prettyprint</span></code>
 könnte dann folgendermaßen aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prettyprint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Gibt den Bruch dreizeilig aus, wobei Zähler und Nenner</span>
 <span class="sd">    zentriert gesetzt sind.</span>
 
@@ -391,7 +380,7 @@ könnte dann folgendermaßen aussehen:</p>
 </pre></div>
 </div>
 <p>In der Python-Shell kann man Information über alle Methoden in folgender Weise bekommen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span> &gt;&gt;&gt; help(Bruch)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> &gt;&gt;&gt; help(Bruch)
 
  Help on class Bruch in module __main__:
 
@@ -432,12 +421,12 @@ haben. Hier sehen wir zudem, dass Python sich bemüht, hilfreiche Informationen 
 Methoden zur Verfügung zu stellen, selbst wenn keine expliziten Dokumentationstexte
 vorhanden sind. Dies ist jedoch keinesfalls eine Entschuldigung dafür, auf eine
 Dokumentation von Seiten des Programmierers zu verzichten!</p>
-<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Ein Manko unserer bisherigen Version der <code class="docutils literal"><span class="pre">Bruch</span></code>-Klasse besteht
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Ein Manko unserer bisherigen Version der <code class="docutils literal notranslate"><span class="pre">Bruch</span></code>-Klasse besteht
 darin, dass stillschweigend vorausgesetzt wird, dass Zähler und Nenner als Integers
 übergeben werden müssen. Dies ist unnötig restriktiv. Es würde ausreichen, wenn
-die entsprechenden Werte in Integers umwandelbar sind. Die <code class="docutils literal"><span class="pre">__init__()</span></code>-Methode
+die entsprechenden Werte in Integers umwandelbar sind. Die <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>-Methode
 könnte zum Beispiel wie folgt erweitert werden:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -452,14 +441,14 @@ könnte zum Beispiel wie folgt erweitert werden:</p>
     <span class="bp">self</span><span class="o">.</span><span class="n">__reduce</span><span class="p">()</span>
 </pre></div>
 </td></tr></table></div>
-<p>In den Zeilen 3 und 4 wird versucht, die Werte der Variablen <code class="docutils literal"><span class="pre">zaehler</span></code> und
-<code class="docutils literal"><span class="pre">nenner</span></code> in Integers umzuwandeln. Da dies durchaus misslingen kann, wie wir
-gleich noch sehen werden, wird hier die <code class="docutils literal"><span class="pre">ValueError</span></code>-Ausnahme abgefangen. Um
+<p>In den Zeilen 3 und 4 wird versucht, die Werte der Variablen <code class="docutils literal notranslate"><span class="pre">zaehler</span></code> und
+<code class="docutils literal notranslate"><span class="pre">nenner</span></code> in Integers umzuwandeln. Da dies durchaus misslingen kann, wie wir
+gleich noch sehen werden, wird hier die <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>-Ausnahme abgefangen. Um
 dem aufrufenden Programm den Fehler mitzuteilen, wird in Zeile 6 diese Ausnahme
 gleich wieder geworfen. Dies bietet die Gelegenheit, eine aussagekräftige
 Fehlermeldung mitzuliefern, und ermöglicht es dem aufrufenden Programmteil, den
 Fehler adäquat zu behandeln.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -490,12 +479,12 @@ Fehler adäquat zu behandeln.</p>
 <span class="gr">TypeError</span>: <span class="n">int() argument must be a string or a number, not &#39;list&#39;</span>
 </pre></div>
 </td></tr></table></div>
-<p>In den Zeilen 1 bis 3 sieht man, dass die neue <code class="docutils literal"><span class="pre">__init__()</span></code>-Methode in der Lage ist,
+<p>In den Zeilen 1 bis 3 sieht man, dass die neue <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>-Methode in der Lage ist,
 auch Strings korrekt zu verarbeiten, sofern sie sich in Integers umwandeln lassen.
-In Zeile 4 ist dies nicht der Fall, und es wird somit eine <code class="docutils literal"><span class="pre">ValueError</span></code>-Ausnahme
+In Zeile 4 ist dies nicht der Fall, und es wird somit eine <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>-Ausnahme
 ausgelöst, die mit einer entsprechenden Fehlermeldung in Zeile 9 versehen ist.
-Wie die Zeilen 10 bis 15 zeigen, kann man allerdings auch eine <code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme
-hervorrufen, die somit in der <code class="docutils literal"><span class="pre">__init__()</span></code>-Methode noch adäquat abgefangen werden
+Wie die Zeilen 10 bis 15 zeigen, kann man allerdings auch eine <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>-Ausnahme
+hervorrufen, die somit in der <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>-Methode noch adäquat abgefangen werden
 müsste.</p>
 </div>
 <div class="section" id="vererbung">
@@ -512,7 +501,7 @@ zeigt. Neben der Methode, die die Richtung der Achse ausgibt, wollen wir eine Me
 implementieren, die die Achse des Körpers dreht, wobei Drehwinkel und Drehachse
 als Argumente übergeben werden.</p>
 <p>Wir definieren zunächst eine Klasse für den Massepunkt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 
 <span class="k">class</span> <span class="nc">Massepunkt</span><span class="p">:</span>
 
@@ -528,11 +517,11 @@ als Argumente übergeben werden.</p>
 </div>
 <p>Die Konstruktormethode legt den Massepunkt in den Ursprung. Da wir für die Drehung
 des Rotationskörpers Skalar- und Kreuzprodukt benötigen, verwenden wir die NumPy-Bibliothek
-um Vektoren zu definieren. Die <code class="xref py py-func docutils literal"><span class="pre">verschiebe()</span></code>-Methode verschiebt den Massepunkt um den
-Vektor <code class="docutils literal"><span class="pre">shift</span></code>. Mit der <code class="xref py py-func docutils literal"><span class="pre">position()</span></code>-Methode lässt sich die aktuelle Position des
-Massepunkts ausgeben, auf die sich auch mit Hilfe des Attributs <code class="docutils literal"><span class="pre">pos</span></code> zugreifen lässt.
+um Vektoren zu definieren. Die <code class="xref py py-func docutils literal notranslate"><span class="pre">verschiebe()</span></code>-Methode verschiebt den Massepunkt um den
+Vektor <code class="docutils literal notranslate"><span class="pre">shift</span></code>. Mit der <code class="xref py py-func docutils literal notranslate"><span class="pre">position()</span></code>-Methode lässt sich die aktuelle Position des
+Massepunkts ausgeben, auf die sich auch mit Hilfe des Attributs <code class="docutils literal notranslate"><span class="pre">pos</span></code> zugreifen lässt.
 Testen wir zunächst die Funktionalität dieser Klasse:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Massepunkt</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Massepunkt</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">pos</span>
 <span class="go">array([0, 0, 0])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
@@ -545,9 +534,9 @@ Testen wir zunächst die Funktionalität dieser Klasse:</p>
 <span class="go">Die Masse befindet sich am Ort (3, 4, -3).</span>
 </pre></div>
 </div>
-<p>Von der <code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse leiten wir nun die <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse ab und bekommen
+<p>Von der <code class="docutils literal notranslate"><span class="pre">Massepunkt</span></code>-Klasse leiten wir nun die <code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>-Klasse ab und bekommen
 so insgesamt den folgenden Code:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -610,20 +599,20 @@ so insgesamt den folgenden Code:</p>
               <span class="s2">&quot;des Vektors ({:g}, {:g}, {:g}).&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">achse</span><span class="p">))</span>
 </pre></div>
 </td></tr></table></div>
-<p>In Zeile 16 wird die Basisklasse <code class="docutils literal"><span class="pre">Massepunkt</span></code> als Argument der Klasse <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>
+<p>In Zeile 16 wird die Basisklasse <code class="docutils literal notranslate"><span class="pre">Massepunkt</span></code> als Argument der Klasse <code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>
 angegeben, so dass Attribute und Methoden der Basisklasse geerbt werden können. Im Prinzip ist
 es möglich, auch mehrere Basisklassen anzugeben. In der Konstruktormethode der
-<code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse initialisieren wir zunächst die Achse, die die Orientierung des Körpers
+<code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>-Klasse initialisieren wir zunächst die Achse, die die Orientierung des Körpers
 angibt. Um die Position des Körpers zu initialisieren, greifen wir auf die Konstruktormethode der
-<code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse zurück. Dies ist sinnvoll, aber keineswegs verpflichtend.</p>
+<code class="docutils literal notranslate"><span class="pre">Massepunkt</span></code>-Klasse zurück. Dies ist sinnvoll, aber keineswegs verpflichtend.</p>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Um auf die Konstruktormethode der Elternklasse zuzugreifen, könnte man in
-Zeile 20 alternativ <code class="docutils literal"><span class="pre">super().__init__()</span></code> verwenden.</p>
-<p>In der <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse definieren wir zwei neue Methoden. Es wäre
-durchaus auch möglich, Methoden der <code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse zu überladen. Wir
+Zeile 20 alternativ <code class="docutils literal notranslate"><span class="pre">super().__init__()</span></code> verwenden.</p>
+<p>In der <code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>-Klasse definieren wir zwei neue Methoden. Es wäre
+durchaus auch möglich, Methoden der <code class="docutils literal notranslate"><span class="pre">Massepunkt</span></code>-Klasse zu überladen. Wir
 wollen dies hier jedoch nicht tun, da wir die Methoden dieser Klasse
 unverändert verwenden wollen. Sehen wir uns nun an, ob die
-<code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse wie gewünscht funktioniert:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span> <span class="o">=</span> <span class="n">Rotationskoerper</span><span class="p">()</span>
+<code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>-Klasse wie gewünscht funktioniert:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span> <span class="o">=</span> <span class="n">Rotationskoerper</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
 <span class="go">Die Masse befindet sich am Ort (0, 0, 0).</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">rk</span><span class="o">.</span><span class="n">orientierung</span><span class="p">()</span>
@@ -641,13 +630,13 @@ unverändert verwenden wollen. Sehen wir uns nun an, ob die
 <span class="go">Die Achse des starren Körpers liegt in Richtung des Vektors (0.707107, -5.55112e-17, 0.707107).</span>
 </pre></div>
 </div>
-<p>Das <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Objekt <code class="docutils literal"><span class="pre">rk</span></code> besitzt tatsächlich sowohl die Objektattribute der
-<code class="docutils literal"><span class="pre">Massepunkt</span></code>-Klasse als auch die der <code class="docutils literal"><span class="pre">Rotationskoerper</span></code>-Klasse. Zudem können die Methoden
+<p>Das <code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>-Objekt <code class="docutils literal notranslate"><span class="pre">rk</span></code> besitzt tatsächlich sowohl die Objektattribute der
+<code class="docutils literal notranslate"><span class="pre">Massepunkt</span></code>-Klasse als auch die der <code class="docutils literal notranslate"><span class="pre">Rotationskoerper</span></code>-Klasse. Zudem können die Methoden
 beider Klassen verwendet werden.</p>
 <table class="docutils footnote" frame="void" id="fractions" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Python stellt Brüche über das Modul <code class="docutils literal"><span class="pre">fractions</span></code> zur Verfügung. Weitere
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Python stellt Brüche über das Modul <code class="docutils literal notranslate"><span class="pre">fractions</span></code> zur Verfügung. Weitere
 Informationen sind in der Python-Dokumentation unter
 <a class="reference external" href="https://docs.python.org/3/library/fractions.html">https://docs.python.org/3/library/fractions.html</a>
 verfügbar.</td></tr>
@@ -671,8 +660,8 @@ verfügbar.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2018, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9 erstellt.
+        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
     </div>
   </body>
 </html>

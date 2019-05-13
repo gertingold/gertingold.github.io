@@ -1,36 +1,25 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Einführung &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018alpha',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" />
     <link rel="next" title="Eine Vorschau" href="vorschau.html" />
     <link rel="prev" title="Vorlesungsmanuskript »Einführung in das Programmieren für Physiker und Materialwissenschaftler«" href="index_latex.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Einführung</span></h2>
@@ -143,7 +132,7 @@ they are not yet familiar with Python.»</p>
 <li><p class="first">Peter Norvig, Google</p>
 <p>«Python has been an important part of Google since the beginning, and remains
 so as the system grows and evolves. Today dozens of Google engineers use
-Python, and we&#8217;re looking for more people with skills in this language.»</p>
+Python, and we’re looking for more people with skills in this language.»</p>
 </li>
 <li><p class="first">Cuong Do, YouTube.com</p>
 <p>«Python is fast enough for our site and allows us to produce maintainable
@@ -181,11 +170,13 @@ offiziellen Python-Webseite <a class="reference external" href="http://www.pytho
 herunterladen. Dabei ist zu beachten, dass gegenwärtig zwei Versionen von
 Python im Gebrauch sind, die sich in einigen Aspekten voneinander
 unterscheiden: Python 2 und Python 3. Beim Schreiben dieses Manuskripts waren
-die Versionen 2.7.14 und 3.6.5 aktuell. Im Rahmen der Vorlesung wird Python 3
-besprochen, so dass auf die Installation von Python 2.7 verzichtet werden kann.
-Es stellt jedoch kein Problem dar, wenn Python 2 ebenfalls installiert ist, wie
-dies zum Beispiel bei gängigen Linuxsystemen der Fall sein wird. Für den
-Gebrauch im Rahmen dieser Vorlesung wird eine Python-Version ab 3.3 empfohlen.</p>
+die Versionen 2.7.16 und 3.7.3 aktuell. Im Rahmen der Vorlesung wird Python 3
+besprochen. Die Unterstützung von Python 2 wird zum 1.1.2020 auslaufen, so
+dass davon abzuraten ist, noch Programme in Python 2 zu schreiben. Dennoch
+kann es, z.B. bei gängigen Linuxsystemen der Fall sein, dass auch noch Python 2
+installiert ist. Python 3 lässt sich aber problemlos parallel hierzu verwenden.
+Für den Gebrauch im Rahmen dieser Vorlesung wird eine Python-Version ab 3.5
+empfohlen.</p>
 <p>Neben dem eigentlichen Python-Interpreter werden wir jedoch noch weitere
 Software benötigen, wie zum Beispiel die numerischen Programmbibliotheken
 <strong class="program">NumPy</strong> und <strong class="program">SciPy</strong> <a class="footnote-reference" href="#scipy" id="id5">[5]</a>, die wir im Kapitel
@@ -263,14 +254,14 @@ ist.</p>
 </div>
 <div class="section" id="verwendete-symbole">
 <h2>Verwendete Symbole<a class="headerlink" href="#verwendete-symbole" title="Link zu dieser Überschrift">¶</a></h2>
-<p><code class="docutils literal"><span class="pre">&gt;&gt;&gt;</span></code> stellt den Prompt des Python-Interpreters dar. Darauf folgt der
+<p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> stellt den Prompt des Python-Interpreters dar. Darauf folgt der
 einzugebende Text. Die Folgezeilen enthalten gegebenenfalls die Ausgabe des
 Interpreters.</p>
-<p><code class="docutils literal"><span class="pre">...</span></code> wird im Python-Interpreter als Prompt verwendet, wenn die Eingabe
+<p><code class="docutils literal notranslate"><span class="pre">...</span></code> wird im Python-Interpreter als Prompt verwendet, wenn die Eingabe
 fortzusetzen ist, zum Beispiel im Rahmen einer Schleife. Diese Art der Eingabe
 kann sich über mehrere Zeilen hinziehen. Zum Beenden wird die
-<code class="kbd docutils literal"><span class="pre">EINGABE</span></code>-Taste ohne vorhergehende Eingabe von Text verwendet.</p>
-<p><code class="docutils literal"><span class="pre">$</span></code> steht für den Prompt in der Kommandozeile eines Terminalfensters.</p>
+<kbd class="kbd docutils literal notranslate">EINGABE</kbd>-Taste ohne vorhergehende Eingabe von Text verwendet.</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span></code> steht für den Prompt in der Kommandozeile eines Terminalfensters.</p>
 <p><a class="reference internal" href="_images/attention.png"><img alt="achtung" src="_images/attention.png" style="height: 1em;" /></a> Dieses Symbol weist auf eine wichtige Anmerkung hin.</p>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Hier folgt eine Frage, die zum Testen des Verständnisses oder als Vertiefung
 bearbeitet werden kann.</p>
@@ -298,18 +289,18 @@ Verweise auf einführende Literatur und einiges mehr.</p>
 </li>
 <li><p class="first">Michael Weigend, <em>Python GE-PACKT</em> (MITP-Verlag, 2015)</p>
 <blockquote>
-<div><p>Dieses Buch eignet sich als kompaktes Nachschlagewerk. Die 6. Auflage berücksichtigt
-die Python-Version 3.4.</p>
+<div><p>Dieses Buch eignet sich als kompaktes Nachschlagewerk. Die 7. Auflage berücksichtigt
+die Python-Version 3.6.</p>
 </div></blockquote>
 </li>
 </ul>
 </div>
 <div class="section" id="python-version">
 <h2>Python-Version<a class="headerlink" href="#python-version" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Dieses Manuskript bezieht sich auf die Python-Version 3.3 oder eine neuere
+<p>Dieses Manuskript bezieht sich auf die Python-Version 3.5 oder eine neuere
 Version. Ein Großteil des behandelten Stoffes ist auch auf Python 2.7
 anwendbar. Wichtige Ausnahmen sind das unterschiedliche Verhalten bei der
-Integer-Division, die Klammerung bei der <code class="docutils literal"><span class="pre">print</span></code>-Funktion und die Verwendung
+Integer-Division, die Klammerung bei der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion und die Verwendung
 von Unicode in Zeichenketten.</p>
 </div>
 <div class="section" id="danke-an">
@@ -408,8 +399,8 @@ Version umzusteigen.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2018, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9 erstellt.
+        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
     </div>
   </body>
 </html>

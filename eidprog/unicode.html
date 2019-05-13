@@ -1,34 +1,23 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Unicode &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018alpha',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" /> 
-  </head>
-  <body role="document">
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="search" title="Suche" href="search.html" /> 
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Unicode</span></h2>
@@ -74,38 +63,38 @@ den heute noch wichtigen Steuerzeichen zählen:</p>
 <tr class="row-even"><td>08</td>
 <td>BS</td>
 <td>backspace</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-H</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\b</span></code></td>
+<td><kbd class="kbd docutils literal notranslate">STRG-H</kbd></td>
+<td><kbd class="kbd docutils literal notranslate">\b</kbd></td>
 </tr>
 <tr class="row-odd"><td>09</td>
 <td>HT</td>
 <td>horizontal tabulation</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-I</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\t</span></code></td>
+<td><kbd class="kbd docutils literal notranslate">STRG-I</kbd></td>
+<td><kbd class="kbd docutils literal notranslate">\t</kbd></td>
 </tr>
 <tr class="row-even"><td>0A</td>
 <td>LF</td>
 <td>line feed (neue Zeile)</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-J</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\n</span></code></td>
+<td><kbd class="kbd docutils literal notranslate">STRG-J</kbd></td>
+<td><kbd class="kbd docutils literal notranslate">\n</kbd></td>
 </tr>
 <tr class="row-odd"><td>0C</td>
 <td>FF</td>
 <td>form feed (neue Seite)</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-L</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\f</span></code></td>
+<td><kbd class="kbd docutils literal notranslate">STRG-L</kbd></td>
+<td><kbd class="kbd docutils literal notranslate">\f</kbd></td>
 </tr>
 <tr class="row-even"><td>0D</td>
 <td>CR</td>
 <td>carriage return (Wagenrücklauf)</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-M</span></code></td>
-<td><code class="kbd docutils literal"><span class="pre">\r</span></code></td>
+<td><kbd class="kbd docutils literal notranslate">STRG-M</kbd></td>
+<td><kbd class="kbd docutils literal notranslate">\r</kbd></td>
 </tr>
 <tr class="row-odd"><td>1B</td>
 <td>ESC</td>
 <td>escape</td>
-<td><code class="kbd docutils literal"><span class="pre">STRG-[</span></code></td>
-<td>&nbsp;</td>
+<td><kbd class="kbd docutils literal notranslate">STRG-[</kbd></td>
+<td>&#160;</td>
 </tr>
 </tbody>
 </table>
@@ -119,35 +108,35 @@ der in der zweiten der folgenden Codetabellen dargestellt ist und auch als
 »Latin-1« bekannt ist.  Auch hier sind wieder eine Reihe von Steuerzeichen
 vertreten, unter anderem ein <cite>nonbreakable space</cite> (NBSP) und ein <cite>soft hyphen</cite>
 (SHY). Der zu den Zeichen gehörige Code ergibt sich aus den letzten beiden
-Stellen des Unicode Codepoints, der an dem vorangestellten <code class="docutils literal"><span class="pre">U+</span></code> erkenntlich
-ist.  Beispielsweise wird das »ä« durch <code class="docutils literal"><span class="pre">0xEA</span></code> kodiert. Da das Eurozeichen
+Stellen des Unicode Codepoints, der an dem vorangestellten <code class="docutils literal notranslate"><span class="pre">U+</span></code> erkenntlich
+ist.  Beispielsweise wird das »ä« durch <code class="docutils literal notranslate"><span class="pre">0xEA</span></code> kodiert. Da das Eurozeichen
 in ISO-8859-1 nicht enthalten ist, ist auch die Norm ISO-8859-15 von Bedeutung,
 die sich an 8 Stellen von ISO-8859-1 unterscheidet.</p>
 <p>In neuerer Zeit hat der Unicode-Standard <a class="footnote-reference" href="#id4" id="id2">[2]</a> enorm an Bedeutung
 gewonnen, da er das Ziel hat, alle weltweit gebräuchlichen Zeichen zu kodieren.
 Die aktuelle Version 6.2 <a class="footnote-reference" href="#unicode620" id="id3">[3]</a> umfasst 110117 Zeichen und bietet noch
 genügend Platz für Erweiterungen. Jedes Zeichen ist einem so genannten
-Codepoint zugeordnet, der Werte zwischen <code class="docutils literal"><span class="pre">0x00</span></code> und  <code class="docutils literal"><span class="pre">0x10FFFF</span></code> annehmen
+Codepoint zugeordnet, der Werte zwischen <code class="docutils literal notranslate"><span class="pre">0x00</span></code> und  <code class="docutils literal notranslate"><span class="pre">0x10FFFF</span></code> annehmen
 kann. Da damit jedes Zeichen statt üblicherweise einem Byte nun drei Byte
 benötigen würde, werden die Unicode-Zeichen geschickt kodiert. Für westliche
 Sprachen ist die Kodierung UTF-8 besonders geeignet, da die ASCII-Zeichen im
-Bereich <code class="docutils literal"><span class="pre">0x00</span></code> bis <code class="docutils literal"><span class="pre">0x7F</span></code> ihre Bedeutung beibehalten. Wir beschränken uns
+Bereich <code class="docutils literal notranslate"><span class="pre">0x00</span></code> bis <code class="docutils literal notranslate"><span class="pre">0x7F</span></code> ihre Bedeutung beibehalten. Wir beschränken uns
 daher im Folgenden auf die Erklärung dieser Kodierung.</p>
 <p>Die UTF-8-Kodierung ist in den folgenden Codetabellen unter dem entsprechenden
 Unicode Codepoint angegeben. Dabei kommen in diesen Beispielen 1-, 2- und
 3-Byte-Werte vor. Im Allgemeinen können sogar 4 Bytes auftreten.</p>
-<p>Im Bereich <code class="docutils literal"><span class="pre">0x00</span></code> bis <code class="docutils literal"><span class="pre">0x7f</span></code> wird das letzte Byte des Codepoints
+<p>Im Bereich <code class="docutils literal notranslate"><span class="pre">0x00</span></code> bis <code class="docutils literal notranslate"><span class="pre">0x7f</span></code> wird das letzte Byte des Codepoints
 verwendet und auf diese Weise Übereinstimmung mit ASCII erreicht. Somit lassen
 sich in einer westlichen Sprache verfasste Texte weitestgehend unabhängig von
 der tatsächlichen Kodierung lesen. Außerdem wird die Mehrzahl der vorkommenden
 Zeichen platzsparend kodiert.</p>
-<p>Ist das führende Bit eine <code class="docutils literal"><span class="pre">1</span></code>, so handelt es sich um einen Mehrbytecode.
-Im Bereich <code class="docutils literal"><span class="pre">0x0080</span></code> bis <code class="docutils literal"><span class="pre">0x07FF</span></code> werden zwei Bytes zur Kodierung verwendet.
+<p>Ist das führende Bit eine <code class="docutils literal notranslate"><span class="pre">1</span></code>, so handelt es sich um einen Mehrbytecode.
+Im Bereich <code class="docutils literal notranslate"><span class="pre">0x0080</span></code> bis <code class="docutils literal notranslate"><span class="pre">0x07FF</span></code> werden zwei Bytes zur Kodierung verwendet.
 Die elf relevanten Bytes werden dabei wie in folgendem Beispiel gezeigt auf die
 zwei Bytes verteilt:</p>
 <a class="reference internal image-reference" href="_images/utf8_2.png"><img alt="_images/utf8_2.png" class="align-center" src="_images/utf8_2.png" style="height: 2.5cm;" /></a>
-<p>Dabei wird der Codepoint <code class="docutils literal"><span class="pre">0xE9</span></code> des Zeichens »é« auf den UTF-8-Code
-<code class="docutils literal"><span class="pre">0xC3A9</span></code> abgebildet.</p>
+<p>Dabei wird der Codepoint <code class="docutils literal notranslate"><span class="pre">0xE9</span></code> des Zeichens »é« auf den UTF-8-Code
+<code class="docutils literal notranslate"><span class="pre">0xC3A9</span></code> abgebildet.</p>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 0.4cm;" /></a> Was würde ein Programm, das von einer Latin-1-Kodierung ausgeht,
 in diesem Fall anzeigen?</p>
 <p>Beispiele von 2-Byte-Codes sind in der zweiten und dritten der im Folgenden
@@ -159,8 +148,8 @@ einen 3-Byte-Code, der sich wie im folgenden Beispiel für das Zeichen
 »∞« gezeigt aus dem Unicode Codepoint ergibt:</p>
 <a class="reference internal image-reference" href="_images/utf8_3.png"><img alt="_images/utf8_3.png" class="align-center" src="_images/utf8_3.png" style="height: 2.5cm;" /></a>
 <p>Aus 4 Bytes bestehende Codes ergeben sich durch entsprechende Verallgemeinerung
-für Codepoints zwischen <code class="docutils literal"><span class="pre">0x010000</span></code> und <code class="docutils literal"><span class="pre">0x10FFFF</span></code>, wobei der UTF-8-Code dann
-mit <code class="docutils literal"><span class="pre">0xF</span></code> beginnt.</p>
+für Codepoints zwischen <code class="docutils literal notranslate"><span class="pre">0x010000</span></code> und <code class="docutils literal notranslate"><span class="pre">0x10FFFF</span></code>, wobei der UTF-8-Code dann
+mit <code class="docutils literal notranslate"><span class="pre">0xF</span></code> beginnt.</p>
 <a class="reference internal image-reference" href="_images/u0000.png"><img alt="_images/u0000.png" class="align-center" src="_images/u0000.png" style="width: 14.5cm;" /></a>
 <a class="reference internal image-reference" href="_images/u0080.png"><img alt="_images/u0080.png" class="align-center" src="_images/u0080.png" style="width: 14.5cm;" /></a>
 <a class="reference internal image-reference" href="_images/u0380.png"><img alt="_images/u0380.png" class="align-center" src="_images/u0380.png" style="width: 14.5cm;" /></a>
@@ -170,7 +159,7 @@ mit <code class="docutils literal"><span class="pre">0xF</span></code> beginnt.<
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Eine ausführlichere Darstellung der Entwicklungsgeschichte von Zeichenkodierungen
-gibt Y. Haralambous, <em>Fonts &amp; Encodings</em> (O&#8217;Reilly, 2007).</td></tr>
+gibt Y. Haralambous, <em>Fonts &amp; Encodings</em> (O’Reilly, 2007).</td></tr>
 </tbody>
 </table>
 <table class="docutils footnote" frame="void" id="id4" rules="none">
@@ -198,8 +187,8 @@ gibt Y. Haralambous, <em>Fonts &amp; Encodings</em> (O&#8217;Reilly, 2007).</td>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2018, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9 erstellt.
+        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
     </div>
   </body>
 </html>

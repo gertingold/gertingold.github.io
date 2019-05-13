@@ -1,36 +1,25 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Kontrollstrukturen &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2018alpha',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="search" title="Suche" href="search.html" />
-    <link rel="top" title="Einführung in das Programmieren für Physiker und Materialwissenschaftler" href="index_latex.html" />
     <link rel="next" title="Funktionen" href="funktionen.html" />
     <link rel="prev" title="Einfache Datentypen, Variablen und Zuweisungen" href="datentypen.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Kontrollstrukturen</span></h2>
@@ -56,21 +45,21 @@ angesprochen, den Ablauf eines Programms zu beeinflussen, sei es dadurch, dass
 ein Programmteil in einer Schleife mehrfach ausgeführt wird oder dass ein
 Programmteil nur dann ausgeführt wird, wenn eine gewisse Bedingung erfüllt ist.
 Wir werden nun solche Kontrollstrukturen genauer betrachten und neben den
-bereits angesprochenen <code class="docutils literal"><span class="pre">for</span></code>-Schleifen und Konstrukten der Form <code class="docutils literal"><span class="pre">if</span></code> …
-<code class="docutils literal"><span class="pre">else</span></code> auch <code class="docutils literal"><span class="pre">while</span></code>-Schleifen und komplexere Verzweigungen kennenlernen.</p>
+bereits angesprochenen <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen und Konstrukten der Form <code class="docutils literal notranslate"><span class="pre">if</span></code> …
+<code class="docutils literal notranslate"><span class="pre">else</span></code> auch <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen und komplexere Verzweigungen kennenlernen.</p>
 <div class="section" id="for-schleife">
 <span id="forloop"></span><h2>For-Schleife<a class="headerlink" href="#for-schleife" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Sollen bestimmte Anweisungen mehrfach ausgeführt werden, wobei die Anzahl der
 Wiederholungen zuvor bestimmt werden kann, bietet sich die Verwendung einer
-<code class="docutils literal"><span class="pre">for</span></code>-Schleife an. Gegenüber der expliziten Wiederholung von Befehlen ergeben
+<code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife an. Gegenüber der expliziten Wiederholung von Befehlen ergeben
 sich eine Reihe von Vorteilen. Zunächst einmal spart man sich Tipparbeit und
 verbessert erheblich die Lesbarkeit des Programms. Zudem ist eine explizite
 Wiederholung nur möglich, wenn die Zahl der Wiederholungen bereits beim
 Schreiben des Programms feststeht und nicht erst beim Ausführen des Programms
 berechnet wird. Im Kapitel <a class="reference internal" href="vorschau.html#vorschau"><span class="std std-ref">Eine Vorschau</span></a> hatten wir bereits die wesentliche
-Struktur einer <code class="docutils literal"><span class="pre">for</span></code>-Schleife kennengelernt, die wir hier nochmals an einem
+Struktur einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife kennengelernt, die wir hier nochmals an einem
 einfachen Beispiel illustrieren wollen.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:4} {:4}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="mi">0</span>    <span class="mi">0</span>
@@ -80,15 +69,15 @@ einfachen Beispiel illustrieren wollen.</p>
 <span class="mi">4</span>   <span class="mi">16</span>
 </pre></div>
 </div>
-<p>Das Schlüsselwort <code class="docutils literal"><span class="pre">for</span></code> kennzeichnet den Beginn einer Schleife. Dann folgt
+<p>Das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">for</span></code> kennzeichnet den Beginn einer Schleife. Dann folgt
 der Name der Variable, die bei der Abarbeitung der Schleife vorgegebene Werte
 annimmt, und im Rahmen der Schleife verwendet werden kann. Im Allgemeinen
 können hier auch mehrere Variablennamen vorkommen, wie wir später im Kapitel
-<a class="reference internal" href="sequenzen.html#zusgdatentypen"><span class="std std-ref">Zusammengesetzte Datentypen</span></a> sehen werden. Die Werte, die die Variable <code class="docutils literal"><span class="pre">n</span></code> in
-unserem Beispiel annehmen kann, werden durch die <code class="docutils literal"><span class="pre">range</span></code>-Anweisung bestimmt.
+<a class="reference internal" href="sequenzen.html#zusgdatentypen"><span class="std std-ref">Zusammengesetzte Datentypen</span></a> sehen werden. Die Werte, die die Variable <code class="docutils literal notranslate"><span class="pre">n</span></code> in
+unserem Beispiel annehmen kann, werden durch die <code class="docutils literal notranslate"><span class="pre">range</span></code>-Anweisung bestimmt.
 Zwar werden die Werte erst bei Bedarf generiert, aber wir können sie uns wie
 folgt ansehen:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="go">[0, 1, 2, 3, 4]</span>
 </pre></div>
 </div>
@@ -96,7 +85,7 @@ folgt ansehen:</p>
 hier fünf Elemente enthält. Zu beachten ist, dass die Liste mit Null beginnt
 und nicht mit Eins.  Wir werden uns im Abschnitt <a class="reference internal" href="sequenzen.html#listen"><span class="std std-ref">Listen</span></a> diesen Datentyp
 noch genauer ansehen. Für den Moment genügt jedoch die intuitive Vorstellung
-von einer Liste. In der ersten Zeile der <code class="docutils literal"><span class="pre">for</span></code>-Schleife, die mit einem
+von einer Liste. In der ersten Zeile der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife, die mit einem
 Doppelpunkt enden muss, wird also festgelegt, welchen Wert die
 Schleifenvariable bei den aufeinanderfolgenden Schleifendurchläufen jeweils
 annimmt.</p>
@@ -104,31 +93,31 @@ annimmt.</p>
 wird und im obigen Beispiel nur aus einer Zeile besteht, ist daran zu erkennen,
 dass er eingerückt ist. Vergleichen wir zur Verdeutlichung die beiden
 Codestücke</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchlauf {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>und</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchlauf {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>so erhalten wir im ersten Fall die Ausgabe</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Schleifendurchlauf</span> <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Schleifendurchlauf</span> <span class="mi">1</span>
 <span class="n">Das</span> <span class="n">war</span><span class="s1">&#39;s.</span>
 <span class="n">Schleifendurchlauf</span> <span class="mi">2</span>
 <span class="n">Das</span> <span class="n">war</span><span class="s1">&#39;s.</span>
 </pre></div>
 </div>
 <p>während die Ausgabe im zweiten Fall</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Schleifendurchlauf</span> <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Schleifendurchlauf</span> <span class="mi">1</span>
 <span class="n">Schleifendurchlauf</span> <span class="mi">2</span>
 <span class="n">Das</span> <span class="n">war</span><span class="s1">&#39;s.</span>
 </pre></div>
 </div>
-<p>lautet. Im ersten Codestück gehört die zweite <code class="docutils literal"><span class="pre">print</span></code>-Anweisung also noch zur
+<p>lautet. Im ersten Codestück gehört die zweite <code class="docutils literal notranslate"><span class="pre">print</span></code>-Anweisung also noch zur
 Schleife, während dies im zweiten Codestück nicht der Fall ist. Im Prinzip ist
 die Zahl der Leerstellen bei Einrückungen unerheblich, sie muss allerdings
 innerhalb einer Schleife immer gleich sein. Das <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a> <a class="footnote-reference" href="#pep" id="id1">[1]</a>, in dem Konventionen
@@ -142,7 +131,7 @@ Verwendung von Tabulatorzeichen.</p>
 <p>Da die Verwendung der Einrückung als syntaktisches Merkmal ungewöhnlich ist,
 wollen wir kurz zwei Beispiele aus anderen Programmiersprachen besprechen. In
 FORTRAN 90 könnte eine Schleife folgendermaßen aussehen:</p>
-<div class="highlight-fortran"><div class="highlight"><pre><span></span><span class="k">PROGRAM </span><span class="n">Quadrat</span>
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">PROGRAM </span><span class="n">Quadrat</span>
 <span class="k">DO </span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span>
    <span class="k">PRINT</span> <span class="s1">&#39;(2I4)&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">END DO</span>
@@ -150,7 +139,7 @@ FORTRAN 90 könnte eine Schleife folgendermaßen aussehen:</p>
 </pre></div>
 </div>
 <p>Hier wurde nur aus Gründen der Lesbarkeit eine Einrückung vorgenommen. Relevant
-für das Ende der Schleife ist lediglich das abschließende <code class="docutils literal"><span class="pre">END</span> <span class="pre">DO</span></code>. Während
+für das Ende der Schleife ist lediglich das abschließende <code class="docutils literal notranslate"><span class="pre">END</span> <span class="pre">DO</span></code>. Während
 man sich hier selbst dazu zwingen muss, gut lesbaren Code zu schreiben, zwingt
 Python den Programmierer durch seine Syntax dazu, übersichtlichen Code zu
 produzieren.</p>
@@ -158,8 +147,8 @@ produzieren.</p>
 vorgenommen worden. Der Inhalt der Schleife wird durch die öffnende
 geschweifte Klammer in Zeile 6 und die schließende geschweifte Klammer in Zeile
 9 definiert. Würde man auf die Klammern verzichten, so wäre nur die der
-<code class="docutils literal"><span class="pre">for</span></code>-Anweisung folgende Zeile, also Zeile 7, Bestandteil der Schleife.</p>
-<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<code class="docutils literal notranslate"><span class="pre">for</span></code>-Anweisung folgende Zeile, also Zeile 7, Bestandteil der Schleife.</p>
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -182,30 +171,30 @@ geschweifte Klammer in Zeile 6 und die schließende geschweifte Klammer in Zeile
 </td></tr></table></div>
 <p>Kehren wir jetzt aber zu Python zurück und nehmen wir an, dass wir uns nur für
 gerade Zahlen interessieren und für das kleine Einmaleins nicht den Computer
-bemühen müssen. Dann können wir der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion auch einen Startwert
+bemühen müssen. Dann können wir der <code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code>-Funktion auch einen Startwert
 und eine Schrittweite vorgeben:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Die zugehörige Ausgabe lautet:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">20</span> <span class="mi">400</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">20</span> <span class="mi">400</span>
 <span class="mi">22</span> <span class="mi">484</span>
 <span class="mi">24</span> <span class="mi">576</span>
 </pre></div>
 </div>
 <p>Die Schleife wird also nur so lange ausgeführt, wie die Iterationsvariable kleiner
 als das zweite Argument ist. Bereits in dem eingangs betrachteten Beispiel war das
-Argument der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion nicht in der Liste enthalten.</p>
-<p>Statt mit der <code class="xref py py-func docutils literal"><span class="pre">range()</span></code>-Funktion eine Zahlenfolge zu erzeugen, können wir eine
+Argument der <code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code>-Funktion nicht in der Liste enthalten.</p>
+<p>Statt mit der <code class="xref py py-func docutils literal notranslate"><span class="pre">range()</span></code>-Funktion eine Zahlenfolge zu erzeugen, können wir eine
 Liste mit den gewünschten Objekten vorgeben, wie dieses Beispiel</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">zahlen</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>mit der Ausgabe</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">12</span> <span class="mi">144</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span> <span class="mi">144</span>
 <span class="mi">17</span> <span class="mi">289</span>
 <span class="mi">23</span> <span class="mi">529</span>
 </pre></div>
@@ -213,14 +202,14 @@ Liste mit den gewünschten Objekten vorgeben, wie dieses Beispiel</p>
 <p>zeigt. Listen werden grundsätzlich durch eckige Klammern begrenzt und können auch
 Objekte mit verschiedenen Datentypen enthalten, wie wir im Kapitel <a class="reference internal" href="sequenzen.html#zusgdatentypen"><span class="std std-ref">Zusammengesetzte Datentypen</span></a>
 sehen werden.</p>
-<p>In den obigen Beispielen haben wir die Schleifenvariable mit <code class="docutils literal"><span class="pre">n</span></code> bezeichnet.
+<p>In den obigen Beispielen haben wir die Schleifenvariable mit <code class="docutils literal notranslate"><span class="pre">n</span></code> bezeichnet.
 Im Allgemeinen ist es aber besser, nach Möglichkeit einen aussagekräftigeren
 Namen zu verwenden, der sich aus der konkreten Anwendung ergibt. In dem
 speziellen Fall, in dem die Schleifenvariable bei der Abarbeitung der Schleife
 nicht verwendet wird, kann zur Verdeutlichung dieses Umstands der Unterstrich
-<code class="docutils literal"><span class="pre">_</span></code> als Variablenname verwendet werden. Hierbei handelt es sich, wie wir aus
+<code class="docutils literal notranslate"><span class="pre">_</span></code> als Variablenname verwendet werden. Hierbei handelt es sich, wie wir aus
 dem Kapitel <a class="reference internal" href="datentypen.html#variablen"><span class="std std-ref">Variablen und Zuweisungen</span></a> wissen, um einen erlaubten Bezeichner.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python ist toll!&quot;</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">Python ist toll!</span>
@@ -234,19 +223,19 @@ verwenden, die später noch benötigt werden.</p>
 Schleife vorbereitet, den Schleifeninhalt noch nicht geschrieben hat, aber
 dennoch ein syntaktisch korrektes Programm haben möchte.  Da der
 Schleifeninhalt nicht leer sein darf, verwendet man in einem solchen Fall die
-Anweisung <code class="docutils literal"><span class="pre">pass</span></code>, die sonst keine weiteren Auswirkungen hat. In dem Beispiel</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+Anweisung <code class="docutils literal notranslate"><span class="pre">pass</span></code>, die sonst keine weiteren Auswirkungen hat. In dem Beispiel</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 </div>
 <p>gibt es also keinen wirklichen Schleifeninhalt. Allerdings muss man sich
 darüber im Klaren sein, dass dennoch die Schleife abgearbeitet wird. Dabei
-werden in diesem Beispiel der Variablen <code class="docutils literal"><span class="pre">n</span></code> nacheinander die Werte von <code class="docutils literal"><span class="pre">0</span></code>
-bis <code class="docutils literal"><span class="pre">9</span></code> zugeordnet. Nach Abarbeitung der Schleife hat <code class="docutils literal"><span class="pre">n</span></code> also den Wert
-<code class="docutils literal"><span class="pre">9</span></code>.</p>
-<p>Eine typische Form der Anwendung einer <code class="docutils literal"><span class="pre">for</span></code>-Schleife ist im folgenden Beispiel
+werden in diesem Beispiel der Variablen <code class="docutils literal notranslate"><span class="pre">n</span></code> nacheinander die Werte von <code class="docutils literal notranslate"><span class="pre">0</span></code>
+bis <code class="docutils literal notranslate"><span class="pre">9</span></code> zugeordnet. Nach Abarbeitung der Schleife hat <code class="docutils literal notranslate"><span class="pre">n</span></code> also den Wert
+<code class="docutils literal notranslate"><span class="pre">9</span></code>.</p>
+<p>Eine typische Form der Anwendung einer <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ist im folgenden Beispiel
 gezeigt.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -264,17 +253,17 @@ Summe, die π²/6 ergibt, durch Beschränkung auf die ersten 100000 Terme
 näherungsweise auszuwerten. Nachdem uns die Form der Zeilen 4 und 5 inzwischen
 schon gut vertraut ist, betrachten wir insbesondere die Zeile 3. Hier wird, wie
 dies häufig bei Schleifen erforderlich ist, zunächst eine Variable, hier die
-Summationsvariable <code class="docutils literal"><span class="pre">summe</span></code>, initialisiert. Vergisst man dies, so ist diese
+Summationsvariable <code class="docutils literal notranslate"><span class="pre">summe</span></code>, initialisiert. Vergisst man dies, so ist diese
 Variable beim ersten Schleifendurchlauf auf der rechten Seite der Zeile 5
-undefiniert, was zu einem <code class="docutils literal"><span class="pre">NameError</span></code> führt. Es ist also keineswegs so, dass
+undefiniert, was zu einem <code class="docutils literal notranslate"><span class="pre">NameError</span></code> führt. Es ist also keineswegs so, dass
 Variablen auf magische Weise mit einer Null vorbelegt werden. Bei der
 Verwendung von Schleifen muss man also immer auch an die eventuell
 erforderliche Initialisierung von Variablen denken, die in der Schleife
 verwendet werden.</p>
-<p><code class="docutils literal"><span class="pre">for</span></code>-Schleifen können auch ineinander geschachtelt werden, wie folgendes
+<p><code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen können auch ineinander geschachtelt werden, wie folgendes
 Beispiel zeigt, das die Wahrheitswerttabelle der logischen UND-Verknüpfung
-mit Hilfe des <code class="docutils literal"><span class="pre">&amp;</span></code>-Operators erzeugt.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot; arg1 arg2    arg1 &amp; arg2 &quot;</span><span class="p">)</span>
+mit Hilfe des <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>-Operators erzeugt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot; arg1 arg2    arg1 &amp; arg2 &quot;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">&quot;--------------------------&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">arg1</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
     <span class="k">for</span> <span class="n">arg2</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
@@ -283,7 +272,7 @@ mit Hilfe des <code class="docutils literal"><span class="pre">&amp;</span></cod
 </pre></div>
 </div>
 <p>Die zugehörige Ausgabe lautet:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">arg1</span> <span class="n">arg2</span>    <span class="n">arg1</span> <span class="o">&amp;</span> <span class="n">arg2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">arg1</span> <span class="n">arg2</span>    <span class="n">arg1</span> <span class="o">&amp;</span> <span class="n">arg2</span>
 <span class="o">--------------------------</span>
   <span class="mi">0</span>    <span class="mi">0</span>          <span class="mi">0</span>
   <span class="mi">0</span>    <span class="mi">1</span>          <span class="mi">0</span>
@@ -291,16 +280,16 @@ mit Hilfe des <code class="docutils literal"><span class="pre">&amp;</span></cod
   <span class="mi">1</span>    <span class="mi">1</span>          <span class="mi">1</span>
 </pre></div>
 </div>
-<p>Wie man sieht, wird zunächst durch die äußere Schleife die Variable <code class="docutils literal"><span class="pre">arg1</span></code> auf
-den Wert 0 gesetzt. Dann wird die innere Schleife abgearbeitet und <code class="docutils literal"><span class="pre">arg2</span></code>
+<p>Wie man sieht, wird zunächst durch die äußere Schleife die Variable <code class="docutils literal notranslate"><span class="pre">arg1</span></code> auf
+den Wert 0 gesetzt. Dann wird die innere Schleife abgearbeitet und <code class="docutils literal notranslate"><span class="pre">arg2</span></code>
 durchläuft die Werte 0 und 1. Anschließend schreitet die äußere Schleife einen
-Schritt voran, wobei <code class="docutils literal"><span class="pre">arg1</span></code> auf den Wert 1 gesetzt wird. Dann läuft wiederum
+Schritt voran, wobei <code class="docutils literal notranslate"><span class="pre">arg1</span></code> auf den Wert 1 gesetzt wird. Dann läuft wiederum
 die innere Schleife über die Werte 0 und 1, so dass sich insgesamt vier Ausgabezeilen
 ergeben. Hinzu kommen die zu Beginn des Codes definierten zwei Ausgabezeilen, die
 den Kopf der Ausgabe bilden. Wichtig ist, dass die Einrückungen entsprechend den
 Zugehörigkeiten zu den jeweiligen Schleifen korrekt vorgenommen werden. So ist
 die innere Schleife Bestandteil des Codeblocks der äußeren Schleife und daher
-eingerückt. Die <code class="docutils literal"><span class="pre">print</span></code>-Anweisung gehört zum Codeblock der inneren Schleife und
+eingerückt. Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Anweisung gehört zum Codeblock der inneren Schleife und
 wurde somit entsprechend weiter eingerückt. Die Einrückung in der letzten Zeile, einer
 Fortsetzungszeile, ist dagegen willkürlich und vor allem so gewählt, dass die Lesbarkeit
 möglichst gut ist.</p>
@@ -309,17 +298,17 @@ möglichst gut ist.</p>
 <h2>While-Schleife<a class="headerlink" href="#while-schleife" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Nicht immer kennt man vorab die Zahl der benötigten Schleifendurchläufe,
 sondern möchte die Beendigung einer Schleife von der Nichterfüllung einer
-Bedingung abhängig machen. Dann ist eine <code class="docutils literal"><span class="pre">while</span></code>-Schleife das Mittel der
+Bedingung abhängig machen. Dann ist eine <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife das Mittel der
 Wahl.</p>
 <p>Als Beispiel betrachten wir eine physikalische Problemstellung. Beim schiefen
-Wurf beginne eine Punktmasse ihre Bahn am Ort <code class="docutils literal"><span class="pre">x=0</span></code>, <code class="docutils literal"><span class="pre">y=0</span></code> mit der
-Anfangsgeschwindigkeit (<code class="docutils literal"><span class="pre">vx0</span></code>, <code class="docutils literal"><span class="pre">vy0</span></code>). Die Bahn soll für Zeiten in Schritten
-von <code class="docutils literal"><span class="pre">dt</span></code> so lange bestimmt werden wie die y-Koordinate nicht negativ ist. In
+Wurf beginne eine Punktmasse ihre Bahn am Ort <code class="docutils literal notranslate"><span class="pre">x=0</span></code>, <code class="docutils literal notranslate"><span class="pre">y=0</span></code> mit der
+Anfangsgeschwindigkeit (<code class="docutils literal notranslate"><span class="pre">vx0</span></code>, <code class="docutils literal notranslate"><span class="pre">vy0</span></code>). Die Bahn soll für Zeiten in Schritten
+von <code class="docutils literal notranslate"><span class="pre">dt</span></code> so lange bestimmt werden wie die y-Koordinate nicht negativ ist. In
 der Praxis wäre die Problemstellung wahrscheinlich so kompliziert, dass man die
 newtonsche Bewegungsgleichung numerisch lösen müsste. In dem vorliegenden Fall
 kennen wir die Lösung analytisch und können sie im Programm verwenden.</p>
 <p>Die Berechnung der Bahnkurve könnte durch folgendes Programm geschehen:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -356,22 +345,22 @@ kennen wir die Lösung analytisch und können sie im Programm verwenden.</p>
 </td></tr></table></div>
 <p>In den Zeilen 1-7 wird zunächst eine Reihe von Parametern festgelegt. Hierzu
 gehören die Größen, die auch in einer physikalischen Problemstellung benötigt
-werden, nämlich Ort (<code class="docutils literal"><span class="pre">x0</span></code>, <code class="docutils literal"><span class="pre">y0</span></code>) und Geschwindigkeit (<code class="docutils literal"><span class="pre">vx0</span></code>, <code class="docutils literal"><span class="pre">vy0</span></code>) zum
-Anfangszeitpunkt. Außerdem benötigen wir den Wert der Erdbeschleunigung <code class="docutils literal"><span class="pre">g</span></code>.
-Der Anfangszeitpunkt bestimmt den anfänglichen Wert der Zeitvariable <code class="docutils literal"><span class="pre">t</span></code>.</p>
+werden, nämlich Ort (<code class="docutils literal notranslate"><span class="pre">x0</span></code>, <code class="docutils literal notranslate"><span class="pre">y0</span></code>) und Geschwindigkeit (<code class="docutils literal notranslate"><span class="pre">vx0</span></code>, <code class="docutils literal notranslate"><span class="pre">vy0</span></code>) zum
+Anfangszeitpunkt. Außerdem benötigen wir den Wert der Erdbeschleunigung <code class="docutils literal notranslate"><span class="pre">g</span></code>.
+Der Anfangszeitpunkt bestimmt den anfänglichen Wert der Zeitvariable <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p>
 <p>Da uns das Programm die Bahn nicht für eine kontinuierlich verlaufende Zeit
 liefern kann, müssen wir eine diskrete Zeit einführen. Hierfür legen wir den
-Abstand <code class="docutils literal"><span class="pre">dt</span></code> zwischen aufeinanderfolgenden Zeitpunkten fest.</p>
+Abstand <code class="docutils literal notranslate"><span class="pre">dt</span></code> zwischen aufeinanderfolgenden Zeitpunkten fest.</p>
 <p>In den Zeilen 9 und 10 wird der Ort zur Anfangszeit mit den Anfangsbedingungen
-belegt. Damit ist auch beim ersten Test der <code class="docutils literal"><span class="pre">while</span></code>-Bedingung die Variable <code class="docutils literal"><span class="pre">y</span></code>
+belegt. Damit ist auch beim ersten Test der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Bedingung die Variable <code class="docutils literal notranslate"><span class="pre">y</span></code>
 definiert. Zudem benötigen wir diese Werte für die Ausgabe in Zeile 14.
-Die <code class="docutils literal"><span class="pre">print</span></code>-Anweisungen in den Zeilen 11 und 12 dienen dazu, die Ausgabe
+Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Anweisungen in den Zeilen 11 und 12 dienen dazu, die Ausgabe
 selbsterklärend zu machen.</p>
 <p>Der uns hier eigentlich interessierende Programmteil beginnt in Zeile 13 mit
-der <code class="docutils literal"><span class="pre">while</span></code>-Anweisung. Da wir uns mit der Berechnung der Wurfparabel für
+der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Anweisung. Da wir uns mit der Berechnung der Wurfparabel für
 nicht negative Höhen begnügen wollen, lautet die zu erfüllende Bedingung
-<code class="docutils literal"><span class="pre">y&gt;=0</span></code>. In Zeile 14 wird der aktuelle Bahnpunkt, für den ja überprüft wurde,
-dass der Wert der Variable <code class="docutils literal"><span class="pre">y</span></code> nicht negativ ist, ausgegeben. In Zeile 15
+<code class="docutils literal notranslate"><span class="pre">y&gt;=0</span></code>. In Zeile 14 wird der aktuelle Bahnpunkt, für den ja überprüft wurde,
+dass der Wert der Variable <code class="docutils literal notranslate"><span class="pre">y</span></code> nicht negativ ist, ausgegeben. In Zeile 15
 wird die Zeit um den vorgegebenen Zeitschritt erhöht und in den Zeilen 16 und
 17 der zugehörige Bahnpunkt bestimmt.</p>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Wie würde sich die Ausgabe verändern, wenn man die Zeilen 14 und 15 hinter
@@ -397,11 +386,11 @@ a priority of keeping the comments up-to-date when the code changes!”</div></b
 <p>Andernfalls besteht die Gefahr, den Leser des Kommentars, also unter Umständen
 sich selbst, auf eine falsche Fährte zu setzen.</p>
 <p>Als Anmerkung sei noch erwähnt, dass andere Sprachen eventuell ein
-<code class="docutils literal"><span class="pre">do...while</span></code>-Konstrukt (z.B. C) oder ein <code class="docutils literal"><span class="pre">repeat...until</span></code>-Konstrukt
+<code class="docutils literal notranslate"><span class="pre">do...while</span></code>-Konstrukt (z.B. C) oder ein <code class="docutils literal notranslate"><span class="pre">repeat...until</span></code>-Konstrukt
 (z.B. Pascal) zur Verfügung stellen. Dort erfolgt der Abbruchtest nicht zu
 Beginn, sondern am Ende. Daher wird der Code auf jeden Fall einmal durchlaufen.</p>
 <p>Ein Beispiel hierfür könnte in C folgendermaßen aussehen:</p>
-<div class="highlight-c"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-c notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -418,11 +407,11 @@ Beginn, sondern am Ende. Daher wird der Code auf jeden Fall einmal durchlaufen.<
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></div>
-<p>In Zeile 4 wird die Variable <code class="docutils literal"><span class="pre">i</span></code> mit <code class="docutils literal"><span class="pre">-1</span></code> initialisiert. Da der Test auf Positivität
-von <code class="docutils literal"><span class="pre">i</span></code> erst am Ende der Schleife erfolgt, wird die Schleife einmal durchlaufen und
-somit eine Zeile mit dem Inhalt <code class="docutils literal"><span class="pre">-1</span>&#160; <span class="pre">1</span></code> ausgegeben. In Pascal würde man das Gleiche
+<p>In Zeile 4 wird die Variable <code class="docutils literal notranslate"><span class="pre">i</span></code> mit <code class="docutils literal notranslate"><span class="pre">-1</span></code> initialisiert. Da der Test auf Positivität
+von <code class="docutils literal notranslate"><span class="pre">i</span></code> erst am Ende der Schleife erfolgt, wird die Schleife einmal durchlaufen und
+somit eine Zeile mit dem Inhalt <code class="docutils literal notranslate"><span class="pre">-1</span>&#160; <span class="pre">1</span></code> ausgegeben. In Pascal würde man das Gleiche
 mit diesem Code erhalten:</p>
-<div class="highlight-pascal"><div class="highlight"><pre><span></span><span class="k">program</span> <span class="n">Quadrat</span><span class="o">;</span>
+<div class="highlight-pascal notranslate"><div class="highlight"><pre><span></span><span class="k">program</span> <span class="n">Quadrat</span><span class="o">;</span>
 <span class="k">var</span>
   <span class="n">i</span><span class="o">:</span> <span class="kt">integer</span><span class="o">;</span>
 <span class="k">begin</span>
@@ -437,7 +426,7 @@ mit diesem Code erhalten:</p>
 </pre></div>
 </div>
 <p>Abschließend sei betont, dass der Programmierer bei der Verwendung von
-<code class="docutils literal"><span class="pre">while</span></code>-Schleifen und ähnlichen Konstrukten selbst dafür verantwortlich
+<code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen und ähnlichen Konstrukten selbst dafür verantwortlich
 ist sicherzustellen, dass die Schleife irgendwann beendet wird.
 Andernfalls liegt eine Endlosschleife vor und das Programm muss von außen
 abgebrochen werden. Dieses Szenario kann allerdings gezielt bei Programmen
@@ -445,8 +434,8 @@ eingesetzt werden, die durch äußere Ereignisse wie Tastendrucke oder Mausbeweg
 gesteuert werden. In diesem Fall durchläuft das Programm eine Endlosschleife,
 um bei Bedarf auf äußere Ereignisse adäquat zu reagieren. Aber auch in diesem
 Fall ist darauf zu achten, dass es eine Möglichkeit gibt, das Programm kontrolliert,
-beispielsweise durch Drücken der Taste <code class="docutils literal"><span class="pre">q</span></code>, zu beenden. Im Python-Code verwendet
-man dann den <code class="docutils literal"><span class="pre">break</span></code>-Befehl, um die Ausführung des Programmcodes außerhalb der
+beispielsweise durch Drücken der Taste <code class="docutils literal notranslate"><span class="pre">q</span></code>, zu beenden. Im Python-Code verwendet
+man dann den <code class="docutils literal notranslate"><span class="pre">break</span></code>-Befehl, um die Ausführung des Programmcodes außerhalb der
 Schleife fortzusetzen.</p>
 </div>
 <div class="section" id="verzweigungen">
@@ -454,8 +443,8 @@ Schleife fortzusetzen.</p>
 <p>Eine andere Art von Kontrollstrukturen, bei denen es nicht um die mehrfache
 Ausführung von Code geht, sind Verzweigungen. Dabei wird ein Code nur dann
 ausgeführt, wenn eine vorgegebene Bedingung erfüllt ist. Im einfachsten Fall
-geschieht dies mit der <code class="docutils literal"><span class="pre">if</span></code>-Anweisung wie folgendes Beispiel zeigt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+geschieht dies mit der <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung wie folgendes Beispiel zeigt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Kehrwert von </span><span class="si">{}</span><span class="s2"> ist </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">...</span>
@@ -466,25 +455,25 @@ geschieht dies mit der <code class="docutils literal"><span class="pre">if</span
 <span class="gp">...</span>
 </pre></div>
 </div>
-<p>Im ersten Fall wird der Code des <code class="docutils literal"><span class="pre">if</span></code>-Blocks ausgeführt, im zweiten Fall
-dagegen nicht. Wie schon bei den <code class="docutils literal"><span class="pre">for</span></code>- und <code class="docutils literal"><span class="pre">while</span></code>-Konstrukten ist der
+<p>Im ersten Fall wird der Code des <code class="docutils literal notranslate"><span class="pre">if</span></code>-Blocks ausgeführt, im zweiten Fall
+dagegen nicht. Wie schon bei den <code class="docutils literal notranslate"><span class="pre">for</span></code>- und <code class="docutils literal notranslate"><span class="pre">while</span></code>-Konstrukten ist der
 Umfang des Codeblocks, der nur bedingt ausgeführt wird, durch die Einrückung
 bestimmt, kann also auch mehr als eine Zeile umfassen. Ist der Code nur eine
-Zeile lang, darf er auch direkt hinter der <code class="docutils literal"><span class="pre">if</span></code>-Anweisung stehen.</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+Zeile lang, darf er auch direkt hinter der <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung stehen.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Diese Zahl ist bestimmt nicht negativ:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="go">Diese Zahl ist bestimmt nicht negativ: 5</span>
 </pre></div>
 </div>
-<p>Die <code class="docutils literal"><span class="pre">print</span></code>-Anweisung wird in diesem Fall immer ausgeführt.</p>
+<p>Die <code class="docutils literal notranslate"><span class="pre">print</span></code>-Anweisung wird in diesem Fall immer ausgeführt.</p>
 <p>In diesen Beispielen ist die Bedeutung der verwendeten Bedingung ziemlich
 offensichtlich. Gelegentlich können aber auch kompliziertere Bedingungen
 auftreten, deren Bedeutung sich nicht ohne Weiteres erschließt. Dann kann es
 sinnvoll sein, eine Variable für den entsprechenden Wahrheitswert nach
 folgendem Muster einzuführen:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
@@ -496,8 +485,8 @@ folgendem Muster einzuführen:</p>
 <p>In Zeile 2 dokumentiert die Bezeichnung der Wahrheitswertvariable die Bedeutung
 des logischen Ausdrucks auf der rechten Seite.</p>
 <p>Häufig möchte man abhängig von einer Bedingung eine von zwei Alternativen
-ausführen lassen. Hierfür verwendet man das <code class="docutils literal"><span class="pre">if</span></code> … <code class="docutils literal"><span class="pre">else</span></code> …-Konstrukt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+ausführen lassen. Hierfür verwendet man das <code class="docutils literal notranslate"><span class="pre">if</span></code> … <code class="docutils literal notranslate"><span class="pre">else</span></code> …-Konstrukt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Der Kehrwert von </span><span class="si">{}</span><span class="s2"> ist </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">... </span><span class="k">else</span><span class="p">:</span>
@@ -507,7 +496,7 @@ ausführen lassen. Hierfür verwendet man das <code class="docutils literal"><sp
 </pre></div>
 </div>
 <p>Verzweigungen lassen sich auch schachteln.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -523,10 +512,10 @@ ausführen lassen. Hierfür verwendet man das <code class="docutils literal"><sp
 </pre></div>
 </td></tr></table></div>
 <p>Wie die Einrückung zeigt, stellen die Zeilen 4-7 den Codeblock der ersten
-<code class="docutils literal"><span class="pre">else</span></code>-Anweisung dar. Da solche Konstruktionen häufig vorkommen, stellt
-Python hier eine <code class="docutils literal"><span class="pre">elif</span></code>-Anweisung zur Verfügung, mit der sich der Code
+<code class="docutils literal notranslate"><span class="pre">else</span></code>-Anweisung dar. Da solche Konstruktionen häufig vorkommen, stellt
+Python hier eine <code class="docutils literal notranslate"><span class="pre">elif</span></code>-Anweisung zur Verfügung, mit der sich der Code
 folgendermaßen schreiben lässt:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -541,21 +530,21 @@ folgendermaßen schreiben lässt:</p>
 </td></tr></table></div>
 <p>Um die Programmlaufzeit zu optimieren, sollten die Abfragen so formuliert
 werden, dass in der Mehrheit der Fälle bereits die erste Bedingung erfüllt
-ist. Muss man davon ausgehen, dass die Variable <code class="docutils literal"><span class="pre">x</span></code> in den meisten Fällen
+ist. Muss man davon ausgehen, dass die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> in den meisten Fällen
 positiv ist, so wäre es sinnvoll, den obigen Code umzuformulieren.</p>
 <p>Man kann sich durchaus mehrere Schachtelungsebenen vorstellen, die mit
-entsprechend vielen <code class="docutils literal"><span class="pre">elif</span></code>-Anweisungen realisiert werden. Einige
-Programmiersprachen stellen hierfür eine so genannte <code class="docutils literal"><span class="pre">case</span></code>-Anweisung zur
+entsprechend vielen <code class="docutils literal notranslate"><span class="pre">elif</span></code>-Anweisungen realisiert werden. Einige
+Programmiersprachen stellen hierfür eine so genannte <code class="docutils literal notranslate"><span class="pre">case</span></code>-Anweisung zur
 Verfügung. In Python gibt es eine solche Anweisung allerdings nicht.  Mit Hilfe
-des Datentyps <code class="docutils literal"><span class="pre">dictionary</span></code>, den wir im Abschnitt <a class="reference internal" href="sequenzen.html#dictionaries"><span class="std std-ref">Dictionaries</span></a> noch
+des Datentyps <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, den wir im Abschnitt <a class="reference internal" href="sequenzen.html#dictionaries"><span class="std std-ref">Dictionaries</span></a> noch
 kennenlernen werden, lässt sich aber ein effizienter Ersatz schaffen, der eine
 lange Hierarchie von Abfragen vermeidet.</p>
 <p>In Verzweigungen wie im obigen Beispiel, vor allem aber, wenn man mehrere
-<code class="docutils literal"><span class="pre">elif</span></code>-Blöcke vorliegen hat, sollte man beachten, dass nach der Abarbeitung
-eines Blockes an das Ende der gesamten <code class="docutils literal"><span class="pre">if</span></code>-Konstruktion gesprungen wird.
+<code class="docutils literal notranslate"><span class="pre">elif</span></code>-Blöcke vorliegen hat, sollte man beachten, dass nach der Abarbeitung
+eines Blockes an das Ende der gesamten <code class="docutils literal notranslate"><span class="pre">if</span></code>-Konstruktion gesprungen wird.
 Dies gilt auch dann, wenn eine später folgende Bedingung erfüllt ist, wie das
 folgende Beispiel illustriert.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist negativ.&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -564,7 +553,7 @@ folgende Beispiel illustriert.</p>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;x ist größer als Null.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Hier ist die zweite Bedingung erfüllt, so dass der Text »<code class="docutils literal"><span class="pre">x</span> <span class="pre">ist</span> <span class="pre">gleich</span> <span class="pre">2.</span></code>«
+<p>Hier ist die zweite Bedingung erfüllt, so dass der Text »<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">ist</span> <span class="pre">gleich</span> <span class="pre">2.</span></code>«
 ausgegeben wird. Im weiteren Programmablauf wird die dritte Bedingung in diesem Fall
 überhaupt nicht ausgewertet.</p>
 </div>
@@ -575,9 +564,9 @@ die Variable ungleich Null ist, bevor wir den Kehrwert gebildet haben <a class="
 In Python verwendet man gerne eine Alternative, die davon ausgeht, dass es
 leichter ist, um Verzeihung zu bitten also um Erlaubnis <a class="footnote-reference" href="#eafp" id="id4">[4]</a>.  Im Abschnitt
 <a class="reference internal" href="datentypen.html#float"><span class="std std-ref">Gleitkommazahlen</span></a> hatten wir bereits gesehen, dass bei einer Division durch Null
-eine <code class="docutils literal"><span class="pre">ZeroDivisionError</span></code>-Ausnahme (engl. <em>Exception</em>) geworfen wird. Diese
+eine <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>-Ausnahme (engl. <em>Exception</em>) geworfen wird. Diese
 Ausnahme kann folgendermaßen abgefangen werden:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -592,24 +581,24 @@ Ausnahme kann folgendermaßen abgefangen werden:</p>
 <span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>Als Ausgabe ergibt sich <code class="docutils literal"><span class="pre">1.0</span></code>. Zunächst wird versucht, den Codeblock nach der
-<code class="docutils literal"><span class="pre">try</span></code>-Anweisung, also hier den Code in Zeile 4, auszuführen. Wird dabei eine
-<code class="docutils literal"><span class="pre">ZeroDivisionError</span></code>-Ausnahme geworfen, so wird der Programmablauf im
-Codeblock der <code class="docutils literal"><span class="pre">except</span></code>-Anweisung, also in Zeile 6, fortgesetzt. Dies gilt
-jedoch nur für die in der <code class="docutils literal"><span class="pre">except</span></code>-Anweisung angegebene(n) Ausnahme(n).  Wäre
-z.B. die Variable <code class="docutils literal"><span class="pre">x</span></code> vom Typ <em>String</em>, so würde das Programm mit einer
-<code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme abbrechen. Gibt man nach der <code class="docutils literal"><span class="pre">except</span></code>-Anweisung keine
+<p>Als Ausgabe ergibt sich <code class="docutils literal notranslate"><span class="pre">1.0</span></code>. Zunächst wird versucht, den Codeblock nach der
+<code class="docutils literal notranslate"><span class="pre">try</span></code>-Anweisung, also hier den Code in Zeile 4, auszuführen. Wird dabei eine
+<code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code>-Ausnahme geworfen, so wird der Programmablauf im
+Codeblock der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Anweisung, also in Zeile 6, fortgesetzt. Dies gilt
+jedoch nur für die in der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Anweisung angegebene(n) Ausnahme(n).  Wäre
+z.B. die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> vom Typ <em>String</em>, so würde das Programm mit einer
+<code class="docutils literal notranslate"><span class="pre">TypeError</span></code>-Ausnahme abbrechen. Gibt man nach der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Anweisung keine
 Ausnahme(n) an, so wird der Programmablauf beim Auftreten einer Ausnahme
 unabhängig von deren Typ in Zeile 6 fortgesetzt. Auch wenn ein solches Vorgehen
 zunächst als sehr bequem erscheint, ist es aus mehreren Gründen nicht ratsam.
-Zum einen würde die Behandlung beispielsweise einer <code class="docutils literal"><span class="pre">TypeError</span></code>-Ausnahme
+Zum einen würde die Behandlung beispielsweise einer <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>-Ausnahme
 durch den Code in Zeile 6 nicht korrekt sein und somit sehr wahrscheinlich zu
 einem fehlerhaften Ergebnis führen. Zum anderen tritt der fehlerhafte Typ der
-Variable <code class="docutils literal"><span class="pre">x</span></code>, der seinen Ursprung wohl in einem Programmierfehler hat, nicht
+Variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, der seinen Ursprung wohl in einem Programmierfehler hat, nicht
 mehr in Erscheinung, so dass der Programmierfehler möglicherweise unentdeckt
 bliebe.</p>
-<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Das <code class="docutils literal"><span class="pre">try…except…</span></code>-Konstrukt erlaubt auch noch einen
-<code class="docutils literal"><span class="pre">finally…</span></code>-Block, der unabhängig vom Auftreten einer Ausnahme ausgeführt
+<p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Das <code class="docutils literal notranslate"><span class="pre">try…except…</span></code>-Konstrukt erlaubt auch noch einen
+<code class="docutils literal notranslate"><span class="pre">finally…</span></code>-Block, der unabhängig vom Auftreten einer Ausnahme ausgeführt
 wird. Dies ist zum Beispiel wichtig, wenn Dateizugriffe erfolgen und die Datei
 am Ende auf jeden Fall geschlossen werden muss.</p>
 <table class="docutils footnote" frame="void" id="pep" rules="none">
@@ -658,8 +647,8 @@ permission”.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2018, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.9 erstellt.
+        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
     </div>
   </body>
 </html>
