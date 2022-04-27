@@ -1,45 +1,46 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2. Version Control with Git &#8212; Tools for Scientific Computing 0.1 documentation</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2. Version Control with Git &#8212; Tools for Scientific Computing 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3. Testing of code" href="testing.html" />
     <link rel="prev" title="1. Introduction" href="introduction.html" /> 
   </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Tools for Scientific Computing 0.1 documentation</span></a></h1>
+          <span>Tools for Scientific Computing 0.2 documentation</span></a></h1>
         <h2 class="heading"><span>2. Version Control with Git</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="introduction.html">1. Introduction</a>
+        «&#160;&#160;<a href="introduction.html"><span class="section-number">1. </span>Introduction</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="testing.html">3. Testing of code</a>&#160;&#160;»
+        <a href="testing.html"><span class="section-number">3. </span>Testing of code</a>&#160;&#160;»
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="version-control-with-git">
-<span id="version-control"></span><h1>2. Version Control with Git<a class="headerlink" href="#version-control-with-git" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="why-version-control">
-<h2>2.1. Why version control?<a class="headerlink" href="#why-version-control" title="Permalink to this headline">¶</a></h2>
+  <section id="version-control-with-git">
+<span id="version-control"></span><h1><span class="section-number">2. </span>Version Control with Git<a class="headerlink" href="#version-control-with-git" title="Permalink to this headline">¶</a></h1>
+<section id="why-version-control">
+<h2><span class="section-number">2.1. </span>Why version control?<a class="headerlink" href="#why-version-control" title="Permalink to this headline">¶</a></h2>
 <p>A program is rarely written in one go but rather evolves through a number of
 stages where the code is improved, for example by fixing errors or improving its
 functionality. In this process, it is generally a good idea to keep old
@@ -84,9 +85,9 @@ in 2005. Its original purpose was to serve in the development of the Linux
 kernel. In order to make certain aspects of Git better understandable and to
 highlight some of its advantages, we will consider in the following section
 in some more detail different approaches to version control.</p>
-</div>
-<div class="section" id="centralized-and-distributed-version-control-systems">
-<span id="cvcs-vs-dvcs"></span><h2>2.2. Centralized and distributed version control systems<a class="headerlink" href="#centralized-and-distributed-version-control-systems" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="centralized-and-distributed-version-control-systems">
+<span id="cvcs-vs-dvcs"></span><h2><span class="section-number">2.2. </span>Centralized and distributed version control systems<a class="headerlink" href="#centralized-and-distributed-version-control-systems" title="Permalink to this headline">¶</a></h2>
 <p>Often software is developed by a team. For the sake of illustration let us
 think of a number of authors working jointly on a text. In fact, scientific
 manuscripts are often written in (La)TeX which can be viewed as a specialized
@@ -105,16 +106,18 @@ between team members about who is doing what.</p>
 <p>More modern version control systems are designed to favor collaboration within
 a team. There exist two different approaches: centralized version control
 systems on the one hand and distributed version control systems on the other
-hand. The version control system Git which we are going to discuss in more
-detail in this chapter is a distributed version control system. In order to
+hand. The version control system Git, which we are going to discuss in more
+detail in this chapter, is a distributed version control system. In order to
 better understand some of its aspects, it is useful to contrast it with a
 centralized version control system like Subversion.</p>
-<div class="figure align-center" id="id7">
+<figure class="align-center" id="id8">
 <span id="cvcs"></span><a class="reference internal image-reference" href="_images/cvcs.png"><img alt="_images/cvcs.png" src="_images/cvcs.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.1 </span><span class="caption-text">A centralized version control system contains a well defined set of
+<figcaption>
+<p><span class="caption-number">Figure 2.1 </span><span class="caption-text">A centralized version control system contains a well defined set of
 files at any given moment in time which can be referred to by a
-sequential revision number.</span></p>
-</div>
+sequential revision number.</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>More modern version control systems are designed to favor collaboration within
 a team. There exist two different approaches: centralized version control
 systems on the one hand and distributed version control systems on the other
@@ -128,17 +131,19 @@ here, exchange code versions via the internet with a central server. At any
 moment of time, the server contains a definite set of files, i.e. a revision
 which is numbered sequentially as indicated in the right part of <a class="reference internal" href="#cvcs"><span class="std std-numref">Figure 2.1</span></a>.
 From one revision to the next, files can change or remain unchanged and files
-can be added or removed. The prize to pay for this simple sequential history
+can be added or removed. The price to pay for this simple sequential history
 is that an internet connection and a working server is needed in order to
 create a new revision. A developer cannot create new revisions of the code
 while working off-line, an important drawback of centralized version control
 systems.</p>
-<div class="figure align-center" id="id8">
+<figure class="align-center" id="id9">
 <span id="dvcs"></span><a class="reference internal image-reference" href="_images/dvcs.png"><img alt="_images/dvcs.png" src="_images/dvcs.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.2 </span><span class="caption-text">In a distributed version control system each user keeps file versions in
+<figcaption>
+<p><span class="caption-number">Figure 2.2 </span><span class="caption-text">In a distributed version control system each user keeps file versions in
 a local repository and exchanges versions with other repositories when
-needed. As a consequence no global sequential history can be defined.</span></p>
-</div>
+needed. As a consequence no global sequential history can be defined.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>As an alternative, one can use a distributed version control system which
 is schematically represented in <a class="reference internal" href="#dvcs"><span class="std std-numref">Figure 2.2</span></a>. In such a setup, each developer
 keeps his or her own versions in a local repository and exchanges files
@@ -151,11 +156,13 @@ files and sets of files, so-called commits, which reflect changes in the
 code base. The main point to understand here is that the seemingly natural
 sequential numbering scheme cannot work in a distributed version control
 system.</p>
-<div class="figure align-center" id="id9">
+<figure class="align-center" id="id10">
 <span id="dvcs-github"></span><a class="reference internal image-reference" href="_images/dvcs-github.png"><img alt="_images/dvcs-github.png" src="_images/dvcs-github.png" style="height: 10em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.3 </span><span class="caption-text">A typical setup for the distributed version control system Git uses
-a central server to exchange versions between local repositories.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 2.3 </span><span class="caption-text">A typical setup for the distributed version control system Git uses
+a central server to exchange versions between local repositories.</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>In most cases, a distributed version control system is not implemented
 precisely in the way presented in <a class="reference internal" href="#dvcs"><span class="std std-numref">Figure 2.2</span></a> as it would require
 communication between potentially a large number of local repositories. A setup
@@ -168,7 +175,7 @@ a local repository is completely sufficient and there is no need to use another
 server.</p>
 <p>A central server for the use with the version control system Git can be set up
 based on GitLab. Many institutions are running a GitLab instance
-<a class="footnote-reference" href="#gitlab-uaux" id="id1">[1]</a>.  In addition, there exists the GitHub service at <a class="reference external" href="https://github.com/">github.com</a>. GitHub is popular among developers of open software
+<a class="footnote-reference brackets" href="#gitlab-uaux" id="id1">1</a>.  In addition, there exists the GitHub service at <a class="reference external" href="https://github.com/">github.com</a>. GitHub is popular among developers of open software
 projects for which it provides repositories free of charge. Private
 repositories can be obtained at a monthly rate, but there exists also the
 possibility to apply for temporary free private repositories for academic use.
@@ -178,76 +185,89 @@ minor.</p>
 <p>In the following sections, we will start by explaining the use of Git in a
 single-user scenario with a local repository. This knowledge also forms the
 basis for work in a multi-developer environment using GitLab or GitHub.</p>
-</div>
-<div class="section" id="getting-help">
-<h2>2.3. Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="getting-help">
+<h2><span class="section-number">2.3. </span>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h2>
 <p>Before starting to explore the version control system Git, it is useful to
 know where one can get help. Generally, Git tries to be quite helpful even
 on the command line by adding useful hints to its output. As the general structure
 of a Git command starts with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">&lt;command&gt;</span></code>, one can ask for help as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git help
-usage: git [--version] [--help] [-C &lt;path&gt;] [-c name=value]
+usage: git [--version] [--help] [-C &lt;path&gt;] [-c &lt;name&gt;=&lt;value&gt;]
            [--exec-path[=&lt;path&gt;]] [--html-path] [--man-path] [--info-path]
-           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
            [--git-dir=&lt;path&gt;] [--work-tree=&lt;path&gt;] [--namespace=&lt;name&gt;]
            &lt;command&gt; [&lt;args&gt;]
 
 These are common Git commands used in various situations:
 
 start a working area (see also: git help tutorial)
-   clone      Clone a repository into a new directory
-   init       Create an empty Git repository or reinitialize an existing one
+   clone             Clone a repository into a new directory
+   init              Create an empty Git repository or reinitialize an existing one
 
 work on the current change (see also: git help everyday)
-   add        Add file contents to the index
-   mv         Move or rename a file, a directory, or a symlink
-   reset      Reset current HEAD to the specified state
-   rm         Remove files from the working tree and from the index
+   add               Add file contents to the index
+   mv                Move or rename a file, a directory, or a symlink
+   restore           Restore working tree files
+   rm                Remove files from the working tree and from the index
+   sparse-checkout   Initialize and modify the sparse-checkout
 
 examine the history and state (see also: git help revisions)
-   bisect     Use binary search to find the commit that introduced a bug
-   grep       Print lines matching a pattern
-   log        Show commit logs
-   show       Show various types of objects
-   status     Show the working tree status
+   bisect            Use binary search to find the commit that introduced a bug
+   diff              Show changes between commits, commit and working tree, etc
+   grep              Print lines matching a pattern
+   log               Show commit logs
+   show              Show various types of objects
+   status            Show the working tree status
 
 grow, mark and tweak your common history
-   branch     List, create, or delete branches
-   checkout   Switch branches or restore working tree files
-   commit     Record changes to the repository
-   diff       Show changes between commits, commit and working tree, etc
-   merge      Join two or more development histories together
-   rebase     Reapply commits on top of another base tip
-   tag        Create, list, delete or verify a tag object signed with GPG
+   branch            List, create, or delete branches
+   commit            Record changes to the repository
+   merge             Join two or more development histories together
+   rebase            Reapply commits on top of another base tip
+   reset             Reset current HEAD to the specified state
+   switch            Switch branches
+   tag               Create, list, delete or verify a tag object signed with GPG
 
 collaborate (see also: git help workflows)
-   fetch      Download objects and refs from another repository
-   pull       Fetch from and integrate with another repository or a local branch
-   push       Update remote refs along with associated objects
+   fetch             Download objects and refs from another repository
+   pull              Fetch from and integrate with another repository or a local branch
+   push              Update remote refs along with associated objects
 
 &#39;git help -a&#39; and &#39;git help -g&#39; list available subcommands and some
 concept guides. See &#39;git help &lt;command&gt;&#39; or &#39;git help &lt;concept&gt;&#39;
 to read about a specific subcommand or concept.
+See &#39;git help git&#39; for an overview of the system.
 </pre></div>
 </div>
 <p>Information on a specific command is obtained by means of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">help</span> <span class="pre">&lt;command&gt;</span></code>.</p>
 <p>Furthermore, Git provides a number of guides which can be read in a terminal window.
 A list of available guides can easily be obtained:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git help -g
-The common Git guides are:
 
-   attributes   Defining attributes per path
-   everyday     Everyday Git With 20 Commands Or So
-   glossary     A Git glossary
-   ignore       Specifies intentionally untracked files to ignore
-   modules      Defining submodule properties
-   revisions    Specifying revisions and ranges for Git
-   tutorial     A tutorial introduction to Git (for version 1.5.1 or newer)
-   workflows    An overview of recommended workflows with Git
+The common Git guides are:
+   attributes          Defining attributes per path
+   cli                 Git command-line interface and conventions
+   core-tutorial       A Git core tutorial for developers
+   cvs-migration       Git for CVS users
+   diffcore            Tweaking diff output
+   everyday            A useful minimum set of commands for Everyday Git
+   glossary            A Git Glossary
+   hooks               Hooks used by Git
+   ignore              Specifies intentionally untracked files to ignore
+   modules             Defining submodule properties
+   namespaces          Git namespaces
+   repository-layout   Git Repository Layout
+   revisions           Specifying revisions and ranges for Git
+   submodules          Mounting one repository inside another
+   tutorial            A tutorial introduction to Git
+   tutorial-2          A tutorial introduction to Git: part two
+   workflows           An overview of recommended workflows with Git
 
 &#39;git help -a&#39; and &#39;git help -g&#39; list available subcommands and some
 concept guides. See &#39;git help &lt;command&gt;&#39; or &#39;git help &lt;concept&gt;&#39;
 to read about a specific subcommand or concept.
+See &#39;git help git&#39; for an overview of the system.
 </pre></div>
 </div>
 <p>For a detailed discussion of Git, the book <em>Pro Git</em> by Scott Chacon and Ben
@@ -255,9 +275,9 @@ Straub is highly recommended. Its second edition is available in printed form
 <a class="reference external" href="https://git-scm.com/book/en/v2">online</a> where also a PDF version can be downloaded
 freely. By the way, the book <em>Pro Git</em> as well as the present lecture notes have
 been written under version control with Git.</p>
-</div>
-<div class="section" id="setting-up-a-local-repository">
-<h2>2.4. Setting up a local repository<a class="headerlink" href="#setting-up-a-local-repository" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setting-up-a-local-repository">
+<h2><span class="section-number">2.4. </span>Setting up a local repository<a class="headerlink" href="#setting-up-a-local-repository" title="Permalink to this headline">¶</a></h2>
 <p>The use of a version control system is not limited to large software projects
 but makes sense even for small individual projects. A prerequisite is the
 installation of the Git software which is freely available for Windows, MacOS
@@ -278,9 +298,9 @@ some other character(s). Initializing a new repository in this way will create a
 hidden subdirectory called <code class="docutils literal notranslate"><span class="pre">.git</span></code> in the directory where you executed the command.
 The directory is hidden to avoid that it is accidentally deleted.</p>
 <div class="admonition attention">
-<p class="first admonition-title">Attention</p>
-<p class="last">Never delete the directory <code class="docutils literal notranslate"><span class="pre">.git</span></code> unless you really want to. You will
-loose the complete history of your project if you did not backup the project
+<p class="admonition-title">Attention</p>
+<p>Never delete the directory <code class="docutils literal notranslate"><span class="pre">.git</span></code> unless you really want to. You will
+lose the complete history of your project if you did not backup the project
 directory or synchronized your work with a GitLab server or GitHub. Removing
 the project directory will remove the subdirectory <code class="docutils literal notranslate"><span class="pre">.git</span></code> as well.</p>
 </div>
@@ -290,7 +310,7 @@ the project directory will remove the subdirectory <code class="docutils literal
 </pre></div>
 </div>
 <p>Refrain from modifying anything here as you might mess up files and in this
-way loose parts or all of your work.</p>
+way lose parts or all of your work.</p>
 <p>After having initialized your project, you should let Git know about your name
 and your email address by using the following commands:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git config --global user.name &lt;your name&gt;
@@ -315,15 +335,17 @@ in <a class="reference external" href="https://git-scm.com/book/en/v2/Customizin
 </pre></div>
 </div>
 <p>For example, you might consider setting <code class="docutils literal notranslate"><span class="pre">core.editor</span></code> to your preferred editor.</p>
-</div>
-<div class="section" id="basic-workflow">
-<h2>2.5. Basic workflow<a class="headerlink" href="#basic-workflow" title="Permalink to this headline">¶</a></h2>
-<div class="figure align-center" id="id10">
+</section>
+<section id="basic-workflow">
+<h2><span class="section-number">2.5. </span>Basic workflow<a class="headerlink" href="#basic-workflow" title="Permalink to this headline">¶</a></h2>
+<figure class="align-center" id="id11">
 <span id="addcommit"></span><a class="reference internal image-reference" href="_images/addcommit.png"><img alt="_images/addcommit.png" src="_images/addcommit.png" style="height: 10em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.4 </span><span class="caption-text">The transfer of a file to the repository is a two-step process. First one or
+<figcaption>
+<p><span class="caption-number">Figure 2.4 </span><span class="caption-text">The transfer of a file to the repository is a two-step process. First one or
 more files are added to the staging area. In a second step, the files are
-committed to the repository.</span></p>
-</div>
+committed to the repository.</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>A basic step in managing a project under version control is the transfer of one
 or more new or modified files to the repository where all versions together
 with metainformation about them is kept. What looks like a one-step process is
@@ -339,32 +361,32 @@ previous section. Then, Git would report the following status:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
 On branch master
 
-Initial commit
+No commits yet
 
 nothing to commit (create/copy files and use &quot;git add&quot; to track)
 </pre></div>
 </div>
-<p>The output first tells us that we are on a branch called <code class="docutils literal notranslate"><span class="pre">master</span></code>. Later, we
-will discuss the concept of branches and it will be useful to know this
-possibility of finding out the current branch. For the moment, we can ignore
-this line. Furthermore, Git informs us that we not committed anything yet so
-that the upcoming commit would be the initial one. However, since we have not
-created any files, there is nothing to commit. As promised earlier, Git tries
-to be helpful and adds some information about what we could do. Obviously, we
-first have to create a file in the project directory.</p>
+<p>The output first tells us that we are on a branch called <code class="docutils literal notranslate"><span class="pre">master</span></code>
+<a class="footnote-reference brackets" href="#github-master-main" id="id2">2</a>. Later, we will discuss the concept of branches and it
+will be useful to know this possibility of finding out the current branch. For
+the moment, we can ignore this line. Furthermore, Git informs us that we not
+committed anything yet so that the upcoming commit would be the initial one.
+However, since we have not created any files, there is nothing to commit. As
+promised earlier, Git tries to be helpful and adds some information about what
+we could do. Obviously, we first have to create a file in the project
+directory.</p>
 <p>So let us go ahead and create a very simple Python file:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Now, the status reflects the fact that a new file <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>  exists:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
 On branch master
 
-Initial commit
+No commits yet
 
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-
         hello.py
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)
@@ -380,11 +402,10 @@ to the repository. Let us also check the status after adding the file:</p>
 $ git status
 On branch master
 
-Initial commit
+No commits yet
 
 Changes to be committed:
   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-
         new file:   hello.py
 </pre></div>
 </div>
@@ -398,24 +419,22 @@ commit. Committing the file to the repository would be the next logical step.
 However, for the sake of illustration, we want to first modify our script. Our
 new script could read</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The status now has changed to:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
 On branch master
 
-Initial commit
+No commits yet
 
 Changes to be committed:
   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-
         new file:   hello.py
 
 Changes not staged for commit:
   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
-
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
         modified:   hello.py
 </pre></div>
 </div>
@@ -435,15 +454,14 @@ preferably at most 50 characters. If necessary, one can add an empty line follow
 by a longer explanatory text. If a single-line commit message suffices, one can
 give the message as a command line argument:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -m &#39;simple hello world script added&#39;
-[master (root-commit) 39977af] simple hello world script added
+[master (root-commit) a5b522b] simple hello world script added
  1 file changed, 1 insertion(+)
  create mode 100644 hello.py
 $ git status
 On branch master
 Changes not staged for commit:
   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
-  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
-
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
         modified:   hello.py
 
 no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
@@ -454,24 +472,24 @@ add it to the staging area and then commit it. Since Git already tracks this fil
 we can carry out this procedure in one single step. However, this is only possible
 if we do not wish to commit more than one file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -a -m &#39;repetition of hello world implemented&#39;
-[master 572e27b] repetition of hello world implemented
+[master 011ce76] repetition of hello world implemented
  1 file changed, 2 insertions(+), 1 deletion(-)
-$ git status
+(base) gli@gli-tp14-1:~/git_example$ git status
 On branch master
 nothing to commit, working tree clean
 </pre></div>
 </div>
 <p>Now, we have committed two versions of our script as can easily be verified:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log
-commit 572e27bcb96441c19ee9dca948d0ac24f81eee79
+commit 011ce76b848d6428e900373f177b1f6b2595a524 (HEAD -&gt; master)
 Author: Gert-Ludwig Ingold &lt;gert.ingold@physik.uni-augsburg.de&gt;
-Date:   Wed Sep 26 11:17:43 2018 +0200
+Date:   Wed Apr 27 15:31:01 2022 +0200
 
     repetition of hello world implemented
 
-commit d4a783b4a9f91a02f1a4ae127c07e6f47f8281e6
+commit a5b522b125baa24f823df389b1b40f28b3a42bee
 Author: Gert-Ludwig Ingold &lt;gert.ingold@physik.uni-augsburg.de&gt;
-Date:   Wed Sep 26 11:17:23 2018 +0200
+Date:   Wed Apr 27 15:28:41 2022 +0200
 
     simple hello world script added
 </pre></div>
@@ -479,7 +497,7 @@ Date:   Wed Sep 26 11:17:23 2018 +0200
 <p>As we had discussed in <a class="reference internal" href="#cvcs-vs-dvcs"><span class="std std-numref">Section 2.2</span></a> the concept of distributed
 version control systems does not allow for sequential revision numbers. Our two
 commits can thus not be numbered as commit 1 and commit 2. Instead, commits in
-Git are identified by their SHA-1 checksum <a class="footnote-reference" href="#sha1" id="id2">[2]</a>. The output above lists the
+Git are identified by their SHA-1 checksum <a class="footnote-reference brackets" href="#sha1" id="id3">3</a>. The output above lists the
 hashes consisting of 40 hexadecimal digits for the two commits. In practice,
 when referring to a commit, it is often sufficient to restrict oneself to the
 first 6 or 7 digits which typically characterize the commit in a unique way.
@@ -500,12 +518,12 @@ change. If on the other hand, a big commit comprises many logically different
 changes, one will have to sort out which changes to revert and which ones to
 keep. Therefore, it makes sense to aim at so-called atomic commits where a
 commit collects all file changes associated with a minimal logical change
-<a class="footnote-reference" href="#add-p" id="id3">[3]</a>.  On the other hand, in the initial versions of program development,
+<a class="footnote-reference brackets" href="#add-p" id="id4">4</a>.  On the other hand, in the initial versions of program development,
 it often does not make sense to do atomic commits. The situation may change
 though as the development of the code progresses.</p>
 <p>At the end of this section on the basic workflow, we point out one issue which
 in a sense could already be addressed in the initial setting up of the repository,
-but which can motivate only now. Having our previous versions safely stored in
+but which we can motivate only now. Having our previous versions safely stored in
 the repository, we might be brave enough to refactor our script by defining a
 function to repeatedly printing a given text. Doing so, we end up with two files</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
@@ -518,7 +536,7 @@ function to repeatedly printing a given text. Doing so, we end up with two files
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py</span>
 <span class="k">def</span> <span class="nf">repeated_print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We verify that the scripts do what they are supposed to do</p>
@@ -530,19 +548,15 @@ Hello world!
 </div>
 <p>Everything works fine so that we add the two files to the staging area and
 check the status before committing.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add hello.py
-$ git add repeat.py
-$ git status
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git status
 On branch master
 Changes to be committed:
-  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
-
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
         modified:   hello.py
         new file:   repeat.py
 
 Untracked files:
   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-
         __pycache__/
 </pre></div>
 </div>
@@ -566,9 +580,9 @@ files ending with <code class="docutils literal notranslate"><span class="pre">.
 <span class="pre">help</span> <span class="pre">ignore</span></code> and the <a class="reference external" href="https://github.com/github/gitignore">collection of gitignore files</a>, in particular <code class="docutils literal notranslate"><span class="pre">Python.gitignore</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file should be put under version control as it might develop
 over time.</p>
-</div>
-<div class="section" id="working-with-branches">
-<span id="git-branches"></span><h2>2.6. Working with branches<a class="headerlink" href="#working-with-branches" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="working-with-branches">
+<span id="git-branches"></span><h2><span class="section-number">2.6. </span>Working with branches<a class="headerlink" href="#working-with-branches" title="Permalink to this headline">¶</a></h2>
 <p>In the previous section, the result of the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> contained in
 its first line the information <code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">branch</span> <span class="pre">master</span></code>. The existence of one branch
 strongly suggests that there could be more branches and this is actually the case.
@@ -579,10 +593,10 @@ of branches can be very useful, we will discuss them in the following.</p>
 Suppose that we have also committed the refactored version of our script as well
 as the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file. The history of our repository then looks as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --graph --decorate --all
-* cf870a6 (HEAD -&gt; master) .gitignore for Python added
-* c4b2a9e hello world script refactored
-* 572e27b repetition of hello world implemented
-* d4a783b simple hello world script added
+* aac6d17 (HEAD -&gt; master) .gitignore for Python added
+* 98628ce hello world script refactored
+* 011ce76 repetition of hello world implemented
+* a5b522b simple hello world script added
 </pre></div>
 </div>
 <p>Before discussing the output, let us briefly comment on the options used in the
@@ -595,12 +609,12 @@ than one branch is present. Then, we will obtain a graphical representation of
 the commit tree, i.e. the relation between the different branches. In addition,
 we will be shown information about all branches, not only the branch we are on.
 Finally, <code class="docutils literal notranslate"><span class="pre">--decorate</span></code> shows us references existing for certain commits. In our
-case, the commit <code class="docutils literal notranslate"><span class="pre">cf870a6</span></code> is referred to as <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> because that is the version
+case, the commit <code class="docutils literal notranslate"><span class="pre">aac6d17</span></code> is referred to as <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> because that is the version
 we are presently seeing in our working directory. This is also where the branch
 <code class="docutils literal notranslate"><span class="pre">master</span></code> is positioned right now. The usefulness of this information  will become
 clear once we have more than one branch or when even working with remote branches.</p>
 <p>The history documented by the output of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code> is linear with the most
-recent commit on top. As we have discussed earlier, Git is distributed version
+recent commit on top. As we have discussed earlier, Git is a distributed version
 control system. Therefore, we have to expect that other developers are doing
 work in parallel which at some time should connect to our work. Otherwise, we
 could simply ignore these developers. Consequently, in general we cannot expect
@@ -629,7 +643,7 @@ of a tree thus seems quite appropriate. However, typically branches will not gro
 forever in their own direction. Ideally, the result of the development in a branch
 should ultimately flow back into the production code, a step referred to as
 merging.</p>
-<p>Let us take a look at an example. As branches can be become a bit confusing once
+<p>Let us take a look at an example. As branches can become a bit confusing once
 you have several of them, it makes sense to make sure from time to time that you
 are still on the right branch. We have not created a new branch and therefore are
 on the master branch. This can be verified as follows:</p>
@@ -658,14 +672,14 @@ grows.</p>
 </div>
 <p>As the star indicates, we are still on the master branch, but a new branch named
 <code class="docutils literal notranslate"><span class="pre">dev</span></code> exists. Switching back and forth between different branches is done by means
-of the <code class="docutils literal notranslate"><span class="pre">checkout</span></code> command. With the following commands, we got to the development
+of the <code class="docutils literal notranslate"><span class="pre">switch</span></code> command. With the following commands, we got to the development
 branch and back to the master branch while verifying where we are after each checkout:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout dev
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git switch dev
 Switched to branch &#39;dev&#39;
 $ git branch
 * dev
   master
-$ git checkout master
+$ git switch master
 Switched to branch &#39;master&#39;
 $ git branch
   dev
@@ -674,47 +688,46 @@ $ git branch
 </div>
 <p>In addition, we can check the history of our repository:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --graph --decorate --all
-* cf870a6 (HEAD -&gt; master, dev) .gitignore for Python added
-* c4b2a9e hello world script refactored
-* 572e27b repetition of hello world implemented
-* d4a783b simple hello world script added
+* aac6d17 (HEAD -&gt; master, dev) .gitignore for Python added
+* 98628ce hello world script refactored
+* 011ce76 repetition of hello world implemented
+* a5b522b simple hello world script added
 </pre></div>
 </div>
-<p>Now, commit <code class="docutils literal notranslate"><span class="pre">cf870a6</span></code> is also part of the branch <code class="docutils literal notranslate"><span class="pre">dev</span></code>. For the moment, the
+<p>Now, commit <code class="docutils literal notranslate"><span class="pre">aac6d17</span></code> is also part of the branch <code class="docutils literal notranslate"><span class="pre">dev</span></code>. For the moment, the
 new branch is not really visible as branch because we have not done any development.</p>
 <p>Above, we have first created a new branch and then switched to the new branch. As one
 typically wants to switch to the new branch immediately after having created it, there
 exists a shortcut:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b dev
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git switch -c dev
 Switched to a new branch &#39;dev&#39;
 </pre></div>
 </div>
-<p>The option <code class="docutils literal notranslate"><span class="pre">-b</span></code> demands a new branch to be created.</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">-c</span></code> demands a new branch to be created.</p>
 <p>Everything is set up now to work on the new idea. Let us suppose that at some point
 you arrive at the following script:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
-<span class="kn">from</span> <span class="nn">repeat</span> <span class="k">import</span> <span class="n">repeated_print</span>
+<span class="kn">from</span> <span class="nn">repeat</span> <span class="kn">import</span> <span class="n">repeated_print</span>
 
 <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">repetitions</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span>
-        <span class="n">repeated_print</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">)</span>
+        <span class="n">repeated_print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">repeated_print</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>After committing it, the commit log looks as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --graph --decorate --all
-* c4e6c3a (HEAD -&gt; dev) name as new argument implemented
-* cf870a6 (master) .gitignore for Python added
-* c4b2a9e hello world script refactored
-* 572e27b repetition of hello world implemented
-* d4a783b simple hello world script added
+* f113188 (HEAD -&gt; dev) name as new argument implemented
+* aac6d17 (master) .gitignore for Python added
+* 98628ce hello world script refactored
+* 011ce76 repetition of hello world implemented
+* a5b522b simple hello world script added
 </pre></div>
 </div>
 <p>The history is still linear, but clearly the master branch and the development
 branch are in different states now. The master branch is still at commit
-<code class="docutils literal notranslate"><span class="pre">cf870a6</span></code> while the development branch is at <code class="docutils literal notranslate"><span class="pre">c4e6c3a</span></code>.  At this point, it
+<code class="docutils literal notranslate"><span class="pre">aac6d17</span></code> while the development branch is at <code class="docutils literal notranslate"><span class="pre">f113188</span></code>.  At this point, it
 is worth going back to the master branch and to check the content of
 <code class="docutils literal notranslate"><span class="pre">hello.py</span></code>. At first, it might appear that we have lost our recent work but
 this is not the case because we had committed the new version in the development
@@ -726,12 +739,12 @@ is a good idea to make a corresponding change in the master branch. Before
 continuing to work in the development branch, we perform the following steps:</p>
 <blockquote>
 <div><ol class="arabic">
-<li><p class="first">check out the master branch</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+<li><p>check out the master branch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git switch master
 </pre></div>
 </div>
 </li>
-<li><p class="first">make modifications to <code class="docutils literal notranslate"><span class="pre">repeat.py</span></code></p>
+<li><p>make modifications to <code class="docutils literal notranslate"><span class="pre">repeat.py</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py</span>
 <span class="k">def</span> <span class="nf">repeated_print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">repetitions</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
@@ -739,13 +752,13 @@ continuing to work in the development branch, we perform the following steps:</p
 </pre></div>
 </div>
 </li>
-<li><p class="first">commit the new version of the script</p>
+<li><p>commit the new version of the script</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git commit -a -m &#39;default value for number of repetitions defined&#39;
 </pre></div>
 </div>
 </li>
-<li><p class="first">check out the development branch</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout dev
+<li><p>check out the development branch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git switch dev
 </pre></div>
 </div>
 </li>
@@ -753,19 +766,19 @@ continuing to work in the development branch, we perform the following steps:</p
 </div></blockquote>
 <p>The commit history is no longer linear but has clearly separated into two branches:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --graph --decorate --all
-* 36fdabf (master) default value for number of repetitions defined
-| * c4e6c3a (HEAD -&gt; dev) name as new argument implemented
+* 1d9a25f (master) default value for number of repetitions defined
+| * f113188 (HEAD -&gt; dev) name as new argument implemented
 |/
-* cf870a6 .gitignore for Python added
-* c4b2a9e hello world script refactored
-* 572e27b repetition of hello world implemented
-* d4a783b simple hello world script added
+* aac6d17 .gitignore for Python added
+* 98628ce hello world script refactored
+* 011ce76 repetition of hello world implemented
+* a5b522b simple hello world script added
 </pre></div>
 </div>
 <p>Now it is time to complete the script <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> by adding an exclamation mark
 after the name and calling the new function <code class="docutils literal notranslate"><span class="pre">hello</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
-<span class="kn">from</span> <span class="nn">repeat</span> <span class="k">import</span> <span class="n">repeated_print</span>
+<span class="kn">from</span> <span class="nn">repeat</span> <span class="kn">import</span> <span class="n">repeated_print</span>
 
 <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">repetitions</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
@@ -779,95 +792,94 @@ after the name and calling the new function <code class="docutils literal notran
 </pre></div>
 </div>
 <p>Before committing the new version, we start thinking about atomic commits. Strictly
-speaking, we made to different kinds of changes. We have added the exclamation mark
+speaking, we made two different kinds of changes. We have added the exclamation mark
 and added the function call. Instead of going back and making the changes one after
 the other, we can recall that the option <code class="docutils literal notranslate"><span class="pre">-p</span></code> allows to choose which changes to
 add to the staging area:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add -p hello.py
 diff --git a/hello.py b/hello.py
-index 9b21403..4577216 100644
+index b2ee076..c287658 100644
 --- a/hello.py
 +++ b/hello.py
-@@ -2,7 +2,10 @@ from repeat import repeated_print
+@@ -3,6 +3,9 @@ from repeat import repeated_print
 
  def hello(name=&quot;&quot;, repetitions=1):
      if name:
--        s = &quot;Hello, &quot; + name
-+        s = &quot;Hello, &quot; + name + &quot;!&quot;
-         repeated_print(s, repetitions)
+-        repeated_print(f&quot;Hello, {name}&quot;, repetitions)
++        repeated_print(f&quot;Hello, {name}!&quot;, repetitions)
      else:
          repeated_print(&quot;Hello world!&quot;, repetitions)
 +
 +if __name__ == &quot;__main__&quot;:
 +    hello(&quot;Alice&quot;, 3)
-Stage this hunk [y,n,q,a,d,/,s,e,?]?
+(1/1) Stage this hunk [y,n,q,a,d,s,e,?]?
 </pre></div>
 </div>
-<p>Answering the question with <code class="docutils literal notranslate"><span class="pre">s</span></code>, we are offered the possibility to add the
-two changes separately to the changing area. In this way, we can create two
-separate commits. After actually doing the commits, we arrive at the following
-history:</p>
+<p>Answering the question with <code class="docutils literal notranslate"><span class="pre">s</span></code>, i.e. <code class="docutils literal notranslate"><span class="pre">split</span></code>, we are offered the
+possibility to add the two changes separately to the changing area. In this
+way, we can create two separate commits. After actually doing the commits, we
+arrive at the following history:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --graph --decorate --all
-* 69ae96f (HEAD -&gt; dev) function call added
-* 8396a6b exclamation mark added
-* c4e6c3a name as new argument implemented
-| * 36fdabf (master) default value for number of repetitions defined
+* a807c98 (HEAD -&gt; dev) function call added
+* d07dbda exclamation mark added
+* f113188 name as new argument implemented
+| * 1d9a25f (master) default value for number of repetitions defined
 |/
-* cf870a6 .gitignore for Python added
-* c4b2a9e hello world script refactored
-* 572e27b repetition of hello world implemented
-* d4a783b simple hello world script added
+* aac6d17 .gitignore for Python added
+* 98628ce hello world script refactored
+* 011ce76 repetition of hello world implemented
+* a5b522b simple hello world script added
 </pre></div>
 </div>
 <p>Now, it is time to make the new functionality available for production, i.e. to
 merge the commits from the development branch into the master branch. To this
-end, we check out the master branch and merge the development branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+end, we switch to the master branch and merge the development branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git switch master
 Switched to branch &#39;master&#39;
 $ git merge dev
 Merge made by the &#39;recursive&#39; strategy.
- hello.py | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ hello.py | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 $ git log --oneline --graph --decorate --all
-*   d7ae102 (HEAD -&gt; master) Merge branch &#39;dev&#39;
+*   53e12db (HEAD -&gt; master) Merge branch &#39;dev&#39;
 |\
-| * 69ae96f (dev) function call added
-| * 8396a6b exclamation mark added
-| * c4e6c3a name as new argument implemented
-* | 36fdabf default value for number of repetitions defined
+| * a807c98 (dev) function call added
+| * d07dbda exclamation mark added
+| * f113188 name as new argument implemented
+* | 1d9a25f default value for number of repetitions defined
 |/
-* cf870a6 .gitignore for Python added
-* c4b2a9e hello world script refactored
-* 572e27b repetition of hello world implemented
-* d4a783b simple hello world script added
+* aac6d17 .gitignore for Python added
+* 98628ce hello world script refactored
+* 011ce76 repetition of hello world implemented
+* a5b522b simple hello world script added
 </pre></div>
 </div>
 <p>In this case, Git has made a so-called three-way merge based on the common ancestor
-of the two branched (<code class="docutils literal notranslate"><span class="pre">cf870a6</span></code>) and the current versions in the two branches
-(<code class="docutils literal notranslate"><span class="pre">36fdabf</span></code>) and (<code class="docutils literal notranslate"><span class="pre">69ae96f</span></code>). It is interesting to compare the script <code class="docutils literal notranslate"><span class="pre">repeat.py</span></code>
+of the two branches (<code class="docutils literal notranslate"><span class="pre">aac6d17</span></code>) and the current versions in the two branches
+(<code class="docutils literal notranslate"><span class="pre">1d9a25f</span></code>) and (<code class="docutils literal notranslate"><span class="pre">a807c98</span></code>). It is interesting to compare the script <code class="docutils literal notranslate"><span class="pre">repeat.py</span></code>
 in these three versions. The version in the common ancestor was:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py cf870a6</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py aac6d17</span>
 <span class="k">def</span> <span class="nf">repeated_print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In the master branch, we have</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py 36fdabf</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py 1d9a25f</span>
 <span class="k">def</span> <span class="nf">repeated_print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">repetitions</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>while in the development branch, the script reads</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py 69ae96f</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py a807c98</span>
 <span class="k">def</span> <span class="nf">repeated_print</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">repetitions</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repetitions</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Note that in <code class="docutils literal notranslate"><span class="pre">36fdabf</span></code> a default value for the variable <code class="docutils literal notranslate"><span class="pre">repetitions</span></code> is
-present while it is not in <code class="docutils literal notranslate"><span class="pre">69ae96f</span></code>. The common ancestor serves to resolve
+<p>Note that in <code class="docutils literal notranslate"><span class="pre">1d9a25f</span></code> a default value for the variable <code class="docutils literal notranslate"><span class="pre">repetitions</span></code> is
+present while it is not in <code class="docutils literal notranslate"><span class="pre">a807c98</span></code>. The common ancestor serves to resolve
 this discrepancy.  Obviously, a change was made in the master branch while it
 was not done in the development branch. Therefore, the change is kept.  The
 other modifications in the branches were not in contradiction, so that the
@@ -877,12 +889,12 @@ to continue to work on it. In fact, the branch <code class="docutils literal not
 we decide to delete it. Since all work done in the development branch is now
 present in the master branch, we decide to delete the branch <code class="docutils literal notranslate"><span class="pre">dev</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git branch -d dev
-Deleted branch dev (was 69ae96f).
+Deleted branch dev (was a807c98).
 </pre></div>
 </div>
 <p>An attempt to delete a branch which was not fully merged, will be rejected. This
 could be the case if the idea developed in a branch turns out not to be a good
-idea after all. The, deletion of the branch can be forced by replacing the option
+idea after all. The deletion of the branch can be forced by replacing the option
 <code class="docutils literal notranslate"><span class="pre">-d</span></code> by <code class="docutils literal notranslate"><span class="pre">-D</span></code>.</p>
 <p>In general, one cannot expect a merge to run as smoothly as in our example. Frequently,
 a so-called merge conflict arises. This is quite common if different developers work
@@ -909,25 +921,25 @@ we have</p>
 </div>
 <p>The commit history of which we only show the more recent part now becomes a bit
 more complex:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git log --oneline --graph --decorate --all -n8
-* 550d988 (HEAD -&gt; dev) added a doc string
-| * f75d4bf (master) doc string added
-| *   d7ae102 Merge branch &#39;dev&#39;
-| |\
-| |/
-|/|
-* | 69ae96f function call added
-* | 8396a6b exclamation mark added
-* | c4e6c3a name as new argument implemented
-| * 36fdabf default value for number of repetitions defined
-|/
-* cf870a6 .gitignore for Python added
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">c3ab8cb</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">dev</span><span class="p">)</span> <span class="n">added</span> <span class="n">a</span> <span class="n">doc</span> <span class="n">string</span>
+<span class="o">|</span> <span class="o">*</span> <span class="n">cc484da</span> <span class="p">(</span><span class="n">master</span><span class="p">)</span> <span class="n">doc</span> <span class="n">string</span> <span class="n">added</span>
+<span class="o">|</span> <span class="o">*</span>   <span class="mf">53e12</span><span class="n">db</span> <span class="n">Merge</span> <span class="n">branch</span> <span class="s1">&#39;dev&#39;</span>
+<span class="o">|</span> <span class="o">|</span>\
+<span class="o">|</span> <span class="o">|/</span>
+<span class="o">|/|</span>
+<span class="o">*</span> <span class="o">|</span> <span class="n">a807c98</span> <span class="n">function</span> <span class="n">call</span> <span class="n">added</span>
+<span class="o">*</span> <span class="o">|</span> <span class="n">d07dbda</span> <span class="n">exclamation</span> <span class="n">mark</span> <span class="n">added</span>
+<span class="o">*</span> <span class="o">|</span> <span class="n">f113188</span> <span class="n">name</span> <span class="k">as</span> <span class="n">new</span> <span class="n">argument</span> <span class="n">implemented</span>
+<span class="o">|</span> <span class="o">*</span> <span class="mi">1</span><span class="n">d9a25f</span> <span class="n">default</span> <span class="n">value</span> <span class="k">for</span> <span class="n">number</span> <span class="n">of</span> <span class="n">repetitions</span> <span class="n">defined</span>
+<span class="o">|/</span>
+<span class="o">*</span> <span class="n">aac6d17</span> <span class="o">.</span><span class="n">gitignore</span> <span class="k">for</span> <span class="n">Python</span> <span class="n">added</span>
 </pre></div>
 </div>
-<p>We check out the master branch and try to merge once more the development branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+<p>We switch to the master branch and try to merge once more the development branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git switch master
 Switched to branch &#39;master&#39;
-11:45 $ git merge dev
+$ git merge dev
+Auto-merging repeat.py
 CONFLICT (content): Merge conflict in repeat.py
 Automatic merge failed; fix conflicts and then commit the result.
 </pre></div>
@@ -952,7 +964,7 @@ branch. Let us take a look at our script:</p>
 <p>There are two blocks separated by <code class="docutils literal notranslate"><span class="pre">=======</span></code>. The first block starting with
 <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="pre">HEAD</span></code> is the present version in the master branch where we are right
 now. The second block terminated by <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span> <span class="pre">dev</span></code> stems from the development
-branch. The reason in the conflict lies in the different doc strings. In such a
+branch. The reason for the conflict lies in the different doc strings. In such a
 situation, Git needs help. The script should now be brought into the desired
 form by using an editor or a tool to handle merge conflicts. We choose</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># repeat.py</span>
@@ -968,27 +980,26 @@ form by using an editor or a tool to handle merge conflicts. We choose</p>
 possible as well. In order to tell Git that the version conflict has been
 resolved, we add it to the staging area and commit it as usual. The history
 now looks as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span>   <span class="n">abcf4ed</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">)</span> <span class="n">merge</span> <span class="n">conflict</span> <span class="n">resolved</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span>   <span class="n">d10bdbb</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">)</span> <span class="n">merge</span> <span class="n">conflict</span> <span class="n">resolved</span>
 <span class="o">|</span>\
-<span class="o">|</span> <span class="o">*</span> <span class="mi">550</span><span class="n">d988</span> <span class="p">(</span><span class="n">dev</span><span class="p">)</span> <span class="n">added</span> <span class="n">a</span> <span class="n">doc</span> <span class="n">string</span>
-<span class="o">*</span> <span class="o">|</span> <span class="n">f75d4bf</span> <span class="n">doc</span> <span class="n">string</span> <span class="n">added</span>
-<span class="o">*</span> <span class="o">|</span>   <span class="n">d7ae102</span> <span class="n">Merge</span> <span class="n">branch</span> <span class="s1">&#39;dev&#39;</span>
-<span class="o">|</span>\ \
-<span class="o">|</span> <span class="o">|/</span>
-<span class="o">|</span> <span class="o">*</span> <span class="mi">69</span><span class="n">ae96f</span> <span class="n">function</span> <span class="n">call</span> <span class="n">added</span>
-<span class="o">|</span> <span class="o">*</span> <span class="mi">8396</span><span class="n">a6b</span> <span class="n">exclamation</span> <span class="n">mark</span> <span class="n">added</span>
-<span class="o">|</span> <span class="o">*</span> <span class="n">c4e6c3a</span> <span class="n">name</span> <span class="k">as</span> <span class="n">new</span> <span class="n">argument</span> <span class="n">implemented</span>
-<span class="o">*</span> <span class="o">|</span> <span class="mi">36</span><span class="n">fdabf</span> <span class="n">default</span> <span class="n">value</span> <span class="k">for</span> <span class="n">number</span> <span class="n">of</span> <span class="n">repetitions</span> <span class="n">defined</span>
+<span class="o">|</span> <span class="o">*</span> <span class="n">c3ab8cb</span> <span class="p">(</span><span class="n">dev</span><span class="p">)</span> <span class="n">added</span> <span class="n">a</span> <span class="n">doc</span> <span class="n">string</span>
+<span class="o">*</span> <span class="o">|</span> <span class="n">cc484da</span> <span class="n">doc</span> <span class="n">string</span> <span class="n">added</span>
+<span class="o">*</span> <span class="o">|</span> <span class="mf">53e12</span><span class="n">db</span> <span class="n">Merge</span> <span class="n">branch</span> <span class="s1">&#39;dev&#39;</span>
+<span class="o">|</span>\<span class="o">|</span>
+<span class="o">|</span> <span class="o">*</span> <span class="n">a807c98</span> <span class="n">function</span> <span class="n">call</span> <span class="n">added</span>
+<span class="o">|</span> <span class="o">*</span> <span class="n">d07dbda</span> <span class="n">exclamation</span> <span class="n">mark</span> <span class="n">added</span>
+<span class="o">|</span> <span class="o">*</span> <span class="n">f113188</span> <span class="n">name</span> <span class="k">as</span> <span class="n">new</span> <span class="n">argument</span> <span class="n">implemented</span>
+<span class="o">*</span> <span class="o">|</span> <span class="mi">1</span><span class="n">d9a25f</span> <span class="n">default</span> <span class="n">value</span> <span class="k">for</span> <span class="n">number</span> <span class="n">of</span> <span class="n">repetitions</span> <span class="n">defined</span>
 <span class="o">|/</span>
-<span class="o">*</span> <span class="n">cf870a6</span> <span class="o">.</span><span class="n">gitignore</span> <span class="k">for</span> <span class="n">Python</span> <span class="n">added</span>
+<span class="o">*</span> <span class="n">aac6d17</span> <span class="o">.</span><span class="n">gitignore</span> <span class="k">for</span> <span class="n">Python</span> <span class="n">added</span>
 </pre></div>
 </div>
 <p>While the use of branches can be an extremely valuable technique even for a
-single developer, branches will inevitable appear in a multi-developer environment.
+single developer, branches will inevitably appear in a multi-developer environment.
 A good understanding of branches will therefore be helpful in the following section.</p>
-</div>
-<div class="section" id="collaborative-code-development-with-gitlab">
-<h2>2.7. Collaborative code development with GitLab<a class="headerlink" href="#collaborative-code-development-with-gitlab" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="collaborative-code-development-with-gitlab">
+<h2><span class="section-number">2.7. </span>Collaborative code development with GitLab<a class="headerlink" href="#collaborative-code-development-with-gitlab" title="Permalink to this headline">¶</a></h2>
 <p>So far, we have only worked within a single developer scenario and a local Git
 repository was sufficient. However, scientific research is often carried out in
 teams with several persons working on the same project at the same time. While
@@ -999,11 +1010,13 @@ read access to all local repositories. However, in general such an approach
 will result in a significant administrative load. It is much more common to
 exchange code via a central server, typically a GitLab server run by an
 institution or a service like <a class="reference external" href="https://github.com/">GitHub</a>.</p>
-<div class="figure align-center" id="id11">
+<figure class="align-center" id="id12">
 <span id="gitlab"></span><a class="reference internal image-reference" href="_images/gitlab.png"><img alt="_images/gitlab.png" src="_images/gitlab.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.5 </span><span class="caption-text">Workflow for collaborative development in a distributed version control system
-with a GitLab instance as central server.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 2.5 </span><span class="caption-text">Workflow for collaborative development in a distributed version control system
+with a GitLab instance as central server.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Independently of whether one uses a GitLab server or GitHub, the typical setup
 looks like depicted in <a class="reference internal" href="#gitlab"><span class="std std-numref">Figure 2.5</span></a> and consists of three repositories. In
 order to understand this setup, we introduce to roles. The user is representative
@@ -1022,21 +1035,21 @@ called forking, thereby creating her or his own copy of <code class="docutils li
 needs only to be done once. Afterwards, the code can flow in counter-clockwise
 direction in <a class="reference internal" href="#gitlab"><span class="std std-numref">Figure 2.5</span></a>. The individual steps are as follows:</p>
 <ol class="arabic simple">
-<li>The user can always get the code from the <code class="docutils literal notranslate"><span class="pre">upstream</span></code> repository, e.g. to
+<li><p>The user can always get the code from the <code class="docutils literal notranslate"><span class="pre">upstream</span></code> repository, e.g. to
 use it as basis for the future development. There are two options, namely
 <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> and the two-step process <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">fetch</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> which
-will discuss below.</li>
-<li>Having read and write access both on the local repository and the <code class="docutils literal notranslate"><span class="pre">origin</span></code>
+will discuss below.</p></li>
+<li><p>Having read and write access both on the local repository and the <code class="docutils literal notranslate"><span class="pre">origin</span></code>
 repository, the user can <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> to move code to the central server.
 With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, code can also be brought from the central server to a
 local repository. The latter is particularly useful if the user is working
-on several machines with individual local repositories.</li>
-<li>As long as the user has no write access to <code class="docutils literal notranslate"><span class="pre">upstream</span></code>, only the maintainer
+on several machines with individual local repositories.</p></li>
+<li><p>As long as the user has no write access to <code class="docutils literal notranslate"><span class="pre">upstream</span></code>, only the maintainer
 can transfer code from the user’s <code class="docutils literal notranslate"><span class="pre">origin</span></code> to <code class="docutils literal notranslate"><span class="pre">upstream</span></code>. Usually, the
 user will inform the maintainer by means of a merge request that code is being
-ready to be merged into the <code class="docutils literal notranslate"><span class="pre">upstream</span></code> repository <a class="footnote-reference" href="#merge-pull" id="id4">[4]</a>. After an
+ready to be merged into the <code class="docutils literal notranslate"><span class="pre">upstream</span></code> repository <a class="footnote-reference brackets" href="#merge-pull" id="id5">5</a>. After an
 optional discussion of the suitability of the code, the maintainer can merge
-the code into the <code class="docutils literal notranslate"><span class="pre">upstream</span></code> repository.</li>
+the code into the <code class="docutils literal notranslate"><span class="pre">upstream</span></code> repository.</p></li>
 </ol>
 <p>After these conceptual considerations, we discuss a more practical example. The
 maintainer of the project will be called Big Boss with username <code class="docutils literal notranslate"><span class="pre">boss</span></code> and
@@ -1044,16 +1057,20 @@ she or he starts by creating a repository for a project named <code class="docut
 will first go through the steps required to set up the project and then focus
 on how one remotely interacts with this repository either as an owner of the
 repository or a collaborator who contributes code via his or her repository.</p>
-<div class="figure align-center" id="id12">
+<figure class="align-center" id="id13">
 <span id="gitlab-create-project-1"></span><a class="reference internal image-reference" href="_images/gitlab-create-project-1.png"><img alt="_images/gitlab-create-project-1.png" src="_images/gitlab-create-project-1.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.6 </span><span class="caption-text">Creation of a new project in a GitLab repository.</span></p>
-</div>
-<div class="figure align-center" id="id13">
+<figcaption>
+<p><span class="caption-number">Figure 2.6 </span><span class="caption-text">Creation of a new project in a GitLab repository.</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id14">
 <span id="gitlab-create-project-2"></span><a class="reference internal image-reference" href="_images/gitlab-create-project-2.png"><img alt="_images/gitlab-create-project-2.png" src="_images/gitlab-create-project-2.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.7 </span><span class="caption-text">During the creation of a project its name and its visibility level need to
+<figcaption>
+<p><span class="caption-number">Figure 2.7 </span><span class="caption-text">During the creation of a project its name and its visibility level need to
 be defined. In addition, it makes sense to add a project description and to
-initialize the repository with a README file.</span></p>
-</div>
+initialize the repository with a README file.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>After logging into a GitLab server, one finds in the dashboard on the top of
 the screen the possibility to create a new project as shown in
 <a class="reference internal" href="#gitlab-create-project-1"><span class="std std-numref">Figure 2.6</span></a>. In order to actually create a new project,
@@ -1069,8 +1086,8 @@ It can be extended over time by adding information useful for visitors of the
 project page. Creating a README file also ensures that the repository contains
 at least one file.</p>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Markup can be used to format the README page. Markup features include
+<p class="admonition-title">Tip</p>
+<p>Markup can be used to format the README page. Markup features include
 headers, lists, web links and more. GitLab and GitHub recognize markdown
 (file extension <code class="docutils literal notranslate"><span class="pre">.md</span></code>) and  restructured text (file extension <code class="docutils literal notranslate"><span class="pre">.rst</span></code>).
 We recommend to take a look at the <a class="reference external" href="https://about.gitlab.com/handbook/product/technical-writing/markdown-guide/">Markdown Style Guide of GitLab</a>
@@ -1078,11 +1095,13 @@ and to experiment with different formatting possibilities. This is also a
 good opportunity to exercise your version control skills. You can check the
 effect of the markup by taking a look at the project page.</p>
 </div>
-<div class="figure align-center" id="id14">
+<figure class="align-center" id="id15">
 <span id="gitlab-create-project-3"></span><a class="reference internal image-reference" href="_images/gitlab-create-project-3.png"><img alt="_images/gitlab-create-project-3.png" src="_images/gitlab-create-project-3.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.8 </span><span class="caption-text">The new repository can be accessed via the HTTP and SSH protocols. Users with
-access to the repository can also fork it.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 2.8 </span><span class="caption-text">The new repository can be accessed via the HTTP and SSH protocols. Users with
+access to the repository can also fork it.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The project page shown in <a class="reference internal" href="#gitlab-create-project-3"><span class="std std-numref">Figure 2.8</span></a> contains relevant
 elements for users collaborating on the project. There is the possibility to
 create a fork of the project. According to the workflow represented in
@@ -1100,20 +1119,24 @@ key of the user is stored on the GitLab server. Finally,
 setting up the project is used to create a minimal README file which is displayed
 in a formatted way at the bottom of the project page.</p>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Information on how to create a SSH key can be found for example in the
+<p class="admonition-title">Tip</p>
+<p>Information on how to create a SSH key can be found for example in the
 section <a class="reference external" href="https://docs.gitlab.com/ee/ssh/">GitLab and SSH keys</a> of the
 GitLab documentation.</p>
 </div>
-<div class="figure align-center" id="id15">
+<figure class="align-center" id="id16">
 <span id="gitlab-create-project-4"></span><a class="reference internal image-reference" href="_images/gitlab-create-project-4.png"><img alt="_images/gitlab-create-project-4.png" src="_images/gitlab-create-project-4.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.9 </span><span class="caption-text">On the setting page, other users can be invited to join the project and their
-permissions can be defined.</span></p>
-</div>
-<div class="figure align-center" id="id16">
+<figcaption>
+<p><span class="caption-number">Figure 2.9 </span><span class="caption-text">On the setting page, other users can be invited to join the project and their
+permissions can be defined.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id17">
 <span id="gitlab-create-project-5"></span><a class="reference internal image-reference" href="_images/gitlab-create-project-5.png"><img alt="_images/gitlab-create-project-5.png" src="_images/gitlab-create-project-5.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.10 </span><span class="caption-text">A new team member has been added to the project as developer.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 2.10 </span><span class="caption-text">A new team member has been added to the project as developer.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The previous discussion had already the idea of collaborative work on the
 project in mind. However, for the moment nobody has access to the project
 except the owner who had created the project. Additional team members can be
@@ -1126,7 +1149,7 @@ added in the role of a developer. The project maintainer can remove team members
 at any time by clicking on the red icon on the right.</p>
 <p>We are now in a position to explore the collaborative workflow shown in
 <a class="reference internal" href="#gitlab"><span class="std std-numref">Figure 2.5</span></a>. There exists an alternative approach relying on protected branches
-which we do not cover here <a class="footnote-reference" href="#protected-branches" id="id5">[5]</a>.</p>
+which we do not cover here <a class="footnote-reference brackets" href="#protected-branches" id="id6">6</a>.</p>
 <p>For the following discussion, we assume that user <code class="docutils literal notranslate"><span class="pre">boss</span></code> has created a
 project called <code class="docutils literal notranslate"><span class="pre">example</span></code> which can be accessed as indicated in
 <a class="reference internal" href="#gitlab-create-project-3"><span class="std std-numref">Figure 2.8</span></a>.  In our case, the HTTP access would be via
@@ -1138,13 +1161,15 @@ project team and the latter now has to set up his system to be able to
 contribute to project <code class="docutils literal notranslate"><span class="pre">example</span></code>. During the discussion, it might be useful to
 occasionally take a look at <a class="reference internal" href="#gitlab"><span class="std std-numref">Figure 2.5</span></a> in order to connect the details to
 the overall picture.</p>
-<div class="figure align-center" id="id17">
+<figure class="align-center" id="id18">
 <span id="gitlab-developer-1"></span><a class="reference internal image-reference" href="_images/gitlab-developer-1.png"><img alt="_images/gitlab-developer-1.png" src="_images/gitlab-developer-1.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.11 </span><span class="caption-text">In order to navigate to a repository, one can for example search for it or
+<figcaption>
+<p><span class="caption-number">Figure 2.11 </span><span class="caption-text">In order to navigate to a repository, one can for example search for it or
 use a direct link if one has joined the project recently. This page can be
 accessed by choosing “Profile” from the avatar menu in the upper right
-corner.</span></p>
-</div>
+corner.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>In a first step, user <code class="docutils literal notranslate"><span class="pre">gert</span></code> logs into the GitLab server and goes to the
 project <code class="docutils literal notranslate"><span class="pre">example</span></code> of user <code class="docutils literal notranslate"><span class="pre">boss</span></code>. A possibility to do so consists in
 searching for the project name in the dashboard as shown in
@@ -1257,12 +1282,14 @@ To ssh://localhost:30022/gert/example.git
 Branch &#39;hello&#39; set up to track remote branch &#39;hello&#39; from &#39;origin&#39;.
 </pre></div>
 </div>
-<div class="figure align-center" id="id18">
+<figure class="align-center" id="id19">
 <span id="gitlab-developer-2"></span><a class="reference internal image-reference" href="_images/gitlab-developer-2.png"><img alt="_images/gitlab-developer-2.png" src="_images/gitlab-developer-2.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.12 </span><span class="caption-text">The script <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> has been successfully pushed to the remote branch
+<figcaption>
+<p><span class="caption-number">Figure 2.12 </span><span class="caption-text">The script <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> has been successfully pushed to the remote branch
 <code class="docutils literal notranslate"><span class="pre">origin/hello</span></code>. It can now be brought to the remote repository <code class="docutils literal notranslate"><span class="pre">upstream</span></code>
-by means of a merge request.</span></p>
-</div>
+by means of a merge request.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Actually, two things have happened here at the same time. The commit <code class="docutils literal notranslate"><span class="pre">313a6a5</span></code> was
 pushed to the branch <code class="docutils literal notranslate"><span class="pre">hello</span></code> on <code class="docutils literal notranslate"><span class="pre">origin</span></code>. Because of the option <code class="docutils literal notranslate"><span class="pre">-u</span></code>, the local
 branch was associated with the remote branch. From now on, if one wants to push
@@ -1293,10 +1320,12 @@ the <code class="docutils literal notranslate"><span class="pre">upstream</span>
 is different from the submitter, a second pair of eyes can take a look at the
 code and spot potential problems. In the end, the project team or the team leaders
 have to decide which policy to follow.</p>
-<div class="figure align-center" id="id19">
+<figure class="align-center" id="id20">
 <span id="gitlab-developer-3"></span><a class="reference internal image-reference" href="_images/gitlab-developer-3.png"><img alt="_images/gitlab-developer-3.png" src="_images/gitlab-developer-3.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.13 </span><span class="caption-text">GitLab page for the preparation of a new merge request.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 2.13 </span><span class="caption-text">GitLab page for the preparation of a new merge request.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>On the project page shown in <a class="reference internal" href="#gitlab-developer-2"><span class="std std-numref">Figure 2.12</span></a>, there is a button in the
 upper right with the title “Create merge request” which does precisely what this
 title says. Clicking this button will bring up a page like the one depicted in
@@ -1314,13 +1343,15 @@ commit the new work to the <code class="docutils literal notranslate"><span clas
 will automatically be part of the present merge request even though the new
 commit might not be logically related to the merge request. In such a situation,
 it is better to start a new branch, probably based on the local <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
-<div class="figure align-center" id="id20">
+<figure class="align-center" id="id21">
 <span id="gitlab-developer-4"></span><a class="reference internal image-reference" href="_images/gitlab-developer-4.png"><img alt="_images/gitlab-developer-4.png" src="_images/gitlab-developer-4.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.14 </span><span class="caption-text">A merge request can be discussed. It can be merged and closed or even closed
+<figcaption>
+<p><span class="caption-number">Figure 2.14 </span><span class="caption-text">A merge request can be discussed. It can be merged and closed or even closed
 without merging if the code has been found to be unsuitable for the project.
 The page shown here assumes that the user logged in has write permission for
-the project.</span></p>
-</div>
+the project.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Even though the merge request is based on code in the repository <code class="docutils literal notranslate"><span class="pre">origin</span></code>, it
 will appear in the list of merge requests for the repository <code class="docutils literal notranslate"><span class="pre">upstream</span></code> because
 that is where the code should be merged. The page of an open merge request looks
@@ -1387,11 +1418,13 @@ $ git branch -d hello
 Deleted branch hello (war 313a6a5).
 </pre></div>
 </div>
-<div class="figure align-center" id="id21">
+<figure class="align-center" id="id22">
 <span id="gitlab-developer-5"></span><a class="reference internal image-reference" href="_images/gitlab-developer-5.png"><img alt="_images/gitlab-developer-5.png" src="_images/gitlab-developer-5.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.15 </span><span class="caption-text">At the tab “Settings - Branches” individual branches or all merged branches can
-be removed.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 2.15 </span><span class="caption-text">At the tab “Settings - Branches” individual branches or all merged branches can
+be removed.</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The first command deleted the remote branch. As an alternative way, one can use
 the GitLab web interface as shown in <a class="reference internal" href="#gitlab-developer-5"><span class="std std-numref">Figure 2.15</span></a>. There
 individual branches or all merged branches can be removed. However, the local
@@ -1418,11 +1451,11 @@ $ git log --oneline --decorate --graph
 </div>
 <p>All three <code class="docutils literal notranslate"><span class="pre">master</span></code> branches are now in the same state and we have completed a basic
 development cycle.</p>
-</div>
-<div class="section" id="sundry-topics">
-<h2>2.8. Sundry topics<a class="headerlink" href="#sundry-topics" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="stashing">
-<h3>2.8.1. Stashing<a class="headerlink" href="#stashing" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sundry-topics">
+<h2><span class="section-number">2.8. </span>Sundry topics<a class="headerlink" href="#sundry-topics" title="Permalink to this headline">¶</a></h2>
+<section id="stashing">
+<h3><span class="section-number">2.8.1. </span>Stashing<a class="headerlink" href="#stashing" title="Permalink to this headline">¶</a></h3>
 <p>In the previous sections, we have only discussed the basic workflows with Git
 and certainly did not even attempt to be complete. In the day-to-day work with
 a Git repository, certain problems occasionally arise. Some of them will be
@@ -1505,9 +1538,9 @@ stash. However, after some time it is easy to forget that one has stashed code
 in the first place. Therefore, stashing is most suited for brief interruptions
 where one needs to change branches for a short period of time. Otherwise,
 committing the changes might be a better solution.</p>
-</div>
-<div class="section" id="tagging">
-<h3>2.8.2. Tagging<a class="headerlink" href="#tagging" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tagging">
+<h3><span class="section-number">2.8.2. </span>Tagging<a class="headerlink" href="#tagging" title="Permalink to this headline">¶</a></h3>
 <p>As we know, a specific revision of the code can be specified by means of its
 SHA1 value. Occasionally, it is useful to tag a revision with a name for easier
 reference. For example, one might want to introduce different versions of the
@@ -1566,14 +1599,16 @@ To ssh://localhost:30022/gert/myrepo.git
 </pre></div>
 </div>
 <p>The tag is now also visible on the project’s webpage as shown in <a class="reference internal" href="#gitlab-tag"><span class="std std-numref">Figure 2.16</span></a>.</p>
-<div class="figure align-center" id="id22">
+<figure class="align-center" id="id23">
 <span id="gitlab-tag"></span><a class="reference internal image-reference" href="_images/gitlab-tag.png"><img alt="_images/gitlab-tag.png" src="_images/gitlab-tag.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 2.16 </span><span class="caption-text">After a tag has been pushed to the remote repository, it can be used on the
-project’s webpage to navigate to the commit associated with the tag.</span></p>
-</div>
-</div>
-<div class="section" id="detached-head-state">
-<h3>2.8.3. Detached head state<a class="headerlink" href="#detached-head-state" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Figure 2.16 </span><span class="caption-text">After a tag has been pushed to the remote repository, it can be used on the
+project’s webpage to navigate to the commit associated with the tag.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="detached-head-state">
+<h3><span class="section-number">2.8.3. </span>Detached head state<a class="headerlink" href="#detached-head-state" title="Permalink to this headline">¶</a></h3>
 <p>In <a class="reference internal" href="#git-branches"><span class="std std-numref">Section 2.6</span></a>, we have seen that we can move between the last commits
 in different branches. However, we may not only be interested in the most recent
 version of the code. After all, the whole point in keeping the history of a project
@@ -1617,7 +1652,7 @@ SPECIFYING REVISIONS
 <p>Now let us suppose that the recent history of our repository looks as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d08b086</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="n">v1</span><span class="p">)</span> <span class="n">Merge</span> <span class="n">branch</span> <span class="s1">&#39;dev&#39;</span>
 <span class="mi">7</span><span class="n">a7b8f7</span> <span class="n">added</span> <span class="n">doc</span> <span class="n">string</span>
-<span class="n">a459aec</span> <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="n">v0</span><span class="o">.</span><span class="mi">1</span><span class="p">)</span> <span class="n">doc</span> <span class="n">string</span> <span class="n">added</span>
+<span class="n">a459aec</span> <span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="n">v0</span><span class="mf">.1</span><span class="p">)</span> <span class="n">doc</span> <span class="n">string</span> <span class="n">added</span>
 <span class="n">ac805d5</span> <span class="n">Merge</span> <span class="n">branch</span> <span class="s1">&#39;dev&#39;</span>
 <span class="mf">41e9</span><span class="n">e21</span> <span class="n">function</span> <span class="n">call</span> <span class="n">added</span>
 <span class="mi">1</span><span class="n">bac36d</span> <span class="n">exclamation</span> <span class="n">mark</span> <span class="n">appended</span>
@@ -1668,9 +1703,9 @@ Switched to branch &#39;master&#39;
 </div>
 <p>The new branch needs to be created before garbage collection destroys the
 commit <code class="docutils literal notranslate"><span class="pre">4d252a9</span></code>.</p>
-</div>
-<div class="section" id="manipulating-history">
-<h3>2.8.4. Manipulating history<a class="headerlink" href="#manipulating-history" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="manipulating-history">
+<h3><span class="section-number">2.8.4. </span>Manipulating history<a class="headerlink" href="#manipulating-history" title="Permalink to this headline">¶</a></h3>
 <p>Travelling back in time and changing the past can have strange effects on the
 future. What is well known to readers of science fiction also applies to some
 extent to users of Git. Occasionally, it is tempting to correct the history of
@@ -1823,67 +1858,58 @@ have seen, a rebase gives us the opportunity to take into account what has happe
 in the master branch and to resolve merge conflicts. In this way it can be avoided
 that a merge request containing commits from the development branch will contain
 merge conflicts with the master branch.</p>
-<table class="docutils footnote" frame="void" id="gitlab-uaux" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The computing center of the University of Augsburg is running
+<dl class="footnote brackets">
+<dt class="label" id="gitlab-uaux"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The computing center of the University of Augsburg is running
 a GitLab server at <code class="docutils literal notranslate"><span class="pre">git.rz.uni-augsburg.de</span></code> which is accessible to anybody
-in possession of a valid user-ID of the computing center.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="sha1" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>SHA-1 is a hash checksum which characterizes an object but does not
+in possession of a valid user-ID of the computing center.</p>
+</dd>
+<dt class="label" id="github-master-main"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>On Github, the default branch nowadays is called <code class="docutils literal notranslate"><span class="pre">main</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+</dd>
+<dt class="label" id="sha1"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>SHA-1 is a hash checksum which characterizes an object but does not
 allow to reconstruct it. Consisting of 160 bits, it allows for
-<span class="math notranslate nohighlight">\(2^{160}\approx 10^{48}\)</span> different values.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="add-p" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Occasionally, one has made several changes which should be separated
+<span class="math notranslate nohighlight">\(2^{160}\approx 10^{48}\)</span> different values.</p>
+</dd>
+<dt class="label" id="add-p"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Occasionally, one has made several changes which should be separated
 into different atomic commits. In such a case <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">-p</span></code> might come in
 handy as it allows to select chunks of code while adding a file to the
-staging area.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="merge-pull" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>On GitHub, instead of “merge request” the term “pull request” is
-used, meaning the same.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="protected-branches" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>More information on working with protected branches can
+staging area.</p>
+</dd>
+<dt class="label" id="merge-pull"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>On GitHub, instead of “merge request” the term “pull request” is
+used, meaning the same.</p>
+</dd>
+<dt class="label" id="protected-branches"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>More information on working with protected branches can
 be found at <a class="reference external" href="https://docs.gitlab.com/ee/user/project/protected_branches.html">Protected Branches</a>
-in the GitLab documentation.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+in the GitLab documentation.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
 
 
       </div>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="introduction.html">1. Introduction</a>
+        «&#160;&#160;<a href="introduction.html"><span class="section-number">1. </span>Introduction</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="testing.html">3. Testing of code</a>&#160;&#160;»
+        <a href="testing.html"><span class="section-number">3. </span>Testing of code</a>&#160;&#160;»
         </p>
 
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Gert-Ludwig Ingold, license: CC BY 4.0 International.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2018—2022, Gert-Ludwig Ingold, license: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

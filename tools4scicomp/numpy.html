@@ -1,45 +1,46 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4. Scientific computing with NumPy and SciPy &#8212; Tools for Scientific Computing 0.1 documentation</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>4. Scientific computing with NumPy and SciPy &#8212; Tools for Scientific Computing 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="5. Run-time analysis" href="profiling.html" />
     <link rel="prev" title="3. Testing of code" href="testing.html" /> 
   </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Tools for Scientific Computing 0.1 documentation</span></a></h1>
+          <span>Tools for Scientific Computing 0.2 documentation</span></a></h1>
         <h2 class="heading"><span>4. Scientific computing with NumPy and SciPy</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="testing.html">3. Testing of code</a>
+        «&#160;&#160;<a href="testing.html"><span class="section-number">3. </span>Testing of code</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="profiling.html">5. Run-time analysis</a>&#160;&#160;»
+        <a href="profiling.html"><span class="section-number">5. </span>Run-time analysis</a>&#160;&#160;»
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="scientific-computing-with-numpy-and-scipy">
-<span id="scientific-libraries"></span><h1>4. Scientific computing with NumPy and SciPy<a class="headerlink" href="#scientific-computing-with-numpy-and-scipy" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="python-scientific-ecosystem">
-<h2>4.1. Python scientific ecosystem<a class="headerlink" href="#python-scientific-ecosystem" title="Permalink to this headline">¶</a></h2>
+  <section id="scientific-computing-with-numpy-and-scipy">
+<span id="scientific-libraries"></span><h1><span class="section-number">4. </span>Scientific computing with NumPy and SciPy<a class="headerlink" href="#scientific-computing-with-numpy-and-scipy" title="Permalink to this headline">¶</a></h1>
+<section id="python-scientific-ecosystem">
+<h2><span class="section-number">4.1. </span>Python scientific ecosystem<a class="headerlink" href="#python-scientific-ecosystem" title="Permalink to this headline">¶</a></h2>
 <p>Python comes with a rich variety of freely available third-party packages
 including quite a number of packages which are routinely used in scientific
 computing. Before developing code for a standard problem like an eigenvalue
@@ -49,38 +50,38 @@ very likely that such libraries are more reliable and more efficient than
 self-developed code. This does not mean though that such libraries are guaranteed
 to be error-free and there may exist reasons to develop even basic numerical
 code oneself.</p>
-<p>NumPy <a class="footnote-reference" href="#id13" id="id1">[1]</a> constitutes the basis of the Python scientific ecosystem. The
+<p>NumPy <a class="footnote-reference brackets" href="#id13" id="id1">1</a> constitutes the basis of the Python scientific ecosystem. The
 multi-dimensional array datatype defined in NumPy is pivotal for a huge number
 of scientific applications and is made use of in many ways in the other two
 core packages SciPy and matplotlib. SciPy provides submodules in many areas
 relevant for scientific applications like optimization, signal processing,
-linear algebra, statistics, special functions and several more <a class="footnote-reference" href="#id14" id="id2">[2]</a>. Part
+linear algebra, statistics, special functions and several more <a class="footnote-reference brackets" href="#id14" id="id2">2</a>. Part
 of the code is written in C or Fortran resulting in fast execution speed.
 Matplotlib offers comprehensive support for graphical presentation of data
-<a class="footnote-reference" href="#matplotlib" id="id3">[3]</a>.</p>
+<a class="footnote-reference brackets" href="#matplotlib" id="id3">3</a>.</p>
 <p>In recent year, the Jupyter notebook, formerly known as IPython notebook, has
-become very popular, in particular among the data scientists <a class="footnote-reference" href="#jupyter" id="id4">[4]</a>. The
+become very popular, in particular among the data scientists <a class="footnote-reference brackets" href="#jupyter" id="id4">4</a>. The
 notebook can be used with Python and a number of other programming languages
 like Julia and R and allows to integrate code, text as well as images and
 other media in a single file.</p>
 <p>In addition, there are a number of more dedicated packages of which we will
-name a few. The Python data analysis library pandas <a class="footnote-reference" href="#pandas" id="id5">[5]</a> offers high-performance,
+name a few. The Python data analysis library pandas <a class="footnote-reference brackets" href="#pandas" id="id5">5</a> offers high-performance,
 easy-to-use data structures and data analysis tools. Symbolic computation is
-possible in Python with the help of the sympy package <a class="footnote-reference" href="#sympy" id="id6">[6]</a>. Image-processing
-routines can be found in scikit-image <a class="footnote-reference" href="#skimage" id="id7">[7]</a>. Among the many features of this
+possible in Python with the help of the sympy package <a class="footnote-reference brackets" href="#sympy" id="id6">6</a>. Image-processing
+routines can be found in scikit-image <a class="footnote-reference brackets" href="#skimage" id="id7">7</a>. Among the many features of this
 package, we mention image segmentation which can for example be used to analyse
 electron microscope images of heterogeneous surfaces. Machine learning has recently
 developed into a very active field which receives excellent support in Python
-through the scikit-learn package <a class="footnote-reference" href="#sklearn" id="id8">[8]</a>.</p>
+through the scikit-learn package <a class="footnote-reference brackets" href="#sklearn" id="id8">8</a>.</p>
 <p>We emphasize that the list of packages briefly described here, is not exhaustive
 and there exist more interesting Python packages useful in scientific applications.
 A recommended source of information on the Python scientific ecosystem are the
 <a class="reference external" href="https://www.scipy-lectures.org/">SciPy lecture notes</a>.</p>
-</div>
-<div class="section" id="numpy">
-<h2>4.2. NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="python-lists-and-matrices">
-<h3>4.2.1. Python lists and matrices<a class="headerlink" href="#python-lists-and-matrices" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="numpy">
+<h2><span class="section-number">4.2. </span>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
+<section id="python-lists-and-matrices">
+<h3><span class="section-number">4.2.1. </span>Python lists and matrices<a class="headerlink" href="#python-lists-and-matrices" title="Permalink to this headline">¶</a></h3>
 <p>It is rather typical in scientific applications to deal with homogeneous data,
 i.e. data of the same datatype, organized in arrays. An obvious example for
 one-dimensional arrays are vectors in their coordinate representation and
@@ -89,12 +90,14 @@ applications for even higher-dimensional arrays. The data representing a
 digital colour image composed of <span class="math notranslate nohighlight">\(N\times M\)</span> pixels can be stored in an
 <span class="math notranslate nohighlight">\(N\times M\times 3\)</span> array with three planes representing the three colour
 channels red, green, and blue as visualized in <a class="reference internal" href="#rgbarray"><span class="std std-numref">Figure 4.1</span></a>.</p>
-<div class="figure align-center" id="id15">
+<figure class="align-center" id="id15">
 <span id="rgbarray"></span><a class="reference internal image-reference" href="_images/rgbarray.png"><img alt="_images/rgbarray.png" src="_images/rgbarray.png" style="width: 15em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.1 </span><span class="caption-text">The data of a digital colour image composed of <span class="math notranslate nohighlight">\(N\times M\)</span> pixels can be
+<figcaption>
+<p><span class="caption-number">Figure 4.1 </span><span class="caption-text">The data of a digital colour image composed of <span class="math notranslate nohighlight">\(N\times M\)</span> pixels can be
 represented as a <span class="math notranslate nohighlight">\(N\times M\times 3\)</span> array where the three planes correspond
-to the red, green, and blue channels.</span></p>
-</div>
+to the red, green, and blue channels.</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>The first question to address is how one can store such data structures in Python and
 how can one make sure that the data can be processed fast. Among the standard datatypes
 available in Python, a natural candidate would be lists. In Python, lists are very
@@ -139,15 +142,15 @@ row, not the first column. Even though there are ways to extract a column from a
 lists, e.g. by means of a list comprehension, there is now consistent approach to extracting
 rows and columns from a list of lists. Our construction is certainly not a good one and
 we are in need of a new datatype.</p>
-</div>
-<div class="section" id="numpy-arrays">
-<h3>4.2.2. NumPy arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="numpy-arrays">
+<h3><span class="section-number">4.2.2. </span>NumPy arrays<a class="headerlink" href="#numpy-arrays" title="Permalink to this headline">¶</a></h3>
 <p>The new datatype provided by NumPy is a multidimensional homogeneous array of fixed-size
 items called <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. Before starting to explore this datatype, we need to import
 the NumPy package. While there are different ways to do so, there is one recommended way.
 Let us take a look at the various alternatives:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="o">*</span>                <span class="c1"># don&#39;t do this!</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>  <span class="c1"># not recommended</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>                <span class="c1"># don&#39;t do this!</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>  <span class="c1"># not recommended</span>
 <span class="kn">import</span> <span class="nn">numpy</span>                       <span class="c1"># ok, but the following line is better</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                 <span class="c1"># recommended way</span>
 </pre></div>
@@ -263,7 +266,7 @@ to analyze the metadata, we use a short function enabling us to list the
 attributes of an array.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">array_attributes</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;ndim&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;itemsize&#39;</span><span class="p">,</span> <span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;shape&#39;</span><span class="p">,</span> <span class="s1">&#39;strides&#39;</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{attr:8s}: {getattr(a, attr)}&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">attr</span><span class="si">:</span><span class="s1">8s</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A convenient way of generating an array for test purposes is the <code class="docutils literal notranslate"><span class="pre">arange</span></code> function
@@ -303,10 +306,10 @@ length can serve to illustrate the problem of overflows:</p>
 </pre></div>
 </div>
 <p>Take a look at the items in this array and try to understand what is going on.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">numerictypes</span><span class="o">.</span><span class="n">sctypes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">numerictypes</span><span class="o">.</span><span class="n">sctypes</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
-<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;    </span><span class="si">{elem}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    </span><span class="si">{</span><span class="n">elem</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">int</span>
 <span class="go">    &lt;class &#39;numpy.int8&#39;&gt;</span>
@@ -388,11 +391,13 @@ are interpreted as a matrix consisting of two columns and three rows. Note that
 no rearrangement of data in memory is required in order to go from one matrix
 to another one. Only the way, how the position of a certain element in memory
 is obtained, changes when <code class="docutils literal notranslate"><span class="pre">strides</span></code> is modified.</p>
-<div class="figure align-center" id="id16">
+<figure class="align-center" id="id16">
 <span id="strides"></span><a class="reference internal image-reference" href="_images/strides.png"><img alt="_images/strides.png" src="_images/strides.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.2 </span><span class="caption-text">Linear data in memory can be interpreted in different ways by appropriately
-choosing the <code class="docutils literal notranslate"><span class="pre">strides</span></code> tuple.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.2 </span><span class="caption-text">Linear data in memory can be interpreted in different ways by appropriately
+choosing the <code class="docutils literal notranslate"><span class="pre">strides</span></code> tuple.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>A two-dimensional matrix can easily be transposed. Behind the scenes the values
 in the <code class="docutils literal notranslate"><span class="pre">strides</span></code> tuple are interchanged:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -438,9 +443,9 @@ can be produced:</p>
 </div>
 <p>In the end, the user manipulating <code class="docutils literal notranslate"><span class="pre">strides</span></code> is responsible for all consequences
 which his or her action may have.</p>
-</div>
-<div class="section" id="creating-arrays">
-<span id="id9"></span><h3>4.2.3. Creating arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="creating-arrays">
+<span id="id9"></span><h3><span class="section-number">4.2.3. </span>Creating arrays<a class="headerlink" href="#creating-arrays" title="Permalink to this headline">¶</a></h3>
 <p>We have seen in the previous section that an array can be created by providing <code class="docutils literal notranslate"><span class="pre">np.array</span></code>
 with an object possessing an <code class="docutils literal notranslate"><span class="pre">__array__</span></code> method or a nested sequence. However, this
 requires to create the object or nested sequence in the first place. Often, more convenient
@@ -602,11 +607,13 @@ to produce a graphical representation of the function:</p>
 </pre></div>
 </div>
 <p>The generated graph is reproduced in <a class="reference internal" href="#mpl-numpy-1"><span class="std std-numref">Figure 4.3</span></a>.</p>
-<div class="figure align-center" id="id17">
+<figure class="align-center" id="id17">
 <span id="mpl-numpy-1"></span><a class="reference internal image-reference" href="_images/mpl_numpy_1.png"><img alt="_images/mpl_numpy_1.png" src="_images/mpl_numpy_1.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.3 </span><span class="caption-text">Simple example of a function graph generated by operating with a universal function
-on an array generated by <code class="docutils literal notranslate"><span class="pre">linspace</span></code>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.3 </span><span class="caption-text">Simple example of a function graph generated by operating with a universal function
+on an array generated by <code class="docutils literal notranslate"><span class="pre">linspace</span></code>.</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Arrays can also be filled with data taken from a file. This can for example be the case
 if data obtained from a measurement are first stored in a file before being processed
 or if numerical data are stored before a graphical representation is produced. Assume
@@ -670,13 +677,15 @@ shows an example generated by the following code:</p>
 </div>
 <p>Not that the argument <code class="docutils literal notranslate"><span class="pre">interpolation</span></code> of <code class="docutils literal notranslate"><span class="pre">plt.imshow</span></code> is set to <code class="docutils literal notranslate"><span class="pre">'none'</span></code> to ensure
 that no interpolation is done which might blur the image.</p>
-<div class="figure align-center" id="id18">
+<figure class="align-center" id="id18">
 <span id="mpl-numpy-2"></span><a class="reference internal image-reference" href="_images/mpl_numpy_2.png"><img alt="_images/mpl_numpy_2.png" src="_images/mpl_numpy_2.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.4 </span><span class="caption-text">Graphical representation of an array filled with random numbers.</span></p>
-</div>
-</div>
-<div class="section" id="indexing-arrays">
-<span id="id10"></span><h3>4.2.4. Indexing arrays<a class="headerlink" href="#indexing-arrays" title="Permalink to this headline">¶</a></h3>
+<figcaption>
+<p><span class="caption-number">Figure 4.4 </span><span class="caption-text">Graphical representation of an array filled with random numbers.</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="indexing-arrays">
+<span id="id10"></span><h3><span class="section-number">4.2.4. </span>Indexing arrays<a class="headerlink" href="#indexing-arrays" title="Permalink to this headline">¶</a></h3>
 <p>One way of accessing sets of elements of an array makes use of slices which we know
 from Python lists. A slice is characterized by a <code class="docutils literal notranslate"><span class="pre">start</span></code> index, a <code class="docutils literal notranslate"><span class="pre">stop</span></code> index
 whose corresponding element is excluded, and <code class="docutils literal notranslate"><span class="pre">step</span></code> which indicates the stepsize.
@@ -828,12 +837,14 @@ case for <code class="docutils literal notranslate"><span class="pre">sum</span>
 <p>In the first case, the summation is performed along the columns while in the second
 case the elements in a given row are added. If no axis is specified, all array
 elements are summed.</p>
-<div class="figure align-center" id="id19">
+<figure class="align-center" id="id19">
 <span id="axes"></span><a class="reference internal image-reference" href="_images/axes.png"><img alt="_images/axes.png" src="_images/axes.png" style="width: 15em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.5 </span><span class="caption-text">In a two-dimensional array, the first index corresponding to axes 0 denotes
+<figcaption>
+<p><span class="caption-number">Figure 4.5 </span><span class="caption-text">In a two-dimensional array, the first index corresponding to axes 0 denotes
 the row while the second index corresponding to axes 1 denotes the column.
-This convention is consistent with the one used in mathematics.</span></p>
-</div>
+This convention is consistent with the one used in mathematics.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>We illustrate the generalization to higher dimensions by considering a three-dimensional
 array:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -850,10 +861,12 @@ array:</p>
 <p>Interpreting the array in terms of nested lists, the outer level contains two two-dimensional
 arrays along axis 0 as displayed in <a class="reference internal" href="#array3d"><span class="std std-numref">Figure 4.6</span></a>. Within the two-dimensional arrays, the
 outer level corresponds to axis 1 and the innermost level corresponds to axis 2.</p>
-<div class="figure align-center" id="id20">
+<figure class="align-center" id="id20">
 <span id="array3d"></span><a class="reference internal image-reference" href="_images/array3d.png"><img alt="_images/array3d.png" src="_images/array3d.png" style="width: 15em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.6 </span><span class="caption-text">A three-dimensional array with its three axes.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.6 </span><span class="caption-text">A three-dimensional array with its three axes.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Cutting along the three axes, we obtain the following two-dimensional arrays:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="go">array([[ 0,  1,  2,  3],</span>
@@ -1002,36 +1015,28 @@ of <span class="math notranslate nohighlight">\(p\)</span> at <span class="math 
 out before. The maximum number to be considered as candidate is the largest integer
 smaller or equal to the maximum integer to be considered. In our example, we consider
 integers up to 49 and thus the largest candidate is 7 which happens to be prime.</p>
-<div class="figure align-center" id="id21">
+<figure class="align-center" id="id21">
 <span id="eratosthenes"></span><a class="reference internal image-reference" href="_images/eratosthenes.png"><img alt="_images/eratosthenes.png" src="_images/eratosthenes.png" style="width: 40em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.7 </span><span class="caption-text">Iteration steps when the sieve of Eratosthenes is used to determine the prime numbers
-below 50. For details see the main text.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.7 </span><span class="caption-text">Iteration steps when the sieve of Eratosthenes is used to determine the prime numbers
+below 50. For details see the main text.</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>This algorithm can be implemented in the following way where we have chosen to
 print not only the final result but also the intermediate steps.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="n">nmax</span> <span class="o">=</span> <span class="mi">49</span>
-<span class="n">integers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">is_prime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-<span class="n">is_prime</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">nmax</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">is_prime</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
-        <span class="n">is_prime</span><span class="p">[</span><span class="n">j</span><span class="o">*</span><span class="n">j</span><span class="p">::</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">integers</span><span class="p">[</span><span class="n">is_prime</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">math</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">49</span>
+<span class="linenos"> 5</span><span class="n">integers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="n">is_prime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">is_prime</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 8</span><span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">nmax</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+<span class="linenos"> 9</span>    <span class="k">if</span> <span class="n">is_prime</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+<span class="linenos">10</span>        <span class="n">is_prime</span><span class="p">[</span><span class="n">j</span><span class="o">*</span><span class="n">j</span><span class="p">::</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="n">integers</span><span class="p">[</span><span class="n">is_prime</span><span class="p">])</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>This script produces the following output:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">5</span>  <span class="mi">7</span>  <span class="mi">9</span> <span class="mi">11</span> <span class="mi">13</span> <span class="mi">15</span> <span class="mi">17</span> <span class="mi">19</span> <span class="mi">21</span> <span class="mi">23</span> <span class="mi">25</span> <span class="mi">27</span> <span class="mi">29</span> <span class="mi">31</span> <span class="mi">33</span> <span class="mi">35</span> <span class="mi">37</span> <span class="mi">39</span> <span class="mi">41</span> <span class="mi">43</span> <span class="mi">45</span> <span class="mi">47</span> <span class="mi">49</span><span class="p">]</span>
 <span class="p">[</span> <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">5</span>  <span class="mi">7</span> <span class="mi">11</span> <span class="mi">13</span> <span class="mi">17</span> <span class="mi">19</span> <span class="mi">23</span> <span class="mi">25</span> <span class="mi">29</span> <span class="mi">31</span> <span class="mi">35</span> <span class="mi">37</span> <span class="mi">41</span> <span class="mi">43</span> <span class="mi">47</span> <span class="mi">49</span><span class="p">]</span>
@@ -1046,9 +1051,9 @@ entries as potential primes. In line 10, slicing is used to mark all multiples
 of <code class="docutils literal notranslate"><span class="pre">j</span></code> starting at the square of <code class="docutils literal notranslate"><span class="pre">j</span></code> as non-primes. Finally, in line 11, fancy
 indexing is used. The Boolean array <code class="docutils literal notranslate"><span class="pre">is_prime</span></code> indicates through the value <code class="docutils literal notranslate"><span class="pre">True</span></code>
 which entries in the array <code class="docutils literal notranslate"><span class="pre">integers</span></code> should be printed.</p>
-</div>
-<div class="section" id="broadcasting">
-<span id="id11"></span><h3>4.2.5. Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="broadcasting">
+<span id="id11"></span><h3><span class="section-number">4.2.5. </span>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h3>
 <p>In the previous sections, we have seen examples where an operation involved a
 scalar value and an array. This was the case in <a class="reference internal" href="#creating-arrays"><span class="std std-numref">Section 4.2.3</span></a> where
 we multiplied an array created by <code class="docutils literal notranslate"><span class="pre">np.ones</span></code> with a number. Another example
@@ -1066,12 +1071,14 @@ and <code class="docutils literal notranslate"><span class="pre">(3,</span> <spa
 In contrast, this is not possible for an array of shape <code class="docutils literal notranslate"><span class="pre">(3,)</span></code> as is demonstrated
 in the figure. We emphasize the difference between the arrays of shape <code class="docutils literal notranslate"><span class="pre">(3,)</span></code> and
 <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">1)</span></code>.</p>
-<div class="figure align-center" id="id22">
+<figure class="align-center" id="id22">
 <span id="broadcast"></span><a class="reference internal image-reference" href="_images/broadcast.png"><img alt="_images/broadcast.png" src="_images/broadcast.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.8 </span><span class="caption-text">For appropriate shapes, the matrix elements in the highlighted cells can be
+<figcaption>
+<p><span class="caption-number">Figure 4.8 </span><span class="caption-text">For appropriate shapes, the matrix elements in the highlighted cells can be
 broadcast to create the full shape <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code> in this example. An array of
-shape <code class="docutils literal notranslate"><span class="pre">(3,)</span></code> cannot be broadcast to shape <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code></span></p>
-</div>
+shape <code class="docutils literal notranslate"><span class="pre">(3,)</span></code> cannot be broadcast to shape <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">4)</span></code></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>As the second image in <a class="reference internal" href="#broadcast"><span class="std std-numref">Figure 4.8</span></a> shows, a scalar is broadcast to an
 array of the desired shape with all elements being equal. Multiplying an array
 with a scalar, we expect that each array element is multiplied by the scalar.
@@ -1104,9 +1111,9 @@ In other words, a matrix multiplication cannot be done by means of the <code cla
 </div>
 <p>The use of the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> operator for the matrix multiplication requires at least
 Python 3.5 and NumPy 1.10.</p>
-</div>
-<div class="section" id="universal-functions">
-<span id="ufuncs"></span><h3>4.2.6. Universal functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="universal-functions">
+<span id="ufuncs"></span><h3><span class="section-number">4.2.6. </span>Universal functions<a class="headerlink" href="#universal-functions" title="Permalink to this headline">¶</a></h3>
 <p>The mathematical functions provided by the <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">cmath</span></code> modules from
 the Python standard library accept only single real or complex values but no
 arrays. For the latter purpose, NumPy and also the scientific library SciPy
@@ -1148,7 +1155,7 @@ package.  Often but not always, these functions are implemented as universal
 functions as well.  As an example, we create a plot of the Airy function
 <span class="math notranslate nohighlight">\(\mathrm{Ai}(x)\)</span> appearing e.g.  in the theory of the rainbow or the
 quantum mechanics in a linear potential:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">airy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">airy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ai</span><span class="p">,</span> <span class="n">aip</span><span class="p">,</span> <span class="n">bi</span><span class="p">,</span> <span class="n">bip</span> <span class="o">=</span> <span class="n">airy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ai</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ai(x)&quot;</span><span class="p">)</span>
@@ -1162,10 +1169,12 @@ quantum mechanics in a linear potential:</p>
 <p>There exist two types of Airy functions <span class="math notranslate nohighlight">\(\mathrm{Ai}(x)\)</span> and <span class="math notranslate nohighlight">\(\mathrm{Bi}(x)\)</span>
 which together with their derivatives are calculated by the <code class="docutils literal notranslate"><span class="pre">airy</span></code> function in one go.
 The Airy function <span class="math notranslate nohighlight">\(\mathrm{Ai}(x)\)</span> and its derivative are displayed in <a class="reference internal" href="#airy"><span class="std std-numref">Figure 4.9</span></a>.</p>
-<div class="figure align-center" id="id23">
+<figure class="align-center" id="id23">
 <span id="airy"></span><a class="reference internal image-reference" href="_images/airy.png"><img alt="_images/airy.png" src="_images/airy.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.9 </span><span class="caption-text">Airy function <span class="math notranslate nohighlight">\(\mathrm{Ai}(x)\)</span> and its derivative.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.9 </span><span class="caption-text">Airy function <span class="math notranslate nohighlight">\(\mathrm{Ai}(x)\)</span> and its derivative.</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Occasionally, one needs to create a two-dimensional plot of a function of two variables.
 In order to ensure that the resulting array is two-dimensional, the one-dimensional arrays
 for the two variables need to run along different axes. A convenient way to do so is the
@@ -1202,11 +1211,13 @@ of the <code class="docutils literal notranslate"><span class="pre">linspace</sp
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id24">
+<figure class="align-center" id="id24">
 <span id="sinxy"></span><a class="reference internal image-reference" href="_images/sinxy.png"><img alt="_images/sinxy.png" src="_images/sinxy.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.10 </span><span class="caption-text">Application of the mesh grid in a two-dimensional representation of the function
-<span class="math notranslate nohighlight">\(\sin(xy)\)</span>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.10 </span><span class="caption-text">Application of the mesh grid in a two-dimensional representation of the function
+<span class="math notranslate nohighlight">\(\sin(xy)\)</span>.</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Making use of broadcasting, one can reduce the memory requirement by creating an open mesh grid
 instead:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="n">j</span><span class="p">]</span>
@@ -1218,7 +1229,7 @@ instead:</p>
 <p>The function <code class="docutils literal notranslate"><span class="pre">ogrid</span></code> returns two two-dimensional arrays where one dimension is of length 1.
 <a class="reference internal" href="#besselj"><span class="std std-numref">Figure 4.11</span></a> shows an application to Bessel functions obtained by means of the following
 code:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="k">import</span> <span class="n">jv</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">jv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nu</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">41</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">100</span><span class="n">j</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">jv</span><span class="p">(</span><span class="n">nu</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
 <span class="go">&lt;matplotlib.image.AxesImage object at 0x7fde903736d8&gt;</span>
@@ -1229,11 +1240,13 @@ code:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id25">
+<figure class="align-center" id="id25">
 <span id="besselj"></span><a class="reference internal image-reference" href="_images/besselj.png"><img alt="_images/besselj.png" src="_images/besselj.png" style="width: 30em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.11 </span><span class="caption-text">Two-dimensional plot of the family of Bessel functions <span class="math notranslate nohighlight">\(J_\nu(x)\)</span> of order <span class="math notranslate nohighlight">\(\nu\)</span>
-created by means of an open mesh grid created by <code class="docutils literal notranslate"><span class="pre">ogrid</span></code>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.11 </span><span class="caption-text">Two-dimensional plot of the family of Bessel functions <span class="math notranslate nohighlight">\(J_\nu(x)\)</span> of order <span class="math notranslate nohighlight">\(\nu\)</span>
+created by means of an open mesh grid created by <code class="docutils literal notranslate"><span class="pre">ogrid</span></code>.</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Instead of using the <code class="docutils literal notranslate"><span class="pre">ogrid</span></code> function, one can also construct the argument arrays by hand. In
 this case, one has to take care of adding an additional axis in one of the two arrays as in the
 following example which results in <a class="reference internal" href="#interference"><span class="std std-numref">Figure 4.12</span></a>:</p>
@@ -1245,12 +1258,14 @@ following example which results in <a class="reference internal" href="#interfer
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id26">
+<figure class="align-center" id="id26">
 <span id="interference"></span><a class="reference internal image-reference" href="_images/interference.png"><img alt="_images/interference.png" src="_images/interference.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.12 </span><span class="caption-text">Interference pattern created with argument arrays obtained by means of <code class="docutils literal notranslate"><span class="pre">linspace</span></code> and by
+<figcaption>
+<p><span class="caption-number">Figure 4.12 </span><span class="caption-text">Interference pattern created with argument arrays obtained by means of <code class="docutils literal notranslate"><span class="pre">linspace</span></code> and by
 adding an additional axis in one of the two arrays. The function <code class="docutils literal notranslate"><span class="pre">hypot</span></code> determines the
-distance of the point given by the two argument coordinates from the origin.</span></p>
-</div>
+distance of the point given by the two argument coordinates from the origin.</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>So far, we have considered universal functions mostly as a convenient way to apply a function to
 an entire array. However, they can also make a significant contribution to speed up code.
 The following script compares the runtime between a for loop evaluating the sine function taken
@@ -1302,16 +1317,18 @@ reaches values of around 100. This behavior can be explained by the use of the
 Anaconda distribution where NumPy is compiled to support Intel’s math kernel
 library (MKL). Even without this effect, a speed up between 5 and 10 may be
 significant enough to seriously consider the use of universal functions.</p>
-<div class="figure align-center" id="id27">
+<figure class="align-center" id="id27">
 <span id="ufruntime"></span><a class="reference internal image-reference" href="_images/uf_runtime.png"><img alt="_images/uf_runtime.png" src="_images/uf_runtime.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.13 </span><span class="caption-text">Runtime comparison between the sine function taken from the <code class="docutils literal notranslate"><span class="pre">math</span></code> module
+<figcaption>
+<p><span class="caption-number">Figure 4.13 </span><span class="caption-text">Runtime comparison between the sine function taken from the <code class="docutils literal notranslate"><span class="pre">math</span></code> module
 and from the NumPy package as a function of the array size. Larger values of
 the time ratio imply a larger speed up gained by means of NumPy. The data
-have been obtained by a version of NumPy with MKL support.</span></p>
-</div>
-</div>
-<div class="section" id="linear-algebra">
-<h3>4.2.7. Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h3>
+have been obtained by a version of NumPy with MKL support.</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="linear-algebra">
+<h3><span class="section-number">4.2.7. </span>Linear algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this headline">¶</a></h3>
 <p>Scientific problems which can be formulated in terms of vectors or matrices often
 require tools of linear algebra. Therefore, we will discuss a few of the more
 important functions NumPy has to offer in that domain. For more details we recommend
@@ -1435,10 +1452,10 @@ much faster:</p>
 <p>In the third line, we have made sure that the initial random matrix is turned
 into a symmetric matrix by adding its transpose. In this example, we observe a
 speedup of about a factor of 7.</p>
-</div>
-</div>
-<div class="section" id="scipy">
-<h2>4.3. SciPy<a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="scipy">
+<h2><span class="section-number">4.3. </span>SciPy<a class="headerlink" href="#scipy" title="Permalink to this headline">¶</a></h2>
 <p>The functions offered through the SciPy package cover many tasks typically
 encountered in the numerical treatment of scientific problems. Here, we can
 only give an impression of the potential of SciPy by discussing a few examples.
@@ -1451,7 +1468,7 @@ step, we create data on a line with normally distributed noise added on top:</p>
 </div>
 <p>Now, we can use the <code class="docutils literal notranslate"><span class="pre">linregress</span></code> function from the statistical functions module of SciPy
 to do a least-squares regression of the noisy data:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">linregress</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">linregress</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">rvalue</span><span class="p">,</span> <span class="n">pvalue</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">slope</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span>
@@ -1463,14 +1480,16 @@ to do a least-squares regression of the noisy data:</p>
 <p>Here <code class="docutils literal notranslate"><span class="pre">rvalue</span></code> refers to the correlation coefficient and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> is the
 standard error of the estimated gradient. The graph containing the noisy data
 and the linear fit is shown in <a class="reference internal" href="#linregress"><span class="std std-numref">Figure 4.14</span></a>.</p>
-<div class="figure align-center" id="id28">
+<figure class="align-center" id="id28">
 <span id="linregress"></span><a class="reference internal image-reference" href="_images/linregress.png"><img alt="_images/linregress.png" src="_images/linregress.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.14 </span><span class="caption-text">Noisy data (blue points) and result of the linear regression (orange line)
-obtained by means of <code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress</span></code>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.14 </span><span class="caption-text">Noisy data (blue points) and result of the linear regression (orange line)
+obtained by means of <code class="docutils literal notranslate"><span class="pre">scipy.stats.linregress</span></code>.</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Fitting of data cannot always be reduced to linear regression. Then we can resort
 to the <code class="docutils literal notranslate"><span class="pre">curve_fit</span></code> function from the optimization module of SciPy:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">curve_fit</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fitfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
 <span class="gp">...</span>
@@ -1492,10 +1511,12 @@ number of parameters increases, the fit tends to become less reliable. The fit
 values for the parameters are returned in the array <code class="docutils literal notranslate"><span class="pre">popt</span></code> together with the
 covariance matrix for the parameters <code class="docutils literal notranslate"><span class="pre">pcov</span></code>. The outcome of the fit is shown
 in <a class="reference internal" href="#curvefit"><span class="std std-numref">Figure 4.15</span></a>.</p>
-<div class="figure align-center" id="id29">
+<figure class="align-center" id="id29">
 <span id="curvefit"></span><a class="reference internal image-reference" href="_images/curvefit.png"><img alt="_images/curvefit.png" src="_images/curvefit.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.15 </span><span class="caption-text">Fit of a noisy sine function by means of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.15 </span><span class="caption-text">Fit of a noisy sine function by means of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.curve_fit</span></code>.</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Occasionally, a root search is required. As an example, we consider the determination
 of the ground state energy in a finite potential well. The eigenvalue condition for a
 symmetric eigenstate reads</p>
@@ -1511,7 +1532,7 @@ contains only one root as can be seen from the blue line in <a class="reference 
 the function requires an additional argument <span class="math notranslate nohighlight">\(\alpha\)</span> which also needs to be given to
 <code class="docutils literal notranslate"><span class="pre">brentq</span></code>. Finally, in order to know how many iterations are need, we set <code class="docutils literal notranslate"><span class="pre">full_output</span></code> to
 <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="k">import</span> <span class="n">brentq</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">energy</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="n">sqrt_1me</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">energy</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">energy</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">sqrt_1me</span><span class="p">)</span>
@@ -1535,16 +1556,18 @@ the function requires an additional argument <span class="math notranslate nohig
 </div>
 <p>As the output indicates, the root is found within 6 iterations. The resulting
 root is depicted in <a class="reference internal" href="#brentq"><span class="std std-numref">Figure 4.16</span></a> as an orange dot.</p>
-<div class="figure align-center" id="id30">
+<figure class="align-center" id="id30">
 <span id="brentq"></span><a class="reference internal image-reference" href="_images/brentq.png"><img alt="_images/brentq.png" src="_images/brentq.png" style="width: 20em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.16 </span><span class="caption-text">Determination of the ground state energy in a finite potential well of depth
-<span class="math notranslate nohighlight">\(\alpha=1\)</span> by means of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.brentq</span></code>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.16 </span><span class="caption-text">Determination of the ground state energy in a finite potential well of depth
+<span class="math notranslate nohighlight">\(\alpha=1\)</span> by means of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.brentq</span></code>.</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Finally, we consider a more complex example which involves optimization and the
 solution of a coupled set of differential equations. The physical problem to be
 studied numerically is the fall of a chain where the equations of motion are
 derived in W. Tomaszweski, P. Pieranski, and J.-C. Geminard, Am. J. Phys. <strong>74</strong>,
-776 (2006) <a class="footnote-reference" href="#ajpdoi" id="id12">[9]</a> and account for damping inside the chain. For the initial
+776 (2006) <a class="footnote-reference brackets" href="#ajpdoi" id="id12">9</a> and account for damping inside the chain. For the initial
 configuration of the chain, we take a chain hanging in equilibrium where the
 two ends are at equal height and at a given horizontal distance. In the continuum
 limit, the chain follows a catenary, but in the discrete case treated here, we
@@ -1556,9 +1579,9 @@ In addition, we have to account for two constraints corresponding to the horizon
 and vertical direction and implemented through the methods <code class="docutils literal notranslate"><span class="pre">x_constraint</span></code> and
 <code class="docutils literal notranslate"><span class="pre">y_constraint</span></code>. An example of the result of this optimization procedure is
 depicted in <a class="reference internal" href="#hangingchain"><span class="std std-numref">Figure 4.17</span></a> for a chain made of 9 links.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="kn">as</span> <span class="nn">LA</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="k">as</span> <span class="nn">LA</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">minimize</span>
 <span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
 
@@ -1654,11 +1677,13 @@ depicted in <a class="reference internal" href="#hangingchain"><span class="std 
 <span class="n">chain</span><span class="o">.</span><span class="n">plot_dynamics</span><span class="p">()</span>
 </pre></div>
 </div>
-<div class="figure align-center" id="id31">
+<figure class="align-center" id="id31">
 <span id="hangingchain"></span><a class="reference internal image-reference" href="_images/hanging_chain.png"><img alt="_images/hanging_chain.png" src="_images/hanging_chain.png" style="width: 18em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.17 </span><span class="caption-text">Chain consisting of 9 links hanging in its equilibrium position with a
-horizontal distance of the ends equivalent to the length of 7 links.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 4.17 </span><span class="caption-text">Chain consisting of 9 links hanging in its equilibrium position with a
+horizontal distance of the ends equivalent to the length of 7 links.</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>In a second step, the equation of motion for the chain links is solved in the
 <code class="docutils literal notranslate"><span class="pre">solve_eq_of_motion</span></code> method by means of <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> taken from the
 <code class="docutils literal notranslate"><span class="pre">integrate</span></code> module of SciPy. We need to express the second order equations of
@@ -1673,87 +1698,64 @@ the various solvers, we choose <code class="docutils literal notranslate"><span 
 Runge-Kutta method of Radau IIA family of order 5. <a class="reference internal" href="#fallingchain"><span class="std std-numref">Figure 4.18</span></a>
 displays a stroboscopic plot of the chain during is first half period swinging
 from the right to the left.</p>
-<div class="figure align-center" id="id32">
+<figure class="align-center" id="id32">
 <span id="fallingchain"></span><a class="reference internal image-reference" href="_images/falling_chain.png"><img alt="_images/falling_chain.png" src="_images/falling_chain.png" style="width: 18em;" /></a>
-<p class="caption"><span class="caption-number">Figure 4.18 </span><span class="caption-text">Stroboscopic image of a falling chain consisting of 200 elements starting out from
+<figcaption>
+<p><span class="caption-number">Figure 4.18 </span><span class="caption-text">Stroboscopic image of a falling chain consisting of 200 elements starting out from
 its equilibrium state in the upper right during its first half period swinging to
-the left.</span></p>
-</div>
-<table class="docutils footnote" frame="void" id="id13" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>For details see the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference">NumPy Reference</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id14" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>For details see the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference#api-reference">SciPy API Reference</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="matplotlib" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>See the <a class="reference external" href="https://matplotlib.org/gallery/index.html">matplotlib gallery</a> to
-obtain an idea of the possibilities offered by matplotlib.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="jupyter" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>For details see the <a class="reference external" href="https://jupyter.org/">homepage of the Jupyter project</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="pandas" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>For details see the <a class="reference external" href="https://pandas.pydata.org/">pandas homepage</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="sympy" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>For details see the <a class="reference external" href="https://www.sympy.org/">sympy homepage</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="skimage" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>For details see the <a class="reference external" href="https://scikit-image.org">scikit-image homepage</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="sklearn" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[8]</a></td><td>For details see the <a class="reference external" href="https://https://scikit-learn.org">scikit-learn homepage</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="ajpdoi" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id12">[9]</a></td><td><a class="reference external" href="https://doi.org/10.1119/1.2204074">doi:10.1119/1.2204074</a>.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
+the left.</span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<dl class="footnote brackets">
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference">NumPy Reference</a>.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference#api-reference">SciPy API Reference</a>.</p>
+</dd>
+<dt class="label" id="matplotlib"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>See the <a class="reference external" href="https://matplotlib.org/gallery/index.html">matplotlib gallery</a> to
+obtain an idea of the possibilities offered by matplotlib.</p>
+</dd>
+<dt class="label" id="jupyter"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://jupyter.org/">homepage of the Jupyter project</a>.</p>
+</dd>
+<dt class="label" id="pandas"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://pandas.pydata.org/">pandas homepage</a>.</p>
+</dd>
+<dt class="label" id="sympy"><span class="brackets"><a class="fn-backref" href="#id6">6</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://www.sympy.org/">sympy homepage</a>.</p>
+</dd>
+<dt class="label" id="skimage"><span class="brackets"><a class="fn-backref" href="#id7">7</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://scikit-image.org">scikit-image homepage</a>.</p>
+</dd>
+<dt class="label" id="sklearn"><span class="brackets"><a class="fn-backref" href="#id8">8</a></span></dt>
+<dd><p>For details see the <a class="reference external" href="https://https://scikit-learn.org">scikit-learn homepage</a>.</p>
+</dd>
+<dt class="label" id="ajpdoi"><span class="brackets"><a class="fn-backref" href="#id12">9</a></span></dt>
+<dd><p><a class="reference external" href="https://doi.org/10.1119/1.2204074">doi:10.1119/1.2204074</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
 
 
       </div>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="testing.html">3. Testing of code</a>
+        «&#160;&#160;<a href="testing.html"><span class="section-number">3. </span>Testing of code</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="profiling.html">5. Run-time analysis</a>&#160;&#160;»
+        <a href="profiling.html"><span class="section-number">5. </span>Run-time analysis</a>&#160;&#160;»
         </p>
 
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Gert-Ludwig Ingold, license: CC BY 4.0 International.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2018—2022, Gert-Ludwig Ingold, license: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

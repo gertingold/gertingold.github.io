@@ -1,43 +1,44 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6. Documentation of code &#8212; Tools for Scientific Computing 0.1 documentation</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>6. Documentation of code &#8212; Tools for Scientific Computing 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="7. Aspects of parallel computing" href="parallel.html" />
     <link rel="prev" title="5. Run-time analysis" href="profiling.html" /> 
   </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Tools for Scientific Computing 0.1 documentation</span></a></h1>
+          <span>Tools for Scientific Computing 0.2 documentation</span></a></h1>
         <h2 class="heading"><span>6. Documentation of code</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="profiling.html">5. Run-time analysis</a>
+        «&#160;&#160;<a href="profiling.html"><span class="section-number">5. </span>Run-time analysis</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="parallel.html">7. Aspects of parallel computing</a>&#160;&#160;»
+        <a href="parallel.html"><span class="section-number">7. </span>Aspects of parallel computing</a>&#160;&#160;»
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="documentation-of-code">
-<span id="documenting"></span><h1>6. Documentation of code<a class="headerlink" href="#documentation-of-code" title="Permalink to this headline">¶</a></h1>
+  <section id="documentation-of-code">
+<span id="documenting"></span><h1><span class="section-number">6. </span>Documentation of code<a class="headerlink" href="#documentation-of-code" title="Permalink to this headline">¶</a></h1>
 <p>Besides writing code and testing it, documenting the code is also an important
 task which should not be neglected. In Python, it is a good habit to provide
 each function or method with a docstring which might even contain doctests as we
@@ -59,9 +60,9 @@ and methods with docstrings.</p>
 <p>In the following, we will first give an introduction to the markup language
 <em>reStructuredText</em> and then explain some of the more important aspects of how
 <em>Sphinx</em> can be used to document code. For further information, we refer to
-the documentation of <em>reStructuredText</em> <a class="footnote-reference" href="#docrest" id="id1">[1]</a> and <em>Sphinx</em> <a class="footnote-reference" href="#docsphinx" id="id2">[2]</a>.</p>
-<div class="section" id="markup-with-restructuredtext">
-<h2>6.1. Markup with reStructuredText<a class="headerlink" href="#markup-with-restructuredtext" title="Permalink to this headline">¶</a></h2>
+the documentation of <em>reStructuredText</em> <a class="footnote-reference brackets" href="#docrest" id="id1">1</a> and <em>Sphinx</em> <a class="footnote-reference brackets" href="#docsphinx" id="id2">2</a>.</p>
+<section id="markup-with-restructuredtext">
+<h2><span class="section-number">6.1. </span>Markup with reStructuredText<a class="headerlink" href="#markup-with-restructuredtext" title="Permalink to this headline">¶</a></h2>
 <p>Markup languages are used to annotate text for electronic text processing, for
 example in order to specify its meaning. A text could be marked as representing
 a section title and a computer program could then represent it accordingly, e.g.
@@ -116,7 +117,7 @@ This is another paragraph showing how to embed an inline literal while
 suppressing the surrounding blanks: re\ ``structured``\ Text.
 </pre></div>
 </div>
-<p>will be represented as <a class="footnote-reference" href="#sphinxlatexrepr" id="id3">[3]</a></p>
+<p>will be represented as <a class="footnote-reference brackets" href="#sphinxlatexrepr" id="id3">3</a></p>
 <blockquote>
 <div><p>Text can be <em>emphasized</em>, usually as italics, or even <strong>strongly emphasized</strong>,
 usually as boldface. It is also possible to insert <code class="docutils literal notranslate"><span class="pre">inline</span> <span class="pre">literals</span></code> which
@@ -174,18 +175,17 @@ by empty lines. The following example illustrates the use of bullet-point lists:
 <p>This code results in</p>
 <blockquote>
 <div><ul>
-<li><p class="first">This is the text for the first item which runs over several lines. Make
+<li><p>This is the text for the first item which runs over several lines. Make
 sure that the text is consistently indented.</p>
 <p>Further paragraphs in an item can be added provided the indentation
 is consistent.</p>
 </li>
-<li><p class="first">second item</p>
+<li><p>second item</p>
 <ul class="simple">
-<li>A subitem is obtained by indenting the corresponding entry.</li>
+<li><p>A subitem is obtained by indenting the corresponding entry.</p></li>
 </ul>
 </li>
-<li><p class="first">third item</p>
-</li>
+<li><p>third item</p></li>
 </ul>
 </div></blockquote>
 <p>An enumerated list can be numbered explicitly by numbers, alphabet characters
@@ -208,13 +208,14 @@ the start of a new list.</p>
 <p>results in</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li>first item with automatic numbering</li>
-<li>second item<ol class="loweralpha" start="16">
-<li>subitem</li>
-<li>another subitem</li>
+<li><p>first item with automatic numbering</p></li>
+<li><p>second item</p>
+<ol class="loweralpha simple" start="16">
+<li><p>subitem</p></li>
+<li><p>another subitem</p></li>
 </ol>
 </li>
-<li>another item</li>
+<li><p>another item</p></li>
 </ol>
 </div></blockquote>
 <p>We have already seen how to produce inline literals which may be useful to
@@ -233,7 +234,7 @@ linenumbers.</p>
 <p>Since it is indicated that the code is written in Python, the syntax of the
 code can be highlighted.</p>
 <blockquote>
-<div><div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">10</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">+</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span>
@@ -318,10 +319,12 @@ needs to be indented to indicate that it belongs to the figure directive.</p>
 </div>
 <p>This code results in <a class="reference internal" href="#example"><span class="std std-numref">Figure 6.1</span></a>, which by means of the <em>Sphinx</em> LaTeX builder
 is created as a floating object.</p>
-<div class="figure" id="id9">
+<figure class="align-default" id="id9">
 <span id="example"></span><a class="reference internal image-reference" href="_images/example.png"><img alt="_images/example.png" src="_images/example.png" style="width: 100px; height: 50px;" /></a>
-<p class="caption"><span class="caption-number">Figure 6.1 </span><span class="caption-text">A graphics can be distorted by specifying <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code>.</span></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Figure 6.1 </span><span class="caption-text">A graphics can be distorted by specifying <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code>.</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
 <p>Occasionally, one may want to include a link to a web resource. In a documentation, this
 might be desirable to refer to a publication where an algorithm or the theoretical basis
 of the code has been described. As an example, we present various ways to link to the
@@ -343,12 +346,12 @@ the links.</p>
 </div>
 <p>results in the output</p>
 <ol class="arabic simple">
-<li>J. W. Cooley and J. W. Tukey, <em>An algorithm for the machine calculation of complex Fourier series</em>,
-<a class="reference external" href="https://doi.org/10.2307/2003354">Math. Comput. 19, 297–301 (1965)</a></li>
-<li>J. W. Cooley and J. W. Tukey, <em>An algorithm for the machine calculation of complex Fourier series</em>,
-Math. Comput. <strong>19</strong>, 297–301 (1965) <a class="reference external" href="https://doi.org/10.2307/2003354">https://doi.org/10.2307/2003354</a></li>
-<li>J. W. Cooley and J. W. Tukey, <em>An algorithm for the machine calculation of complex Fourier series</em>,
-Math. Comput. <strong>19</strong>, 297–301 (1965) <a class="reference external" href="https://doi.org/10.2307/2003354">https://doi.org/10.2307/2003354</a></li>
+<li><p>J. W. Cooley and J. W. Tukey, <em>An algorithm for the machine calculation of complex Fourier series</em>,
+<a class="reference external" href="https://doi.org/10.2307/2003354">Math. Comput. 19, 297–301 (1965)</a></p></li>
+<li><p>J. W. Cooley and J. W. Tukey, <em>An algorithm for the machine calculation of complex Fourier series</em>,
+Math. Comput. <strong>19</strong>, 297–301 (1965) <a class="reference external" href="https://doi.org/10.2307/2003354">https://doi.org/10.2307/2003354</a></p></li>
+<li><p>J. W. Cooley and J. W. Tukey, <em>An algorithm for the machine calculation of complex Fourier series</em>,
+Math. Comput. <strong>19</strong>, 297–301 (1965) <a class="reference external" href="https://doi.org/10.2307/2003354">https://doi.org/10.2307/2003354</a></p></li>
 </ol>
 <p>The first case represents the most comprehensive way to represent a link. The pair of back apostrophes
 encloses the text and the link delimited by a less-than and greater-than sign. The text will be shown
@@ -381,9 +384,9 @@ As discussed in the `Introduction`_ ...
 <p>The discussion of reStructuredText in this section did not attempt to cover all possibilities provided
 by this markup language. For more details, it is recommended to consult the
 <a class="reference external" href="http://docutils.sourceforge.net/rst.html">documentation</a>.</p>
-</div>
-<div class="section" id="sphinx-documentation-generator">
-<h2>6.2. Sphinx documentation generator<a class="headerlink" href="#sphinx-documentation-generator" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sphinx-documentation-generator">
+<h2><span class="section-number">6.2. </span>Sphinx documentation generator<a class="headerlink" href="#sphinx-documentation-generator" title="Permalink to this headline">¶</a></h2>
 <p>The <em>Sphinx</em> documentation generator was initially created to produce the documentation for
 Python. However, it is very flexible and can be employed for many other use cases. In fact,
 the present lecture notes were also generated by means of <em>Sphinx</em>. As a documentation generator,
@@ -392,10 +395,10 @@ provides builders to convert the input into a variety of output formats, among t
 PDF, where the latter is obtained through LaTeX as an intermediate format. <em>Sphinx</em> offers the
 interesting possibility to autogenerate the documentation or part of it on the basis of the
 docstrings provided by the code being documented.</p>
-<div class="section" id="setting-up-a-sphinx-project">
-<h3>6.2.1. Setting up a Sphinx project<a class="headerlink" href="#setting-up-a-sphinx-project" title="Permalink to this headline">¶</a></h3>
+<section id="setting-up-a-sphinx-project">
+<h3><span class="section-number">6.2.1. </span>Setting up a Sphinx project<a class="headerlink" href="#setting-up-a-sphinx-project" title="Permalink to this headline">¶</a></h3>
 <p>There is not a unique way to set up a <em>Sphinx</em> documentation project. For a unexperienced user of
-<em>Sphinx</em>, the probably simplest way is to invoke <a class="footnote-reference" href="#sphinxversion" id="id4">[4]</a></p>
+<em>Sphinx</em>, the probably simplest way is to invoke <a class="footnote-reference brackets" href="#sphinxversion" id="id4">4</a></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sphinx-quickstart
 </pre></div>
 </div>
@@ -453,7 +456,7 @@ should be enabled if one wants to generate documentation from the docstrings
 provided in the code being documented by the <em>Sphinx</em> project. <code class="docutils literal notranslate"><span class="pre">intersphinx</span></code>
 is useful if one wants to provide links to other projects. It is for example
 possible to refer to the NumPy documentation.  <code class="docutils literal notranslate"><span class="pre">MathJax</span></code> is a Javascript
-package <a class="footnote-reference" href="#mathjax" id="id5">[5]</a> which allows for high-quality typesetting of mathematical
+package <a class="footnote-reference brackets" href="#mathjax" id="id5">5</a> which allows for high-quality typesetting of mathematical
 material in HTML.</p>
 <p>Depending on the operating system(s) on which output is generated for the <em>Sphinx</em> project,
 one typically chooses either the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for Un*x operating systems or a
@@ -489,9 +492,9 @@ user’s need as long as the Python syntax is respected. <code class="docutils l
 source file from which reference to other reStructuredText files can be made. Finally,
 <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> defines what should be done when invoking <code class="docutils literal notranslate"><span class="pre">make</span></code> with one of the
 targets <code class="docutils literal notranslate"><span class="pre">html</span></code> or <code class="docutils literal notranslate"><span class="pre">latexpdf</span></code> or any other valid target specified by <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">help</span></code>.</p>
-</div>
-<div class="section" id="sphinx-configuration">
-<h3>6.2.2. Sphinx configuration<a class="headerlink" href="#sphinx-configuration" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sphinx-configuration">
+<h3><span class="section-number">6.2.2. </span>Sphinx configuration<a class="headerlink" href="#sphinx-configuration" title="Permalink to this headline">¶</a></h3>
 <p>As already mentioned, the file <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> offers the possibility to adapt
 <em>Sphinx</em> to the needs of the project. Basic information includes the name of
 the project and of the author(s) as well as copyright information and version
@@ -554,12 +557,12 @@ customization</a> of the Sphinx
 documentation. Finally, it may be useful to know that in the list <code class="docutils literal notranslate"><span class="pre">latex_documents</span></code>
 several properties of the document are specified like the title and author appearing
 on the cover page of the documentation.</p>
-</div>
-<div class="section" id="autogeneration-of-a-documentation">
-<span id="autogeneration"></span><h3>6.2.3. Autogeneration of a documentation<a class="headerlink" href="#autogeneration-of-a-documentation" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="autogeneration-of-a-documentation">
+<span id="autogeneration"></span><h3><span class="section-number">6.2.3. </span>Autogeneration of a documentation<a class="headerlink" href="#autogeneration-of-a-documentation" title="Permalink to this headline">¶</a></h3>
 <p>With <em>Sphinx</em> it is possible to autogenerate documentation from docstrings. Before discussing
 how docstrings can be formatted for use by <em>Sphinx</em>, we make a few general remarks on docstrings.
-Recommendations about how a docstring should look like are given in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0257"><strong>PEP 257</strong></a>. <a class="footnote-reference" href="#pep" id="id6">[8]</a>
+Recommendations about how a docstring should look like are given in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0257"><strong>PEP 257</strong></a>. <a class="footnote-reference brackets" href="#pep" id="id6">8</a>
 We here focus on the keypoints pertinent to docstrings of methods and functions. The first line
 of the docstring should be a phrase ending in a period. It should be written as a command like
 “do something” instead of a description like “does something”. This phrase should not exceed
@@ -569,10 +572,10 @@ Or course, further information deemed useful can be given in addition.</p>
 <p>In order to demonstrate the autogeneration of documentation from docstrings, we take as an
 example the last script for the quantum carpet discussed in <a class="reference internal" href="profiling.html#profiling"><span class="std std-numref">Section 5</span></a>. We have
 partially supplied the code with docstrings which now looks as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">cm</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 
 <span class="k">class</span> <span class="nc">InfiniteWell</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Quantum carpet for infinitely deep potential well.</span>
@@ -586,7 +589,7 @@ partially supplied the code with docstrings which now looks as follows:</p>
 <span class="sd">    :param int nint: number of intervals used in the integration routine</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">nint</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">psi0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">nbase</span><span class="p">,</span> <span class="n">nint</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nbase</span> <span class="o">=</span> <span class="n">nbase</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nint</span> <span class="o">=</span> <span class="n">nint</span>
@@ -686,14 +689,13 @@ all undocumented members. The generated output will look as follows:</p>
 <div><p>Quantum carpet for infinitely deep potential well.</p>
 <p>This class allows to determine the time evolution of an initial
 state in an infinitely deep potential well.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><ul class="first last simple">
-<li><strong>psi0</strong> (<em>func</em>) – initial wave function</li>
-<li><strong>width</strong> (<em>float</em>) – width of the potential well</li>
-<li><strong>nbase</strong> (<em>int</em>) – number of basis states</li>
-<li><strong>nint</strong> (<em>int</em>) – number of intervals used in the
-integration routine</li>
+<dl class="simple">
+<dt>Parameters:</dt><dd><ul class="simple">
+<li><p><strong>psi0</strong> (<em>func</em>) – initial wave function</p></li>
+<li><p><strong>width</strong> (<em>float</em>) – width of the potential well</p></li>
+<li><p><strong>nbase</strong> (<em>int</em>) – number of basis states</p></li>
+<li><p><strong>nint</strong> (<em>int</em>) – number of intervals used in the
+integration routine</p></li>
 </ul>
 </dd>
 </dl>
@@ -702,17 +704,17 @@ integration routine</li>
 <div><p>Determine set of eigenfunction values at position <em>x</em>.</p>
 <p>The basis set is limited by the number of eigenstates given by
 <code class="docutils literal notranslate"><span class="pre">self.nbase</span></code>.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><strong>x</strong> (<em>float or numpy.ndarray</em>) – position at which the
-eigenfunctions are to be determined</dd>
-<dt>Returns:</dt>
-<dd>array of eigenfunction values</dd>
-<dt>Return type:</dt>
-<dd>numpy.ndarray</dd>
-<dt>Raises:</dt>
-<dd><code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> – if the dimension of <em>x</em> does not equal
-1</dd>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p><strong>x</strong> (<em>float or numpy.ndarray</em>) – position at which the
+eigenfunctions are to be determined</p>
+</dd>
+<dt>Returns:</dt><dd><p>array of eigenfunction values</p>
+</dd>
+<dt>Return type:</dt><dd><p>numpy.ndarray</p>
+</dd>
+<dt>Raises:</dt><dd><p><code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> – if the dimension of <em>x</em> does not equal
+1</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>psi(x, t)</p>
@@ -720,14 +722,14 @@ eigenfunctions are to be determined</dd>
 <p>carpet.psi0(x)</p>
 <blockquote>
 <div><p>Determine Gaussian wave function.</p>
-<dl class="docutils">
-<dt>Parameters:</dt>
-<dd><strong>x</strong> (<em>float</em>) – position at which the wave function is
-determined</dd>
-<dt>Returns:</dt>
-<dd>value of wave function at position <code class="docutils literal notranslate"><span class="pre">x</span></code></dd>
-<dt>Return type:</dt>
-<dd>float</dd>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p><strong>x</strong> (<em>float</em>) – position at which the wave function is
+determined</p>
+</dd>
+<dt>Returns:</dt><dd><p>value of wave function at position <code class="docutils literal notranslate"><span class="pre">x</span></code></p>
+</dd>
+<dt>Return type:</dt><dd><p>float</p>
+</dd>
 </dl>
 </div></blockquote>
 <p>carpet.trapezoidal(func, a, b, nint)</p>
@@ -739,7 +741,7 @@ be restricted by giving the appropriate names after <code class="docutils litera
 are two standards for docstrings which are handled by <em>Sphinx</em>, provided the extension
 <code class="docutils literal notranslate"><span class="pre">napoleon</span></code> is loaded. The list <code class="docutils literal notranslate"><span class="pre">extensions</span></code> in the <em>Sphinx</em> configuration file then
 should contain the string <code class="docutils literal notranslate"><span class="pre">'sphinx.ext.napoleon'</span></code>. The supported standards for docstrings
-are the Google style docstring <a class="footnote-reference" href="#googledocstring" id="id7">[6]</a> and NumPy style docstring <a class="footnote-reference" href="#numpydocstring" id="id8">[7]</a>.
+are the Google style docstring <a class="footnote-reference brackets" href="#googledocstring" id="id7">6</a> and NumPy style docstring <a class="footnote-reference brackets" href="#numpydocstring" id="id8">7</a>.
 We will focus our discussion of these two standards to the method <code class="docutils literal notranslate"><span class="pre">eigenfunction</span></code> in the
 quantum carpet script.</p>
 <p>Applying the NumPy style to the method <code class="docutils literal notranslate"><span class="pre">eigenfunction</span></code> would result in</p>
@@ -798,82 +800,60 @@ following form where we again leave out the code of the method:</p>
 from docstrings. When working with the <em>Sphinx</em> documentation generator, questions are likely
 to come up which have not been addressed in this chapter. A complete description can be found
 in the extensive online documentation which should be consulted in the case of need.</p>
-<table class="docutils footnote" frame="void" id="docrest" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>More information on reStructuredText can be found in the documentation
-of the docutils project at <a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="docsphinx" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>The <em>Sphinx</em> project page can be found at <a class="reference external" href="https://www.sphinx-doc.org/">https://www.sphinx-doc.org/</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="sphinxlatexrepr" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Note that the representation given here and in following examples
+<dl class="footnote brackets">
+<dt class="label" id="docrest"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>More information on reStructuredText can be found in the documentation
+of the docutils project at <a class="reference external" href="http://docutils.sourceforge.net/rst.html">http://docutils.sourceforge.net/rst.html</a>.</p>
+</dd>
+<dt class="label" id="docsphinx"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>The <em>Sphinx</em> project page can be found at <a class="reference external" href="https://www.sphinx-doc.org/">https://www.sphinx-doc.org/</a>.</p>
+</dd>
+<dt class="label" id="sphinxlatexrepr"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Note that the representation given here and in following examples
 is generated by the LaTeX builder of <em>Sphinx</em>. It may look differently if the
 representation is generated otherwise, e.g. with tools like <code class="docutils literal notranslate"><span class="pre">rst2html</span></code> or
-<code class="docutils literal notranslate"><span class="pre">rst2latex</span></code> provided by <code class="docutils literal notranslate"><span class="pre">docutils</span></code> or <code class="docutils literal notranslate"><span class="pre">rst2pdf</span></code>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="sphinxversion" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>The following discussion is based on version 1.8.2 of <em>Sphinx</em> but
-should mostly apply to all recent versions of <em>Sphinx</em>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="mathjax" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>For more information see <a class="reference external" href="https://www.mathjax.org/">https://www.mathjax.org/</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="googledocstring" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[6]</a></td><td>For a complete description see
+<code class="docutils literal notranslate"><span class="pre">rst2latex</span></code> provided by <code class="docutils literal notranslate"><span class="pre">docutils</span></code> or <code class="docutils literal notranslate"><span class="pre">rst2pdf</span></code>.</p>
+</dd>
+<dt class="label" id="sphinxversion"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>The following discussion is based on version 1.8.2 of <em>Sphinx</em> but
+should mostly apply to all recent versions of <em>Sphinx</em>.</p>
+</dd>
+<dt class="label" id="mathjax"><span class="brackets"><a class="fn-backref" href="#id5">5</a></span></dt>
+<dd><p>For more information see <a class="reference external" href="https://www.mathjax.org/">https://www.mathjax.org/</a>.</p>
+</dd>
+<dt class="label" id="googledocstring"><span class="brackets"><a class="fn-backref" href="#id7">6</a></span></dt>
+<dd><p>For a complete description see
 <a class="reference external" href="https://google.github.io/styleguide/pyguide.html#functions-and-methods">https://google.github.io/styleguide/pyguide.html#functions-and-methods</a> and
-<a class="reference external" href="https://google.github.io/styleguide/pyguide.html#comments-in-classes">https://google.github.io/styleguide/pyguide.html#comments-in-classes</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="numpydocstring" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[7]</a></td><td>For details see <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">https://numpydoc.readthedocs.io/en/latest/format.html</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="pep" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[8]</a></td><td>PEP is short for Python Enhancement Proposal.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
+<a class="reference external" href="https://google.github.io/styleguide/pyguide.html#comments-in-classes">https://google.github.io/styleguide/pyguide.html#comments-in-classes</a>.</p>
+</dd>
+<dt class="label" id="numpydocstring"><span class="brackets"><a class="fn-backref" href="#id8">7</a></span></dt>
+<dd><p>For details see <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">https://numpydoc.readthedocs.io/en/latest/format.html</a>.</p>
+</dd>
+<dt class="label" id="pep"><span class="brackets"><a class="fn-backref" href="#id6">8</a></span></dt>
+<dd><p>PEP is short for Python Enhancement Proposal.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
 
 
       </div>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="profiling.html">5. Run-time analysis</a>
+        «&#160;&#160;<a href="profiling.html"><span class="section-number">5. </span>Run-time analysis</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="parallel.html">7. Aspects of parallel computing</a>&#160;&#160;»
+        <a href="parallel.html"><span class="section-number">7. </span>Aspects of parallel computing</a>&#160;&#160;»
         </p>
 
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Gert-Ludwig Ingold, license: CC BY 4.0 International.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2018—2022, Gert-Ludwig Ingold, license: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>

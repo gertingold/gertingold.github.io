@@ -1,45 +1,46 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>3. Testing of code &#8212; Tools for Scientific Computing 0.1 documentation</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3. Testing of code &#8212; Tools for Scientific Computing 0.2 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="4. Scientific computing with NumPy and SciPy" href="numpy.html" />
     <link rel="prev" title="2. Version Control with Git" href="git.html" /> 
   </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Tools for Scientific Computing 0.1 documentation</span></a></h1>
+          <span>Tools for Scientific Computing 0.2 documentation</span></a></h1>
         <h2 class="heading"><span>3. Testing of code</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="git.html">2. Version Control with Git</a>
+        «&#160;&#160;<a href="git.html"><span class="section-number">2. </span>Version Control with Git</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="numpy.html">4. Scientific computing with NumPy and SciPy</a>&#160;&#160;»
+        <a href="numpy.html"><span class="section-number">4. </span>Scientific computing with NumPy and SciPy</a>&#160;&#160;»
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="testing-of-code">
-<span id="testing"></span><h1>3. Testing of code<a class="headerlink" href="#testing-of-code" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="why-testing">
-<h2>3.1. Why testing?<a class="headerlink" href="#why-testing" title="Permalink to this headline">¶</a></h2>
+  <section id="testing-of-code">
+<span id="testing"></span><h1><span class="section-number">3. </span>Testing of code<a class="headerlink" href="#testing-of-code" title="Permalink to this headline">¶</a></h1>
+<section id="why-testing">
+<h2><span class="section-number">3.1. </span>Why testing?<a class="headerlink" href="#why-testing" title="Permalink to this headline">¶</a></h2>
 <p>Scientific code usually aims at producing new insights which implies that
 typically the correctness of the result is difficult to assess. Occasionally,
 bugs in the code can be identified because the results do not make any sense.
@@ -85,9 +86,9 @@ thereby improving the quality of the code.</p>
 <p>In this chapter, we will be concerned with unit testing and mainly cover two approaches.
 The first one are doctests which are implemented in Python within the doc strings of a
 function or method. The second approach are unit tests based on asserts using <code class="docutils literal notranslate"><span class="pre">py.test</span></code>.</p>
-</div>
-<div class="section" id="doctests">
-<span id="id1"></span><h2>3.2. Doctests<a class="headerlink" href="#doctests" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="doctests">
+<span id="id1"></span><h2><span class="section-number">3.2. </span>Doctests<a class="headerlink" href="#doctests" title="Permalink to this headline">¶</a></h2>
 <p>The standard way to document a function in Python is a so-called docstring as shown
 in the following example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
@@ -97,7 +98,7 @@ in the following example.</p>
 
 <span class="sd">    name: name of the person to greet</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In our example, the docstring is available as <code class="docutils literal notranslate"><span class="pre">welcome.__doc__</span></code> and can also be
@@ -131,7 +132,7 @@ Python shell.</p>
 <span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;)</span>
 <span class="sd">    &#39;Hello Alice!&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Running the test with the option <code class="docutils literal notranslate"><span class="pre">-v</span></code> to obtain some output, we find:</p>
@@ -157,33 +158,21 @@ of how to call the function <code class="docutils literal notranslate"><span cla
 this situation, the function should behave properly. However, an appropriate test
 will reveal in a second that we have not sufficiently considered this corner case
 when designing our function.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
-
-<span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Print a greeting.</span>
-
-<span class="sd">    name: name of the person to greet</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;&#39;)</span>
-<span class="sd">    &#39;Hello!&#39;</span>
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;)</span>
-<span class="sd">    &#39;Hello Alice!&#39;</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hello {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># hello.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="linenos"> 4</span>    <span class="sd">&quot;&quot;&quot;Print a greeting.</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="sd">    name: name of the person to greet</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;&#39;)</span>
+<span class="linenos"> 9</span><span class="sd">    &#39;Hello!&#39;</span>
+<span class="linenos">10</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;)</span>
+<span class="linenos">11</span><span class="sd">    &#39;Hello Alice!&#39;</span>
+<span class="linenos">12</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">13</span>    <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Running the doctests, we identify our first coding error by means of a test:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m doctest hello.py
 **********************************************************************
@@ -216,7 +205,7 @@ make the tests pass.</p>
 <span class="sd">    &#39;Hello Alice!&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Hello {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;Hello!&#39;</span>
 </pre></div>
@@ -238,7 +227,7 @@ as well.</p>
 <span class="sd">    &#39;Hello Alice!&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Hello {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;Hello!&#39;</span>
 </pre></div>
@@ -261,7 +250,7 @@ works fine.</p>
 <span class="sd">    &#39;Hello Alice!&#39;</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Hello {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;Hello!&#39;</span>
 </pre></div>
@@ -287,9 +276,9 @@ works fine.</p>
     <span class="n">hellodict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Hallo&#39;</span><span class="p">}</span>
     <span class="n">hellostring</span> <span class="o">=</span> <span class="n">hellodict</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;{} {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;{}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>It is interesting to consider the case where the value of <code class="docutils literal notranslate"><span class="pre">lang</span></code> is not a valid
@@ -313,71 +302,40 @@ whether it is properly raised. Second, more complex outputs appear not only in
 the context of exceptions and one should know ways to handle such situations.</p>
 <p>Let us assume that we handle the <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> by raising a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> together
 with an appropriate error message.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># hello.py</span>
-
-<span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Print a greeting.</span>
-
-<span class="sd">    name: name of the person to greet</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome()</span>
-<span class="sd">    &#39;Hello!&#39;</span>
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;&#39;)</span>
-<span class="sd">    &#39;Hello!&#39;</span>
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;)</span>
-<span class="sd">    &#39;Hello Alice!&#39;</span>
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;, lang=&#39;de&#39;)</span>
-<span class="sd">    &#39;Hallo Alice!&#39;</span>
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;, lang=&#39;fr&#39;)</span>
-<span class="sd">    Traceback (most recent call last):</span>
-<span class="sd">    ValueError: unknown language: fr</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">hellodict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Hallo&#39;</span><span class="p">}</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">hellostring</span> <span class="o">=</span> <span class="n">hellodict</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
-    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;unknown language: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;{} {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;{}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">welcome</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># hello.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
+<span class="linenos"> 4</span>    <span class="sd">&quot;&quot;&quot;Print a greeting.</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="sd">    name: name of the person to greet</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="sd">    &gt;&gt;&gt; welcome()</span>
+<span class="linenos"> 9</span><span class="sd">    &#39;Hello!&#39;</span>
+<span class="linenos">10</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;&#39;)</span>
+<span class="linenos">11</span><span class="sd">    &#39;Hello!&#39;</span>
+<span class="linenos">12</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;)</span>
+<span class="linenos">13</span><span class="sd">    &#39;Hello Alice!&#39;</span>
+<span class="linenos">14</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;, lang=&#39;de&#39;)</span>
+<span class="linenos">15</span><span class="sd">    &#39;Hallo Alice!&#39;</span>
+<span class="linenos">16</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Alice&#39;, lang=&#39;fr&#39;)</span>
+<span class="linenos">17</span><span class="sd">    Traceback (most recent call last):</span>
+<span class="linenos">18</span><span class="sd">    ValueError: unknown language: fr</span>
+<span class="linenos">19</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">20</span>    <span class="n">hellodict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Hallo&#39;</span><span class="p">}</span>
+<span class="linenos">21</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">22</span>        <span class="n">hellostring</span> <span class="o">=</span> <span class="n">hellodict</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
+<span class="linenos">23</span>    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="linenos">24</span>        <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;unknown language: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
+<span class="linenos">25</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+<span class="linenos">27</span>        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="linenos">28</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">29</span>        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hellostring</span><span class="p">)</span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">32</span>    <span class="n">welcome</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>All tests run successfully. Note that in lines 17 and 18 we did not reproduce the full
 traceback. It was sufficient to put line 17 which signals that the following traceback
 can be ignored. Line 18 is checked again to be consistent with the actual error message.
@@ -407,9 +365,9 @@ are helpful in documenting the usage of functions or methods. On the other hand,
 they are particularly well suited for numerical tests where results have to agree
 only to a certain precision. For more complex test cases, it might also be helpful
 to choose the approach discussed in the next section instead of using doctests.</p>
-</div>
-<div class="section" id="testing-with-pytest">
-<h2>3.3. Testing with pytest<a class="headerlink" href="#testing-with-pytest" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="testing-with-pytest">
+<h2><span class="section-number">3.3. </span>Testing with pytest<a class="headerlink" href="#testing-with-pytest" title="Permalink to this headline">¶</a></h2>
 <p>For more complex test cases, the Python standard library provides a framework
 called <code class="docutils literal notranslate"><span class="pre">unittest</span></code>. Another often used test framework is <code class="docutils literal notranslate"><span class="pre">nose</span></code>. Recently,
 <code class="docutils literal notranslate"><span class="pre">pytest</span></code> has become very popular which compared <code class="docutils literal notranslate"><span class="pre">unittest</span></code> requires less
@@ -434,8 +392,8 @@ a line of Pascal’s triangle.</p>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;{:2}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pascal</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pascal</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Running this script returns the first seven lines of Pascal’s triangle:</p>
@@ -519,7 +477,7 @@ with <code class="docutils literal notranslate"><span class="pre">pytest.mark.xf
 how they work, it can be useful to have an idea of this concept. A brief introduction
 to decorators is given in <a class="reference internal" href="appendix.html#appendixdecorators"><span class="std std-numref">Section 8.1</span></a>.</p>
 <p>The relevant test then looks as follows</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest.mark.xfail</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">xfail</span>
 <span class="k">def</span> <span class="nf">test_n5</span><span class="p">():</span>
     <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="n">expected</span>
@@ -544,7 +502,7 @@ test_pascal.py ..x                                                      [100%]
 marked by an uppercase <code class="docutils literal notranslate"><span class="pre">X</span></code> to indicate that corresponding test should not pass.</p>
 <p>One can also skip tests by means of the decorator <code class="docutils literal notranslate"><span class="pre">pytest.mark.skip</span></code> which
 takes an optional variable <code class="docutils literal notranslate"><span class="pre">reason</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest.mark.skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s2">&quot;just for demonstration&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">reason</span><span class="o">=</span><span class="s2">&quot;just for demonstration&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">test_n5</span><span class="p">():</span>
     <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">==</span> <span class="n">expected</span>
@@ -644,77 +602,43 @@ soon as an exception is raised, the test has failed. In contrast our first three
 the lines in Pascal’s triangle with numbers 0, 1, and 5 are individual tests which could
 be unified. How can we do this while the keeping the individuality of the test? The answer
 is the <code class="docutils literal notranslate"><span class="pre">parametrize</span></code> decorator which we use in the following new version of our test script.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytest</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
-<span class="kn">from</span> <span class="nn">pascal</span> <span class="kn">import</span> <span class="n">pascal</span>
-
-<span class="nd">@pytest.mark.parametrize</span><span class="p">(</span><span class="s2">&quot;lineno, expected&quot;</span><span class="p">,</span> <span class="p">[</span>
-    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
-    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
-    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="p">])</span>
-<span class="k">def</span> <span class="nf">test_line</span><span class="p">(</span><span class="n">lineno</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">))</span> <span class="o">==</span> <span class="n">expected</span>
-
-<span class="n">powers_of_ten</span> <span class="o">=</span> <span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;lineno&quot;</span><span class="p">,</span>
-                    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">])</span>
-
-<span class="nd">@powers_of_ten</span>
-<span class="k">def</span> <span class="nf">test_sum</span><span class="p">(</span><span class="n">lineno</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="n">lineno</span>
-
-<span class="nd">@powers_of_ten</span>
-<span class="k">def</span> <span class="nf">test_alternate_sum</span><span class="p">(</span><span class="n">lineno</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">alternate</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span>
-
-<span class="k">def</span> <span class="nf">alternate</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
-    <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">sign</span><span class="o">*</span><span class="n">elem</span>
-        <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="n">sign</span>
-
-<span class="nd">@powers_of_ten</span>
-<span class="k">def</span> <span class="nf">test_generate_next_line</span><span class="p">(</span><span class="n">lineno</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chain</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">)),</span>
-                                <span class="n">chain</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-                                <span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
-        <span class="k">assert</span> <span class="n">left</span><span class="o">+</span><span class="n">right</span> <span class="o">==</span> <span class="n">new</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">pytest</span>
+<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<span class="linenos"> 3</span><span class="kn">from</span> <span class="nn">pascal</span> <span class="kn">import</span> <span class="n">pascal</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;lineno, expected&quot;</span><span class="p">,</span> <span class="p">[</span>
+<span class="linenos"> 6</span>    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+<span class="linenos"> 7</span>    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+<span class="linenos"> 8</span>    <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="linenos"> 9</span><span class="p">])</span>
+<span class="linenos">10</span><span class="k">def</span> <span class="nf">test_line</span><span class="p">(</span><span class="n">lineno</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+<span class="linenos">11</span>    <span class="k">assert</span> <span class="nb">list</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">))</span> <span class="o">==</span> <span class="n">expected</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="n">powers_of_ten</span> <span class="o">=</span> <span class="n">pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;lineno&quot;</span><span class="p">,</span>
+<span class="linenos">14</span>                    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">])</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="nd">@powers_of_ten</span>
+<span class="linenos">17</span><span class="k">def</span> <span class="nf">test_sum</span><span class="p">(</span><span class="n">lineno</span><span class="p">):</span>
+<span class="linenos">18</span>    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="n">lineno</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="nd">@powers_of_ten</span>
+<span class="linenos">21</span><span class="k">def</span> <span class="nf">test_alternate_sum</span><span class="p">(</span><span class="n">lineno</span><span class="p">):</span>
+<span class="linenos">22</span>    <span class="k">assert</span> <span class="nb">sum</span><span class="p">(</span><span class="n">alternate</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">)))</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="k">def</span> <span class="nf">alternate</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+<span class="linenos">25</span>    <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">26</span>    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+<span class="linenos">27</span>        <span class="k">yield</span> <span class="n">sign</span><span class="o">*</span><span class="n">elem</span>
+<span class="linenos">28</span>        <span class="n">sign</span> <span class="o">=</span> <span class="o">-</span><span class="n">sign</span>
+<span class="linenos">29</span>
+<span class="linenos">30</span><span class="nd">@powers_of_ten</span>
+<span class="linenos">31</span><span class="k">def</span> <span class="nf">test_generate_next_line</span><span class="p">(</span><span class="n">lineno</span><span class="p">):</span>
+<span class="linenos">32</span>    <span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chain</span><span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">)),</span>
+<span class="linenos">33</span>                                <span class="n">chain</span><span class="p">(</span><span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+<span class="linenos">34</span>                                <span class="n">pascal</span><span class="p">(</span><span class="n">lineno</span><span class="o">+</span><span class="mi">1</span><span class="p">)):</span>
+<span class="linenos">35</span>        <span class="k">assert</span> <span class="n">left</span><span class="o">+</span><span class="n">right</span> <span class="o">==</span> <span class="n">new</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>The function <code class="docutils literal notranslate"><span class="pre">test_line</span></code> replaces the original first three tests. In order to do
 so, it takes two arguments which are provided by the decorator in lines 5 to 9. This
 decorator makes sure that the test function is run three times with different values
@@ -761,7 +685,7 @@ that <code class="docutils literal notranslate"><span class="pre">zip</span></co
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">taylor_power</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We call this script <code class="docutils literal notranslate"><span class="pre">pascal_float.py</span></code> and obtain the following output by running it:</p>
@@ -849,26 +773,26 @@ without being complete. More information can be found in the <a class="reference
 are written, could be the possibility to group tests in classes. This can also
 be useful if a number of tests requires the same setup which then can be defined
 in a dedicated function.</p>
-</div>
-</div>
+</section>
+</section>
 
 
       </div>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="git.html">2. Version Control with Git</a>
+        «&#160;&#160;<a href="git.html"><span class="section-number">2. </span>Version Control with Git</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="numpy.html">4. Scientific computing with NumPy and SciPy</a>&#160;&#160;»
+        <a href="numpy.html"><span class="section-number">4. </span>Scientific computing with NumPy and SciPy</a>&#160;&#160;»
         </p>
 
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2018, Gert-Ludwig Ingold, license: CC BY 4.0 International.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
+        &#169; Copyright 2018—2022, Gert-Ludwig Ingold, license: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
     </div>
   </body>
 </html>
