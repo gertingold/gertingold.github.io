@@ -1,42 +1,44 @@
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>8. Appendix &#8212; Tools for Scientific Computing 0.2 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/haiku.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8. Appendix &#8212; Tools for Scientific Computing 0.3 documentation</title>
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="7. Aspects of parallel computing" href="parallel.html" /> 
   </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Tools for Scientific Computing 0.2 documentation</span></a></h1>
+          <span>Tools for Scientific Computing 0.3 documentation</span></a></h1>
         <h2 class="heading"><span>8. Appendix</span></h2>
       </div>
       <div class="topnav" role="navigation" aria-label="top navigation">
       
         <p>
-        «&#160;&#160;<a href="parallel.html"><span class="section-number">7. </span>Aspects of parallel computing</a>
+        «&#160;&#160;<a href="parallel.html">7. Aspects of parallel computing</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         </p>
 
       </div>
-      <div class="content" role="main">
+      <div class="content">
         
         
-  <section id="appendix">
-<h1><span class="section-number">8. </span>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
-<section id="decorators">
-<span id="appendixdecorators"></span><h2><span class="section-number">8.1. </span>Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="appendix">
+<h1>8. Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="decorators">
+<span id="appendixdecorators"></span><h2>8.1. Decorators<a class="headerlink" href="#decorators" title="Permalink to this headline">¶</a></h2>
 <p>In this appendix, we give a short introduction to decorators so that we have an idea
 of what they are about when making use of them. Decorators are a way to modify the
 behavior of functions, methods, or classes. We will restrict our discussion to functions.
@@ -45,23 +47,37 @@ the original function. Some examples will demonstrate how this works.</p>
 <p>For the first example we assume that our script defines a couple of functions which we
 would like to register. To keep things simple, registering a function shall simply mean
 that an appropriate message is printed.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span class="linenos"> 2</span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> registered&#39;</span><span class="p">)</span>
-<span class="linenos"> 3</span>    <span class="k">return</span> <span class="n">func</span>
-<span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="nd">@register</span>
-<span class="linenos"> 6</span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
-<span class="linenos"> 7</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;executing myfunc&#39;</span><span class="p">)</span>
-<span class="linenos"> 8</span>
-<span class="linenos"> 9</span><span class="nd">@register</span>
-<span class="linenos">10</span><span class="k">def</span> <span class="nf">myotherfunc</span><span class="p">():</span>
-<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;executing myotherfunc&#39;</span><span class="p">)</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
-<span class="linenos">14</span><span class="n">myfunc</span><span class="p">()</span>
-<span class="linenos">15</span><span class="n">myotherfunc</span><span class="p">()</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;{func.__name__} registered&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">func</span>
+
+<span class="nd">@register</span>
+<span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;executing myfunc&#39;</span><span class="p">)</span>
+
+<span class="nd">@register</span>
+<span class="k">def</span> <span class="nf">myotherfunc</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;executing myotherfunc&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">myfunc</span><span class="p">()</span>
+<span class="n">myotherfunc</span><span class="p">()</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>In lines 1-3 we define a decorator called <code class="docutils literal notranslate"><span class="pre">register</span></code> which is then applied in lines
 5 and 9 to two functions <code class="docutils literal notranslate"><span class="pre">myfunc</span></code> and <code class="docutils literal notranslate"><span class="pre">myotherfunc</span></code>. Running the script produces
 the following output:</p>
@@ -89,31 +105,53 @@ the function is starting execution and another message indicating the time of
 execution just before the function finishes execution. The interest of using
 the <code class="docutils literal notranslate"><span class="pre">logging</span></code> decorator is to analyse how the execution of a recursive function
 works.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">time</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">logging</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
-<span class="linenos"> 5</span>    <span class="k">def</span> <span class="nf">func_with_log</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="linenos"> 6</span>        <span class="n">arguments</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">repr</span><span class="p">,</span> <span class="n">chain</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
-<span class="linenos"> 7</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;calling </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">arguments</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-<span class="linenos"> 8</span>        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="linenos"> 9</span>        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="linenos">10</span>        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span>
-<span class="linenos">11</span>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;got </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="n">arguments</span><span class="si">}</span><span class="s1">) = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1"> &#39;</span>
-<span class="linenos">12</span>              <span class="sa">f</span><span class="s1">&#39;in </span><span class="si">{</span><span class="n">elapsed</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s1">5.3f</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
-<span class="linenos">13</span>        <span class="k">return</span> <span class="n">result</span>
-<span class="linenos">14</span>    <span class="k">return</span> <span class="n">func_with_log</span>
-<span class="linenos">15</span>
-<span class="linenos">16</span><span class="nd">@logging</span>
-<span class="linenos">17</span><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span class="linenos">18</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="linenos">19</span>        <span class="k">return</span> <span class="mi">1</span>
-<span class="linenos">20</span>    <span class="k">else</span><span class="p">:</span>
-<span class="linenos">21</span>        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="linenos">22</span>
-<span class="linenos">23</span><span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="k">def</span> <span class="nf">logging</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">func_with_log</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">arguments</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">repr</span><span class="p">,</span> <span class="n">chain</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())))</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;calling {func.__name__}({arguments})&#39;</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">start</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;got {func.__name__}({arguments}) = {result} &#39;</span>
+              <span class="n">f</span><span class="s1">&#39;in {elapsed*1000:5.3f} ms&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">func_with_log</span>
+
+<span class="nd">@logging</span>
+<span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">factorial</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>The main difference to our first example consists in the fact that the
 decorator in lines 5-14 defines a new function. As a consequence, the
 modifications apply whenever the decorated function is run. Then new function
@@ -148,15 +186,15 @@ testing the connection to the device but only how received data are handled, an
 appropriate decorator would allows us to test the program even without connection
 to the measuring device as long as the decorator provides us with appropriate
 data.</p>
-</section>
-</section>
+</div>
+</div>
 
 
       </div>
       <div class="bottomnav" role="navigation" aria-label="bottom navigation">
       
         <p>
-        «&#160;&#160;<a href="parallel.html"><span class="section-number">7. </span>Aspects of parallel computing</a>
+        «&#160;&#160;<a href="parallel.html">7. Aspects of parallel computing</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         </p>
@@ -165,7 +203,7 @@ data.</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2018—2022, Gert-Ludwig Ingold, license: CC BY 4.0 International.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
     </div>
   </body>
 </html>
