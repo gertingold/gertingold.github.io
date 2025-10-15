@@ -1,41 +1,27 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html lang="de" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Testen von Programmen &#8212; Python für Naturwissenschaftler</title>
-    
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '2017beta',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css?v=fce32b03" />
+    <script src="_static/documentation_options.js?v=59978275"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Laufzeituntersuchungen" href="profiling.html" />
     <link rel="prev" title="Versionskontrolle mit Git" href="git.html" /> 
-  </head>
-  <body>
+  </head><body>
       <div class="header" role="banner"><h1 class="heading"><a href="index.html">
           <span>Python für Naturwissenschaftler</span></a></h1>
         <h2 class="heading"><span>Testen von Programmen</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav" role="navigation" aria-label="Top">
       
         <p>
         «&#160;&#160;<a href="git.html">Versionskontrolle mit Git</a>
@@ -46,13 +32,13 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="testen-von-programmen">
-<span id="testing"></span><h1>Testen von Programmen<a class="headerlink" href="#testen-von-programmen" title="Link zu dieser Überschrift">¶</a></h1>
-<div class="section" id="wozu-braucht-man-tests">
-<h2>Wozu braucht man Tests?<a class="headerlink" href="#wozu-braucht-man-tests" title="Link zu dieser Überschrift">¶</a></h2>
+  <section id="testen-von-programmen">
+<span id="testing"></span><h1>Testen von Programmen<a class="headerlink" href="#testen-von-programmen" title="Link to this heading">¶</a></h1>
+<section id="wozu-braucht-man-tests">
+<h2>Wozu braucht man Tests?<a class="headerlink" href="#wozu-braucht-man-tests" title="Link to this heading">¶</a></h2>
 <p>Ein offensichtliches Ziel beim Programmieren besteht darin, letztlich ein
 funktionierendes Programm zu haben. Funktionierend heißt hierbei, dass das
 Programm die gewünschte Funktionalität korrekt bereitstellt.  Im Bereich des
@@ -104,43 +90,43 @@ Rekursionsformel nennen. Dabei wäre auch auf Argumente zu achten, bei denen die
 Rekursionsformel nicht verwendet wird, sondern direkt deren Anfangswert
 zurückzugeben ist.</p>
 <p>Außerdem sollte man es sich zum Ziel setzen, den Code möglichst vollständig
-durch Tests abzudecken. <a class="footnote-reference" href="#coverage" id="id1">[1]</a> Werden Teile des Codes durch keinen Test ausgeführt, so
+durch Tests abzudecken. <a class="footnote-reference brackets" href="#coverage" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Werden Teile des Codes durch keinen Test ausgeführt, so
 könnten sich dort Fehler verstecken. Andererseits ist es nicht nötig,
 Bibliotheken, die bereits von Haus aus eigene umfangreiche Testsuites besitzen,
 zu testen. Man wird also zum Beispiel darauf verzichten, Funktionen der Python
 Standard Library zu testen.</p>
 <p>Aus den verschiedenen Möglichkeiten, in Python einen Testrahmen aufzubauen, wollen wir
-zwei herausgreifen. Die erste basiert auf dem <code class="docutils literal"><span class="pre">doctest</span></code>-Modul, das es erlaubt, einfache
+zwei herausgreifen. Die erste basiert auf dem <code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Modul, das es erlaubt, einfache
 Tests in den Dokumentationsstrings unterzubringen. Diese Tests erfüllen somit neben ihrer
 eigentlichen Aufgabe auch noch die Funktion, die Möglichkeiten der Verwendung beispielsweise
 einer Funktion oder einer Klasse zu dokumentieren. Die zweite Möglichkeit, die wir
-besprechen wollen, basiert auf dem <code class="docutils literal"><span class="pre">unittest</span></code>-Modul, das auch komplexere Testszenarien
+besprechen wollen, basiert auf dem <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Modul, das auch komplexere Testszenarien
 ermöglicht.</p>
-</div>
-<div class="section" id="das-doctest-modul">
-<h2>Das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul<a class="headerlink" href="#das-doctest-modul" title="Link zu dieser Überschrift">¶</a></h2>
-<p>In Python ist die Dokumentation von Code nicht nur mit Kommentaren, die mit <code class="docutils literal"><span class="pre">#</span></code> eingeleitet
+</section>
+<section id="das-doctest-modul">
+<h2>Das <code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Modul<a class="headerlink" href="#das-doctest-modul" title="Link to this heading">¶</a></h2>
+<p>In Python ist die Dokumentation von Code nicht nur mit Kommentaren, die mit <code class="docutils literal notranslate"><span class="pre">#</span></code> eingeleitet
 werden, möglich, sondern auch mit Hilfe von Dokumentationsstrings. So können zum Beispiel
 Funktionen dokumentiert werden, indem nach der Kopfzeile ein typischerweise mehrzeiliger
 Dokumentationstext eingefügt wird. Dieses Vorgehen wird in Python unter anderem dadurch
-belohnt, dass dieser Text mit Hilfe der eingebauten <code class="docutils literal"><span class="pre">help</span></code>-Methode verfügbar gemacht wird.
+belohnt, dass dieser Text mit Hilfe der eingebauten <code class="docutils literal notranslate"><span class="pre">help</span></code>-Methode verfügbar gemacht wird.
 Ein weiterer Bonus besteht darin, dass im Dokumentationsstring Tests untergebracht werden
 können, die zugleich die Verwendung des dokumentierten Objekts illustrieren.</p>
 <p>Während der Dokumentationsaspekt alleine durch die Anwesenheit des entsprechenden Textteils
-im Dokumentationsstring erfüllt wird, benötigen wir für den Test das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul.
+im Dokumentationsstring erfüllt wird, benötigen wir für den Test das <code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Modul.
 Wir beginnen mit dem folgenden einfachen Beispiel.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    be nice and greet somebody</span>
 <span class="sd">    name: name of the person</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hallo {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Hallo </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Mit <code class="docutils literal"><span class="pre">help(welcome)</span></code> wird dann bekanntermaßen der Dokumentationsstring
+<p>Mit <code class="docutils literal notranslate"><span class="pre">help(welcome)</span></code> wird dann bekanntermaßen der Dokumentationsstring
 ausgegeben, also</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">help</span><span class="p">(</span><span class="n">welcome</span><span class="p">)</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="n">help</span><span class="p">(</span><span class="n">welcome</span><span class="p">)</span>
 
 <span class="go">Help on function welcome in module __main__:</span>
 
@@ -152,45 +138,32 @@ ausgegeben, also</p>
 <p>Wir erweitern nun den Dokumentationsstring um ein Anwendungsbeispiel, das
 einerseits dem Benutzer die Verwendung der Funktion illustriert und andererseits
 zu Testzwecken dienen kann.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    be nice and greet somebody</span>
-<span class="sd">    name: name of the person</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Guido&#39;)</span>
-<span class="sd">    &#39;Hallo Guido!&#39;</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hallo {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
-    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 3</span><span class="sd">    be nice and greet somebody</span>
+<span class="linenos"> 4</span><span class="sd">    name: name of the person</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Guido&#39;)</span>
+<span class="linenos"> 7</span><span class="sd">    &#39;Hallo Guido!&#39;</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">10</span>    <span class="k">return</span> <span class="s1">&#39;Hallo </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="linenos">13</span>    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
+<span class="linenos">14</span>    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Der im Beispiel verwendete Name ist eine Referenz an den Schöpfer von Python,
 Guido van Rossum. Das Anwendungsbeispiel in den Zeilen 6 und 7 verwendet die
 Formatierung der Python-Shell nicht nur, weil sich der Code auf diese Weise
-direkt nachvollziehen lässt, sondern weil das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul dieses Format
-erwartet. Gegebenenfalls sind auch mit <code class="docutils literal"><span class="pre">...</span></code> eingeleitete Fortsetzungszeilen
+direkt nachvollziehen lässt, sondern weil das <code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Modul dieses Format
+erwartet. Gegebenenfalls sind auch mit <code class="docutils literal notranslate"><span class="pre">...</span></code> eingeleitete Fortsetzungszeilen
 erlaubt. Folgt nach der Ausgabe noch anderer Text, so muss dieser durch eine
 Leerzeile abgetrennt sein.</p>
 <p>Der Code in den letzten drei Zeilen unseres Beispiels führt dazu, dass die Ausführung
 des Skripts den in der Dokumentation enthaltenen Code testet:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python example.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python example.py
 $
 </pre></div>
 </div>
@@ -198,9 +171,9 @@ $
 er bedeutet, dass es bei der Durchführung der Tests keine Fehler gab. Das
 Auftreten eines Fehlers hätte dagegen zu einer entsprechenden Ausgabe geführt.
 Vielleicht will man aber wissen, ob und, wenn ja, welche Tests durchgeführt wurden.
-Hierzu verwendet man die Kommandozeilenoption <code class="docutils literal"><span class="pre">-v</span></code> für <em>verbose</em>, die hier
+Hierzu verwendet man die Kommandozeilenoption <code class="docutils literal notranslate"><span class="pre">-v</span></code> für <em>verbose</em>, die hier
 nach dem Namen des Skripts stehen muss:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gert</span><span class="nd">@teide</span><span class="p">:[</span><span class="o">...</span><span class="p">]</span><span class="o">/</span><span class="n">manuskript</span><span class="p">:</span> <span class="n">python</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">v</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gert</span><span class="nd">@teide</span><span class="p">:[</span><span class="o">...</span><span class="p">]</span><span class="o">/</span><span class="n">manuskript</span><span class="p">:</span> <span class="n">python</span> <span class="n">example</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">v</span>
 <span class="n">Trying</span><span class="p">:</span>
     <span class="n">welcome</span><span class="p">(</span><span class="s1">&#39;Guido&#39;</span><span class="p">)</span>
 <span class="n">Expecting</span><span class="p">:</span>
@@ -218,18 +191,18 @@ nach dem Namen des Skripts stehen muss:</p>
 <p>Der Ausgabe entnimmt man, dass ein Test erfolgreich durchgeführt wurde und zu
 dem erwarteten Ergebnis geführt habt. Will man diese ausführliche Ausgabe
 unabhängig von einer Kommandozeilenoption erzwingen, kann man beim Aufruf von
-<code class="docutils literal"><span class="pre">testmod</span></code> die Variable <code class="docutils literal"><span class="pre">verbose</span></code> auf <code class="docutils literal"><span class="pre">True</span></code> setzen.</p>
+<code class="docutils literal notranslate"><span class="pre">testmod</span></code> die Variable <code class="docutils literal notranslate"><span class="pre">verbose</span></code> auf <code class="docutils literal notranslate"><span class="pre">True</span></code> setzen.</p>
 <p>Alternativ zu der bisher beschriebenen Vorgehensweise könnte man die letzten
-drei Zeilen unseres Beispielcodes weglassen und das <code class="docutils literal"><span class="pre">doctest</span></code>-Modul beim
+drei Zeilen unseres Beispielcodes weglassen und das <code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Modul beim
 Aufruf des Skripts laden. Will man eine ausführliche Ausgabe erhalten, so hätte
 der Aufruf die folgende Form:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m doctest -v example.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m doctest -v example.py
 </pre></div>
 </div>
 <p>Den Fehlerfall illustriert ein Beispiel, in dem eine englischsprachige Ausgabe
 erwartet wird</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    be nice and greet somebody</span>
 <span class="sd">    name: name of the person</span>
 
@@ -237,11 +210,11 @@ erwartet wird</p>
 <span class="sd">    &#39;Hello Guido!&#39;</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hallo {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Hallo </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>und das zu folgendem Resultat führt:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m doctest example.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m doctest example.py
 **********************************************************************
 File &quot;example.py&quot;, line 6, in example.welcome
 Failed example:
@@ -256,13 +229,13 @@ Got:
 ***Test Failed*** 1 failures.
 </pre></div>
 </div>
-<p>Bei Fehlern werden die Details auch ohne die Option <code class="docutils literal"><span class="pre">-v</span></code> ausgegeben.</p>
+<p>Bei Fehlern werden die Details auch ohne die Option <code class="docutils literal notranslate"><span class="pre">-v</span></code> ausgegeben.</p>
 <p>Im Rahmen des <em>test-driven developments</em> könnte man als eine Art Wunschliste
 noch weitere Tests einbauen. Zum Beispiel soll auch ohne Angabe eines Namens
 eine sinnvolle Ausgabe erfolgen, und es soll auch eine Ausgabe in anderen
 Sprachen möglich sein.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    be nice and greet somebody</span>
 <span class="sd">    name: name of the person</span>
 
@@ -276,12 +249,12 @@ Sprachen möglich sein.</p>
 <span class="sd">    &#39;Hello Guido!&#39;</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="s1">&#39;Hallo {}!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;Hallo </span><span class="si">{}</span><span class="s1">!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Die im Dokumentationsstring formulierten Anforderungen führen natürlich
 zunächst zu Fehlern:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m doctest example.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m doctest example.py
 **********************************************************************
 File &quot;example.py&quot;, line 6, in example.welcome
 Failed example:
@@ -320,8 +293,8 @@ Got:
 </div>
 <p>Der Code muss nun so lange angepasst werden, bis alle Tests korrekt durchlaufen,
 wie dies für das folgende Skript der Fall ist.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    be nice and greet somebody</span>
 <span class="sd">    name: name of the person, may be empty</span>
 <span class="sd">    lang: two character language code</span>
@@ -342,18 +315,18 @@ wie dies für das folgende Skript der Fall ist.</p>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">greeting</span> <span class="o">=</span> <span class="n">greetings</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;unknown language: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
+        <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;unknown language: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
         <span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">greeting</span><span class="p">,</span> <span class="n">name</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">greeting</span><span class="o">+</span><span class="s1">&#39;!&#39;</span>
 </pre></div>
 </div>
-<p>Da dieser Code zu einer <code class="docutils literal"><span class="pre">ValueError</span></code>-Ausnahme führt, wenn eine nicht implementierte
+<p>Da dieser Code zu einer <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>-Ausnahme führt, wenn eine nicht implementierte
 Sprache angefordert wird, stellt sich die Frage, wie dieses Verhalten getestet werden
 kann. Das Problem besteht hier darin, dass die Ausgabe recht komplex sein kann. Der
-Aufruf <code class="docutils literal"><span class="pre">welcome('Guido',</span> <span class="pre">lang='nl')</span></code> führt zu:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+Aufruf <code class="docutils literal notranslate"><span class="pre">welcome('Guido',</span> <span class="pre">lang='nl')</span></code> führt zu:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
   <span class="n">File</span> <span class="s2">&quot;example.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">21</span><span class="p">,</span> <span class="ow">in</span> <span class="n">welcome</span>
     <span class="n">greeting</span> <span class="o">=</span> <span class="n">greetings</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
 <span class="ne">KeyError</span><span class="p">:</span> <span class="s1">&#39;nl&#39;</span>
@@ -371,75 +344,45 @@ Aufruf <code class="docutils literal"><span class="pre">welcome('Guido',</span> 
 <p>Für den Test im Dokumentationsstring müssen allerdings nur die erste Zeile, die die
 Ausnahme ankündigt, sowie die letzte Zeile, die die Ausnahme spezifiziert, angegeben
 werden, wie dies die Zeilen 16-18 im folgenden Code zeigen.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    be nice and greet somebody</span>
-<span class="sd">    name: name of the person, may be empty</span>
-<span class="sd">    lang: two character language code</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome()</span>
-<span class="sd">    &#39;Hello!&#39;</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome(lang=&#39;de&#39;)</span>
-<span class="sd">    &#39;Hallo!&#39;</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Guido&#39;)</span>
-<span class="sd">    &#39;Hello Guido!&#39;</span>
-
-<span class="sd">    &gt;&gt;&gt; welcome(&#39;Guido&#39;, &#39;nl&#39;)</span>
-<span class="sd">    Traceback (most recent call last):</span>
-<span class="sd">    ValueError: unknown language: nl</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">greetings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Hallo&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;fr&#39;</span><span class="p">:</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">}</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">greeting</span> <span class="o">=</span> <span class="n">greetings</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
-    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;unknown language: {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
-        <span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">greeting</span><span class="p">,</span> <span class="n">name</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">greeting</span><span class="o">+</span><span class="s1">&#39;!&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">welcome</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 3</span><span class="sd">    be nice and greet somebody</span>
+<span class="linenos"> 4</span><span class="sd">    name: name of the person, may be empty</span>
+<span class="linenos"> 5</span><span class="sd">    lang: two character language code</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="sd">    &gt;&gt;&gt; welcome()</span>
+<span class="linenos"> 8</span><span class="sd">    &#39;Hello!&#39;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="sd">    &gt;&gt;&gt; welcome(lang=&#39;de&#39;)</span>
+<span class="linenos">11</span><span class="sd">    &#39;Hallo!&#39;</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Guido&#39;)</span>
+<span class="linenos">14</span><span class="sd">    &#39;Hello Guido!&#39;</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="sd">    &gt;&gt;&gt; welcome(&#39;Guido&#39;, &#39;nl&#39;)</span>
+<span class="linenos">17</span><span class="sd">    Traceback (most recent call last):</span>
+<span class="linenos">18</span><span class="sd">    ValueError: unknown language: nl</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="sd">    &quot;&quot;&quot;</span>
+<span class="linenos">21</span>    <span class="n">greetings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;de&#39;</span><span class="p">:</span> <span class="s1">&#39;Hallo&#39;</span><span class="p">,</span>
+<span class="linenos">22</span>                 <span class="s1">&#39;en&#39;</span><span class="p">:</span> <span class="s1">&#39;Hello&#39;</span><span class="p">,</span>
+<span class="linenos">23</span>                 <span class="s1">&#39;fr&#39;</span><span class="p">:</span> <span class="s1">&#39;Bonjour&#39;</span><span class="p">}</span>
+<span class="linenos">24</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">25</span>        <span class="n">greeting</span> <span class="o">=</span> <span class="n">greetings</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
+<span class="linenos">26</span>    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="linenos">27</span>        <span class="n">errmsg</span> <span class="o">=</span> <span class="s1">&#39;unknown language: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">lang</span><span class="p">)</span>
+<span class="linenos">28</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">errmsg</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+<span class="linenos">30</span>        <span class="n">greeting</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">greeting</span><span class="p">,</span> <span class="n">name</span><span class="p">])</span>
+<span class="linenos">31</span>    <span class="k">return</span> <span class="n">greeting</span><span class="o">+</span><span class="s1">&#39;!&#39;</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In diesem Zusammenhang ist auch eine der Direktiven nützlich, die das
-<code class="docutils literal"><span class="pre">doctest</span></code>-Modul bereitstellt. Gibt man die Direktive <code class="docutils literal"><span class="pre">+ELLIPSIS</span></code> an, so
-kann <code class="docutils literal"><span class="pre">...</span></code> beliebigen Text in der betreffenden Zeile ersetzen. Wenn uns also
+<code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Modul bereitstellt. Gibt man die Direktive <code class="docutils literal notranslate"><span class="pre">+ELLIPSIS</span></code> an, so
+kann <code class="docutils literal notranslate"><span class="pre">...</span></code> beliebigen Text in der betreffenden Zeile ersetzen. Wenn uns also
 die Fehlermeldung nicht genauer interessiert, können wir folgenden Test
 verwenden:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">&gt;&gt;&gt; welcome(&#39;Guido&#39;, &#39;nl&#39;)  # doctest: +ELLIPSIS</span>
 <span class="sd">Traceback (most recent call last):</span>
 <span class="sd">ValueError: ...</span>
@@ -448,21 +391,21 @@ verwenden:</p>
 </pre></div>
 </div>
 <p>Tests, die nicht oder vorläufig nicht durchgeführt werden sollen, kann man mit
-der <code class="docutils literal"><span class="pre">+SKIP</span></code>-Direktive wie folgt markieren:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+der <code class="docutils literal notranslate"><span class="pre">+SKIP</span></code>-Direktive wie folgt markieren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">&gt;&gt;&gt; welcome(&#39;Guido&#39;, &#39;nl&#39;)  # doctest: +SKIP</span>
 <span class="sd">&#39;Goedendag Guido!&#39;</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>Weitere Direktiven, wie das gelegentlich nützliche <code class="docutils literal"><span class="pre">+NORMALIZE_WHITESPACE</span></code>,
+<p>Weitere Direktiven, wie das gelegentlich nützliche <code class="docutils literal notranslate"><span class="pre">+NORMALIZE_WHITESPACE</span></code>,
 sind in der <a class="reference external" href="https://docs.python.org/3/library/doctest.html">Dokumentation</a>
-des <code class="docutils literal"><span class="pre">doctest</span></code>-Moduls zu finden.</p>
+des <code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Moduls zu finden.</p>
 <p>Interessant ist, dass diese Art der Tests nicht nur in Dokumentationsstrings
 verwendet werden kann, sondern in beliebigen Texten. So lässt sich der Code
 in dem Text</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Eine</span> <span class="n">einfache</span> <span class="n">Verzweigung</span> <span class="ow">in</span> <span class="n">Python</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Eine</span> <span class="n">einfache</span> <span class="n">Verzweigung</span> <span class="ow">in</span> <span class="n">Python</span><span class="p">:</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
 <span class="o">...</span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x ist negativ&#39;</span><span class="p">)</span>
@@ -475,7 +418,7 @@ in dem Text</p>
 </pre></div>
 </div>
 <p>leicht testen:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python -m doctest -v example.txt
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python -m doctest -v example.txt
 Trying:
     x = 1
 Expecting nothing
@@ -500,43 +443,33 @@ schreiben sind und gleichzeitig die Dokumentation von Code unterstützen.
 Allerdings sind sie für komplexere Testszenarien, insbesondere im numerischen
 Bereich, weniger gut geeignet. Dann greift man eher auf <em>unit tests</em> zurück, die
 im folgenden Abschnitt beschrieben werden.</p>
-</div>
-<div class="section" id="das-unittest-modul">
-<span id="unittest"></span><h2>Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul<a class="headerlink" href="#das-unittest-modul" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="das-unittest-modul">
+<span id="unittest"></span><h2>Das <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Modul<a class="headerlink" href="#das-unittest-modul" title="Link to this heading">¶</a></h2>
 <p>Beim Erstellen von Tests stellt sich zum einen die Frage nach der technischen
 Umsetzung, zum anderen aber auch danach, was ein Test sinnvollerweise überprüft.
 Da <em>unit tests</em> potentiell komplexer sein können als <em>doctests</em> rückt die zweite
 Frage hier etwas stärker in den Vordergrund. Wir wollen beide Aspekte, den
 technischen und den konzeptionellen, am Beispiel eines Programms zur Berechnung
-von Zeilen eines pascalschen Dreiecks diskutieren. Das Skript <code class="docutils literal"><span class="pre">pascal.py</span></code></p>
+von Zeilen eines pascalschen Dreiecks diskutieren. Das Skript <code class="docutils literal notranslate"><span class="pre">pascal.py</span></code></p>
 <div class="literal-block-wrapper docutils container" id="code-pascal-int">
-<div class="code-block-caption"><span class="caption-number">Quellcode 1 </span><span class="caption-text">Code zur Berechnung von Zeilen eines pascalschen Dreiecks.</span><a class="headerlink" href="#code-pascal-int" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">//</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">x</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;{:2}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
-        <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
+<div class="code-block-caption"><span class="caption-number">Quellcode 1 </span><span class="caption-text">Code zur Berechnung von Zeilen eines pascalschen Dreiecks.</span><a class="headerlink" href="#code-pascal-int" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 3</span>    <span class="k">yield</span> <span class="n">x</span>
+<span class="linenos"> 4</span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 5</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">//</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>        <span class="k">yield</span> <span class="n">x</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos"> 9</span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+<span class="linenos">10</span>        <span class="n">line</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+<span class="linenos">11</span>        <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="n">line</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">25</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 </div>
 <p>erzeugt mit Hilfe der Zeilen 8-11 die Ausgabe</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">0</span>             <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>             <span class="mi">1</span>
 <span class="mi">1</span>           <span class="mi">1</span>  <span class="mi">1</span>
 <span class="mi">2</span>          <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">1</span>
 <span class="mi">3</span>        <span class="mi">1</span>  <span class="mi">3</span>  <span class="mi">3</span>  <span class="mi">1</span>
@@ -545,56 +478,42 @@ von Zeilen eines pascalschen Dreiecks diskutieren. Das Skript <code class="docut
 <span class="mi">6</span>    <span class="mi">1</span>  <span class="mi">6</span> <span class="mi">15</span> <span class="mi">20</span> <span class="mi">15</span>  <span class="mi">6</span>  <span class="mi">1</span>
 </pre></div>
 </div>
-<p>wobei jede Zeile durch einen Aufruf der Funktion <code class="docutils literal"><span class="pre">pascal_line</span></code> bestimmt wird.
+<p>wobei jede Zeile durch einen Aufruf der Funktion <code class="docutils literal notranslate"><span class="pre">pascal_line</span></code> bestimmt wird.
 Getestet werden soll nur diese in den ersten sechs Zeilen definierte Funktion.</p>
 <p>Ein offensichtlicher Weg, die Funktion zu testen, besteht darin, ausgewählte Zeilen des
 pascalschen Dreiecks zu berechnen und mit dem bekannten Ergebnis zu vergleichen.
-Hierzu erstellt man ein Testskript, das wir <code class="docutils literal"><span class="pre">test_pascal.py</span></code> nennen wollen:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">main</span><span class="p">,</span> <span class="n">TestCase</span>
-<span class="kn">from</span> <span class="nn">pascal</span> <span class="kn">import</span> <span class="n">pascal_line</span>
-
-<span class="k">class</span> <span class="nc">TestExplicit</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_n0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="k">def</span> <span class="nf">test_n1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-    <span class="k">def</span> <span class="nf">test_n5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+Hierzu erstellt man ein Testskript, das wir <code class="docutils literal notranslate"><span class="pre">test_pascal.py</span></code> nennen wollen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">unittest</span><span class="w"> </span><span class="kn">import</span> <span class="n">main</span><span class="p">,</span> <span class="n">TestCase</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pascal</span><span class="w"> </span><span class="kn">import</span> <span class="n">pascal_line</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">TestExplicit</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_n0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 6</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_n1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_n5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Da dieses Testskript zunächst unabhängig von dem zu testenden Skript ist, muss
 die zu testende Funktion in Zeile 2 importiert werden. Die verschiedenen
-Testfälle sind als Methoden einer von <code class="docutils literal"><span class="pre">unittest.TestCase</span></code> abgleiteten Klasse
-implementiert. Dabei ist wichtig, dass der Name der Methoden mit <code class="docutils literal"><span class="pre">test</span></code>
+Testfälle sind als Methoden einer von <code class="docutils literal notranslate"><span class="pre">unittest.TestCase</span></code> abgleiteten Klasse
+implementiert. Dabei ist wichtig, dass der Name der Methoden mit <code class="docutils literal notranslate"><span class="pre">test</span></code>
 beginnen, um sie von eventuell vorhandenen anderen Methoden zu unterscheiden.
 Wie wir später noch sehen werden, können mehrere Testklassen, wie hier
-<code class="docutils literal"><span class="pre">TestExplicit</span></code>, implementiert werden, um auf diese Weise eine Gliederung der
+<code class="docutils literal notranslate"><span class="pre">TestExplicit</span></code>, implementiert werden, um auf diese Weise eine Gliederung der
 Testfälle zu erreichen. Der eigentliche Test erfolgt in diesem Fall mit einer
-Variante der <code class="docutils literal"><span class="pre">assert</span></code>-Anweisung, die das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul zur Verfügung
+Variante der <code class="docutils literal notranslate"><span class="pre">assert</span></code>-Anweisung, die das <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Modul zur Verfügung
 stellt. Dabei wird auf Gleichheit der beiden Argumente getestet. Wir
 werden später noch sehen, dass auch andere Test möglich sind.</p>
 <p>Die Ausführung der Tests wird durch die letzten beiden Zeilen des Testskripts
 veranlasst. Man erhält als Resultat:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python test_pascal.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python test_pascal.py
 ...
 ----------------------------------------------------------------------
 Ran 3 tests in 0.000s
@@ -607,39 +526,25 @@ durch die drei Punkte in der zweiten Zeile angezeigt.</p>
 <p>Um einen Fehlerfall zu illustrieren, bauen wir nun einen Fehler ein, und zwar der Einfachheit
 halber in das Testskript. Üblicherweise wird sich der Fehler zwar im zu testenden Skript befinden,
 aber das spielt hier keine Rolle. Das Testskript mit der fehlerhaften Zeile 12</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">main</span><span class="p">,</span> <span class="n">TestCase</span>
-<span class="kn">from</span> <span class="nn">pascal</span> <span class="kn">import</span> <span class="n">pascal_line</span>
-
-<span class="k">class</span> <span class="nc">TestExplicit</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_n0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-    <span class="k">def</span> <span class="nf">test_n1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-    <span class="k">def</span> <span class="nf">test_n5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">unittest</span><span class="w"> </span><span class="kn">import</span> <span class="n">main</span><span class="p">,</span> <span class="n">TestCase</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">pascal</span><span class="w"> </span><span class="kn">import</span> <span class="n">pascal_line</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">class</span><span class="w"> </span><span class="nc">TestExplicit</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_n0</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 6</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">0</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_n1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_n5</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="linenos">15</span>    <span class="n">main</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>liefert nun die Ausgabe:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python test_pascal.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python test_pascal.py
 ..F
 ======================================================================
 FAIL: test_n5 (__main__.TestExplicit)
@@ -668,10 +573,10 @@ FAILED (failures=1)
 </div>
 <p>Einer der drei Tests schlägt erwartungsgemäß fehl, wobei genau beschrieben wird,
 wo der Fehler aufgetreten ist und wie er sich manifestiert hat. In der zweiten Zeile
-deutet das <code class="docutils literal"><span class="pre">F</span></code> auf einen fehlgeschlagenen Test hin. Wenn erwartet wird, dass ein
-Test fehlschlägt, kann man ihn mit einem <code class="docutils literal"><span class="pre">&#64;expectedFailure</span></code>-Dekorator versehen. Dann
+deutet das <code class="docutils literal notranslate"><span class="pre">F</span></code> auf einen fehlgeschlagenen Test hin. Wenn erwartet wird, dass ein
+Test fehlschlägt, kann man ihn mit einem <code class="docutils literal notranslate"><span class="pre">&#64;expectedFailure</span></code>-Dekorator versehen. Dann
 würde die Ausgabe folgendermaßen aussehen:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python test_pascal.py
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python test_pascal.py
 ..x
 ----------------------------------------------------------------------
 Ran 3 tests in 0.003s
@@ -679,8 +584,8 @@ Ran 3 tests in 0.003s
 OK (expected failures=1)
 </pre></div>
 </div>
-<p>Wenn wir die Testmethode <code class="docutils literal"><span class="pre">test_n5</span></code> wieder korrigieren, würden wir stattdessen</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gert</span><span class="nd">@teide</span><span class="p">:[</span><span class="o">...</span><span class="p">]</span><span class="o">/</span><span class="n">manuskript</span><span class="p">:</span> <span class="n">python</span> <span class="n">test_pascal</span><span class="o">.</span><span class="n">py</span>
+<p>Wenn wir die Testmethode <code class="docutils literal notranslate"><span class="pre">test_n5</span></code> wieder korrigieren, würden wir stattdessen</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gert</span><span class="nd">@teide</span><span class="p">:[</span><span class="o">...</span><span class="p">]</span><span class="o">/</span><span class="n">manuskript</span><span class="p">:</span> <span class="n">python</span> <span class="n">test_pascal</span><span class="o">.</span><span class="n">py</span>
 <span class="o">..</span><span class="n">u</span>
 <span class="o">----------------------------------------------------------------------</span>
 <span class="n">Ran</span> <span class="mi">3</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.000</span><span class="n">s</span>
@@ -695,21 +600,21 @@ ziehen, wenn man solche Argumente in der Praxis verwenden möchte, da es dort ev
 zu unerwarteten Problemen kommen kann.</p>
 <p>Als Alternative zur Verwendung des expliziten Resultats bietet es sich an
 auszunutzen, dass die Summe aller Einträge einer Zeile im pascalschen Dreieck
-gleich <span class="math">\(2^n\)</span> ist, während die alternierende Summe verschwindet. Diese
+gleich <span class="math notranslate nohighlight">\(2^n\)</span> ist, während die alternierende Summe verschwindet. Diese
 beiden Tests haben die Eigenschaft, dass sie unabhängig von dem verwendeten
 Algorithmus sind und somit etwaige Fehler, zum Beispiel durch eine fehlerhafte
 Verwendung der Integerdivision, aufdecken. Der zusätzliche Code in unserem
 Testskript könnte folgendermaßen aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestSums</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_sum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TestSums</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_sum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span> <span class="mi">2</span><span class="o">**</span><span class="n">n</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">test_alternate_sum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_alternate_sum</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">alternate</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">))),</span> <span class="mi">0</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">alternate</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">alternate</span><span class="p">(</span><span class="n">g</span><span class="p">):</span>
     <span class="n">sign</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">sign</span><span class="o">*</span><span class="n">elem</span>
@@ -721,10 +626,10 @@ diese Weise lässt sich der eigentliche Testcode kompakt und übersichtlich halt
 <p>Eine weitere Möglichkeit für einen guten Test besteht darin, das Konstruktionsverfahren
 einer Zeile aus der vorhergehenden Zeile im pascalschen Dreieck zu implementieren. Dies
 leistet der folgende zusätzliche Code:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">chain</span>
 
-<span class="k">class</span> <span class="nc">TestAdjacent</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_generate_next_line</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestAdjacent</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_generate_next_line</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">):</span>
             <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
                         <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">chain</span><span class="p">(</span><span class="n">zero</span><span class="p">(),</span> <span class="n">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">)),</span>
@@ -732,62 +637,52 @@ leistet der folgende zusätzliche Code:</p>
             <span class="n">result</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">zero</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">zero</span><span class="p">():</span>
     <span class="k">yield</span> <span class="mi">0</span>
 </pre></div>
 </div>
-<p>Hier wird die <code class="docutils literal"><span class="pre">chain</span></code>-Funktion aus dem <code class="docutils literal"><span class="pre">itertools</span></code>-Modul verwendet, um die Ausgabe
+<p>Hier wird die <code class="docutils literal notranslate"><span class="pre">chain</span></code>-Funktion aus dem <code class="docutils literal notranslate"><span class="pre">itertools</span></code>-Modul verwendet, um die Ausgabe
 zweier Generatoren aneinanderzufügen.</p>
 <p>Bei den <em>doctests</em> hatten wir gesehen, dass es sinnvoll sein kann zu überprüfen, ob eine
 Ausnahme ausgelöst wird. In unserem Beispiel sollte dies geschehen, wenn das Argument
-der Funktion <code class="docutils literal"><span class="pre">pascal_line</span></code> eine negative ganze Zahl ist, da dann der verwendete
+der Funktion <code class="docutils literal notranslate"><span class="pre">pascal_line</span></code> eine negative ganze Zahl ist, da dann der verwendete
 Algorithmus versagt. Die notwendige Ergänzung ist in dem folgenden Codestück gezeigt.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n may not be negative&#39;</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">yield</span> <span class="n">x</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">//</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">yield</span> <span class="n">x</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;n may not be negative&#39;</span><span class="p">)</span>
+<span class="linenos">4</span>    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">5</span>    <span class="k">yield</span> <span class="n">x</span>
+<span class="linenos">6</span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">7</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">//</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">8</span>        <span class="k">yield</span> <span class="n">x</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Der zugehörige Test könnte folgendermaßen aussehen:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestParameters</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_negative_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
-            <span class="nb">next</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">class</span><span class="w"> </span><span class="nc">TestParameters</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="k">def</span><span class="w"> </span><span class="nf">test_negative_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">3</span>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+<span class="linenos">4</span>            <span class="nb">next</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
-<p>Die Verwendung von <code class="docutils literal"><span class="pre">assertRaises</span></code> muss nicht zwingend in einem <code class="docutils literal"><span class="pre">with</span></code>-Kontext erfolgen,
+</div>
+<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">assertRaises</span></code> muss nicht zwingend in einem <code class="docutils literal notranslate"><span class="pre">with</span></code>-Kontext erfolgen,
 macht den Code aber sehr übersichtlich. Da die Ausnahme erst dann ausgelöst wird, wenn
 ein Wert von dem Generator angefordert wurde, ist in der letzten Zeile die Verwendung
-von <code class="docutils literal"><span class="pre">next</span></code> erforderlich.</p>
+von <code class="docutils literal notranslate"><span class="pre">next</span></code> erforderlich.</p>
 <p>Bisher hatten wir es weder bei <em>doctests</em> noch bei <em>unit tests</em> mit
 Gleitkommazahlen zu tun, die jedoch beim numerischen Arbeiten häufig vorkommen
 und eine besondere Schwierigkeit beim Testen mit sich bringen. Um dies zu
-illustrieren, lassen wir in unserer Funktion <code class="docutils literal"><span class="pre">pascal_line</span></code> auch
+illustrieren, lassen wir in unserer Funktion <code class="docutils literal notranslate"><span class="pre">pascal_line</span></code> auch
 Gleitkommazahlen als Argument zu. So lassen sich zum Beispiel mit
-<code class="docutils literal"><span class="pre">pascal_line(1/3)</span></code> die Taylorkoeffizienten von</p>
-<div class="math">
+<code class="docutils literal notranslate"><span class="pre">pascal_line(1/3)</span></code> die Taylorkoeffizienten von</p>
+<div class="math notranslate nohighlight">
 \[\sqrt[3]{1+x} = 1+\frac{1}{3}x-\frac{1}{9}x^2+\frac{5}{81}x^3+\dots\]</div>
 <p>bestimmen. Ist das Argument keine nichtnegative ganze Zahl, so wird der
 Generator potentiell unendlich viele Werte erzeugen. Die angepasste Version
 unserer Funktion sieht folgendermaßen aus:</p>
 <div class="literal-block-wrapper docutils container" id="code-pascal-float">
 <div class="code-block-caption"><span class="caption-number">Quellcode 2 </span><span class="caption-text">Erweiterung der Funktion aus <a class="reference internal" href="#code-pascal-int"><span class="std std-numref">Quellcode 1</span></a> für
-das pascalsche Dreieck auf Gleitkommaargumente.</span><a class="headerlink" href="#code-pascal-float" title="Link zu diesem Quellcode">¶</a></div>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+das pascalsche Dreieck auf Gleitkommaargumente.</span><a class="headerlink" href="#code-pascal-float" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pascal_line</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">yield</span> <span class="n">x</span>
     <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
@@ -799,27 +694,27 @@ das pascalsche Dreieck auf Gleitkommaargumente.</span><a class="headerlink" href
 </div>
 </div>
 <p>Die Koeffizienten der obigen Taylorreihe erhalten wir dann mit</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>zu</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="mi">1</span>
 <span class="mi">1</span> <span class="mf">0.3333333333333333</span>
 <span class="mi">2</span> <span class="o">-</span><span class="mf">0.11111111111111112</span>
 <span class="mi">3</span> <span class="mf">0.0617283950617284</span>
 </pre></div>
 </div>
 <p>Wir erweitern unsere Tests entsprechend:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestParameters</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TestParameters</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="nd">@skip</span><span class="p">(</span><span class="s1">&#39;only for integer version&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">test_negative_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_negative_int</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
             <span class="nb">next</span><span class="p">(</span><span class="n">pascal_line</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 
-<span class="k">class</span> <span class="nc">TestFractional</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_one_third</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestFractional</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_one_third</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
         <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">81</span><span class="p">]</span>
@@ -827,13 +722,13 @@ das pascalsche Dreieck auf Gleitkommaargumente.</span><a class="headerlink" href
 </pre></div>
 </div>
 <p>Der erste Block zeigt beispielhaft, wie man eine Testfunktion mit Hilfe des
-<code class="docutils literal"><span class="pre">&#64;skip</span></code>-Dekorators markieren kann, so dass diese nicht ausgeführt wird. Dazu
-muss allerdings zunächst <code class="docutils literal"><span class="pre">skip</span></code> aus dem <code class="docutils literal"><span class="pre">unittest</span></code>-Modul importiert werden.
-Auch die Testfunktionen <code class="docutils literal"><span class="pre">test_sum</span></code>, <code class="docutils literal"><span class="pre">test_alternate_sum</span></code> und
-<code class="docutils literal"><span class="pre">test_generate_next_line</span></code> sollten für die Gleitkommaversion auf diese Weise
+<code class="docutils literal notranslate"><span class="pre">&#64;skip</span></code>-Dekorators markieren kann, so dass diese nicht ausgeführt wird. Dazu
+muss allerdings zunächst <code class="docutils literal notranslate"><span class="pre">skip</span></code> aus dem <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Modul importiert werden.
+Auch die Testfunktionen <code class="docutils literal notranslate"><span class="pre">test_sum</span></code>, <code class="docutils literal notranslate"><span class="pre">test_alternate_sum</span></code> und
+<code class="docutils literal notranslate"><span class="pre">test_generate_next_line</span></code> sollten für die Gleitkommaversion auf diese Weise
 deaktiviert werden, da sie nicht mehr korrekt funktionieren, zum Beispiel weil
 ein Überlauf auftritt. Als Testergebnis erhält man dann:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>s...Fsss
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>s...Fsss
 ======================================================================
 FAIL: test_one_third (__main__.TestFractional)
 ----------------------------------------------------------------------
@@ -859,16 +754,16 @@ Ran 8 tests in 0.004s
 FAILED (failures=1, skipped=4)
 </pre></div>
 </div>
-<p>Neben den vier nicht ausgeführten Tests, die wir mit dem <code class="docutils literal"><span class="pre">&#64;skip</span></code>-Dekorator versehen hatten,
+<p>Neben den vier nicht ausgeführten Tests, die wir mit dem <code class="docutils literal notranslate"><span class="pre">&#64;skip</span></code>-Dekorator versehen hatten,
 wird hier noch ein fehlgeschlagener Test aufgeführt, bei dem es sich um unseren neuen Test
 der Gleitkommaversion handelt. Der Vergleich des erhaltenen und des erwarteten Resultats zeigt,
 dass die Ursache in Rundungsfehlern liegt.</p>
-<p>Es gibt verschiedene Möglichkeiten, mit solchen Rundungsfehlern umzugehen. Das <code class="docutils literal"><span class="pre">unittest</span></code>-Modul
-bietet die Methode <code class="docutils literal"><span class="pre">assertAlmostEqual</span></code> an, die allerdings den Nachteil hat, nicht auf Listen
+<p>Es gibt verschiedene Möglichkeiten, mit solchen Rundungsfehlern umzugehen. Das <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Modul
+bietet die Methode <code class="docutils literal notranslate"><span class="pre">assertAlmostEqual</span></code> an, die allerdings den Nachteil hat, nicht auf Listen
 anwendbar zu sein. Außerdem lässt sich dort nur die Zahl der Dezimalstellen angeben, die bei der
 Rundung zu berücksichtigen sind. Standardmäßig sind dies 7 Stellen. Eine mögliche Lösung wäre also:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestFractional</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_one_third</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TestFractional</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_one_third</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
         <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">81</span><span class="p">]</span>
@@ -876,12 +771,12 @@ Rundung zu berücksichtigen sind. Standardmäßig sind dies 7 Stellen. Eine mög
             <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Seit Python 3.5 gibt es auch die Möglichkeit, die Funktion <code class="docutils literal"><span class="pre">isclose</span></code> aus dem <code class="docutils literal"><span class="pre">math</span></code>-Modul
-zu verwenden, die es erlaubt, den absoluten und relativen Fehler mit <code class="docutils literal"><span class="pre">abs_tol</span></code> bzw. <code class="docutils literal"><span class="pre">rel_tol</span></code>
+<p>Seit Python 3.5 gibt es auch die Möglichkeit, die Funktion <code class="docutils literal notranslate"><span class="pre">isclose</span></code> aus dem <code class="docutils literal notranslate"><span class="pre">math</span></code>-Modul
+zu verwenden, die es erlaubt, den absoluten und relativen Fehler mit <code class="docutils literal notranslate"><span class="pre">abs_tol</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">rel_tol</span></code>
 bequem zu spezifizieren. Standardmäßig ist der absolute Fehler auf Null und der relative Fehler
-auf <span class="math">\(10^{-9}\)</span> gesetzt. Der Test könnte dann folgendermaßen aussehen:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TestFractional</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_one_third</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+auf <span class="math notranslate nohighlight">\(10^{-9}\)</span> gesetzt. Der Test könnte dann folgendermaßen aussehen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">TestFractional</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_one_third</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">p</span> <span class="o">=</span> <span class="n">pascal_line</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="nb">next</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
         <span class="n">expected</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="o">/</span><span class="mi">81</span><span class="p">]</span>
@@ -890,7 +785,7 @@ auf <span class="math">\(10^{-9}\)</span> gesetzt. Der Test könnte dann folgend
 </pre></div>
 </div>
 <p>Auch in diesem Fall muss man alle Elemente explizit durchgehen, was den Testcode unnötig
-kompliziert macht. Abhilfe kann hier NumPy mit seinem <code class="docutils literal"><span class="pre">testing</span></code>-Modul schaffen, auf das
+kompliziert macht. Abhilfe kann hier NumPy mit seinem <code class="docutils literal notranslate"><span class="pre">testing</span></code>-Modul schaffen, auf das
 wir im nächsten Abschnitt eingehen werden.</p>
 <p>Zuvor wollen wir aber noch kurz eine Testsituation ansprechen, bei der der
 eigentliche Test eine Vorbereitung sowie Nacharbeit erfordert. Dies ist zum
@@ -901,71 +796,71 @@ angelegt und am Ende wieder entfernt werden.</p>
 getestet werden. Dazu müssen wir zunächst eine temporäre Datei erzeugen, die
 dann im Test eingelesen werden kann. Am Ende soll die temporäre Datei gelöscht
 werden.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">unittest</span> <span class="kn">import</span> <span class="n">TestCase</span>
-<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">unittest</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tempfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
 
-<span class="k">def</span> <span class="nf">convert_to_float</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">convert_to_float</span><span class="p">(</span><span class="n">datalist</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">datalist</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)))</span>
 
-<span class="k">def</span> <span class="nf">read_floats</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">file</span><span class="p">:</span>
-         <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">convert_to_float</span><span class="p">,</span> <span class="nb">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_floats</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+         <span class="n">data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">convert_to_float</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()))</span>
     <span class="k">return</span> <span class="n">data</span>
 
-<span class="k">class</span> <span class="nc">testReadData</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;speichere Testdaten in temporärer Datei</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">testReadData</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;speichere Testdaten in temporärer Datei</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">1.23</span><span class="p">,</span> <span class="mf">4.56</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.89</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">]]</span>
         <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
-            <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">line</span><span class="p">)))</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">test_read_floats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;teste korrektes Einlesen der Gleitkommazahlen</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">test_read_floats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;teste korrektes Einlesen der Gleitkommazahlen</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
                          <span class="n">read_floats</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;lösche temporäre Datei</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;lösche temporäre Datei</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Zunächst werden die beiden zum Einlesen verwendeten Funktionen definiert, wobei aus
-dem Test heraus die Funktion <code class="docutils literal"><span class="pre">read_floats</span></code> aufgerufen wird. In der Testklasse gibt
-es neben der Methode <code class="docutils literal"><span class="pre">test_read_floats</span></code>, die die Korrektheit des Einlesens überprüft,
-noch zwei weitere Methoden. Die Methode <code class="docutils literal"><span class="pre">setUp</span></code> bereitet den Test vor. In unserem
+dem Test heraus die Funktion <code class="docutils literal notranslate"><span class="pre">read_floats</span></code> aufgerufen wird. In der Testklasse gibt
+es neben der Methode <code class="docutils literal notranslate"><span class="pre">test_read_floats</span></code>, die die Korrektheit des Einlesens überprüft,
+noch zwei weitere Methoden. Die Methode <code class="docutils literal notranslate"><span class="pre">setUp</span></code> bereitet den Test vor. In unserem
 Beispiel wird dort die temporäre Datei erzeugt, von der im Laufe des Tests Daten gelesen
-werden. Die Methode <code class="docutils literal"><span class="pre">tearDown</span></code> wird nach dem Test ausgeführt und dient hier dazu, die
+werden. Die Methode <code class="docutils literal notranslate"><span class="pre">tearDown</span></code> wird nach dem Test ausgeführt und dient hier dazu, die
 temporäre Datei wieder zu entfernen.</p>
-<p>Auch ohne dass wir alle Möglichkeiten des <code class="docutils literal"><span class="pre">unittest</span></code>-Moduls besprochen haben,
+<p>Auch ohne dass wir alle Möglichkeiten des <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Moduls besprochen haben,
 dürfte klar geworden sein, dass diese deutlich über die Möglichkeiten des
-<code class="docutils literal"><span class="pre">doctest</span></code>-Moduls hinausgehen.  Eine Übersicht über weitere
-Anwendungsmöglichkeiten des <code class="docutils literal"><span class="pre">unittest</span></code>-Moduls findet man in der zugehörigen
+<code class="docutils literal notranslate"><span class="pre">doctest</span></code>-Moduls hinausgehen.  Eine Übersicht über weitere
+Anwendungsmöglichkeiten des <code class="docutils literal notranslate"><span class="pre">unittest</span></code>-Moduls findet man in der zugehörigen
 <a class="reference external" href="http://docs.python.org/2/library/unittest.html">Dokumentation</a>, wo
-inbesondere auch eine vollständige Liste der verfügbaren <code class="docutils literal"><span class="pre">assert</span></code>-Anweisungen
+inbesondere auch eine vollständige Liste der verfügbaren <code class="docutils literal notranslate"><span class="pre">assert</span></code>-Anweisungen
 angegeben ist.</p>
-</div>
-<div class="section" id="testen-mit-numpy">
-<h2>Testen mit NumPy<a class="headerlink" href="#testen-mit-numpy" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="testen-mit-numpy">
+<h2>Testen mit NumPy<a class="headerlink" href="#testen-mit-numpy" title="Link to this heading">¶</a></h2>
 <p>Das Programmieren von Tests ist gerade beim numerischen Arbeiten sehr wichtig.
 Bei der Verwendung von NumPy-Arrays ergibt sich allerdings das Problem, dass
 man normalerweise nicht für jedes Arrayelement einzeln die Gültigkeit einer
 Testbedingung überprüfen möchte. Wir wollen daher kurz diskutieren, welche
 Möglichkeiten man in einem solchen Fall besitzt.</p>
 <p>Die im folgenden Beispiel definierte Matrix hat nur positive Eigenwerte:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="gp">In [1]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="gp">In [2]: </span><span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="kn">as</span> <span class="nn">LA</span>
+<span class="gp">In [2]: </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy.linalg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">LA</span>
 
 <span class="gp">In [3]: </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 
@@ -979,23 +874,23 @@ Möglichkeiten man in einem solchen Fall besitzt.</p>
 <span class="gr">Out[5]: </span><span class="n">array</span><span class="p">([</span> <span class="mf">2.97774394</span><span class="p">,</span>  <span class="mf">3.81381575</span><span class="p">,</span>  <span class="mf">5.20844031</span><span class="p">])</span>
 
 <span class="gp">In [6]: </span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">eigvalsh</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gr">Out[6]: </span><span class="bp">True</span>
+<span class="gr">Out[6]: </span><span class="kc">True</span>
 </pre></div>
 </div>
 <p>Dies lässt sich in Ausgabe 5 direkt verifizieren. Für einen automatisierten
 Test ist es günstig, die Positivitätsbedingung für jedes Element auszuwerten
 und zu überprüfen, ob sie für alle Elemente erfüllt ist. Dies geschieht in
-Eingabe 6 mit Hilfe der <code class="docutils literal"><span class="pre">all</span></code>-Funktion, die man in einem Test in der
-<code class="docutils literal"><span class="pre">assert</span></code>-Anweisung verwenden würde.</p>
+Eingabe 6 mit Hilfe der <code class="docutils literal notranslate"><span class="pre">all</span></code>-Funktion, die man in einem Test in der
+<code class="docutils literal notranslate"><span class="pre">assert</span></code>-Anweisung verwenden würde.</p>
 <p>Im letzten Abschnitt hatten wir darauf hingewiesen, dass man bei Tests von
 Gleitkommazahlen die Möglichkeit von Rundungsfehlern bedenken muss. Dies gilt
 natürlich genauso, wenn man ganze Arrays von Gleitkommazahlen erzeugt und testen
 will. In diesem Fall ist es sinnvoll, auf die Unterstützung zurückzugreifen, die
-NumPy durch sein <code class="docutils literal"><span class="pre">testing</span></code>-Modul <a class="footnote-reference" href="#numpytest" id="id3">[2]</a> gibt.</p>
+NumPy durch sein <code class="docutils literal notranslate"><span class="pre">testing</span></code>-Modul <a class="footnote-reference brackets" href="#numpytest" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> gibt.</p>
 <p>Als Beispiel betrachten wir unseren auf Gleitkommaargumente verallgemeinerten
 Code für das pascalsche Dreieck (<a class="reference internal" href="#code-pascal-float"><span class="std std-numref">Quellcode 2</span></a>). Da wir dort
 gleich mehrere Werte vergleichen müssen, können wir wie folgt vorgehen:</p>
-<div class="highlight-ipython"><div class="highlight"><pre><span></span><span class="go">class TestFractional(TestCase):</span>
+<div class="highlight-ipython notranslate"><div class="highlight"><pre><span></span><span class="go">class TestFractional(TestCase):</span>
 <span class="go">    def test_one_third(self):</span>
 <span class="go">        p = pascal_line(1/3)</span>
 <span class="go">        result = [next(p) for _ in range(4)]</span>
@@ -1003,37 +898,35 @@ gleich mehrere Werte vergleichen müssen, können wir wie folgt vorgehen:</p>
 <span class="go">        np.testing.assert_allclose(result, expected, rtol=1e-10)</span>
 </pre></div>
 </div>
-<p>Hierbei haben wir wie üblich NumPy als <code class="docutils literal"><span class="pre">np</span></code> importiert. Die Funktion
-<code class="docutils literal"><span class="pre">assert_allclose</span></code> erlaubt es ähnlich wie <code class="docutils literal"><span class="pre">math.isclose</span></code>, bequem den
+<p>Hierbei haben wir wie üblich NumPy als <code class="docutils literal notranslate"><span class="pre">np</span></code> importiert. Die Funktion
+<code class="docutils literal notranslate"><span class="pre">assert_allclose</span></code> erlaubt es ähnlich wie <code class="docutils literal notranslate"><span class="pre">math.isclose</span></code>, bequem den
 absoluten und relativen Fehler zu spezifizieren, wobei die entsprechenden
-Variablen hier <code class="docutils literal"><span class="pre">atol</span></code> bzw. <code class="docutils literal"><span class="pre">rtol</span></code> lauten. Dabei wird der Unterschied
+Variablen hier <code class="docutils literal notranslate"><span class="pre">atol</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">rtol</span></code> lauten. Dabei wird der Unterschied
 zwischen dem tatsächlichen und dem erwarteten Ergebnis mit der Summe aus
-<code class="docutils literal"><span class="pre">atol</span></code> und dem mit <code class="docutils literal"><span class="pre">rtol</span></code> multiplizierten erwarteten Ergebnis verglichen.
-Defaultmäßig ist <code class="docutils literal"><span class="pre">atol</span></code> auf Null gesetzt, so dass nur der relative Fehler
-von Bedeutung ist, der defaultmäßig den Wert <span class="math">\(10^{-7}\)</span> hat. Gegenüber
-unseren früheren Tests der verallgemeinerten Funktion <code class="docutils literal"><span class="pre">pascal_line</span></code> hat
+<code class="docutils literal notranslate"><span class="pre">atol</span></code> und dem mit <code class="docutils literal notranslate"><span class="pre">rtol</span></code> multiplizierten erwarteten Ergebnis verglichen.
+Defaultmäßig ist <code class="docutils literal notranslate"><span class="pre">atol</span></code> auf Null gesetzt, so dass nur der relative Fehler
+von Bedeutung ist, der defaultmäßig den Wert <span class="math notranslate nohighlight">\(10^{-7}\)</span> hat. Gegenüber
+unseren früheren Tests der verallgemeinerten Funktion <code class="docutils literal notranslate"><span class="pre">pascal_line</span></code> hat
 der obige Test den Vorteil, dass nicht explizit über die Liste iteriert werden
 muss und der Testcode somit einfacher und übersichtlicher ist.</p>
-<table class="docutils footnote" frame="void" id="coverage" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Zur Überprüfung der Codeabdeckung durch Tests kann <code class="docutils literal"><span class="pre">coverage.py</span></code>
-dienen, dessen Dokumentation unter <a class="reference external" href="http://coverage.readthedocs.io">http://coverage.readthedocs.io</a> zu finden ist.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="numpytest" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>Eine detaillierte Liste der verschiedenen Funktionen findet man in der
-<a class="reference external" href="http://docs.scipy.org/doc/numpy-dev/reference/routines.testing.html">Dokumentation zum Test Support</a>.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="coverage" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Zur Überprüfung der Codeabdeckung durch Tests kann <code class="docutils literal notranslate"><span class="pre">coverage.py</span></code>
+dienen, dessen Dokumentation unter <a class="reference external" href="http://coverage.readthedocs.io">http://coverage.readthedocs.io</a> zu finden ist.</p>
+</aside>
+<aside class="footnote brackets" id="numpytest" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Eine detaillierte Liste der verschiedenen Funktionen findet man in der
+<a class="reference external" href="http://docs.scipy.org/doc/numpy-dev/reference/routines.testing.html">Dokumentation zum Test Support</a>.</p>
+</aside>
+</aside>
+</section>
+</section>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
       
         <p>
         «&#160;&#160;<a href="git.html">Versionskontrolle mit Git</a>
@@ -1046,8 +939,8 @@ dienen, dessen Dokumentation unter <a class="reference external" href="http://co
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2012-2017, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2 erstellt.
+    &#169; Copyright 2012-2017, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>
