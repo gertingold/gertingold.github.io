@@ -1,41 +1,38 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html lang="de" data-content_root="./">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>64-Bit-Gleitkommazahlen nach IEEE-Standard 754 &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=47202671" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css?v=fce32b03" />
+    <script src="_static/documentation_options.js?v=86574797"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="search" title="Suche" href="search.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index_latex.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>64-Bit-Gleitkommazahlen nach IEEE-Standard 754</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav" role="navigation" aria-label="Top">
       
         <p>
         <a class="uplink" href="index_latex.html">Inhalt</a>
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="bit-gleitkommazahlen-nach-ieee-standard-754">
-<span id="appendixfloats"></span><h1>64-Bit-Gleitkommazahlen nach IEEE-Standard 754<a class="headerlink" href="#bit-gleitkommazahlen-nach-ieee-standard-754" title="Link zu dieser Überschrift">¶</a></h1>
+  <section id="bit-gleitkommazahlen-nach-ieee-standard-754">
+<span id="appendixfloats"></span><h1>64-Bit-Gleitkommazahlen nach IEEE-Standard 754<a class="headerlink" href="#bit-gleitkommazahlen-nach-ieee-standard-754" title="Link to this heading">¶</a></h1>
 <p>In diesem Anhang soll kurz die Binärdarstellung von 64-Bit-Gleitkommazahlen nach dem
-Standard IEEE Std 754–2008 <a class="footnote-reference" href="#ieee754" id="id1">[1]</a> vorgestellt werden. Dabei handelt es sich nur
+Standard IEEE Std 754–2008 <a class="footnote-reference brackets" href="#ieee754" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> vorgestellt werden. Dabei handelt es sich nur
 um einen sehr kleinen Ausschnitt dieses Standards, der noch weitere Gleitkommazahlenformate
 sowie deren arithmetische Verarbeitung definiert.</p>
 <p>Wie in der folgenden Abbildung zu sehen ist, besteht eine 64-Bit-Gleitkommazahl aus drei
@@ -43,7 +40,8 @@ Anteilen: 1 Bit für das Vorzeichen, 11 Bits aus denen der Exponent bestimmt wir
 52 Bits aus denen sich die Mantisse ergibt. Im zweiten und dritten Segment steht das
 höchstwertigste Bit (MSB – <cite>most significant bit</cite>) jeweils links und das niederwertigste
 Bit (LSB – <cite>least significant bit</cite>) rechts.</p>
-<a class="reference internal image-reference" href="_images/ieee754_64.png"><img alt="_images/ieee754_64.png" class="align-center" src="_images/ieee754_64.png" style="height: 2.5cm;" /></a>
+<a class="reference internal image-reference" href="_images/ieee754_64.png"><img alt="_images/ieee754_64.png" class="align-center" src="_images/ieee754_64.png" style="height: 2.5cm;" />
+</a>
 <p>Die Interpretation der 64 Bits hängt vom Wert des Exponenten E ab, der als Integer zu
 verstehen ist und damit Werte zwischen 0 und 2<sup>11</sup>-1 annehmen kann.</p>
 <p>Wir beginnen mit dem häufigsten Fall, dass E ungleich 0 und ungleich 2<sup>11</sup>-1 ist, also einen Wert zwischen 1 und 2<sup>11</sup>-2 besitzt. In diesem Fall
@@ -91,7 +89,7 @@ Die größte darstellbare endliche Zahl ist <span class="math notranslate nohigh
 \approx 1,798\cdot 10^{308}\)</span>. Der Abstand zwischen der Zahl Eins und der nächst größeren
 darstellbaren Zahl beträgt <span class="math notranslate nohighlight">\(2^{-52} \approx 2,22\cdot 10^{-16}\)</span>. Die letzten beiden
 Angaben lassen sich in Python folgendermaßen verifizieren:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span>
 <span class="go">1.7976931348623157e+308</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span>
@@ -100,17 +98,17 @@ Angaben lassen sich in Python folgendermaßen verifizieren:</p>
 </div>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">sys.float_info.min</span></code> erhält man nicht die kleinste überhaupt darstellbare Zahl,
 sondern die kleinste darstellbare normalisierte Zahl 2<sup>-1022</sup>.</p>
-<table class="docutils footnote" frame="void" id="ieee754" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>IEEE Standard for Floating-Point Arithmetic (<a class="reference external" href="http://dx.doi.org/10.1109/IEEESTD.2008.4610935">dx.doi.org:10.1109/IEEESTD.2008.4610935</a>)</td></tr>
-</tbody>
-</table>
-</div>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="ieee754" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>IEEE Standard for Floating-Point Arithmetic (<a class="reference external" href="http://dx.doi.org/10.1109/IEEESTD.2008.4610935">dx.doi.org:10.1109/IEEESTD.2008.4610935</a>)</p>
+</aside>
+</aside>
+</section>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
       
         <p>
         <a class="uplink" href="index_latex.html">Inhalt</a>
@@ -119,8 +117,8 @@ sondern die kleinste darstellbare normalisierte Zahl 2<sup>-1022</sup>.</p>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
+    &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>

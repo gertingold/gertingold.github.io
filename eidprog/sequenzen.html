@@ -1,30 +1,26 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html lang="de" data-content_root="./">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Zusammengesetzte Datentypen &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=47202671" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css?v=fce32b03" />
+    <script src="_static/documentation_options.js?v=86574797"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Ein- und Ausgabe" href="einausgabe.html" />
     <link rel="prev" title="Funktionen" href="funktionen.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index_latex.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Zusammengesetzte Datentypen</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav" role="navigation" aria-label="Top">
       
         <p>
         «&#160;&#160;<a href="funktionen.html">Funktionen</a>
@@ -35,13 +31,13 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="zusammengesetzte-datentypen">
-<span id="zusgdatentypen"></span><h1>Zusammengesetzte Datentypen<a class="headerlink" href="#zusammengesetzte-datentypen" title="Link zu dieser Überschrift">¶</a></h1>
-<div class="section" id="listen">
-<span id="id1"></span><h2>Listen<a class="headerlink" href="#listen" title="Link zu dieser Überschrift">¶</a></h2>
+  <section id="zusammengesetzte-datentypen">
+<span id="zusgdatentypen"></span><h1>Zusammengesetzte Datentypen<a class="headerlink" href="#zusammengesetzte-datentypen" title="Link to this heading">¶</a></h1>
+<section id="listen">
+<span id="id1"></span><h2>Listen<a class="headerlink" href="#listen" title="Link to this heading">¶</a></h2>
 <p>Bei numerischen Anwendungen in Physik und Materialwissenschaften will man neben
 den einfachen Datentypen des Kapitels <a class="reference internal" href="datentypen.html#datentypen"><span class="std std-ref">Einfache Datentypen, Variablen und Zuweisungen</span></a> unter anderem auch
 Vektoren und Matrizen verwenden. Echte Vektoren und Matrizen mit zugehörigen
@@ -55,7 +51,7 @@ hatten wir mit Hilfe von <code class="xref py py-func docutils literal notransla
 auch wenn wir uns dessen dort nicht wirklich bewusst waren. Dementsprechend
 lässt sich eine, zugegebenermaßen sehr spezielle Liste folgendermaßen erzeugen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
 <span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
 <span class="go">&lt;class &#39;list&#39;&gt;</span>
@@ -69,7 +65,7 @@ Eins.</p>
 <p>Häufig ist es notwendig, die Anzahl der Elemente einer Liste zu kennen. Diese Information
 erhält man mit Hilfe der Funktion <code class="xref py py-func docutils literal notranslate"><span class="pre">len()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">liste</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
 <span class="go">[1, 4, 7, 10, 13, 16]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
 <span class="go">6</span>
@@ -105,7 +101,8 @@ wir von der <code class="xref py py-func docutils literal notranslate"><span cla
 <p>Die Funktionsweise der Indizes lässt sich anschaulich verstehen, wenn man sie nicht als
 Index eines Listeneintrags ansieht, sondern als Markierung »zwischen« den Listeneinträgen,
 wie es die folgende Abbildung zeigt:</p>
-<a class="reference internal image-reference" href="_images/listnumbering1.png"><img alt="_images/listnumbering1.png" class="align-center" src="_images/listnumbering1.png" style="width: 30em;" /></a>
+<a class="reference internal image-reference" href="_images/listnumbering1.png"><img alt="_images/listnumbering1.png" class="align-center" src="_images/listnumbering1.png" style="width: 30em;" />
+</a>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Was ergibt <code class="docutils literal notranslate"><span class="pre">a[2:2]</span></code>?</p>
 <p>Wird einer der beiden Indizes nicht angegeben, so wird er durch den Index ersetzt, der auf
 den Beginn bzw. das Ende der Liste zeigt.</p>
@@ -141,7 +138,8 @@ führen. Python dagegen weist auf den illegalen Zugriff hin:</p>
 mit <code class="docutils literal notranslate"><span class="pre">-1</span></code> vom letzten Listenelement an rückwärts, so dass das erste Element auch
 mit dem Index <code class="docutils literal notranslate"><span class="pre">-N</span></code> angesprochen werden kann. Das folgende Bild stellt die Zuordnung
 der Indizes dar.</p>
-<a class="reference internal image-reference" href="_images/listnumbering2.png"><img alt="_images/listnumbering2.png" class="align-center" src="_images/listnumbering2.png" style="width: 20em;" /></a>
+<a class="reference internal image-reference" href="_images/listnumbering2.png"><img alt="_images/listnumbering2.png" class="align-center" src="_images/listnumbering2.png" style="width: 20em;" />
+</a>
 <p>Die letzten beiden Elemente einer Liste erhält man demnach mit Hilfe von</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>
@@ -168,29 +166,19 @@ Umkehrung der Reihenfolge der Listenelemente. Eine Alternative hierzu bietet die
 werden.</p>
 <p>In Python ist zu beachten, dass sich das Kopieren von Listen nicht so verhält, wie
 man es vielleicht erwarten würde.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">3070057740</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="go">3070057740</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">[111, 17, 9]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[111, 17, 9]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">3070057740</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">3070057740</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="linenos"> 9</span><span class="go">[111, 17, 9]</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="linenos">11</span><span class="go">[111, 17, 9]</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Die Zuweisung in Zeile 4 führt nicht zu einem neuen Listenobjekt, das unabhängig
 verändert werden kann. Vielmehr zeigen die Zeilen 2 und 3 bzw. 5 und 6, dass es sich
 bei <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> um dasselbe Objekt handelt. Ändert man ein Element der Liste <code class="docutils literal notranslate"><span class="pre">a</span></code>,
@@ -198,29 +186,19 @@ so wird, wie die Zeilen 8-11 zeigen, auch die Liste <code class="docutils litera
 Letztlich hat man durch die Anweisung in Zeile 4 lediglich einen alternativen Namen
 definiert, über den die Liste angesprochen werden kann. Eine unabhängige Kopie einer
 Liste erhält man unter anderem auf folgende Weise:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">3070057740</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="go">3070058220</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">[111, 17, 9]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[2, 17, 9]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="p">[:]</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos"> 4</span><span class="go">3070057740</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">3070058220</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">111</span>
+<span class="linenos"> 8</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="linenos"> 9</span><span class="go">[111, 17, 9]</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="linenos">11</span><span class="go">[2, 17, 9]</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In Zeile 1 werden die Listeneinträge von <code class="docutils literal notranslate"><span class="pre">a</span></code> in eine neue Liste <code class="docutils literal notranslate"><span class="pre">b</span></code> kopiert.
 Wie die Zeilen 2-5 zeigen, wird dabei tatsächlich ein neues Listenobjekt erzeugt.
 Die beiden Listen <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> lassen sich damit unabhängig voneinander verändern,
@@ -232,38 +210,27 @@ sein, die auch nicht unbedingt vom gleichen Typ sein müssen. Im Abschnitt <a cl
 hatten wir beispielsweise schon eine Liste kennengelernt, deren Elemente Funktionsnamen
 waren. Dadurch, dass nicht alle Elemente von gleichem Typ sein müssen, ist der folgende
 Code im Prinzip möglich:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">aufgabe</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">aufgabe</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">aufgabe</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="go">181.27224187515122</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mf">5.2</span><span class="p">)</span>
-<span class="go">181.27224187515122</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">aufgabe</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">aufgabe</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">aufgabe</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">4</span><span class="go">181.27224187515122</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">exp</span><span class="p">(</span><span class="mf">5.2</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">181.27224187515122</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In Zeile 2 wird eine Liste definiert, die einen Funktionsnamen und einen Float-Wert
 enthält. Anschließend werden die Listenelemente in Zeile 3 verwendet, um einen
 Funktionswert zu berechnen, der in den Zeilen 5 und 6 überprüft wird. Natürlich ist
 es auch möglich, Listen als Listenelemente zu verwenden.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">[1, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">[2, 4]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">3</span><span class="go">[1, 3]</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">5</span><span class="go">[2, 4]</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">7</span><span class="go">3</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In den Zeilen 2 und 4 werden Elemente der Liste <code class="docutils literal notranslate"><span class="pre">a</span></code> ausgewählt, wie wir es
 schon aus den obigen Beispielen kennen. Das Ergebnis ist hier jeweils eine
 Liste, aus der wiederum ein Element ausgewählt werden kann. In Zeile 6 bedeutet
@@ -283,22 +250,17 @@ unbedingt jedes Element spezifiziert werden muss. In Python dagegen lässt sich
 die Länge der Liste durch Hinzufügen von Elementen verändern. In dem folgenden
 Beispiel definieren wir zunächst in Zeile 1 eine leere Liste, an die wir
 anschließend Elemente anhängen:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-<span class="gp">... </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">[0, 1, 4, 9, 16]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="linenos">6</span><span class="go">[0, 1, 4, 9, 16]</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen werden in Python relativ langsam abgearbeitet.
 Die Funktionalität des angegebenen Codes lässt sich wesentlich effizienter als
-so genannte »list comprehension« realisieren <a class="footnote-reference" href="#list-comprehension" id="id2">[1]</a>, die für unser
+so genannte »list comprehension« realisieren <a class="footnote-reference brackets" href="#list-comprehension" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, die für unser
 Beispiel die folgende Form hat:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
@@ -315,45 +277,32 @@ eine Multiplikation verwenden.</p>
 </div>
 <p>Mit der <code class="xref py py-func docutils literal notranslate"><span class="pre">append()</span></code>-Methode verwandt ist die <code class="xref py py-func docutils literal notranslate"><span class="pre">extend()</span></code>-Methode, mit der
 man eine Liste an eine andere Liste anhängen kann.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
-<span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 1, 2, 3]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">]</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
+<span class="linenos">5</span><span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 1, 2, 3]</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Hier wird in Zeile 3 die Liste <code class="docutils literal notranslate"><span class="pre">b</span></code> um die Elemente der Liste <code class="docutils literal notranslate"><span class="pre">a</span></code> erweitert.
 Alternativ kann man zwei Listen mit Hilfe des <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operators aneinanderhängen
 wie folgendes Beispiel zeigt.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="n">a</span>
-<span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 1, 2, 3]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="mi">3</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">TypeError</span>: <span class="n">can only concatenate list (not &quot;int&quot;) to list</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 3]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;drei&quot;</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="n">a</span>
+<span class="linenos"> 4</span><span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 1, 2, 3]</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="mi">3</span>
+<span class="linenos"> 6</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 7</span>  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="linenos"> 8</span><span class="gr">TypeError</span>: <span class="n">can only concatenate list (not &quot;int&quot;) to list</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">+</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="linenos">10</span><span class="go">[&#39;eins&#39;, &#39;zwei&#39;, &#39;drei&#39;, 3]</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Dabei ist allerdings darauf zu achten, dass beide Objekte Listen sein müssen wie
 aus den Zeilen 5-10 zu sehen ist.</p>
 <p>Wir wollen im Folgenden nicht auf alle Möglichkeiten eingehen, mit Listen zu
-arbeiten <a class="footnote-reference" href="#doc-datastructures" id="id3">[2]</a>, sondern nur noch einige ausgewählte Punkte
+arbeiten <a class="footnote-reference brackets" href="#doc-datastructures" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>, sondern nur noch einige ausgewählte Punkte
 ansprechen. Gelegentlich möchte man in einer Liste nach Elementen suchen. Die
 <code class="xref py py-func docutils literal notranslate"><span class="pre">index()</span></code>-Methode gibt den Index des ersten Auftretens des gesuchten Objekts
 an.</p>
@@ -380,9 +329,9 @@ geworfen.</p>
 <p>Dieser Fall sollte mit einer <code class="docutils literal notranslate"><span class="pre">try</span></code> … <code class="docutils literal notranslate"><span class="pre">except</span></code>-Konstruktion abgefangen
 werden. Der entsprechende Code könnte folgendermaßen aussehen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Objekt nicht gefunden&quot;</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Objekt nicht gefunden&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Manchmal genügt es auch, danach zu fragen, ob das Objekt in der Liste vorhanden
@@ -414,39 +363,30 @@ werden kann, was insbesondere bei nichtnumerischen Listenelementen interessant s
 <p>Zum Abschluss der Diskussion von Listen sei noch einmal kurz an die Verwendung in
 <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen erinnert. Das folgende Beispiel zeigt eine Anwendung, bei der jedes
 Listenelement eine zwei Zahlen umfassende Liste ist.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} - {} = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">))</span>
-<span class="gp">...</span>
-<span class="go">5 - 3 = 2</span>
-<span class="go">2 - 4 = -2</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+<span class="linenos">3</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> - </span><span class="si">{}</span><span class="s2"> = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">))</span>
+<span class="linenos">4</span><span class="gp">...</span>
+<span class="linenos">5</span><span class="go">5 - 3 = 2</span>
+<span class="linenos">6</span><span class="go">2 - 4 = -2</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Entsprechend sind in Zeile 2 der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife zwei Variable anzugeben, die entsprechend
 ihrer Reihenfolge den beiden Zahlen in den Listen zugeordnet werden.</p>
-</div>
-<div class="section" id="tupel">
-<h2>Tupel<a class="headerlink" href="#tupel" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="tupel">
+<h2>Tupel<a class="headerlink" href="#tupel" title="Link to this heading">¶</a></h2>
 <p>Tupel sind ähnlich wie Listen Sequenzen von Objekten beliebigen Typs. Der wesentliche Unterschied
 zu Listen besteht darin, dass Tupel unveränderlich sind. Man kann also wie bei Listen auf einzelne
 Elemente oder Untersequenzen zugreifen. Es ist jedoch nicht möglich, die Sequenz durch eine
 Zuweisung zu verändern.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">19</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
-<span class="go">(1,)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">3</span><span class="go">19</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">5</span><span class="go">(1,)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Im Gegensatz zu Listen, die durch eckige Klammern gekennzeichnet werden, sind
 bei Tupeln runde Klammern, wie in Zeile 1 zu sehen ist, zu verwenden. Zugriffe
 auf einzelne Elemente, wie in Zeile 2 auf das letzte Element der Sequenz, sowie
@@ -471,9 +411,9 @@ wie oben behauptet, tatsächlich unveränderlich.</p>
 <span class="gr">TypeError</span>: <span class="n">&#39;tuple&#39; object does not support item assignment</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="zeichenketten">
-<span id="strings"></span><h2>Zeichenketten<a class="headerlink" href="#zeichenketten" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="zeichenketten">
+<span id="strings"></span><h2>Zeichenketten<a class="headerlink" href="#zeichenketten" title="Link to this heading">¶</a></h2>
 <p>Eine wichtige Art von ebenfalls unveränderlichen Sequenzen sind Zeichenketten
 oder »Strings«. Ihnen sind wir in verschiedenen Codebeispielen schon
 gelegentlich begegnet. Solange die Zeichenkette in eine Zeile passt, wird sie
@@ -490,7 +430,7 @@ unterzubringen. Wenn der Begrenzer jedoch auch innerhalb des Strings auftreten
 soll, muss diesem mit einem vorgestellten Backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) seine Sonderbedeutung
 genommen werden.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&quot;God said, </span><span class="se">\&#39;</span><span class="s1">Let Newton be!</span><span class="se">\&#39;</span><span class="s1"> and all was light&quot; (Alexander Pope)&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="s2">&quot;God said, &#39;Let Newton be!&#39; and all was light&quot;</span> <span class="p">(</span><span class="n">Alexander</span> <span class="n">Pope</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -498,7 +438,7 @@ genommen werden.</p>
 Bedeutung als Steuerzeichen zu geben. Besonders wichtig ist <code class="docutils literal notranslate"><span class="pre">\n</span></code>, das einen
 Zeilenumbruch zur Folge hat.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Eine Zeile</span><span class="se">\n</span><span class="s2">und noch eine Zeile&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="go">Eine Zeile</span>
 <span class="go">und noch eine Zeile</span>
 </pre></div>
@@ -530,36 +470,23 @@ UTF-8-Kodierung. Solchermaßen kodierte Zeichen werden in Python 3 in Objekten
 vom <code class="docutils literal notranslate"><span class="pre">bytes</span></code>-Typ abgespeichert. Eine Variante hiervon ist der
 <code class="docutils literal notranslate"><span class="pre">bytearray</span></code>-Typ, der es, ähnlich wie bei dem im Abschnitt <a class="reference internal" href="#listen"><span class="std std-ref">Listen</span></a>
 besprochenen <code class="docutils literal notranslate"><span class="pre">list</span></code>-Typ, erlaubt, einzelne Bytes zu modifizieren.
-<a class="footnote-reference" href="#bytetype" id="id4">[3]</a> Der folgende Code soll diese Aspekte verdeutlichen.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Prüfung&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="go">7</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">(&#39;P&#39;, &#39;ü&#39;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">b&#39;Pr\xc3\xbcfung&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">8</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="go">80</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="go">195</span>
+<a class="footnote-reference brackets" href="#bytetype" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> Der folgende Code soll diese Aspekte verdeutlichen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Prüfung&quot;</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="linenos"> 3</span><span class="go">7</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos"> 5</span><span class="go">(&#39;P&#39;, &#39;ü&#39;)</span>
+<span class="linenos"> 6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="linenos"> 8</span><span class="go">b&#39;Pr\xc3\xbcfung&#39;</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">10</span><span class="go">8</span>
+<span class="linenos">11</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">12</span><span class="go">80</span>
+<span class="linenos">13</span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos">14</span><span class="go">195</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Die Zahl der Zeichen der in Zeile 1 definierten Zeichenkette wird in den Zeilen 2
 und 3 trotz des Umlauts richtig bestimmt. Beim Zugriff auf einzelne Zeichen der
 Zeichenkette bekommt man, wie in den Zeilen 4 und 5 zu sehen ist, die
@@ -619,7 +546,7 @@ demonstriert wird:</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="go">&#39;ollaH&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
 <span class="gp">...</span>
 <span class="go">H</span>
 <span class="go">a</span>
@@ -633,71 +560,48 @@ demonstriert wird:</p>
 <p>Wie die letzten beiden Zeilen zeigen, kann ein String in eine Liste umgewandelt werden, wobei die
 Zeichenkette in die einzelnen Zeichen aufgelöst wird.</p>
 <p>Es sei hier nur kurz erwähnt, dass für String-Objekte eine ganze Reihe von Methoden existieren,
-von denen hier einige beispielhaft erwähnt werden sollen. <a class="footnote-reference" href="#string-methoden" id="id5">[4]</a></p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;   Hallo   &quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
-<span class="go">&#39;Hallo   &#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;---Hallo-----&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
-<span class="go">&#39;---Hallo&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="go">&#39;---hallo---&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;eins, zwei, drei&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="go">[&#39;eins&#39;, &#39; zwei&#39;, &#39; drei&#39;]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;H&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;H&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
-<span class="go">True</span>
+von denen hier einige beispielhaft erwähnt werden sollen. <a class="footnote-reference brackets" href="#string-methoden" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;   Hallo   &quot;</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+<span class="linenos"> 3</span><span class="go">&#39;Hallo   &#39;</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;---Hallo-----&quot;</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="go">&#39;---Hallo&quot;</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="linenos"> 8</span><span class="go">&#39;---hallo---&#39;</span>
+<span class="linenos"> 9</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;eins, zwei, drei&quot;</span>
+<span class="linenos">10</span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="go">[&#39;eins&#39;, &#39; zwei&#39;, &#39; drei&#39;]</span>
+<span class="linenos">12</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;H&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span>
+<span class="linenos">13</span><span class="go">False</span>
+<span class="linenos">14</span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;H&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">()</span>
+<span class="linenos">15</span><span class="go">True</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Zeile 2 zeigt, dass Leerzeichen mit <code class="xref py py-func docutils literal notranslate"><span class="pre">lstrip()</span></code> links und mit
 <code class="xref py py-func docutils literal notranslate"><span class="pre">rstrip()</span></code> auch rechts entfernt werden können, wobei sich alternativ
 wie in Zeile 5 andere Zeichen entfernen lassen. Zeile 7 zeigt die Umwandlung in
 Kleinbuchstaben und in Zeile 10 wird ein String an einem vorgegebenen Zeichen,
 hier einem Komma, aufgespalten. Es lassen sich auch eine Reihe von Tests an
 Strings durchführen. Zwei Beispiele sind in den Zeilen 12-15 gezeigt.</p>
-</div>
-<div class="section" id="dictionaries">
-<span id="id6"></span><h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="dictionaries">
+<span id="id6"></span><h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">¶</a></h2>
 <p>Dictionaries sind assoziative Felder, die Schlüsseln Werte zuordnen. Man kann
 sich Dictionaries wie Wörterbücher oder Telefonbücher vorstellen. Betrachten
 wir ein Beispiel.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Galilei&quot;</span><span class="p">:</span> <span class="mi">1564</span><span class="p">,</span> <span class="s2">&quot;Maxwell&quot;</span><span class="p">:</span> <span class="mi">1831</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">:</span> <span class="mi">1879</span><span class="p">}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Einstein&quot;</span><span class="p">]</span>
-<span class="go">1879</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Heisenberg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1901</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span>
-<span class="go">{&#39;Heisenberg&#39;: 1901, &#39;Maxwell&#39;: 1831, &#39;Galilei&#39;: 1564, &#39;Einstein&#39;: 1879}</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Newton&quot;</span><span class="p">]</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">KeyError</span>: <span class="n">&#39;Newton&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Galilei&quot;</span><span class="p">:</span> <span class="mi">1564</span><span class="p">,</span> <span class="s2">&quot;Maxwell&quot;</span><span class="p">:</span> <span class="mi">1831</span><span class="p">,</span> <span class="s2">&quot;Einstein&quot;</span><span class="p">:</span> <span class="mi">1879</span><span class="p">}</span>
+<span class="linenos"> 2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Einstein&quot;</span><span class="p">]</span>
+<span class="linenos"> 3</span><span class="go">1879</span>
+<span class="linenos"> 4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Heisenberg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1901</span>
+<span class="linenos"> 5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span>
+<span class="linenos"> 6</span><span class="go">{&#39;Heisenberg&#39;: 1901, &#39;Maxwell&#39;: 1831, &#39;Galilei&#39;: 1564, &#39;Einstein&#39;: 1879}</span>
+<span class="linenos"> 7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">geburtsjahre</span><span class="p">[</span><span class="s2">&quot;Newton&quot;</span><span class="p">]</span>
+<span class="linenos"> 8</span><span class="gt">Traceback (most recent call last):</span>
+<span class="linenos"> 9</span>  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="linenos">10</span><span class="gr">KeyError</span>: <span class="n">&#39;Newton&#39;</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Jedes Element des Dictionaries besteht aus einem Schlüssel (»key«), der vor dem
 Doppelpunkt steht und hier vom Typ String ist, und einem Wert (»value«), der
 nach dem Doppelpunkt steht und hier vom Typ Integer ist. Als Schlüssel können
@@ -748,7 +652,7 @@ Dictionary.</p>
 <p>Über die Einträge eines Dictionaries kann iteriert werden. Zur Illustration
 verwenden wir wieder unser Geburtsjahr-Dictionary</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">geburtsjahre</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} wurde im Jahr {} geboren.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">geburtsjahre</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> wurde im Jahr </span><span class="si">{}</span><span class="s2"> geboren.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">geburtsjahre</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
 <span class="gp">...</span>
 <span class="go">Einstein wurde im Jahr 1879 geboren.</span>
 <span class="go">Heisenberg wurde im Jahr 1901 geboren.</span>
@@ -770,9 +674,9 @@ allerdings die Behandlung einer eventuell geworfenen <code class="docutils liter
 vorziehen.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">physiker</span> <span class="o">=</span> <span class="s2">&quot;Newton&quot;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{} wurde im Jahr {} geboren.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">physiker</span><span class="p">,</span> <span class="n">geburtsjahre</span><span class="p">[</span><span class="n">physiker</span><span class="p">]))</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> wurde im Jahr </span><span class="si">{}</span><span class="s2"> geboren.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">physiker</span><span class="p">,</span> <span class="n">geburtsjahre</span><span class="p">[</span><span class="n">physiker</span><span class="p">]))</span>
 <span class="gp">... </span><span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das Geburtsjahr von {} ist nicht gespeichert.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">physiker</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Geburtsjahr von </span><span class="si">{}</span><span class="s2"> ist nicht gespeichert.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">physiker</span><span class="p">))</span>
 <span class="gp">...</span>
 <span class="go">Das Geburtsjahr von Newton ist nicht gespeichert.</span>
 </pre></div>
@@ -788,19 +692,14 @@ einzelne Objekte mit Hilfe ihres Namens übergeben kann. Manchmal ist es praktis
 Dictionary zu verwenden. Stellt man dem Namen des Dictionaries zwei Sternchen voran, so wird
 aus dem Dictionary eine Liste von Parametern, die über ihre Namen identifiziert werden, wie man
 im folgenden Beispiel sieht.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">zahlworte</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;un&quot;</span><span class="p">},</span>
-             <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;deux&quot;</span><span class="p">},</span>
-             <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;drei&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;trois&quot;</span><span class="p">}]</span>
-
-<span class="k">for</span> <span class="n">zahlwort</span> <span class="ow">in</span> <span class="n">zahlworte</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{dt:7s} | {en:7s} | {fr:7s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">zahlwort</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">zahlworte</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;eins&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;un&quot;</span><span class="p">},</span>
+<span class="linenos">2</span>             <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;zwei&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;deux&quot;</span><span class="p">},</span>
+<span class="linenos">3</span>             <span class="p">{</span><span class="s2">&quot;dt&quot;</span><span class="p">:</span> <span class="s2">&quot;drei&quot;</span><span class="p">,</span> <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;three&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">:</span> <span class="s2">&quot;trois&quot;</span><span class="p">}]</span>
+<span class="linenos">4</span>
+<span class="linenos">5</span><span class="k">for</span> <span class="n">zahlwort</span> <span class="ow">in</span> <span class="n">zahlworte</span><span class="p">:</span>
+<span class="linenos">6</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{dt:7s}</span><span class="s2"> | </span><span class="si">{en:7s}</span><span class="s2"> | </span><span class="si">{fr:7s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">zahlwort</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Damit ergibt sich die folgende Ausgabe:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eins</span>    <span class="o">|</span> <span class="n">one</span>     <span class="o">|</span> <span class="n">un</span>
 <span class="n">zwei</span>    <span class="o">|</span> <span class="n">two</span>     <span class="o">|</span> <span class="n">deux</span>
@@ -814,19 +713,14 @@ Schlüsselworten zu übergeben. In Abschnitt <a class="reference internal" href=
 Möglichkeit für festgelegte Variablennamen kennengelernt. Im folgenden Beispiel
 wird gezeigt, wie man Objekte, die mit beliebigen Schlüsselworten übergeben
 werden, als Dictionary in der Funktion verfügbar macht.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
-
-<span class="n">test</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">3</span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="linenos">4</span>        <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="n">test</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foo</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">spam</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In Zeile 1 wird in der Argumentliste wieder ein durch zwei Sternchen
 gekennzeichneter Name eines Dictionaries angegeben, in dem die durch nicht
 vorgegebene Schlüsselworte übergebenen Argumente gesammelt werden. Wir nennen
@@ -843,13 +737,13 @@ folgendermaßen aus:</p>
 zusätzliche Argumente ohne Schlüsselwort übergeben. Diese werden in einem Tupel
 gesammelt und stehen somit für die weitere Verarbeitung zur Verfügung. Dies wird
 im folgenden Beispiel an einer Funktion zur Berechnung eines Mittelwerts illustriert.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mittelwert1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mittelwert1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">+</span><span class="n">x</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">mittelwert1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mittelwert1</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Die Funktion <code class="xref py py-func docutils literal notranslate"><span class="pre">mittelwert1()</span></code> hat ein Pflichtargument, das sicherstellt, dass sich
@@ -864,13 +758,13 @@ Im Argument einer Funktionsdefinition könnte also <code class="docutils literal
 Beispiel ein einziges Tupelargument vorsehen. Dies impliziert im Aufruf
 zusätzliche Klammern.  Außerdem sollte in diesem Beispiel überprüft werden, ob
 das Tupel mindestens ein Element enthält.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mittelwert2</span><span class="p">(</span><span class="n">argumente</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mittelwert2</span><span class="p">(</span><span class="n">argumente</span><span class="p">):</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">argumente</span><span class="p">:</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span><span class="o">+</span><span class="n">x</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">argumente</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">mittelwert2</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mittelwert2</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>Eine weitere Anwendung von Dictionaries betrifft Mehrfachverzweigungen, die wir
@@ -879,61 +773,41 @@ Liste von vorgegebenen Werten abprüfen und je nach Wert bestimmte Anweisungen
 ausführen. Programmiersprachen stellen hierfür häufig eine so genannte
 <code class="docutils literal notranslate"><span class="pre">case</span></code>- oder <code class="docutils literal notranslate"><span class="pre">switch</span></code>-Anweisung zur Verfügung. In folgendem Pascal-Beispiel
 wird abhängig vom Wert der Variable <code class="docutils literal notranslate"><span class="pre">i</span></code> eine bestimmte mathematische Funktion
-auf die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> angewandt:<a class="footnote-reference" href="#jensen-wirth" id="id7">[5]</a></p>
-<div class="highlight-pascal notranslate"><div class="highlight"><pre><span></span><span class="k">case</span> <span class="n">i</span> <span class="k">of</span>
-  <span class="mi">0</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">;</span>
-  <span class="mi">1</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
-  <span class="mi">2</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
-  <span class="mi">3</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
-  <span class="mi">4</span><span class="o">:</span> <span class="n">x</span> <span class="o">:=</span> <span class="nb">ln</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
+auf die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> angewandt:<a class="footnote-reference brackets" href="#jensen-wirth" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
+<div class="highlight-pascal notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">of</span>
+<span class="w">  </span><span class="mi">0</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="o">;</span>
+<span class="w">  </span><span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
+<span class="w">  </span><span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
+<span class="w">  </span><span class="mi">3</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
+<span class="w">  </span><span class="mi">4</span><span class="o">:</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">ln</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">;</span>
 <span class="k">end</span>
 </pre></div>
 </div>
 <p>In Python gibt es die Mehrfachverzweigung in dieser Form nicht. Stattdessen kann man
 in solchen Fällen häufig ein Dictionary einsetzen.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 1 aus&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 2 aus&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">func3</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 3 aus&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">default</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;führe Defaultfunktion aus&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">verzweigung</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">alternativen</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">func1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">func2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="n">func3</span><span class="p">}</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">alternativen</span><span class="p">[</span><span class="n">n</span><span class="p">]()</span>
-    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-        <span class="n">default</span><span class="p">()</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="s2">&quot;???&quot;</span><span class="p">]:</span>
-    <span class="n">verzweigung</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">func1</span><span class="p">():</span>
+<span class="linenos"> 2</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 1 aus&quot;</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">func2</span><span class="p">():</span>
+<span class="linenos"> 5</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 2 aus&quot;</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">def</span><span class="w"> </span><span class="nf">func3</span><span class="p">():</span>
+<span class="linenos"> 8</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;führe Funktion 3 aus&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">():</span>
+<span class="linenos">11</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;führe Defaultfunktion aus&quot;</span><span class="p">)</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span><span class="k">def</span><span class="w"> </span><span class="nf">verzweigung</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">14</span>    <span class="n">alternativen</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">func1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="n">func2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="n">func3</span><span class="p">}</span>
+<span class="linenos">15</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">16</span>        <span class="n">alternativen</span><span class="p">[</span><span class="n">n</span><span class="p">]()</span>
+<span class="linenos">17</span>    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="linenos">18</span>        <span class="n">default</span><span class="p">()</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="s2">&quot;???&quot;</span><span class="p">]:</span>
+<span class="linenos">21</span>    <span class="n">verzweigung</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Der wesentliche Teil ist hier in den Zeilen 13-18 in eine Funktion verpackt,
 was man jedoch nicht zwingend machen muss. Entscheidend ist, dass man in der
 Zeile 14 ein Dictionary definiert, das hier abhängig von dem vorgegebenen Integer
@@ -947,52 +821,44 @@ man über die Liste in Zeile 20, so erhält man die folgende Ausgabe:</p>
 </pre></div>
 </div>
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="list-comprehension" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Eine ausführlichere Beschreibung von »list comprehensions«
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="list-comprehension" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>Eine ausführlichere Beschreibung von »list comprehensions«
 findet sich in der Python-Dokumentation im
-<a class="reference external" href="http://docs.python.org/tutorial/datastructures.html">Kapitel über Datenstrukturen</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="doc-datastructures" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[2]</a></td><td>Eine ausführliche Dokumentation der auf Listen anwendbaren
+<a class="reference external" href="http://docs.python.org/tutorial/datastructures.html">Kapitel über Datenstrukturen</a>.</p>
+</aside>
+<aside class="footnote brackets" id="doc-datastructures" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Eine ausführliche Dokumentation der auf Listen anwendbaren
 Methoden findet sich in der Python-Dokumentation im
-<a class="reference external" href="http://docs.python.org/tutorial/datastructures.html">Kapitel über Datenstrukturen</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="bytetype" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[3]</a></td><td>Die Datentypen <code class="docutils literal notranslate"><span class="pre">bytes</span></code> und <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> wurden in Python 3 neu eingeführt.
+<a class="reference external" href="http://docs.python.org/tutorial/datastructures.html">Kapitel über Datenstrukturen</a>.</p>
+</aside>
+<aside class="footnote brackets" id="bytetype" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<p>Die Datentypen <code class="docutils literal notranslate"><span class="pre">bytes</span></code> und <code class="docutils literal notranslate"><span class="pre">bytearray</span></code> wurden in Python 3 neu eingeführt.
 In Python 2 musste dagegen zwischen Byte-Strings und Unicode-Strings unterschieden werden,
 was gelegentlich zu Verwirrung führte. Die für Python 3 getroffene Wahl erlaubt eine
-klare Unterscheidung zwischen den beiden Datentypen.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="string-methoden" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[4]</a></td><td>Für eine ausführlichere Beschreibung siehe den
+klare Unterscheidung zwischen den beiden Datentypen.</p>
+</aside>
+<aside class="footnote brackets" id="string-methoden" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
+<p>Für eine ausführlichere Beschreibung siehe den
 <a class="reference external" href="http://docs.python.org/library/stdtypes.html#string-methods">Abschnitt über Stringmethoden</a>
 im <a class="reference external" href="http://docs.python.org/library/stdtypes.html">Kapitel über eingebaute Datentypen</a> der
-Python-Dokumentation.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="jensen-wirth" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[5]</a></td><td>nach: K. Jensen, N. Wirth, <em>PASCAL User Manual and Report</em>, S. 31 (Springer, 1975)</td></tr>
-</tbody>
-</table>
-</div>
-</div>
+Python-Dokumentation.</p>
+</aside>
+<aside class="footnote brackets" id="jensen-wirth" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">5</a><span class="fn-bracket">]</span></span>
+<p>nach: K. Jensen, N. Wirth, <em>PASCAL User Manual and Report</em>, S. 31 (Springer, 1975)</p>
+</aside>
+</aside>
+</section>
+</section>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
       
         <p>
         «&#160;&#160;<a href="funktionen.html">Funktionen</a>
@@ -1005,8 +871,8 @@ Python-Dokumentation.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
+    &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>

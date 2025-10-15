@@ -1,30 +1,26 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html lang="de" data-content_root="./">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Funktionen &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=47202671" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css?v=fce32b03" />
+    <script src="_static/documentation_options.js?v=86574797"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Zusammengesetzte Datentypen" href="sequenzen.html" />
     <link rel="prev" title="Kontrollstrukturen" href="kontrollstrukturen.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index_latex.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Funktionen</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav" role="navigation" aria-label="Top">
       
         <p>
         «&#160;&#160;<a href="kontrollstrukturen.html">Kontrollstrukturen</a>
@@ -35,11 +31,11 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="funktionen">
-<h1>Funktionen<a class="headerlink" href="#funktionen" title="Link zu dieser Überschrift">¶</a></h1>
+  <section id="funktionen">
+<h1>Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">¶</a></h1>
 <p>Funktionen im mathematischen Sinne sind uns in Physik und
 Materialwissenschaften wohlbekannt. Dass solche Funktionen auch von
 Programmiersprachen zur Verfügung gestellt werden, haben wir z.B. im Abschnitt
@@ -61,28 +57,23 @@ sich Code wiederholt, so sollte man sich überlegen, ob es nicht sinnvoll wäre,
 für die betreffende Aufgabe eine Funktion zu definieren. Auch ähnliche Aufgaben
 kann man in einer Funktion unterbringen, wenn man geeignete Funktionsargumente
 einführt. Es hilft, wenn man sich beim Programmieren immer daran erinnert,
-sich nicht unnötig zu wiederholen. <a class="footnote-reference" href="#oaoo" id="id1">[1]</a> Schließlich ist die Verwendung
+sich nicht unnötig zu wiederholen. <a class="footnote-reference brackets" href="#oaoo" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Schließlich ist die Verwendung
 von Funktionen auch dann angebracht, wenn man die gleiche Funktionalität in
 verschiedenen Programmen benötigt. Man kann solche Funktionen in einem Modul
 sammeln und dann bei Bedarf importieren, wie wir es schon mit dem <code class="docutils literal notranslate"><span class="pre">math</span></code>-Modul
 und den darin enthaltenen Funktionen getan haben.</p>
-<div class="section" id="funktionsdefinitionen">
-<span id="funcdef"></span><h2>Funktionsdefinitionen<a class="headerlink" href="#funktionsdefinitionen" title="Link zu dieser Überschrift">¶</a></h2>
+<section id="funktionsdefinitionen">
+<span id="funcdef"></span><h2>Funktionsdefinitionen<a class="headerlink" href="#funktionsdefinitionen" title="Link to this heading">¶</a></h2>
 <p>Betrachten wir zunächst eine Funktion, die weder ein Argument besitzt noch
-Daten zurückgibt. <a class="footnote-reference" href="#returnnone" id="id2">[2]</a></p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;in der Funktion f&quot;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;** Anfang&quot;</span><span class="p">)</span>
-<span class="n">f</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;** Ende&quot;</span><span class="p">)</span>
+Daten zurückgibt. <a class="footnote-reference brackets" href="#returnnone" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
+<span class="linenos">2</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in der Funktion f&quot;</span><span class="p">)</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** Anfang&quot;</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">f</span><span class="p">()</span>
+<span class="linenos">6</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;** Ende&quot;</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Hier wird in den Zeilen 1 und 2 eine Funktion definiert. In der ersten Zeile
 der Definition steht dabei zunächst das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code>. Dann folgt der
 Funktionsname, der im Rahmen der auch für Variablen geltenden Regeln gewählt
@@ -107,17 +98,13 @@ Entsprechend lautet die Ausgabe dieses Programms</p>
 </div>
 <p>Einer Funktion können auch ein oder mehrere Argumente übergeben werden. Sehen
 wir uns wieder ein einfaches Beispiel an.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das Quadrat von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Quadrat von </span><span class="si">{}</span><span class="s2"> ist </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="linenos">5</span>    <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In den Zeilen 1 und 2 wird die Funktion <code class="docutils literal notranslate"><span class="pre">f</span></code> definiert, deren Aufgabe darin
 besteht, das Quadrat des Arguments <code class="docutils literal notranslate"><span class="pre">k</span></code> zu bestimmen und in geeigneter Weise
 auszugeben. In den Zeilen 4 und 5 wird diese Funktion dann in einer Schleife dreimal
@@ -130,12 +117,12 @@ mit folgendem Ergebnis ausgeführt:</p>
 <p>Alternativ könnte man die Funktion den Funktionswert berechnen und an den aufrufenden
 Programmteil zurückgeben lassen. Die gleiche Ausgabe lässt sich also auch folgendermaßen
 erhalten:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
     <span class="n">ergebnis</span> <span class="o">=</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">ergebnis</span>
 
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das Quadrat von {} ist {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Quadrat von </span><span class="si">{}</span><span class="s2"> ist </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>Im Gegensatz zu einigen anderen Programmiersprachen ist die <code class="docutils literal notranslate"><span class="pre">return</span></code>-Anweisung
@@ -145,29 +132,29 @@ geschieht in Python ausschließlich mit Hilfe der Einrückung. Die
 Code zurückzugeben. Die gerade vorgestellte Funktionsdefinition kann noch
 kompakter gestaltet werden, da die <code class="docutils literal notranslate"><span class="pre">return</span></code>-Anweisung nicht nur eine
 Variable, sondern einen ganzen Ausdruck enthalten kann:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">k</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 <p>Bei Bedarf kann eine Funktion auch mehrere <code class="docutils literal notranslate"><span class="pre">return</span></code>-Anweisungen enthalten, wie in
 dem folgenden Beispiel. Die Funktion <code class="xref py py-func docutils literal notranslate"><span class="pre">is_prime()</span></code> soll feststellen, ob es sich
 bei der Integer-Variable <code class="docutils literal notranslate"><span class="pre">n</span></code> um eine Primzahl handelt.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">divisor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">divisor</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">False</span>
-    <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
 
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">20</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference internal" href="_images/question.png"><img alt="frage" src="_images/question.png" style="height: 1em;" /></a> Der hier vorgestellte Primzahltest ist nicht sonderlich effizient. Wie könnte
 man ihn verbessern?</p>
 <p>Funktionen können auch mehr als ein Argument besitzen und mehr als einen Wert zurückgeben
 wie folgendes Beispiel zeigt:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vektorfeld</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vektorfeld</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="o">-</span><span class="n">y</span>
     <span class="n">ay</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">ay</span>
@@ -175,7 +162,7 @@ wie folgendes Beispiel zeigt:</p>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">vektorfeld</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;({:2},{:2}) -&gt; ({:2},{:2})&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(</span><span class="si">{:2}</span><span class="s2">,</span><span class="si">{:2}</span><span class="s2">) -&gt; (</span><span class="si">{:2}</span><span class="s2">,</span><span class="si">{:2}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Wichtig ist, dass die Zuordnung durch die Position der jeweiligen Variablen erfolgt, nicht
@@ -191,7 +178,7 @@ auf den Programmablauf.</p>
 <p><a class="reference internal" href="_images/weiterfuehrend.png"><img alt="weiterfuehrend" src="_images/weiterfuehrend.png" style="height: 1em;" /></a> Auch wenn eine Funktion keine <code class="docutils literal notranslate"><span class="pre">return</span></code>-Anweisung
 enthält, wird ein Wert zurückgegeben, nämlich <code class="docutils literal notranslate"><span class="pre">None</span></code> wie folgendes
 einfache Beispiel zeigt.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">f</span><span class="p">():</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">():</span>
 <span class="gp">... </span>    <span class="k">pass</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span>
@@ -201,18 +188,18 @@ einfache Beispiel zeigt.</p>
 <p>Gelegentlich kann es vorkommen, dass man sich über diese unerwartete
 Rückgabe wundert. Grund hierfür ist dann häufig eine vergessene
 <code class="docutils literal notranslate"><span class="pre">return</span></code>-Anweisung.</p>
-</div>
-<div class="section" id="dokumentation-von-funktionen">
-<span id="funcdoc"></span><h2>Dokumentation von Funktionen<a class="headerlink" href="#dokumentation-von-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="dokumentation-von-funktionen">
+<span id="funcdoc"></span><h2>Dokumentation von Funktionen<a class="headerlink" href="#dokumentation-von-funktionen" title="Link to this heading">¶</a></h2>
 <p>Wie generell beim Programmieren ist es auch in Funktionen sinnvoll, an eine ausreichende
 Dokumentation zu denken. Dies könnte mit Hilfe von Kommentaren erfolgen, die mit einem
 <code class="docutils literal notranslate"><span class="pre">#</span></code> eingeleitet werden. In Python gibt es für Funktionen jedoch eine geeignetere Art der
 Dokumentation, nämlich einen Dokumentationsstring, der direkt auf die erste Zeile der
 Funktionsdefinition folgt. Das könnte beispielsweise folgendermaßen aussehen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 
-<span class="k">def</span> <span class="nf">mitternacht</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Berechne die beiden Lösungen einer quadratischen Gleichung</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mitternacht</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Berechne die beiden Lösungen einer quadratischen Gleichung</span>
 <span class="sd">    ax^2+bx+c=0.</span>
 
 <span class="sd">    Es wird die Mitternachtsformel verwendet.</span>
@@ -242,10 +229,10 @@ Dokumentation für das Modul <code class="docutils literal notranslate"><span cl
 <span class="go">    Achtung: Es wird stillschweigend vorausgesetzt, dass b^2-4ac&gt;0.</span>
 </pre></div>
 </div>
-<p>Weitere Hinweise zu Dokumentationsstrings sind in <span class="target" id="index-0"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0257"><strong>PEP 257</strong></a> zu finden.</p>
-</div>
-<div class="section" id="lokale-und-globale-variable">
-<span id="lokalglobal"></span><h2>Lokale und globale Variable<a class="headerlink" href="#lokale-und-globale-variable" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Weitere Hinweise zu Dokumentationsstrings sind in <span class="target" id="index-0"></span><a class="pep reference external" href="https://peps.python.org/pep-0257/"><strong>PEP 257</strong></a> zu finden.</p>
+</section>
+<section id="lokale-und-globale-variable">
+<span id="lokalglobal"></span><h2>Lokale und globale Variable<a class="headerlink" href="#lokale-und-globale-variable" title="Link to this heading">¶</a></h2>
 <p>Dem letzten Beispiel im Abschnitt <a class="reference internal" href="#funcdef"><span class="std std-ref">Funktionsdefinitionen</span></a> kann man entnehmen, dass die
 Benennung der zurückzugebenden Variablen in der Funktionsdefinition (<code class="docutils literal notranslate"><span class="pre">ax,ay</span></code>)
 und in der Anweisung, die den Funktionsaufruf enthält, (<code class="docutils literal notranslate"><span class="pre">vx,vy</span></code>)  nicht
@@ -258,37 +245,28 @@ willkürlichen Reihenfolge verwenden, so muss man Schlüsselworte verwenden, wie
 im Abschnitt <a class="reference internal" href="#funckeywords"><span class="std std-ref">Schlüsselworte und Defaultwerte</span></a> genauer erklärt wird.</p>
 <p>Wie verhält es sich nun mit Variablennamen, die sowohl in der Funktionsdefinition als auch
 im Hauptprogramm vorkommen? Betrachten wir dazu ein Beispiel</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;lokale Variable: &quot;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;globale Variable:&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;f(3) =&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<span class="linenos"> 3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;lokale Variable: &quot;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+<span class="linenos"> 4</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;globale Variable:&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+<span class="linenos"> 5</span>    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="linenos"> 8</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="linenos"> 9</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f(3) =&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>das die folgende Ausgabe produziert:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lokale</span> <span class="n">Variable</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="n">globale</span> <span class="n">Variable</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;f&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">f</span> <span class="n">at</span> <span class="mh">0xb7e42ed4</span><span class="o">&gt;</span><span class="p">,</span>
                    <span class="s1">&#39;__builtins__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">module</span> <span class="s1">&#39;__builtin__&#39;</span> <span class="p">(</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span><span class="p">)</span><span class="o">&gt;</span><span class="p">,</span>
                    <span class="s1">&#39;__file__&#39;</span><span class="p">:</span> <span class="s1">&#39;test.py&#39;</span><span class="p">,</span>
-                   <span class="s1">&#39;__package__&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+                   <span class="s1">&#39;__package__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
                    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
                    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
                    <span class="s1">&#39;__name__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span>
-                   <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span>
+                   <span class="s1">&#39;__doc__&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
 <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 </pre></div>
@@ -318,55 +296,39 @@ Programmcode Fehler in der Funktion zu vermeiden. Solche Fehler können leicht
 dadurch entstehen, dass man die Verwendung der globalen Variable in der Funktion
 übersieht. Will man überlange Argumentlisten vermeiden, so können auch Techniken
 von Nutzen sein, die wir im Kapitel <a class="reference internal" href="objektorientiert.html#oop"><span class="std std-ref">Objektorientiertes Programmieren</span></a> besprechen werden.</p>
-</div>
-<div class="section" id="rekursive-funktionen">
-<h2>Rekursive Funktionen<a class="headerlink" href="#rekursive-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="rekursive-funktionen">
+<h2>Rekursive Funktionen<a class="headerlink" href="#rekursive-funktionen" title="Link to this heading">¶</a></h2>
 <p>Um die Verwendung von rekursiven Funktionen zu illustrieren, betrachten wir die
 Berechnung der Fakultät <code class="docutils literal notranslate"><span class="pre">n!</span></code>, die man durch Auswertung des Produkts <code class="docutils literal notranslate"><span class="pre">1·2·</span></code>
 … <code class="docutils literal notranslate"><span class="pre">·(n-1)·n</span></code> erhält. Der folgende Code stellt eine direkte Umsetzung
 dieser Vorschrift dar:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakultaet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">produkt</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">produkt</span> <span class="o">=</span> <span class="n">produkt</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">produkt</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fakultaet</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">fakultaet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="n">produkt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos">3</span>    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos">4</span>        <span class="n">produkt</span> <span class="o">=</span> <span class="n">produkt</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">5</span>    <span class="k">return</span> <span class="n">produkt</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="linenos">8</span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fakultaet</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Alternativ lässt sich die Fakultät auch rekursiv definieren. Mit Hilfe der Beziehung
 <code class="docutils literal notranslate"><span class="pre">n!=(n-1)!·n</span></code> lässt sich die Fakultät von <code class="docutils literal notranslate"><span class="pre">n</span></code> auf die Fakultät von <code class="docutils literal notranslate"><span class="pre">n-1</span></code>
 zurückführen. Wenn man nun noch verwendet, dass <code class="docutils literal notranslate"><span class="pre">0!=1</span></code> ist, kann man die
 Fakultät rekursiv bestimmen, wie der folgende Code zeigt:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fakultaet_rekursiv</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">fakultaet_rekursiv</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Argument darf nicht negativ sein&quot;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fakultaet_rekursiv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span><span class="w"> </span><span class="nf">fakultaet_rekursiv</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 3</span>        <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">fakultaet_rekursiv</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 4</span>    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 5</span>        <span class="k">return</span> <span class="mi">1</span>
+<span class="linenos"> 6</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 7</span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Argument darf nicht negativ sein&quot;</span><span class="p">)</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+<span class="linenos">10</span>    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">fakultaet_rekursiv</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Hier wird nun in der Funktion wiederum die Funktion selbst aufgerufen, was
 nicht in jeder Programmiersprache erlaubt ist. Der Vorteil einer rekursiven
 Funktion ist häufig die unmittelbare Umsetzung einer Berechnungsvorschrift.
@@ -377,7 +339,7 @@ belegen. Über kurz oder lang wird das Betriebssystem dann das Programm beenden,
 wenn nicht gar der Computer abstürzt und neu gestartet werden muss. Daher ist
 in der Praxis die Zahl der rekursiven Aufrufe begrenzt. In Python lässt sich
 diese Zahl in folgender Weise bestimmen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">getrecursionlimit</span><span class="p">()</span>
 <span class="go">1000</span>
 </pre></div>
@@ -386,31 +348,23 @@ diese Zahl in folgender Weise bestimmen:</p>
 als Argument notfalls die Rekursionstiefe verändern, was jedoch sicher
 kein Ausweg ist, wenn die rekursive Programmierung fehlerhaft durchgeführt
 wurde.</p>
-</div>
-<div class="section" id="funktionen-als-argumente-von-funktionen">
-<span id="funcarg"></span><h2>Funktionen als Argumente von Funktionen<a class="headerlink" href="#funktionen-als-argumente-von-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="funktionen-als-argumente-von-funktionen">
+<span id="funcarg"></span><h2>Funktionen als Argumente von Funktionen<a class="headerlink" href="#funktionen-als-argumente-von-funktionen" title="Link to this heading">¶</a></h2>
 <p>In Python können, im Gegensatz zu vielen anderen Programmiersprachen, Funktionen
 Variablen zugewiesen oder als Argumente von anderen Funktionen verwendet werden.
 Folgendes Beispiel illustriert dies:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">funktion</span> <span class="o">=</span> <span class="n">sin</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">funktion</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="go">0.841470984808 0.841470984808</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">]:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{}: {:.6f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
-<span class="gp">...</span>
-<span class="go">sin: 0.841471</span>
-<span class="go">cos: 0.540302</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">funktion</span> <span class="o">=</span> <span class="n">sin</span>
+<span class="linenos">3</span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">funktion</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="linenos">4</span><span class="go">0.841470984808 0.841470984808</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="p">[</span><span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">]:</span>
+<span class="linenos">6</span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="linenos">7</span><span class="gp">...</span>
+<span class="linenos">8</span><span class="go">sin: 0.841471</span>
+<span class="linenos">9</span><span class="go">cos: 0.540302</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In Zeile 2 wird die Funktion <code class="docutils literal notranslate"><span class="pre">sin</span></code> der Variable <code class="docutils literal notranslate"><span class="pre">funktion</span></code>, die natürlich
 im Rahmen der Regeln für die Benennung von Variablen auch anders heißen könnte,
 zugewiesen. Statt der Funktion <code class="docutils literal notranslate"><span class="pre">sin</span></code> könnte hier auch eine selbst definierte
@@ -427,23 +381,16 @@ bestimmt werden soll, kann man für jede spezielle mathematische Funktion, die
 abgeleitet werden soll, eine entsprechende Ableitungsfunktion definieren.
 Viel besser ist es natürlich, dies nur einmal für eine beliebige mathematische
 Funktion zu tun. Eine mögliche Lösung könnte folgendermaßen aussehen:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span>
-
-<span class="k">def</span> <span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-7</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sin</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">def</span><span class="w"> </span><span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="linenos">4</span>    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-7</span>
+<span class="linenos">5</span>    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+<span class="linenos">6</span>    <span class="k">return</span> <span class="n">df</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">sin</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Natürlich ist dieser Code verbesserungsbedürftig. Er sollte unter anderem
 ordentlich dokumentiert werden, und man müsste sich Gedanken über die
 Überprüfung der Konvergenz des Grenzwertes <code class="docutils literal notranslate"><span class="pre">h</span></code>→0 machen. Unabhängig davon
@@ -452,23 +399,21 @@ mathematische Funktionen aufgerufen werden.  Jede Verbesserung dieses Codes
 würde damit nicht nur der Ableitung einer speziellen mathematischen Funktion
 zugute kommen, sondern potentiell jeder numerischen Ableitung einer
 mathematischen Funktion mit Hilfe dieses Codes.</p>
-</div>
-<div class="section" id="lambda-funktionen">
-<span id="lambdafunktionen"></span><h2>Lambda-Funktionen<a class="headerlink" href="#lambda-funktionen" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="lambda-funktionen">
+<span id="lambdafunktionen"></span><h2>Lambda-Funktionen<a class="headerlink" href="#lambda-funktionen" title="Link to this heading">¶</a></h2>
 <p>In Abschnitt <a class="reference internal" href="#funcdef"><span class="std std-ref">Funktionsdefinitionen</span></a> hatten wir ein Beispiel gesehen, in dem die
 Berechnung der Funktion vollständig in der <code class="docutils literal notranslate"><span class="pre">return</span></code>-Anweisung untergebracht
 war. Solche Funktionen kommen relativ häufig vor und können mit Hilfe so
 genannter Lambda-Funktionen in einer einzigen Zeile deklariert werden:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">quadrat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">quadrat</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">9</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">quadrat</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">quadrat</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="linenos">3</span><span class="go">9</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Der Variablenname auf der linken Seite in Zeile 1 fungiert im Weiteren als
 Funktionsname so wie wir es schon im Abschnitt <a class="reference internal" href="#funcarg"><span class="std std-ref">Funktionen als Argumente von Funktionen</span></a> kennengelernt
-hatten. <code class="docutils literal notranslate"><span class="pre">lambda</span></code> ist ein Schlüsselwort <a class="footnote-reference" href="#keywordverweis" id="id3">[3]</a>, das die Definition einer
+hatten. <code class="docutils literal notranslate"><span class="pre">lambda</span></code> ist ein Schlüsselwort <a class="footnote-reference brackets" href="#keywordverweis" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, das die Definition einer
 Lambda-Funktion andeutet. Darauf folgt ein Funktionsargument, hier <code class="docutils literal notranslate"><span class="pre">x</span></code>, oder
 auch mehrere, durch Komma getrennte Argumente und schließlich nach dem Doppelpunkt
 die Funktionsdefinition.</p>
@@ -477,25 +422,20 @@ Argument in einem Funktionsaufruf übergeben möchte, aber auf die explizite
 Definition der Funktion verzichten will. Die im Abschnitt <a class="reference internal" href="#funcarg"><span class="std std-ref">Funktionen als Argumente von Funktionen</span></a>
 definierte Ableitungsfunktion könnte beispielsweise folgendermaßen aufgerufen
 werden:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-7</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">df</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span><span class="w"> </span><span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="linenos">2</span>    <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-7</span>
+<span class="linenos">3</span>    <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+<span class="linenos">4</span>    <span class="k">return</span> <span class="n">df</span>
+<span class="linenos">5</span>
+<span class="linenos">6</span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Von Rundungsfehlern abgesehen liefert dies das korrekte Ergebnis <code class="docutils literal notranslate"><span class="pre">3</span></code>. In
 diesem Fall musste man sich nicht einmal Gedanken darüber machen, wie man die
 Funktion benennen will.</p>
-</div>
-<div class="section" id="schlusselworte-und-defaultwerte">
-<span id="funckeywords"></span><h2>Schlüsselworte und Defaultwerte<a class="headerlink" href="#schlusselworte-und-defaultwerte" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="schlusselworte-und-defaultwerte">
+<span id="funckeywords"></span><h2>Schlüsselworte und Defaultwerte<a class="headerlink" href="#schlusselworte-und-defaultwerte" title="Link to this heading">¶</a></h2>
 <p>Bis jetzt sind wir davon ausgegangen, dass die Zahl der Argumente in der
 Funktionsdefinition und im Funktionsaufruf übereinstimmen und die Argumente
 auch die gleiche Reihenfolge haben. Dies ist nicht immer praktisch. Man kann
@@ -507,7 +447,7 @@ praktisch, wenn die Reihenfolge der Argumente nicht zwingend vorgeschrieben ist.
 <p>Wir wollen uns zunächst die Verwendung von Schlüsselworten und Defaultwerten
 ansehen und ziehen hierzu wiederum die bereits bekannte Funktion zur numerischen
 Auswertung von Ableitungen mathematischer Funktionen heran:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-7</span>
     <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">df</span>
@@ -519,15 +459,15 @@ Funktionsdefinition, und es somit auf die Reihenfolge der Argumente ankommt.
 Kennt man die in der Funktionsdefinition verwendeten Variablennamen, so kann
 man diese auch als Schlüsselworte verwenden. In diesem Fall kommt es dann nicht
 mehr auf die Reihenfolge an. Statt</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>könnte man auch den Aufruf</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>oder</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>verwenden, wobei das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">x</span></code> nichts mit dem in der Definition der
@@ -535,7 +475,7 @@ Lambda-Funktion auftretenden <code class="docutils literal notranslate"><span cl
 verschiedene Bezeichner zu unterscheiden, macht auch die folgende Erweiterung
 dieses Aufrufs deutlich.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Hier ist im ersten Argument zwischen dem Schlüsselwort <code class="docutils literal notranslate"><span class="pre">x</span></code>, also dem ersten
@@ -554,24 +494,24 @@ Schlüsselwort übergeben.</p>
 <p>Wenn wir dem Benutzer in unserer Ableitungsfunktion die Möglichkeit geben wollen,
 die Schrittweite bei Bedarf anzupassen, dies aber nicht unbedingt verlangen wollen,
 können wir einen Defaultwert vorgeben. Dies könnte folgendermaßen aussehen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ableitung</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 </div>
 <p>Der Aufruf</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>würde die Ableitung der dritten Potenz an der Stelle <code class="docutils literal notranslate"><span class="pre">1</span></code> auswerten, wobei die
 Schrittweite gleich <code class="docutils literal notranslate"><span class="pre">0.001</span></code> gewählt ist. Mit dem Aufruf</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>wird dagegen der Defaultwert für <code class="docutils literal notranslate"><span class="pre">h</span></code> aus der Funktionsdefinition, also
 10<sup>-7</sup>, verwendet. Nach dem
 was wir weiter oben gesagt haben, würden die Argumente des Aufrufs</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>folgendermaßen interpretiert werden: Das erste Argument trägt keinen
@@ -583,7 +523,7 @@ Funktionsdefinition vertauscht.  Nach dem ersten Argument mit Schüsselwort
 müssen alle folgenden Argumente mit einem Schlüsselwort versehen sein, was hier
 in der Tat der Fall ist. Andernfalls liegt, wie im folgenden Beispiel, ein
 Syntaxfehler vor.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ableitung</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
   <span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">non</span><span class="o">-</span><span class="n">keyword</span> <span class="n">arg</span> <span class="n">after</span> <span class="n">keyword</span> <span class="n">arg</span>
@@ -594,33 +534,29 @@ die Funktionsdefinition festgelegte Zahl von Variablen übergeben, wobei auch
 Schlüsselworte vorkommen können, die nicht in der Variablenliste der Funktionsdefinition
 zu finden sind. Auf diese Art der Argumentübergabe werden wir im Kapitel <a class="reference internal" href="sequenzen.html#dictionaries"><span class="std std-ref">Dictionaries</span></a>
 zurückkommen, da wir erst dort den hierzu benötigten Datentyp kennenlernen werden.</p>
-<table class="docutils footnote" frame="void" id="oaoo" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Dies ist das <a class="reference external" href="http://c2.com/cgi/wiki?OnceAndOnlyOnce">OAOO-Prinzip</a>:
-once and only once.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="returnnone" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Genau genommen hat auch eine solche Funktion einen
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="oaoo" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Dies ist das <a class="reference external" href="http://c2.com/cgi/wiki?OnceAndOnlyOnce">OAOO-Prinzip</a>:
+once and only once.</p>
+</aside>
+<aside class="footnote brackets" id="returnnone" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Genau genommen hat auch eine solche Funktion einen
 Rückgabewert, nämlich <code class="docutils literal notranslate"><span class="pre">None</span></code>, siehe den weiterführenden Punkt am Ende dieses
-Unterkapitels.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="keywordverweis" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Siehe hierzu Abschnitt <a class="reference internal" href="datentypen.html#variablen"><span class="std std-ref">Variablen und Zuweisungen</span></a>.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
+Unterkapitels.</p>
+</aside>
+<aside class="footnote brackets" id="keywordverweis" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Siehe hierzu Abschnitt <a class="reference internal" href="datentypen.html#variablen"><span class="std std-ref">Variablen und Zuweisungen</span></a>.</p>
+</aside>
+</aside>
+</section>
+</section>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
       
         <p>
         «&#160;&#160;<a href="kontrollstrukturen.html">Kontrollstrukturen</a>
@@ -633,8 +569,8 @@ Unterkapitels.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
+    &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>

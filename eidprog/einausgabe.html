@@ -1,30 +1,26 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html lang="de" data-content_root="./">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Ein- und Ausgabe &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=47202671" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css?v=fce32b03" />
+    <script src="_static/documentation_options.js?v=86574797"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Numerische Programmbibliotheken am Beispiel von NumPy/SciPy" href="scipy.html" />
     <link rel="prev" title="Zusammengesetzte Datentypen" href="sequenzen.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index_latex.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Ein- und Ausgabe</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav" role="navigation" aria-label="Top">
       
         <p>
         «&#160;&#160;<a href="sequenzen.html">Zusammengesetzte Datentypen</a>
@@ -35,11 +31,11 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="ein-und-ausgabe">
-<span id="einausgabe"></span><h1>Ein- und Ausgabe<a class="headerlink" href="#ein-und-ausgabe" title="Link zu dieser Überschrift">¶</a></h1>
+  <section id="ein-und-ausgabe">
+<span id="einausgabe"></span><h1>Ein- und Ausgabe<a class="headerlink" href="#ein-und-ausgabe" title="Link to this heading">¶</a></h1>
 <p>Das Ergebnis der Abarbeitung eines Programms wird in den meisten Fällen die
 Ausgabe des Ergebnisses zur Folge haben. In den bisherigen Kapiteln haben wir
 die Ausgabe auf dem Bildschirm mit Hilfe der <code class="docutils literal notranslate"><span class="pre">print</span></code>-Funktion kennengelernt.
@@ -51,33 +47,31 @@ auf der Kommandozeile, auf Anfrage des Programms über die Tastatur oder durch
 Einlesen aus einer Datei. Im Folgenden werden wir uns zunächst die Eingabe über
 die Kommandozeile und die Tastatur ansehen und uns anschließend mit der Ein-
 und Ausgabe von Daten mit Hilfe von Dateien beschäftigen.</p>
-<div class="section" id="eingabe-uber-die-kommandozeile-und-die-tastatur">
-<h2>Eingabe über die Kommandozeile und die Tastatur<a class="headerlink" href="#eingabe-uber-die-kommandozeile-und-die-tastatur" title="Link zu dieser Überschrift">¶</a></h2>
-<p>Ein Python-Programm, nennen wir es <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> <a class="footnote-reference" href="#foo" id="id1">[1]</a>, lässt sich von der Kommandozeile
+<section id="eingabe-uber-die-kommandozeile-und-die-tastatur">
+<h2>Eingabe über die Kommandozeile und die Tastatur<a class="headerlink" href="#eingabe-uber-die-kommandozeile-und-die-tastatur" title="Link to this heading">¶</a></h2>
+<p>Ein Python-Programm, nennen wir es <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> <a class="footnote-reference brackets" href="#foo" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, lässt sich von der Kommandozeile
 mit Hilfe des Aufrufs</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">foo.py</span></code></div></blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">foo.py</span></code></p>
+</div></blockquote>
 <p>starten. An diesen Aufruf kann man jedoch auch weitere Argumente anhängen, die
 innerhalb des Programms verfügbar sind.  Ein solcher Aufruf könnte
 beispielsweise lauten</p>
 <blockquote>
-<div><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">foo.py</span> <span class="pre">Hallo</span> <span class="pre">3</span></code></div></blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">foo.py</span> <span class="pre">Hallo</span> <span class="pre">3</span></code></p>
+</div></blockquote>
 <p>Es könnte sich dabei um den Aufruf eines Programms handeln, das den angegebenen
 String so oft ausgibt wie es durch das letzte Argument des Aufrufs vorgegeben
 ist.  Der Zugriff auf die Argumente erfolgt dabei über die <code class="docutils literal notranslate"><span class="pre">argv</span></code>-Variable
 des <code class="docutils literal notranslate"><span class="pre">sys</span></code>-Moduls, wobei <code class="docutils literal notranslate"><span class="pre">argv</span></code> für »argument vector« steht. Eine
 Realisierung des Programms könnte also folgendermaßen aussehen:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+<span class="linenos">4</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])):</span>
+<span class="linenos">5</span>    <span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Dieser Code ergibt die folgende Ausgabe</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;foo.py&#39;</span><span class="p">,</span> <span class="s1">&#39;Hallo&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">]</span>
 <span class="n">Hallo</span>
@@ -96,25 +90,20 @@ Zeile 4 des Programmcodes erst mit Hilfe der <code class="xref py py-func docuti
 Integer umgewandelt werden.</p>
 <p>Will man für ein Programm eine flexible oder umfangreiche Übergabe von Optionen
 auf der Kommandozeile vorsehen, so lohnt sich ein Blick auf das
-<code class="docutils literal notranslate"><span class="pre">argparse</span></code>-Modul <a class="footnote-reference" href="#argparse" id="id2">[2]</a>. Dieses stellt einige nützliche
+<code class="docutils literal notranslate"><span class="pre">argparse</span></code>-Modul <a class="footnote-reference brackets" href="#argparse" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Dieses stellt einige nützliche
 Funktionalitäten zur Verfügung, unter anderem auch die automatisierte
 Erstellung einer Hilfeausgabe.</p>
 <p>Eingaben können auch während des Programmablaufs erfolgen. Dies geschieht mit
 Hilfe der <code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code>-Funktion, die in dem folgenden Beispiel illustriert
 wird.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Aufgabe: &quot;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
-        <span class="k">break</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">2</span>    <span class="k">try</span><span class="p">:</span>
+<span class="linenos">3</span>        <span class="n">x</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Aufgabe: &quot;</span><span class="p">)</span>
+<span class="linenos">4</span>        <span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="linenos">5</span>    <span class="k">except</span> <span class="ne">SyntaxError</span><span class="p">:</span>
+<span class="linenos">6</span>        <span class="k">break</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Uns kommt es zunächst auf die Zeile 3 an. Die <code class="xref py py-func docutils literal notranslate"><span class="pre">input()</span></code>-Funktion gibt das
 Stringargument aus und gibt die Eingabe als String, hier an die Variable <code class="docutils literal notranslate"><span class="pre">x</span></code>,
 zurück. Diese Funktionalität wird in dem Beispiel verwendet, um vom Benutzer
@@ -128,7 +117,7 @@ an mehrere Variablen übergeben werden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">:</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Multiplikanden: &quot;</span><span class="p">))</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Produkt = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Produkt = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Dabei muss die Eingabe das erforderliche Komma enthalten:</p>
@@ -143,7 +132,7 @@ dem Wahrheitswert <code class="docutils literal notranslate"><span class="pre">F
 eingegeben, die in einer Schleife abgearbeitet wird.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zahlen</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Geben Sie eine Liste ein: &quot;</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">zahlen</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;{:6}</span><span class="se">\t</span><span class="s2">{:10}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:6}</span><span class="se">\t</span><span class="si">{:10}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Die Eingabe einer Liste gibt die Listenelemente und die zugehörigen Quadrate aus:</p>
@@ -153,9 +142,9 @@ eingegeben, die in einer Schleife abgearbeitet wird.</p>
    <span class="mi">247</span>       <span class="mi">61009</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="lesen-und-schreiben-von-dateien">
-<h2>Lesen und Schreiben von Dateien<a class="headerlink" href="#lesen-und-schreiben-von-dateien" title="Link zu dieser Überschrift">¶</a></h2>
+</section>
+<section id="lesen-und-schreiben-von-dateien">
+<h2>Lesen und Schreiben von Dateien<a class="headerlink" href="#lesen-und-schreiben-von-dateien" title="Link to this heading">¶</a></h2>
 <p>Häufig wird man statt der manuellen Eingabe von Daten und der Ausgabe von
 Ergebnissen auf dem Bildschirm das Einlesen aus einer Datei und das Schreiben
 in eine Datei vorziehen.  Wir betrachten zunächst den Fall, dass eine Datei
@@ -175,13 +164,11 @@ Umlaut »ü« hexadezimal durch <code class="docutils literal notranslate"><span
 hexadezimal als <code class="docutils literal notranslate"><span class="pre">FC</span></code> dargestellt.</p>
 <p>Bevor Daten aus dieser Datei gelesen werden können, muss die Datei geöffnet werden.
 Dies könnte wie in der ersten Zeile gezeigt geschehen:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span>
-<span class="go">&lt;_io.TextIOWrapper name=&#39;foo.dat&#39; encoding=&#39;UTF-8&#39;&gt;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span>
+<span class="linenos">3</span><span class="go">&lt;_io.TextIOWrapper name=&#39;foo.dat&#39; encoding=&#39;UTF-8&#39;&gt;</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Damit haben wir ein Dateiobjekt erhalten, das den Zugriff auf die Datei mit dem
 in der ersten Zeile als Argument angegebenen Namen ermöglicht. Falls nichts
 anderes beim Öffnen der Datei angegeben wird, ist die Datei lediglich zum Lesen
@@ -189,7 +176,7 @@ geöffnet. Die Datei kann also nicht überschrieben werden, und es kann auch
 nichts angefügt werden.</p>
 <p>Standardmäßig erwartet wird die auf dem jeweiligen System bevorzugte Kodierung.
 In unserem Fall ist dies UTF-8.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">locale</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">locale</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">locale</span><span class="o">.</span><span class="n">getpreferredencoding</span><span class="p">()</span>
 <span class="go">&#39;UTF-8&#39;</span>
 </pre></div>
@@ -209,7 +196,7 @@ die gesamte Datei in einen String eingelesen:</p>
 <span class="go">&#39;Einführung in das\nProgrammieren für\nPhysiker und\nMaterialwissenschaftler\n&#39;</span>
 </pre></div>
 </div>
-<p>Die in dem String auftretenden <code class="docutils literal notranslate"><span class="pre">\n</span></code> geben Zeilenumbrüche an <a class="footnote-reference" href="#unicode" id="id3">[3]</a>. Die
+<p>Die in dem String auftretenden <code class="docutils literal notranslate"><span class="pre">\n</span></code> geben Zeilenumbrüche an <a class="footnote-reference brackets" href="#unicode" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>. Die
 Datei besteht also aus vier Zeilen. Versucht man auf die gleiche Weise, die
 Datei <code class="docutils literal notranslate"><span class="pre">foo_latin1.dat</span></code> einzulesen, erhält man einen <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code>
 weil die den Umlauten entsprechenden Bytes in dieser Datei nicht im Rahmen der
@@ -219,7 +206,7 @@ UTF-8-Kodierung interpretiert werden können.</p>
 <span class="gt">Traceback (most recent call last):</span>
   File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
   File <span class="nb">&quot;/usr/lib/python3.5/codecs.py&quot;</span>, line <span class="m">321</span>, in <span class="n">decode</span>
-    <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">consumed</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_decode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">final</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">consumed</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer_decode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="n">final</span><span class="p">)</span>
 <span class="gr">UnicodeDecodeError</span>: <span class="n">&#39;utf8&#39; codec can&#39;t decode byte 0xfc in position 4: invalid start byte</span>
 </pre></div>
 </div>
@@ -234,21 +221,15 @@ angibt.</p>
 Zeiger, der die aktuelle Position in der Datei angibt, am Dateiende. Ein
 weiteres Lesen ergibt daher nur einen leeren String wie Zeile 7 in dem
 folgenden Beispiel zeigt.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="go">&#39;Einführung in das\nProgrammieren für\nPhysiker und\nMaterialwissenschaftler\n&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
-<span class="go">75</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="go">&#39;&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">3</span><span class="go">&#39;Einführung in das\nProgrammieren für\nPhysiker und\nMaterialwissenschaftler\n&#39;</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="linenos">5</span><span class="go">75</span>
+<span class="linenos">6</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">7</span><span class="go">&#39;&#39;</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In den Zeilen 4 und 5 haben wir mit Hilfe der <code class="xref py py-func docutils literal notranslate"><span class="pre">tell()</span></code>-Methode die
 aktuelle Position des Dateizeigers abgefragt. Dabei zählen die Zeilenumbrüche
 mit. Man muss allerdings beachten, dass das Resultat der <code class="xref py py-func docutils literal notranslate"><span class="pre">tell()</span></code>-Methode
@@ -261,23 +242,16 @@ verwenden, die mit <code class="xref py py-func docutils literal notranslate"><s
 <p>Eindeutig ist jedoch der Dateianfang, der der Zeigerposition <code class="docutils literal notranslate"><span class="pre">0</span></code> entspricht.
 Nach einem <code class="docutils literal notranslate"><span class="pre">seek(0)</span></code> liest der zweite Aufruf der <code class="xref py py-func docutils literal notranslate"><span class="pre">read()</span></code>-Funktion im
 folgenden Beispiel nochmals die gesamte Datei ein:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="go">&#39;Einführung in das\nProgrammieren für\nPhysiker und\nMaterialwissenschaftler\n&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">&#39;Einführung&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="go">&#39; in das\nPr&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="linenos">3</span><span class="go">&#39;Einführung in das\nProgrammieren für\nPhysiker und\nMaterialwissenschaftler\n&#39;</span>
+<span class="linenos">4</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos">5</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">6</span><span class="go">&#39;Einführung&#39;</span>
+<span class="linenos">7</span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="linenos">8</span><span class="go">&#39; in das\nPr&#39;</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Man kann sich die Funktionsweise wie bei einem Magnetband vorstellen, bei dem
 die Position des Lesekopfes durch die <code class="xref py py-func docutils literal notranslate"><span class="pre">tell()</span></code>-Funktion angegeben wird,
 während die <code class="xref py py-func docutils literal notranslate"><span class="pre">seek()</span></code>-Funktion den Lesekopf neu positioniert. Im gerade
@@ -291,7 +265,7 @@ Verfügung. Mit Hilfe der <code class="xref py py-func docutils literal notransl
 Zeile für die weitere Verarbeitung in eine Liste aufnehmen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">inhalt</span> <span class="o">=</span> <span class="n">datei</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">inhalt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">inhalt</span><span class="p">)</span>
 <span class="go">[&#39;Einführung in das\n&#39;, &#39;Programmieren für\n&#39;, &#39;Physiker und\n&#39;,</span>
 <span class="go">&#39;Materialwissenschaftler\n&#39;]</span>
 </pre></div>
@@ -319,7 +293,7 @@ zurückgegeben wird.</p>
 zeigt das folgende Beispiel.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">datei</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">zeile</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">zeile</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
 <span class="gp">...</span>
 <span class="go">EINFÜHRUNG IN DAS</span>
 
@@ -335,7 +309,7 @@ der Zeilen entfernen, entweder unter Verwendung der <code class="xref py py-func
 durch Verwendung eines Slices.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">datei</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">zeile</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">zeile</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
 <span class="gp">...</span>
 <span class="go">EINFÜHRUNG IN DAS</span>
 <span class="go">PROGRAMMIEREN FÜR</span>
@@ -346,7 +320,7 @@ durch Verwendung eines Slices.</p>
 <p>Die gleiche Ausgabe erhält man mit</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo_utf8.dat&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">datei</span><span class="p">:</span>
-<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">zeile</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">zeile</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
 <span class="gp">...</span>
 </pre></div>
 </div>
@@ -368,7 +342,7 @@ einem teilweisen oder vollständigen Verlust der geschriebenen Daten.</p>
 <p>Bevor wir uns mit dem Schreiben von Dateien beschäftigen, müssen wir uns
 zunächst noch ansehen, wie man Zahlen aus einer Datei liest, eine bei
 numerischen Arbeiten sehr häufige Situation. Als Eingabedatei sei eine Datei
-namens <code class="docutils literal notranslate"><span class="pre">spam.dat</span></code> <a class="footnote-reference" href="#spam" id="id4">[4]</a> mit dem Inhalt</p>
+namens <code class="docutils literal notranslate"><span class="pre">spam.dat</span></code> <a class="footnote-reference brackets" href="#spam" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a> mit dem Inhalt</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="mf">1.37</span>  <span class="mf">2.59</span>
 <span class="mf">10.3</span>  <span class="o">-</span><span class="mf">1.3</span>
  <span class="mf">5.8</span>   <span class="mf">2.0</span>
@@ -376,17 +350,13 @@ namens <code class="docutils literal notranslate"><span class="pre">spam.dat</sp
 </div>
 <p>gegeben. Das folgende Programm berechnet zeilenweise das Produkt des jeweiligen
 Zahlenpaares.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">daten</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spam.dat&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">daten</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">zeile</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-    <span class="k">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-<span class="n">daten</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">daten</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spam.dat&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">daten</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">zeile</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="linenos">4</span>    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="linenos">5</span><span class="n">daten</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>In Zeile 3 wird jede eingelesene Zeile an Leerräumen wie zum Beispiel
 Leerstellen oder Tabulatorzeichen, aufgeteilt. Damit ergeben sich je zwei
 Strings, die die Information über die jeweilige Zahl enthalten. Allerdings kann
@@ -399,17 +369,13 @@ Zeile geschlossen würde.</p>
 es sinnvoll sein, die von Python zur Verfügung gestellte <code class="xref py py-func docutils literal notranslate"><span class="pre">map()</span></code>-Funktion
 zu verwenden. Dies ist insbesondere bei mehreren Zahlen oder wenn deren Anzahl
 nicht bekannt ist, nützlich. Das Beispiel lautet dann</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">daten</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spam.dat&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">daten</span><span class="p">:</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">zeile</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
-<span class="n">daten</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">daten</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;spam.dat&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="k">for</span> <span class="n">zeile</span> <span class="ow">in</span> <span class="n">daten</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">zeile</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="linenos">4</span>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">5</span><span class="n">daten</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Dabei wird in Zeile 3 die <code class="xref py py-func docutils literal notranslate"><span class="pre">float()</span></code>-Funktion zur Umwandlung aller Elemente
 der Liste <code class="docutils literal notranslate"><span class="pre">zeile.split()</span></code> in Gleitkommazahlen angewandt.</p>
 <p>In einem Programm möchte man nicht nur Daten aus einer Datei einlesen, sondern
@@ -417,15 +383,12 @@ vor allem auch die Ergebnisse in einer Datei speichern. Wie beim Lesen aus
 Dateien muss man beim Schreiben in Dateien zunächst eine Datei öffnen. Dies
 kann auf verschiedene Weise geschehen. Betrachten wir zunächst das folgende
 Beispiel:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;{:4}{:4}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
-<span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.dat&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">2</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="linenos">3</span>    <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:4}{:4}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+<span class="linenos">4</span><span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Die Anweisung in Zeile 1 kennen wir im Prinzip schon, nur dass jetzt das zweite
 Argument explizit auf <code class="docutils literal notranslate"><span class="pre">w</span></code>, also »write« gesetzt ist. Damit wird die Datei
 <code class="docutils literal notranslate"><span class="pre">foo.dat</span></code> zum Schreiben geöffnet. Ob die Datei schon existiert, ist dabei
@@ -453,17 +416,13 @@ dann eine Datei erfolgreich öffnet, falls diese Datei noch nicht existiert.</p>
 Dateinamen aufzuführen wie es im folgenden Beispiel gezeigt ist. Dazu wird in
 der Zeile 2 beim Öffnen der Datei ein geeigneter Konvertierungsspezifikator
 verwendet.</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="n">parameter</span> <span class="o">=</span> <span class="mi">12</span>
- <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;resultate_{:05}.dat&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parameter</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
- <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parameter</span><span class="p">):</span>
-     <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;{:10}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
- <span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">parameter</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="linenos">2</span> <span class="n">datei</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;resultate_</span><span class="si">{:05}</span><span class="s2">.dat&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">parameter</span><span class="p">),</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="linenos">3</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">parameter</span><span class="p">):</span>
+<span class="linenos">4</span>     <span class="n">datei</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:10}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+<span class="linenos">5</span> <span class="n">datei</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Entsprechend dem Wert der Variable <code class="docutils literal notranslate"><span class="pre">parameter</span></code> erfolgt die Ausgabe in die
 Datei <code class="docutils literal notranslate"><span class="pre">resultate_00012.dat</span></code>. Die Formatiervorgabe, den Integer bis zur
 geforderten Feldbreite von links mit Nullen aufzufüllen, ist hier nützlich, um
@@ -472,13 +431,13 @@ bei einer großen Anzahl von Parameterwerten eine ordentlich sortierte Übersich
 <p>Da das Überschreiben von Dateien unangenehme Folgen haben kann, ist es nützlich
 zu wissen, wie man die Existenz einer Datei überprüfen kann. Mit einer Methode
 aus dem <code class="docutils literal notranslate"><span class="pre">os.path</span></code>-Modul geht das wie im Folgenden gezeigt,</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">datei</span> <span class="o">=</span> <span class="s2">&quot;foo.dat&quot;</span>
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">datei</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Achtung! {} existiert bereits.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datei</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Achtung! </span><span class="si">{}</span><span class="s2"> existiert bereits.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datei</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Die Datei {} existiert noch nicht.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datei</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Die Datei </span><span class="si">{}</span><span class="s2"> existiert noch nicht.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">datei</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Existiert die Datei bereits, so würde man in einer echten Anwendung dem
@@ -486,70 +445,58 @@ Benutzer wohl die Möglichkeit geben, das Programm an dieser Stelle geordnet zu
 beenden oder einen alternativen Dateinamen anzugeben.</p>
 <p>Abschließend sei noch erwähnt, dass Python für bestimmte Dateiformate spezielle
 Module zum Lesen und Schreiben zur Verfügung stellt. Hierzu gehört zum Beispiel
-das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul, das den Zugriff auf Dateien im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Format <a class="footnote-reference" href="#csv" id="id5">[5]</a>
+das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul, das den Zugriff auf Dateien im <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Format <a class="footnote-reference brackets" href="#csv" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a>
 erlaubt. Dieses Format wird häufig von Tabellenkalkulationsprogrammen wie zum
 Beispiel <code class="docutils literal notranslate"><span class="pre">Microsoft</span> <span class="pre">Excel</span></code> oder <code class="docutils literal notranslate"><span class="pre">Calc</span></code> aus <code class="docutils literal notranslate"><span class="pre">OpenOffice</span></code> bzw.
 <code class="docutils literal notranslate"><span class="pre">LibreOffice</span></code> benutzt. Hat man solche Programme bei der Erfassung der Daten
-verwendet, so ist es sinnvoll, sich das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul <a class="footnote-reference" href="#csvdoc" id="id6">[6]</a> anzusehen.</p>
+verwendet, so ist es sinnvoll, sich das <code class="docutils literal notranslate"><span class="pre">csv</span></code>-Modul <a class="footnote-reference brackets" href="#csvdoc" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a> anzusehen.</p>
 <p>Bei einer aufwendigen Übergabe von Parametern an ein Programm kann auch das
-<code class="docutils literal notranslate"><span class="pre">ConfigParser</span></code>-Modul <a class="footnote-reference" href="#cpdoc" id="id7">[7]</a> von Interesse sein, das mit Dateien im
+<code class="docutils literal notranslate"><span class="pre">ConfigParser</span></code>-Modul <a class="footnote-reference brackets" href="#cpdoc" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>7<span class="fn-bracket">]</span></a> von Interesse sein, das mit Dateien im
 <code class="docutils literal notranslate"><span class="pre">INI</span></code>-Format umgehen kann. Dabei werden Parameter in Name-Wert-Paaren
 beschrieben, wobei eine Unterteilung in Abschnitte möglich ist.</p>
 <p class="rubric">Footnotes</p>
-<table class="docutils footnote" frame="void" id="foo" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Zum Ursprung dieses Namens siehe <a class="reference external" href="http://www.ietf.org/rfc/rfc3092.txt">RFC 3092</a>.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="argparse" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/argparse.html">argparse – Parser for command-line options,
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="foo" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Zum Ursprung dieses Namens siehe <a class="reference external" href="http://www.ietf.org/rfc/rfc3092.txt">RFC 3092</a>.</p>
+</aside>
+<aside class="footnote brackets" id="argparse" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
+<p>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/argparse.html">argparse – Parser for command-line options,
 arguments and sub-commands</a> in der
-Python-Dokumentation beschrieben.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="unicode" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Hierzu und zu den folgenden Überlegungen zur Zeichenkodierung sei auf den
-Anhang <a class="reference internal" href="unicode.html#appendixunicode"><span class="std std-ref">Unicode</span></a> hingewiesen.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="spam" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">spam</span></code> in Python-Beispielen als Name ohne spezifische Bedeutung ist
-ein Verweis auf einen Sketch der Komikergruppe Monty Python (siehe <a class="reference external" href="http://de.wikipedia.org/wiki/Spam-Sketch">Wikipedia: Spam-Sketch</a>).</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="csv" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td><code class="docutils literal notranslate"><span class="pre">csv</span></code> steht für <em>comma separated values</em>, wobei allerdings kein verbindlicher Standard
+Python-Dokumentation beschrieben.</p>
+</aside>
+<aside class="footnote brackets" id="unicode" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">3</a><span class="fn-bracket">]</span></span>
+<p>Hierzu und zu den folgenden Überlegungen zur Zeichenkodierung sei auf den
+Anhang <a class="reference internal" href="unicode.html#appendixunicode"><span class="std std-ref">Unicode</span></a> hingewiesen.</p>
+</aside>
+<aside class="footnote brackets" id="spam" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">4</a><span class="fn-bracket">]</span></span>
+<p>Die Verwendung von <code class="docutils literal notranslate"><span class="pre">spam</span></code> in Python-Beispielen als Name ohne spezifische Bedeutung ist
+ein Verweis auf einen Sketch der Komikergruppe Monty Python (siehe <a class="reference external" href="http://de.wikipedia.org/wiki/Spam-Sketch">Wikipedia: Spam-Sketch</a>).</p>
+</aside>
+<aside class="footnote brackets" id="csv" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">5</a><span class="fn-bracket">]</span></span>
+<p><code class="docutils literal notranslate"><span class="pre">csv</span></code> steht für <em>comma separated values</em>, wobei allerdings kein verbindlicher Standard
 existiert. Beispielsweise können Felder genauso gut durch Kommas wie durch Strichpunkte getrennt
-sein.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="csvdoc" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/csv.html">csv — CSV File Reading and Writing</a> in der Python-Dokumentation beschrieben.</td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="cpdoc" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/configparser.html">ConfigParser — Configuration file parser</a> in der Python-Dokumentation beschrieben.</td></tr>
-</tbody>
-</table>
-</div>
-</div>
+sein.</p>
+</aside>
+<aside class="footnote brackets" id="csvdoc" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">6</a><span class="fn-bracket">]</span></span>
+<p>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/csv.html">csv — CSV File Reading and Writing</a> in der Python-Dokumentation beschrieben.</p>
+</aside>
+<aside class="footnote brackets" id="cpdoc" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">7</a><span class="fn-bracket">]</span></span>
+<p>Dieses Modul ist unter dem Titel <a class="reference external" href="http://docs.python.org/library/configparser.html">ConfigParser — Configuration file parser</a> in der Python-Dokumentation beschrieben.</p>
+</aside>
+</aside>
+</section>
+</section>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
       
         <p>
         «&#160;&#160;<a href="sequenzen.html">Zusammengesetzte Datentypen</a>
@@ -562,8 +509,8 @@ sein.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
+    &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>

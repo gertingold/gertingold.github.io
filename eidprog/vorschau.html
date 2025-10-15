@@ -1,30 +1,26 @@
+<!DOCTYPE html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de">
+<html lang="de" data-content_root="./">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Eine Vorschau &#8212; Einführung in das Programmieren für Physiker und Materialwissenschaftler</title>
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/translations.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=47202671" />
+    <link rel="stylesheet" type="text/css" href="_static/haiku.css?v=fce32b03" />
+    <script src="_static/documentation_options.js?v=86574797"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/translations.js?v=9bf55d28"></script>
     <link rel="search" title="Suche" href="search.html" />
     <link rel="next" title="Einfache Datentypen, Variablen und Zuweisungen" href="datentypen.html" />
     <link rel="prev" title="Einführung" href="einleitung.html" /> 
   </head><body>
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+      <div class="header" role="banner"><h1 class="heading"><a href="index_latex.html">
           <span>Einführung in das Programmieren</span></a></h1>
         <h2 class="heading"><span>Eine Vorschau</span></h2>
       </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
+      <div class="topnav" role="navigation" aria-label="Top">
       
         <p>
         «&#160;&#160;<a href="einleitung.html">Einführung</a>
@@ -35,25 +31,25 @@
         </p>
 
       </div>
-      <div class="content">
+      <div class="content" role="main">
         
         
-  <div class="section" id="eine-vorschau">
-<span id="vorschau"></span><h1>Eine Vorschau<a class="headerlink" href="#eine-vorschau" title="Link zu dieser Überschrift">¶</a></h1>
+  <section id="eine-vorschau">
+<span id="vorschau"></span><h1>Eine Vorschau<a class="headerlink" href="#eine-vorschau" title="Link to this heading">¶</a></h1>
 <p>Um möglichst schnell erste interessante Programme schreiben zu können, beginnen
 wir mit einer Vorschau auf einige wenige wichtige Elemente der
 Programmiersprache Python. Die dabei auftretenden Fragen werden dann in den
 folgenden Kapiteln geklärt. Wir werden vor allem die folgenden Aspekte
 ansprechen:</p>
 <ul class="simple">
-<li>Umgang mit Variablen</li>
-<li>Ausgabe von Ergebnissen auf dem Bildschirm</li>
-<li>Kontrolle des Programmverlaufs mit Hilfe von Schleifen und Verzweigungen</li>
+<li><p>Umgang mit Variablen</p></li>
+<li><p>Ausgabe von Ergebnissen auf dem Bildschirm</p></li>
+<li><p>Kontrolle des Programmverlaufs mit Hilfe von Schleifen und Verzweigungen</p></li>
 </ul>
 <p>Da wir nur kurze Codesegmente ausprobieren werden, benutzen wir die Python-
 oder IPython-Shell und versuchen zunächst einmal, eine ganz einfache Rechnung
 auszuführen.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
 <span class="go">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">*</span><span class="mi">7</span>
 <span class="go">35</span>
@@ -61,7 +57,7 @@ auszuführen.</p>
 </div>
 <p>Es wird uns auf Dauer jedoch nicht genügen, Rechnungen mit fest vorgegebenen
 Zahlen auszuführen, sondern wir werden auch Variablen benötigen.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 <span class="go">9</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
@@ -79,7 +75,7 @@ Sinne einer Zuweisung, bei der die rechte Seite ausgewertet und der linken
 Seite zugewiesen wird.</p>
 <p>Führen wir eine Division aus, so zeigt sich, dass Python nicht nur ganze Zahlen
 beherrscht, sondern auch Gleitkommazahlen.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">/</span><span class="mi">2</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span><span class="o">/</span><span class="mi">2</span>
 <span class="go">2.5</span>
 </pre></div>
 </div>
@@ -88,7 +84,7 @@ das Ergebnis nicht einer Variable zugewiesen wird. Weiter oben hatten wir schon
 gesehen, dass der Inhalt einer Variable ausgegeben werden kann, indem man den
 Namen der Variable in der Shell eingibt. Speichert man ein Skript in einer Datei
 ab und führt diese aus, so erhält man auf diese Weise jedoch keine Ausgabe. Wir
-speichern die folgenden Anweisungen in einer Datei namens <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> ab <a class="footnote-reference" href="#foo" id="id1">[1]</a>:</p>
+speichern die folgenden Anweisungen in einer Datei namens <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> ab <a class="footnote-reference brackets" href="#foo" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
 <span class="n">x</span>
@@ -104,7 +100,7 @@ verwendet man die <code class="docutils literal notranslate"><span class="pre">p
 aussehen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Speichern wir diese Anweisungen wiederum in der Datei <code class="docutils literal notranslate"><span class="pre">foo.py</span></code> ab und führen sie
@@ -118,7 +114,7 @@ $
 <code class="docutils literal notranslate"><span class="pre">foo.py</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="mi">8</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="mi">2</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das Ergebnis lautet:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das Ergebnis lautet:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>führt zu folgender Ausgabe:</p>
@@ -135,17 +131,13 @@ lässt sich sehr viel genauer spezifizieren. Wie das geht, werden wir im Kapitel
 Wiederholungen der gleichen Aufgabe zuverlässig ausgeführt werden. Dazu kann man
 Schleifen verwenden. Betrachten wir ein einfaches Beispiel, das wir in einer Datei
 <code class="docutils literal notranslate"><span class="pre">summe.py</span></code> abspeichern:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-    <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Summe =&quot;</span><span class="p">,</span> <span class="n">summe</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos">2</span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="linenos">4</span>    <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
+<span class="linenos">5</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Summe =&quot;</span><span class="p">,</span> <span class="n">summe</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Bevor wir dieses Skript genauer ansehen, wollen wir uns davon überzeugen, dass es
 vernünftig funktioniert:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python summe.py
@@ -175,7 +167,7 @@ sich zunächst, welche Ausgabe Sie erwarten, und überprüfen Sie Ihre Überlegu
 indem Sie das Skript anschließend ausführen.</p>
 <p>Sehen wir uns noch an, wie die Eingabe der Schleife in der Python-Shell ablaufen
 würde:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <span class="gp">... </span>    <span class="n">summe</span> <span class="o">=</span> <span class="n">summe</span><span class="o">+</span><span class="mi">1</span>
@@ -194,8 +186,8 @@ eine Schleife begonnen wurde. Dies wird durch Änderung der Eingabeaufforderung 
 <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> nach <code class="docutils literal notranslate"><span class="pre">...</span></code> angedeutet. Will man die Schleife beenden, so verzichtet man
 auf eine Eingabe und drückt direkt die Eingabetaste.</p>
 <p>Bei der Eingabe können verschiedene Dinge schieflaufen. Betrachten wir zwei Beispiele.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># doctest: +SKIP</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">summe</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">      File &quot;&lt;stdin&gt;&quot;, line 1</span>
 <span class="go">        for n in range(5)</span>
 <span class="go">                        ^</span>
@@ -205,7 +197,7 @@ auf eine Eingabe und drückt direkt die Eingabetaste.</p>
 <p>Der <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> weist darauf hin, dass die Eingabe nicht die Form hat, die der
 Python-Interpreter erwartet. In diesem Fall fehlt der Doppelpunkt am Ende der Zeile
 – ein beliebter Fehler. Kein Problem, man nimmt einfach einen zweiten Anlauf.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># doctest: +SKIP</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 <span class="gp">... </span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Schleifendurchgang&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 <span class="go">      File &quot;&lt;stdin&gt;&quot;, line 2</span>
 <span class="go">        print(&quot;Schleifendurchgang&quot;, n)</span>
@@ -219,19 +211,14 @@ hinweist.</p>
 <p>Abschließend wollen wir noch Verzweigungen ansprechen, die es erlauben, abhängig
 davon, ob eine bestimmte Bedingung erfüllt ist, unterschiedlichen Programmcode
 auszuführen. Betrachten wir wieder ein Beispiel:</p>
-<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="k">if</span> <span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">28</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ich rechne meine Übungsaufgaben.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Ich gehe lieber in&#39;s Freibad.&quot;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="n">temperatur</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="linenos">2</span><span class="k">if</span> <span class="n">temperatur</span> <span class="o">&lt;</span> <span class="mi">28</span><span class="p">:</span>
+<span class="linenos">3</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ich rechne meine Übungsaufgaben.&quot;</span><span class="p">)</span>
+<span class="linenos">4</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">5</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ich gehe lieber in&#39;s Freibad.&quot;</span><span class="p">)</span>
+<span class="linenos">6</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das war&#39;s.&quot;</span><span class="p">)</span>
 </pre></div>
-</td></tr></table></div>
+</div>
 <p>Liest man das Programm und übersetzt die einzelnen Befehle ins Deutsche, so hat
 man eigentlich schon eine gute Vorstellung davon, was dieses Programm machen
 wird. Wenn (»if«) die Temperatur unter 28 Grad ist, rechne ich meine Übungsaufgaben
@@ -257,19 +244,19 @@ die Bedingung in Zeile 2 dagegen nicht erfüllt, so wird der Block nach der
 Doppelpunkte nach der <code class="docutils literal notranslate"><span class="pre">if</span></code>-Bedingung und nach <code class="docutils literal notranslate"><span class="pre">else</span></code> sowie die Einrückung
 der zugehörigen Codeblöcke. Die nicht mehr eingerückte Anweisung in Zeile 6 wird
 unabhängig davon ausgeführt, ob die Bedingung in Zeile 2 erfüllt ist oder nicht.</p>
-<table class="docutils footnote" frame="void" id="foo" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Der Name <code class="docutils literal notranslate"><span class="pre">foo</span></code> wird häufig als Platzhalter in Beispielprogrammen
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="foo" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Der Name <code class="docutils literal notranslate"><span class="pre">foo</span></code> wird häufig als Platzhalter in Beispielprogrammen
 verwendet. Im Normalfall sollten natürlich aussagekräftigere Bezeichnungen
-gewählt werden.</td></tr>
-</tbody>
-</table>
-</div>
+gewählt werden.</p>
+</aside>
+</aside>
+</section>
 
 
       </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      <div class="bottomnav" role="navigation" aria-label="Bottom">
       
         <p>
         «&#160;&#160;<a href="einleitung.html">Einführung</a>
@@ -282,8 +269,8 @@ gewählt werden.</td></tr>
       </div>
 
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
-      Mit <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5 erstellt.
+    &#169; Copyright 2010-2019, Gert-Ludwig Ingold, Lizenz: CC BY 4.0 International.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
     </div>
   </body>
 </html>
